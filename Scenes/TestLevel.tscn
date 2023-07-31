@@ -12,6 +12,9 @@ sky_material = SubResource("ProceduralSkyMaterial_t3n3t")
 [sub_resource type="Environment" id="Environment_4ihgv"]
 background_mode = 2
 sky = SubResource("Sky_xk2ki")
+ambient_light_source = 2
+ambient_light_color = Color(0.878431, 0.317647, 0.560784, 1)
+ambient_light_energy = 4.64
 
 [node name="TestLevel" type="Node3D"]
 
