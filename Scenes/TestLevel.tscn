@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc28s2y7e44b0"]
+
+[ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="1_a2da7"]
+[ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="2_jntbu"]
+[ext_resource type="PackedScene" uid="uid://daq3ax62wytip" path="res://Scenes/Tree.tscn" id="3_he7pk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t3n3t"]
+
+[sub_resource type="Sky" id="Sky_xk2ki"]
+sky_material = SubResource("ProceduralSkyMaterial_t3n3t")
+
+[sub_resource type="Environment" id="Environment_4ihgv"]
+background_mode = 2
+sky = SubResource("Sky_xk2ki")
+ambient_light_source = 2
+ambient_light_color = Color(0.878431, 0.317647, 0.560784, 1)
+ambient_light_energy = 4.64
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.886842, 0.462074, 0, -0.462074, 0.886842, 0, 11.5423, 16.5428)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4ihgv")
+
+[node name="Player" parent="." instance=ExtResource("1_a2da7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67792, -1.19209e-07, -4.12453)
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+material_override = ExtResource("2_jntbu")
+use_collision = true
+size = Vector3(36.4904, 1, 35.6998)
+
+[node name="Tree" parent="." instance=ExtResource("3_he7pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+
+[node name="Tree2" parent="." instance=ExtResource("3_he7pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4)
+
+[node name="Tree3" parent="." instance=ExtResource("3_he7pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 5)
