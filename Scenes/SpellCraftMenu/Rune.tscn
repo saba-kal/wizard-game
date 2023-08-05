@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://druv1gblhnmbl"]
+
+[ext_resource type="Texture2D" uid="uid://4m3k16ermjjd" path="res://Textures/circle_64x64_white.png" id="1_xiov7"]
+[ext_resource type="Script" path="res://Scripts/SpellCraftMenu/Rune.gd" id="2_gaje4"]
+[ext_resource type="PackedScene" uid="uid://d278tvwefj1mj" path="res://Scenes/SpellCraftMenu/DragPreview.tscn" id="3_6imlo"]
+
+[node name="Rune" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -52.5
+offset_right = 52.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xiov7")
+stretch_mode = 3
+script = ExtResource("2_gaje4")
+drag_preview_scene = ExtResource("3_6imlo")
