@@ -1,14 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=16 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
+[ext_resource type="PackedScene" uid="uid://cemm5m2y7lvny" path="res://Models/BaseHumanRigged.blend" id="1_7kr00"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_p3viw"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4j6j3"]
+animation = &"Idle"
 
-[sub_resource type="BoxMesh" id="BoxMesh_jqx1s"]
-size = Vector3(0.325, 0.395, 1)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aisti"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mhmk4"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hh47s"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6w8uo"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6qgoq"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aqgdj"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ov5bn"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"is_grounded"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_624qp"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iseg4"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"is_grounded"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o65ko"]
+"states/Idle 2/node" = SubResource("AnimationNodeAnimation_4j6j3")
+"states/Idle 2/position" = Vector2(348, 146)
+states/Jump/node = SubResource("AnimationNodeAnimation_aisti")
+states/Jump/position = Vector2(447, 36)
+states/Start/position = Vector2(153, 146)
+states/Walk/node = SubResource("AnimationNodeAnimation_mhmk4")
+states/Walk/position = Vector2(529, 146)
+transitions = ["Start", "Idle 2", SubResource("AnimationNodeStateMachineTransition_hh47s"), "Idle 2", "Walk", SubResource("AnimationNodeStateMachineTransition_6w8uo"), "Walk", "Idle 2", SubResource("AnimationNodeStateMachineTransition_6qgoq"), "Idle 2", "Jump", SubResource("AnimationNodeStateMachineTransition_aqgdj"), "Jump", "Idle 2", SubResource("AnimationNodeStateMachineTransition_ov5bn"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_624qp"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_iseg4")]
 
 [node name="Player" type="CharacterBody3D"]
 
@@ -19,24 +67,42 @@ shape = SubResource("CapsuleShape3D_2bqhc")
 [node name="Visuals" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
-mesh = SubResource("CapsuleMesh_p3viw")
+[node name="BaseHumanRigged" parent="Visuals" instance=ExtResource("1_7kr00")]
+transform = Transform3D(-0.47, 0, -4.10887e-08, 0, 0.47, 0, 4.10887e-08, 0, -0.47, 0, -1.0149, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals/MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.432066, 0, -0.353271)
-mesh = SubResource("BoxMesh_jqx1s")
+[node name="Skeleton3D" parent="Visuals/BaseHumanRigged/Spine" index="0"]
+bones/0/rotation = Quaternion(0.0315814, -2.58623e-26, -7.01247e-18, 0.999501)
+bones/1/rotation = Quaternion(0.0579554, 1.19009e-07, 6.90882e-09, 0.998319)
+bones/3/rotation = Quaternion(0.131533, -0.226597, -0.550556, 0.792616)
+bones/4/rotation = Quaternion(0.00444662, -0.086609, -0.343418, 0.93517)
+bones/5/rotation = Quaternion(-3.72529e-09, 1.44329e-14, -8.88178e-16, 1)
+bones/8/rotation = Quaternion(0.130267, 0.228109, 0.544844, 0.796331)
+bones/9/rotation = Quaternion(-0.059503, 0.0972755, 0.410116, 0.904877)
+bones/11/rotation = Quaternion(-0.688004, -0.104698, -0.101322, 0.710931)
+bones/13/rotation = Quaternion(-0.689792, 0.0912789, 0.0883353, 0.712778)
 
 [node name="CameraMount" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35106, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14051, 1.37127, 2.65157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14051, 1.37127, 4.89405)
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "camera_mount")]
 script = ExtResource("1_5i1xc")
 camera_target = NodePath("..")
 camera_mount = NodePath("../CameraMount")
 
-[node name="PlayerMovement" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
+[node name="PlayerMovement" type="Node3D" parent="." node_paths=PackedStringArray("player_node", "animation_tree")]
 script = ExtResource("2_afa8s")
 player_node = NodePath("..")
+animation_tree = NodePath("../AnimationTree")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_o65ko")
+anim_player = NodePath("../Visuals/BaseHumanRigged/AnimationPlayer")
+parameters/conditions/is_grounded = false
+parameters/conditions/is_idle = false
+parameters/conditions/is_jumping = false
+parameters/conditions/is_moving = false
+
+[editable path="Visuals/BaseHumanRigged"]

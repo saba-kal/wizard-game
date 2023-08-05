@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://qb1xx8f4fgih"]
+[gd_scene load_steps=10 format=3 uid="uid://qb1xx8f4fgih"]
 
 [ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="1_ju7ne"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_0vrrc"]
 [ext_resource type="Material" uid="uid://ch57gpic5ctmp" path="res://Materials/Prototype/GreenGridMaterial.tres" id="2_r580m"]
 [ext_resource type="Material" uid="uid://dulbevwppkid0" path="res://Materials/Prototype/PurpleGridMaterial.tres" id="3_c04t6"]
+[ext_resource type="PackedScene" uid="uid://djt7jjr33ec4h" path="res://Scenes/SpellCraftMenu/SpellCraftMenu.tscn" id="5_nr8ce"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nv5o4"]
 
@@ -62,3 +63,5 @@ shape = SubResource("WorldBoundaryShape3D_2onto")
 
 [node name="Player" parent="." instance=ExtResource("2_0vrrc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038459, 0.460478, 0.800288)
+
+[node name="SpellCraftMenu" parent="." instance=ExtResource("5_nr8ce")]

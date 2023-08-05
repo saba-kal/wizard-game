@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://h7icssidituw"]
+
+[ext_resource type="Texture2D" uid="uid://4m3k16ermjjd" path="res://Textures/circle_64x64_white.png" id="1_scwuw"]
+[ext_resource type="Script" path="res://Scripts/SpellCraftMenu/RuneSlot.gd" id="2_e0xvf"]
+
+[node name="RuneSlot" type="TextureRect"]
+offset_right = 178.0
+offset_bottom = 178.0
+texture = ExtResource("1_scwuw")
+expand_mode = 2
+stretch_mode = 4
+script = ExtResource("2_e0xvf")
