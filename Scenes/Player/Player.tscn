@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=12 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="PackedScene" uid="uid://cemm5m2y7lvny" path="res://Models/BaseHumanRigged.blend" id="1_7kr00"]
@@ -6,57 +6,39 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4j6j3"]
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_y0stb"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nkyb4"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aisti"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_os5o3"]
+filter_enabled = true
+filters = ["Spine/Skeleton3D:l.Leg", "Spine/Skeleton3D:r.Leg"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_piusr"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nteic"]
 animation = &"Jump"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mhmk4"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_reaal"]
 animation = &"Walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hh47s"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6w8uo"]
-xfade_time = 0.1
-advance_mode = 2
-advance_condition = &"is_moving"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6qgoq"]
-xfade_time = 0.1
-advance_mode = 2
-advance_condition = &"is_idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aqgdj"]
-xfade_time = 0.1
-advance_mode = 2
-advance_condition = &"is_jumping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ov5bn"]
-xfade_time = 0.1
-advance_mode = 2
-advance_condition = &"is_grounded"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_624qp"]
-xfade_time = 0.1
-advance_mode = 2
-advance_condition = &"is_jumping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iseg4"]
-xfade_time = 0.1
-advance_mode = 2
-advance_condition = &"is_grounded"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o65ko"]
-"states/Idle 2/node" = SubResource("AnimationNodeAnimation_4j6j3")
-"states/Idle 2/position" = Vector2(348, 146)
-states/Jump/node = SubResource("AnimationNodeAnimation_aisti")
-states/Jump/position = Vector2(447, 36)
-states/Start/position = Vector2(153, 146)
-states/Walk/node = SubResource("AnimationNodeAnimation_mhmk4")
-states/Walk/position = Vector2(529, 146)
-transitions = ["Start", "Idle 2", SubResource("AnimationNodeStateMachineTransition_hh47s"), "Idle 2", "Walk", SubResource("AnimationNodeStateMachineTransition_6w8uo"), "Walk", "Idle 2", SubResource("AnimationNodeStateMachineTransition_6qgoq"), "Idle 2", "Jump", SubResource("AnimationNodeStateMachineTransition_aqgdj"), "Jump", "Idle 2", SubResource("AnimationNodeStateMachineTransition_ov5bn"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_624qp"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_iseg4")]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hssfi"]
+graph_offset = Vector2(-348.737, 109.772)
+nodes/Transition/node = SubResource("AnimationNodeTransition_y0stb")
+nodes/Transition/position = Vector2(551.218, 370.05)
+nodes/idle_anim/node = SubResource("AnimationNodeAnimation_nkyb4")
+nodes/idle_anim/position = Vector2(-180, 80)
+nodes/idle_walk/node = SubResource("AnimationNodeBlend2_os5o3")
+nodes/idle_walk/position = Vector2(40, 140)
+nodes/jump/node = SubResource("AnimationNodeBlend2_piusr")
+nodes/jump/position = Vector2(300, 240)
+nodes/jump_anim/node = SubResource("AnimationNodeAnimation_nteic")
+nodes/jump_anim/position = Vector2(40, 440)
+nodes/output/position = Vector2(520, 220)
+nodes/walk_anim/node = SubResource("AnimationNodeAnimation_reaal")
+nodes/walk_anim/position = Vector2(-180, 280)
+node_connections = [&"output", 0, &"jump", &"idle_walk", 0, &"idle_anim", &"idle_walk", 1, &"walk_anim", &"jump", 0, &"idle_walk", &"jump", 1, &"jump_anim"]
 
 [node name="Player" type="CharacterBody3D"]
 
@@ -71,15 +53,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(-0.47, 0, -4.10887e-08, 0, 0.47, 0, 4.10887e-08, 0, -0.47, 0, -1.0149, 0)
 
 [node name="Skeleton3D" parent="Visuals/BaseHumanRigged/Spine" index="0"]
-bones/0/rotation = Quaternion(0.0315814, -2.58623e-26, -7.01247e-18, 0.999501)
-bones/1/rotation = Quaternion(0.0579554, 1.19009e-07, 6.90882e-09, 0.998319)
-bones/3/rotation = Quaternion(0.131533, -0.226597, -0.550556, 0.792616)
-bones/4/rotation = Quaternion(0.00444662, -0.086609, -0.343418, 0.93517)
-bones/5/rotation = Quaternion(-3.72529e-09, 1.44329e-14, -8.88178e-16, 1)
-bones/8/rotation = Quaternion(0.130267, 0.228109, 0.544844, 0.796331)
-bones/9/rotation = Quaternion(-0.059503, 0.0972755, 0.410116, 0.904877)
-bones/11/rotation = Quaternion(-0.688004, -0.104698, -0.101322, 0.710931)
-bones/13/rotation = Quaternion(-0.689792, 0.0912789, 0.0883353, 0.712778)
+bones/1/rotation = Quaternion(0.020024, 1.19185e-07, -2.38705e-09, 0.9998)
+bones/3/rotation = Quaternion(1.90209e-07, -3.24013e-08, -0.570486, 0.821308)
+bones/4/rotation = Quaternion(3.44696e-08, -1.05082e-07, -0.184278, 0.982874)
+bones/7/rotation = Quaternion(9.49583e-08, -2.70249e-07, 0.677838, 0.735211)
+bones/8/rotation = Quaternion(1.88272e-07, 3.25594e-08, 0.564674, 0.825314)
+bones/9/rotation = Quaternion(3.82295e-08, 1.04657e-07, 0.204379, 0.978892)
+bones/11/rotation = Quaternion(-0.695425, 9.28346e-08, 3.5957e-09, 0.718599)
+bones/13/rotation = Quaternion(-0.695425, -9.28346e-08, -3.5957e-09, 0.718599)
 
 [node name="CameraMount" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35106, 0)
@@ -98,11 +79,13 @@ player_node = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_o65ko")
+tree_root = SubResource("AnimationNodeBlendTree_hssfi")
 anim_player = NodePath("../Visuals/BaseHumanRigged/AnimationPlayer")
-parameters/conditions/is_grounded = false
-parameters/conditions/is_idle = false
-parameters/conditions/is_jumping = false
-parameters/conditions/is_moving = false
+active = true
+parameters/Transition/current_state = ""
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = -1
+parameters/idle_walk/blend_amount = 0
+parameters/jump/blend_amount = 0.0
 
 [editable path="Visuals/BaseHumanRigged"]

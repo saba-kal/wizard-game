@@ -6,17 +6,15 @@ extends Node3D
 @export var animation_tree: AnimationTree
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var input_direction: Vector2
 
 
 func _ready():
     self.animation_tree.active = true
-    var animation_player: AnimationPlayer = get_node(self.animation_tree.anim_player)
-    animation_player.get_animation("Walk").loop_mode = Animation.LOOP_LINEAR
-    animation_player.get_animation("Idle").loop_mode = Animation.LOOP_LINEAR
 
 
 func _process(delta):
-    self.update_animation_parameters()
+    self.update_animation_parameters(delta)
 
 
 func _physics_process(delta):
@@ -27,7 +25,7 @@ func _physics_process(delta):
     if Input.is_action_pressed("jump") && self.player_node.is_on_floor():
         self.player_node.velocity.y += self.jump_velocity
 
-    var input_direction: Vector2 = Input.get_vector(
+    self.input_direction = Input.get_vector(
         "move_left", "move_right", "move_forward", "move_backward")
     var direction = (self.player_node.transform.basis *
         Vector3(input_direction.x, 0, input_direction.y)).normalized()
@@ -41,11 +39,15 @@ func _physics_process(delta):
     self.player_node.move_and_slide()
 
 
-func update_animation_parameters():
-    var is_moving: bool = self.player_node.velocity.length_squared() > 0.1
-    self.animation_tree["parameters/conditions/is_moving"] = is_moving
-    self.animation_tree["parameters/conditions/is_idle"] = !is_moving
+func update_animation_parameters(delta: float):
+    if self.input_direction.length_squared() > 0.1:
+        self.animation_tree["parameters/idle_walk/blend_amount"] = 1
+    else:
+        self.animation_tree["parameters/idle_walk/blend_amount"] = 0
 
-    var is_grounded: bool = self.player_node.is_on_floor()
-    self.animation_tree["parameters/conditions/is_jumping"] = !is_grounded
-    self.animation_tree["parameters/conditions/is_grounded"] = is_grounded
+    var current_blend_amount: float = self.animation_tree.get("parameters/jump/blend_amount");
+    var jump_anim_speed = delta * 10
+    if self.player_node.is_on_floor():
+        self.animation_tree["parameters/jump/blend_amount"] = move_toward(current_blend_amount, 0, jump_anim_speed)
+    else:
+        self.animation_tree["parameters/jump/blend_amount"] = move_toward(current_blend_amount, 1, jump_anim_speed)
