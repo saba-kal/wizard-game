@@ -1,4 +1,7 @@
-class_name RuneSlot extends TextureRect
+class_name RuneSlot extends Control
+
+@export var rune_type: Rune.Type = Rune.Type.BLUE
+
 
 var socketed_rune: Rune
 
@@ -8,9 +11,9 @@ func _can_drop_data(at_position, data):
 
 
 func _drop_data(at_position, data):
-    var rune: Rune = data["node"]
-    rune.reparent(self, false)
-    rune.position = Vector2.ZERO
-    rune.anchor_right = 0.45
-    rune.anchor_bottom = 0.45
-    self.socketed_rune = rune
+    var draggable_rune: DraggableRune = data["node"]
+    var parent = draggable_rune.get_parent()
+    if "socketed_rune" in parent:
+        parent.socketed_rune = null
+    draggable_rune.reparent(self, false)
+    self.socketed_rune = draggable_rune.rune

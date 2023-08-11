@@ -3,10 +3,25 @@
 [ext_resource type="Texture2D" uid="uid://4m3k16ermjjd" path="res://Textures/circle_64x64_white.png" id="1_scwuw"]
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/RuneSlot.gd" id="2_e0xvf"]
 
-[node name="RuneSlot" type="TextureRect"]
-offset_right = 178.0
-offset_bottom = 178.0
+[node name="RuneSlot" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_e0xvf")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("1_scwuw")
 expand_mode = 2
 stretch_mode = 4
-script = ExtResource("2_e0xvf")
