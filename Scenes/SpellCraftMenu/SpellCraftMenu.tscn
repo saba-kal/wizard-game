@@ -8,15 +8,15 @@
 [ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="5_ypeht"]
 [ext_resource type="PackedScene" uid="uid://dvykf1brht17e" path="res://Scenes/SpellCraftMenu/RuneContainer.tscn" id="6_67le8"]
 
-[node name="SpellCraftMenu" type="Control"]
+[node name="SpellCraftMenu" type="Control" node_paths=PackedStringArray("rune_slots")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 script = ExtResource("1_06al5")
+rune_slots = [NodePath("RuneSlots/RuneSlot1"), NodePath("RuneSlots/RuneSlot2"), NodePath("RuneSlots/RuneSlot3")]
 
 [node name="RuneSlots" type="HBoxContainer" parent="."]
 layout_mode = 1

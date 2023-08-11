@@ -25,8 +25,12 @@ func _can_drop_data(at_position, data):
 func _drop_data(at_position, data):
     var draggable_rune: DraggableRune = data["node"]
     var parent = draggable_rune.get_parent()
-    if "socketed_rune" in parent:
-        parent.socketed_rune = null
+    if "remove_socketed_rune" in parent:
+        parent.remove_socketed_rune()
     draggable_rune.reparent(self, false)
     draggable_rune.position = Vector2.ZERO
     self.socketed_rune = draggable_rune.rune
+
+
+func remove_socketed_rune():
+    self.socketed_rune = null

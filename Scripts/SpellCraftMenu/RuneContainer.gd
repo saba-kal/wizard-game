@@ -8,6 +8,7 @@ class_name RuneContainer extends Control
 func _ready():
     for inventory_slot in self.grid_container.get_children():
         inventory_slot.rune_type = self.rune_type
+    SignalBus.rune_collected.connect(self.on_rune_collected)
 
 
 func add_rune(rune: Rune):
@@ -18,3 +19,8 @@ func add_rune(rune: Rune):
         if inventory_slot.socketed_rune == null:
             inventory_slot.add_rune(rune)
             return
+
+
+func on_rune_collected(rune: Rune):
+    if rune.get_type() == self.rune_type:
+        self.add_rune(rune)

@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_ngl3y")
-type = 0
+type = 1
 texture = ExtResource("2_tpctw")

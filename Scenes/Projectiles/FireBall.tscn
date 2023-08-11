@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhnkllcvwx3pu"]
+
+[ext_resource type="Script" path="res://Scripts/Projectiles/Projectile.gd" id="1_0rcy4"]
+[ext_resource type="PackedScene" uid="uid://c38n538b1b6yu" path="res://Scenes/Effects/FireExplosion.tscn" id="2_bk8wc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rr3w2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06rnf"]
+emission_enabled = true
+emission = Color(1, 0.756863, 0, 1)
+emission_energy_multiplier = 8.14
+
+[sub_resource type="SphereMesh" id="SphereMesh_2y02x"]
+material = SubResource("StandardMaterial3D_06rnf")
+
+[sub_resource type="Curve" id="Curve_ycd55"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0105263), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_h7vn3"]
+curve = SubResource("Curve_ycd55")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x0jy"]
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+damping_min = 7.299
+damping_max = 19.708
+scale_curve = SubResource("CurveTexture_h7vn3")
+turbulence_enabled = true
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5pnhk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g37q6"]
+material = SubResource("ORMMaterial3D_5pnhk")
+
+[node name="FireBall" type="Area3D"]
+script = ExtResource("1_0rcy4")
+on_destroy_effect = ExtResource("2_bk8wc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rr3w2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_2y02x")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_8x0jy")
+draw_pass_1 = SubResource("SphereMesh_g37q6")
