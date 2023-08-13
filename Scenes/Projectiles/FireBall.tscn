@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhnkllcvwx3pu"]
+[gd_scene load_steps=15 format=3 uid="uid://bhnkllcvwx3pu"]
 
 [ext_resource type="Script" path="res://Scripts/Projectiles/Projectile.gd" id="1_0rcy4"]
 [ext_resource type="PackedScene" uid="uid://c38n538b1b6yu" path="res://Scenes/Effects/FireExplosion.tscn" id="2_bk8wc"]
+[ext_resource type="Texture2D" uid="uid://1dvauo5cq86q" path="res://Textures/ParticleEffects/flame.png" id="3_2qfmc"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/ProjectileTrail.gd" id="4_eegv8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rr3w2"]
 
@@ -12,6 +14,12 @@ emission_energy_multiplier = 8.14
 
 [sub_resource type="SphereMesh" id="SphereMesh_2y02x"]
 material = SubResource("StandardMaterial3D_06rnf")
+
+[sub_resource type="Gradient" id="Gradient_l37xs"]
+colors = PackedColorArray(1, 0.678431, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v8bnw"]
+gradient = SubResource("Gradient_l37xs")
 
 [sub_resource type="Curve" id="Curve_ycd55"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0105263), 0.0, 0.0, 0, 0]
@@ -27,13 +35,27 @@ initial_velocity_min = 5.0
 initial_velocity_max = 8.0
 damping_min = 7.299
 damping_max = 19.708
+angle_min = -180.0
+angle_max = 180.0
+scale_max = 2.0
 scale_curve = SubResource("CurveTexture_h7vn3")
+color_ramp = SubResource("GradientTexture1D_v8bnw")
 turbulence_enabled = true
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5pnhk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7u5d"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_2qfmc")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[sub_resource type="SphereMesh" id="SphereMesh_g37q6"]
-material = SubResource("ORMMaterial3D_5pnhk")
+[sub_resource type="QuadMesh" id="QuadMesh_blaag"]
+material = SubResource("StandardMaterial3D_b7u5d")
 
 [node name="FireBall" type="Area3D"]
 script = ExtResource("1_0rcy4")
@@ -46,6 +68,8 @@ shape = SubResource("SphereShape3D_rr3w2")
 mesh = SubResource("SphereMesh_2y02x")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-amount = 30
+amount = 180
 process_material = SubResource("ParticleProcessMaterial_8x0jy")
-draw_pass_1 = SubResource("SphereMesh_g37q6")
+draw_pass_1 = SubResource("QuadMesh_blaag")
+script = ExtResource("4_eegv8")
+linger_time = 1.0
