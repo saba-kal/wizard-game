@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RedRune" load_steps=3 format=3 uid="uid://bxiuikm8748d5"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCrafting/RedRune.gd" id="1_rjg87"]
+[ext_resource type="Texture2D" uid="uid://cq876lsqujcj6" path="res://Textures/Runes/Red/detriment_rune.png" id="2_5nuqm"]
+
+[resource]
+script = ExtResource("1_rjg87")
+type = 0
+texture = ExtResource("2_5nuqm")

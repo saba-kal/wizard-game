@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d278tvwefj1mj"]
 
-[ext_resource type="Texture2D" uid="uid://4m3k16ermjjd" path="res://Textures/circle_64x64_white.png" id="1_4h34e"]
+[ext_resource type="Texture2D" uid="uid://cj682ji13eiyh" path="res://Textures/Runes/unkown_rune.png" id="1_eb5pu"]
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/DragPreview.gd" id="2_s8uw6"]
 
 [node name="DragPreview" type="TextureRect"]
-self_modulate = Color(1, 1, 1, 0.52549)
+modulate = Color(1, 1, 1, 0.396078)
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,5 +17,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_4h34e")
+mouse_filter = 2
+texture = ExtResource("1_eb5pu")
+expand_mode = 1
 script = ExtResource("2_s8uw6")

@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://djt7jjr33ec4h"]
+[gd_scene load_steps=8 format=3 uid="uid://djt7jjr33ec4h"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/SpellCraftMenu.gd" id="1_06al5"]
 [ext_resource type="PackedScene" uid="uid://h7icssidituw" path="res://Scenes/SpellCraftMenu/RuneSlot.tscn" id="1_srs3m"]
-[ext_resource type="PackedScene" uid="uid://druv1gblhnmbl" path="res://Scenes/SpellCraftMenu/Rune.tscn" id="2_0pbpk"]
-[ext_resource type="Script" path="res://Scripts/SpellCraftMenu/RuneContainer.gd" id="2_bp2ny"]
+[ext_resource type="Script" path="res://Scripts/SpellCraftMenu/RuneInventory.gd" id="2_otpsu"]
+[ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="3_34m1g"]
+[ext_resource type="Resource" uid="uid://bxiuikm8748d5" path="res://CustomResources/Runes/Red/DetrimentRune.tres" id="4_7upcw"]
+[ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="5_ypeht"]
+[ext_resource type="PackedScene" uid="uid://dvykf1brht17e" path="res://Scenes/SpellCraftMenu/RuneContainer.tscn" id="6_67le8"]
 
-[node name="SpellCraftMenu" type="Control"]
+[node name="SpellCraftMenu" type="Control" node_paths=PackedStringArray("rune_slots")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,72 +16,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06al5")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -438.0
-offset_top = -260.0
-offset_right = -55.0
-offset_bottom = 260.0
-grow_horizontal = 0
-grow_vertical = 2
-script = ExtResource("2_bp2ny")
-
-[node name="GridContainer" type="GridContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 11.0
-offset_right = -16.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 4
-
-[node name="Rune1" parent="Panel/GridContainer" instance=ExtResource("2_0pbpk")]
-layout_mode = 2
-
-[node name="Rune2" parent="Panel/GridContainer" instance=ExtResource("2_0pbpk")]
-layout_mode = 2
-
-[node name="Rune3" parent="Panel/GridContainer" instance=ExtResource("2_0pbpk")]
-layout_mode = 2
-
-[node name="Rune4" parent="Panel/GridContainer" instance=ExtResource("2_0pbpk")]
-layout_mode = 2
-
-[node name="Rune5" parent="Panel/GridContainer" instance=ExtResource("2_0pbpk")]
-layout_mode = 2
-
-[node name="Rune6" parent="Panel/GridContainer" instance=ExtResource("2_0pbpk")]
-layout_mode = 2
+rune_slots = [NodePath("RuneSlots/RuneSlot1"), NodePath("RuneSlots/RuneSlot2"), NodePath("RuneSlots/RuneSlot3")]
 
 [node name="RuneSlots" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 204.0
-offset_top = 64.0
-offset_right = 640.0
-offset_bottom = 179.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 90.0
+offset_right = 218.0
+offset_bottom = 205.0
+grow_horizontal = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="RuneSlot1" parent="RuneSlots" instance=ExtResource("1_srs3m")]
-self_modulate = Color(0.429688, 0.609375, 0.996094, 1)
+modulate = Color(0.429688, 0.609375, 0.996094, 1)
 layout_mode = 2
 
 [node name="RuneSlot2" parent="RuneSlots" instance=ExtResource("1_srs3m")]
-self_modulate = Color(0.996094, 0.53125, 0.464844, 1)
+modulate = Color(0.996094, 0.53125, 0.464844, 1)
 layout_mode = 2
+rune_type = 1
 
 [node name="RuneSlot3" parent="RuneSlots" instance=ExtResource("1_srs3m")]
-self_modulate = Color(0.984375, 0.996094, 0.753906, 1)
+modulate = Color(0.984375, 0.996094, 0.753906, 1)
 layout_mode = 2
+rune_type = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." node_paths=PackedStringArray("blue_rune_container", "red_rune_container", "yellow_rune_container")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -290.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 90
+alignment = 1
+script = ExtResource("2_otpsu")
+starting_runes = Array[Resource("res://Scripts/SpellCrafting/Rune.gd")]([ExtResource("3_34m1g"), ExtResource("4_7upcw"), ExtResource("5_ypeht")])
+blue_rune_container = NodePath("BlueRunes")
+red_rune_container = NodePath("RedRunes")
+yellow_rune_container = NodePath("YellowRunes")
+
+[node name="BlueRunes" parent="VBoxContainer" instance=ExtResource("6_67le8")]
+layout_mode = 2
+
+[node name="RedRunes" parent="VBoxContainer" instance=ExtResource("6_67le8")]
+layout_mode = 2
+rune_type = 1
+
+[node name="YellowRunes" parent="VBoxContainer" instance=ExtResource("6_67le8")]
+layout_mode = 2
+rune_type = 2

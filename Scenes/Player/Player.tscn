@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=15 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="PackedScene" uid="uid://cemm5m2y7lvny" path="res://Models/BaseHumanRigged.blend" id="1_7kr00"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellFactory.gd" id="4_8qt2s"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/Spells/ProjectileSpell.gd" id="5_rp1yl"]
+[ext_resource type="PackedScene" uid="uid://bhnkllcvwx3pu" path="res://Scenes/Projectiles/FireBall.tscn" id="6_3euwj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
 
@@ -40,7 +43,7 @@ nodes/walk_anim/node = SubResource("AnimationNodeAnimation_reaal")
 nodes/walk_anim/position = Vector2(-180, 280)
 node_connections = [&"output", 0, &"jump", &"idle_walk", 0, &"idle_anim", &"idle_walk", 1, &"walk_anim", &"jump", 0, &"idle_walk", &"jump", 1, &"jump_anim"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -53,7 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(-0.47, 0, -4.10887e-08, 0, 0.47, 0, 4.10887e-08, 0, -0.47, 0, -1.0149, 0)
 
 [node name="Skeleton3D" parent="Visuals/BaseHumanRigged/Spine" index="0"]
-bones/1/rotation = Quaternion(0.020024, 1.19185e-07, -2.38705e-09, 0.9998)
+bones/1/rotation = Quaternion(0.0157755, 1.19194e-07, -1.88058e-09, 0.999876)
 bones/3/rotation = Quaternion(1.90209e-07, -3.24013e-08, -0.570486, 0.821308)
 bones/4/rotation = Quaternion(3.44696e-08, -1.05082e-07, -0.184278, 0.982874)
 bones/7/rotation = Quaternion(9.49583e-08, -2.70249e-07, 0.677838, 0.735211)
@@ -77,6 +80,14 @@ camera_mount = NodePath("../CameraMount")
 script = ExtResource("2_afa8s")
 player_node = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
+
+[node name="SpellFactory" type="Node3D" parent="."]
+script = ExtResource("4_8qt2s")
+
+[node name="ProjectileSpell" type="Node3D" parent="SpellFactory"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32421, -1.50255)
+script = ExtResource("5_rp1yl")
+fire_ball_projectile_scene = ExtResource("6_3euwj")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_hssfi")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://druv1gblhnmbl"]
+
+[ext_resource type="Texture2D" uid="uid://cj682ji13eiyh" path="res://Textures/Runes/unkown_rune.png" id="1_wxwbp"]
+[ext_resource type="Script" path="res://Scripts/SpellCraftMenu/DraggableRune.gd" id="2_ca4yp"]
+[ext_resource type="PackedScene" uid="uid://d278tvwefj1mj" path="res://Scenes/SpellCraftMenu/DragPreview.tscn" id="3_xtlvh"]
+
+[node name="DraggableRune" type="TextureRect"]
+texture_filter = 6
+custom_minimum_size = Vector2(70, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_wxwbp")
+expand_mode = 1
+script = ExtResource("2_ca4yp")
+drag_preview_scene = ExtResource("3_xtlvh")

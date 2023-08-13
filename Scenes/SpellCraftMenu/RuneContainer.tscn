@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvykf1brht17e"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCraftMenu/RuneContainer.gd" id="1_vav8u"]
+[ext_resource type="PackedScene" uid="uid://druv1gblhnmbl" path="res://Scenes/SpellCraftMenu/DraggableRune.tscn" id="2_b5qyu"]
+[ext_resource type="PackedScene" uid="uid://dmxdcakhfo6mi" path="res://Scenes/SpellCraftMenu/RuneInventorySlot.tscn" id="3_uf6e5"]
+
+[node name="RuneContainer" type="Control" node_paths=PackedStringArray("grid_container")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -105.0
+offset_right = 140.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_vav8u")
+grid_container = NodePath("GridContainer")
+draggable_rune_scene = ExtResource("2_b5qyu")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 264.0
+offset_bottom = 198.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="RuneInventorySlot" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot2" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot3" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot4" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot5" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot6" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot7" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot8" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot9" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot10" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot11" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
+
+[node name="RuneInventorySlot12" parent="GridContainer" instance=ExtResource("3_uf6e5")]
+layout_mode = 2
