@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BlueRune" load_steps=3 format=3 uid="uid://dml2jw5po2uiy"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCrafting/BlueRune.gd" id="1_uwosy"]
+[ext_resource type="Texture2D" uid="uid://b0o2l5sex7avj" path="res://Textures/Runes/Blue/crate_rune.png" id="2_uph56"]
+
+[resource]
+script = ExtResource("1_uwosy")
+type = 3
+texture = ExtResource("2_uph56")
