@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://dag86tou2cehq"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdy78xjmmrfcg" path="res://Models/IceCrystal.obj" id="1_hugnu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0s1mi"]
+albedo_color = Color(0, 1, 1, 0.811765)
+roughness = 0.0
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+backlight = Color(0.278431, 1, 0.254902, 1)
+
+[sub_resource type="Curve" id="Curve_37spm"]
+max_value = 1.1
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0688073, 1.1), 0.0, 0.0, 0, 0, Vector2(0.0848624, 0.99579), 0.0, 0.0, 0, 0, Vector2(0.954128, 1.00737), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_ab7yd"]
+curve = SubResource("Curve_37spm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lhu88"]
+emission_shape = 3
+emission_box_extents = Vector3(0.25, 5, 0.25)
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 60.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 10.0
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -45.0
+angle_max = 45.0
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_ab7yd")
+
+[sub_resource type="Animation" id="Animation_ntb5b"]
+resource_name = "summon_ice"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(10),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ehpef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fw7b1"]
+_data = {
+"RESET": SubResource("Animation_ehpef"),
+"summon_ice": SubResource("Animation_ntb5b")
+}
+
+[node name="IceColumn" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01644, 0)
+material_override = SubResource("StandardMaterial3D_0s1mi")
+emitting = false
+amount = 50
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_lhu88")
+draw_pass_1 = ExtResource("1_hugnu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "summon_ice"
+libraries = {
+"": SubResource("AnimationLibrary_fw7b1")
+}

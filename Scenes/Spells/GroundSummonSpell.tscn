@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs233npw823ao"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/Spells/GroundSummonSpell.gd" id="1_ldiye"]
+[ext_resource type="PackedScene" uid="uid://ep28sxfbburr" path="res://Scenes/Misc/GroundAimIndicator.tscn" id="2_m165p"]
+
+[node name="GroundSummonSpell" type="Node3D"]
+script = ExtResource("1_ldiye")
+
+[node name="GroundAimIndicator" parent="." instance=ExtResource("2_m165p")]
