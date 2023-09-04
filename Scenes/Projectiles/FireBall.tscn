@@ -18,14 +18,14 @@ material = SubResource("StandardMaterial3D_06rnf")
 [sub_resource type="Gradient" id="Gradient_l37xs"]
 colors = PackedColorArray(1, 0.678431, 0, 1, 1, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_v8bnw"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uv50m"]
 gradient = SubResource("Gradient_l37xs")
 
 [sub_resource type="Curve" id="Curve_ycd55"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0105263), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_h7vn3"]
+[sub_resource type="CurveTexture" id="CurveTexture_3qd7u"]
 curve = SubResource("Curve_ycd55")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x0jy"]
@@ -38,11 +38,11 @@ damping_max = 19.708
 angle_min = -180.0
 angle_max = 180.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_h7vn3")
-color_ramp = SubResource("GradientTexture1D_v8bnw")
+scale_curve = SubResource("CurveTexture_3qd7u")
+color_ramp = SubResource("GradientTexture1D_uv50m")
 turbulence_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7u5d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tofv0"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
@@ -55,7 +55,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_blaag"]
-material = SubResource("StandardMaterial3D_b7u5d")
+material = SubResource("StandardMaterial3D_tofv0")
 
 [node name="FireBall" type="Area3D"]
 script = ExtResource("1_0rcy4")

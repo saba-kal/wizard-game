@@ -3,7 +3,8 @@ class_name RedRune extends Rune
 @export var type: RedRuneType = RedRuneType.DETRIMENT
 
 enum RedRuneType {
-    DETRIMENT
+    DETRIMENT,
+    BENEFIT
 }
 
 func get_type() -> Type:

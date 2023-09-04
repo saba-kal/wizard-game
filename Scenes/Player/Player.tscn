@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=17 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="PackedScene" uid="uid://cemm5m2y7lvny" path="res://Models/BaseHumanRigged.blend" id="1_7kr00"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellFactory.gd" id="4_8qt2s"]
-[ext_resource type="Script" path="res://Scripts/SpellCasting/Spells/ProjectileSpell.gd" id="5_rp1yl"]
-[ext_resource type="PackedScene" uid="uid://bhnkllcvwx3pu" path="res://Scenes/Projectiles/FireBall.tscn" id="6_3euwj"]
+[ext_resource type="PackedScene" uid="uid://cs233npw823ao" path="res://Scenes/Spells/GroundSummonSpell.tscn" id="6_7bph8"]
+[ext_resource type="PackedScene" uid="uid://ciigyoq5t4o5s" path="res://Scenes/Effects/FireColumn.tscn" id="7_hmg1f"]
+[ext_resource type="PackedScene" uid="uid://dag86tou2cehq" path="res://Scenes/Effects/IceColumn.tscn" id="7_wbj11"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezablePlayer.gd" id="8_ffrmc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
 
@@ -27,7 +29,6 @@ animation = &"Jump"
 animation = &"Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hssfi"]
-graph_offset = Vector2(-348.737, 109.772)
 nodes/Transition/node = SubResource("AnimationNodeTransition_y0stb")
 nodes/Transition/position = Vector2(551.218, 370.05)
 nodes/idle_anim/node = SubResource("AnimationNodeAnimation_nkyb4")
@@ -56,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(-0.47, 0, -4.10887e-08, 0, 0.47, 0, 4.10887e-08, 0, -0.47, 0, -1.0149, 0)
 
 [node name="Skeleton3D" parent="Visuals/BaseHumanRigged/Spine" index="0"]
-bones/1/rotation = Quaternion(0.0157755, 1.19194e-07, -1.88058e-09, 0.999876)
+bones/1/rotation = Quaternion(0.0118195, 1.19201e-07, -1.409e-09, 0.99993)
 bones/3/rotation = Quaternion(1.90209e-07, -3.24013e-08, -0.570486, 0.821308)
 bones/4/rotation = Quaternion(3.44696e-08, -1.05082e-07, -0.184278, 0.982874)
 bones/7/rotation = Quaternion(9.49583e-08, -2.70249e-07, 0.677838, 0.735211)
@@ -84,10 +85,9 @@ animation_tree = NodePath("../AnimationTree")
 [node name="SpellFactory" type="Node3D" parent="."]
 script = ExtResource("4_8qt2s")
 
-[node name="ProjectileSpell" type="Node3D" parent="SpellFactory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32421, -1.50255)
-script = ExtResource("5_rp1yl")
-fire_ball_projectile_scene = ExtResource("6_3euwj")
+[node name="GroundSummonSpell" parent="SpellFactory" instance=ExtResource("6_7bph8")]
+fire_column_scene = ExtResource("7_hmg1f")
+ice_column_scene = ExtResource("7_wbj11")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_hssfi")
@@ -98,5 +98,9 @@ parameters/Transition/transition_request = ""
 parameters/Transition/current_index = -1
 parameters/idle_walk/blend_amount = 0
 parameters/jump/blend_amount = 0.0
+
+[node name="Freezable" type="Node3D" parent="." node_paths=PackedStringArray("player_movement")]
+script = ExtResource("8_ffrmc")
+player_movement = NodePath("../PlayerMovement")
 
 [editable path="Visuals/BaseHumanRigged"]

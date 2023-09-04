@@ -1,0 +1,8 @@
+extends Node
+
+
+static func get_child_node_of_type(node: Node3D, type: Variant) -> Node3D:
+    for child in node.get_children():
+        if is_instance_of(child, type):
+            return child
+    return null
