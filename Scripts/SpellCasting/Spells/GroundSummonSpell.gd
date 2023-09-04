@@ -8,8 +8,8 @@ extends Spell
 
 func cast_spell(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune):
     var spell_effect: Node3D = self.instantiate_spell_effect(blue_rune)
-    spell_effect.global_position = self.get_spell_position(yellow_rune)
     self.get_tree().root.add_child(spell_effect)
+    spell_effect.global_position = self.get_spell_position(yellow_rune)
 
 
 func instantiate_spell_effect(blue_rune: BlueRune) -> Node3D:

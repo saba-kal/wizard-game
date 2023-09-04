@@ -52,6 +52,16 @@ transform = Transform3D(0.691803, 0, 0.722086, 0, 1, 0, -0.722086, 0, 0.691803, 
 size = Vector3(3.98, 2.97117, 4.865)
 material = ExtResource("2_r580m")
 
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(0.0970619, 0, 0.995278, 0, 1, 0, -0.995278, 0, 0.0970619, 8.10051, 1.90928, -18.4549)
+size = Vector3(3.98, 4.206, 4.865)
+material = ExtResource("2_r580m")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(-0.521933, 0, 0.852986, 0, 1, 0, -0.852986, 0, -0.521933, 5.97491, 2.55866, -26.17)
+size = Vector3(3.98, 4.966, 4.865)
+material = ExtResource("2_r580m")
+
 [node name="WorldBoundaryBody" type="StaticBody3D" parent="Map"]
 
 [node name="WorldBoundaryShape1" type="CollisionShape3D" parent="Map/WorldBoundaryBody"]

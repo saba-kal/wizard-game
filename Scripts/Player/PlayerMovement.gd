@@ -1,4 +1,4 @@
-extends Node3D
+class_name PlayerMovement extends Node3D
 
 @export var player_node: CharacterBody3D
 @export var speed: float = 5
@@ -7,6 +7,7 @@ extends Node3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var input_direction: Vector2
+var disabled: bool = false
 
 
 func _ready():
@@ -18,6 +19,10 @@ func _process(delta):
 
 
 func _physics_process(delta):
+
+    if self.disabled:
+        self.input_direction = Vector2.ZERO
+        return
 
     if !self.player_node.is_on_floor():
         self.player_node.velocity.y -= self.gravity * delta
