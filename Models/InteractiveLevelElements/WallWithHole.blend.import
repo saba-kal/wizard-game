@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5h82my55oei6"
-path="res://.godot/imported/Button.blend-a2cbc9868262c9ee9b7a88f748a04a0a.scn"
+uid="uid://ccg5i8kia2h6x"
+path="res://.godot/imported/WallWithHole.blend-031e491bd8bb6ec0dc2d7b0c1e586573.scn"
 
 [deps]
 
-source_file="res://Models/Button.blend"
-dest_files=["res://.godot/imported/Button.blend-a2cbc9868262c9ee9b7a88f748a04a0a.scn"]
+source_file="res://Models/InteractiveLevelElements/WallWithHole.blend"
+dest_files=["res://.godot/imported/WallWithHole.blend-031e491bd8bb6ec0dc2d7b0c1e586573.scn"]
 
 [params]
 

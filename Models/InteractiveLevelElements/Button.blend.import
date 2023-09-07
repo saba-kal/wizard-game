@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://holkjn53mygn"
-path="res://.godot/imported/RopeBridge.blend-00d31074ce1915d13285ebea02368ed1.scn"
+uid="uid://b5h82my55oei6"
+path="res://.godot/imported/Button.blend-57b4fd72956f3706c3a0a38dc68c21c4.scn"
 
 [deps]
 
-source_file="res://Models/RopeBridge.blend"
-dest_files=["res://.godot/imported/RopeBridge.blend-00d31074ce1915d13285ebea02368ed1.scn"]
+source_file="res://Models/InteractiveLevelElements/Button.blend"
+dest_files=["res://.godot/imported/Button.blend-57b4fd72956f3706c3a0a38dc68c21c4.scn"]
 
 [params]
 

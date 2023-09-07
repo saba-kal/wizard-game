@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dag86tou2cehq"]
 
-[ext_resource type="ArrayMesh" uid="uid://bdy78xjmmrfcg" path="res://Models/IceCrystal.obj" id="1_hugnu"]
 [ext_resource type="Material" uid="uid://cqdyb6f4x2b0j" path="res://Materials/IceCrystalMaterial.tres" id="1_s4j44"]
+[ext_resource type="ArrayMesh" uid="uid://bdy78xjmmrfcg" path="res://Models/SpellEffects/IceCrystal.obj" id="2_8tfhg"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezeEnemiesInArea.gd" id="2_vmhyy"]
 
 [sub_resource type="Curve" id="Curve_37spm"]
@@ -200,7 +200,7 @@ one_shot = true
 explosiveness = 0.9
 draw_order = 3
 process_material = SubResource("ParticleProcessMaterial_lhu88")
-draw_pass_1 = ExtResource("1_hugnu")
+draw_pass_1 = ExtResource("2_8tfhg")
 
 [node name="FreezeEnemiesInArea" type="Area3D" parent="."]
 script = ExtResource("2_vmhyy")
@@ -210,7 +210,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72392, 0)
 shape = SubResource("CapsuleShape3D_rkrtf")
 
 [node name="IceColumn" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_hugnu")
+mesh = ExtResource("2_8tfhg")
 surface_material_override/0 = ExtResource("1_s4j44")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="IceColumn"]

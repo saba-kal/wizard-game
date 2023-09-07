@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cn0uag0foik0n"
-path="res://.godot/imported/Gate.blend-bd068db0922479a6ef2398666f73fe22.scn"
+uid="uid://d0bmily3jtf0o"
+path="res://.godot/imported/IceCrystal.blend-322d687e1c23f9e84030bdec6d78704d.scn"
 
 [deps]
 
-source_file="res://Models/Gate.blend"
-dest_files=["res://.godot/imported/Gate.blend-bd068db0922479a6ef2398666f73fe22.scn"]
+source_file="res://Models/SpellEffects/IceCrystal.blend"
+dest_files=["res://.godot/imported/IceCrystal.blend-322d687e1c23f9e84030bdec6d78704d.scn"]
 
 [params]
 

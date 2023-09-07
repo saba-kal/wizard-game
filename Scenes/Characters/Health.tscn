@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://gwlsad3v7l5s"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Health.gd" id="1_i8qu5"]
+[ext_resource type="Script" path="res://Scripts/UI/HealthBar.gd" id="2_f7akt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q8mdy"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6j1k"]
+bg_color = Color(0.333333, 0, 0.00392157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpyjj"]
+bg_color = Color(0, 0.380392, 0.203922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Health" type="Node3D"]
+script = ExtResource("1_i8qu5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource("ViewportTexture_q8mdy")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+process_mode = 3
+transparent_bg = true
+size = Vector2i(512, 37)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" node_paths=PackedStringArray("health")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_b6j1k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xpyjj")
+value = 50.0
+show_percentage = false
+script = ExtResource("2_f7akt")
+health = NodePath("../..")
+
+[node name="Label" type="Label" parent="SubViewport/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -13.0
+offset_right = 31.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1

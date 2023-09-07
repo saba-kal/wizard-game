@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0bmily3jtf0o"
-path="res://.godot/imported/IceCrystal.blend-2876443aeaaf7e3d449467ae56b549b2.scn"
+uid="uid://hjlf10hh02nj"
+path="res://.godot/imported/IceChunk.blend-53399f7fa22c7f2a7b9e9af09d98ff92.scn"
 
 [deps]
 
-source_file="res://Models/IceCrystal.blend"
-dest_files=["res://.godot/imported/IceCrystal.blend-2876443aeaaf7e3d449467ae56b549b2.scn"]
+source_file="res://Models/InteractiveLevelElements/IceChunk.blend"
+dest_files=["res://.godot/imported/IceChunk.blend-53399f7fa22c7f2a7b9e9af09d98ff92.scn"]
 
 [params]
 

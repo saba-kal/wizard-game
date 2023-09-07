@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://qb1xx8f4fgih"]
+[gd_scene load_steps=17 format=3 uid="uid://qb1xx8f4fgih"]
 
 [ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="1_ju7ne"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_0vrrc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://dulbevwppkid0" path="res://Materials/Prototype/PurpleGridMaterial.tres" id="3_c04t6"]
 [ext_resource type="PackedScene" uid="uid://djt7jjr33ec4h" path="res://Scenes/SpellCraftMenu/SpellCraftMenu.tscn" id="5_nr8ce"]
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="6_oo2xu"]
+[ext_resource type="PackedScene" uid="uid://bjtek74wuetor" path="res://Scenes/HUD/HUD.tscn" id="6_whkrk"]
 [ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="7_cxbmg"]
 [ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="8_uiyst"]
 [ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="9_dwdqw"]
@@ -84,6 +85,8 @@ shape = SubResource("WorldBoundaryShape3D_2onto")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038459, 0.460478, 0.800288)
 
 [node name="SpellCraftMenu" parent="." instance=ExtResource("5_nr8ce")]
+
+[node name="HUD" parent="." instance=ExtResource("6_whkrk")]
 
 [node name="RuneCollectable" parent="." instance=ExtResource("6_oo2xu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.07432, 3.47713, -11.9788)

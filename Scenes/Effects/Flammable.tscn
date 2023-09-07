@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtluxk7384hxd"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Fire/FlammableCharacter.gd" id="1_xkaws"]
+[ext_resource type="Texture2D" uid="uid://1dvauo5cq86q" path="res://Textures/ParticleEffects/flame.png" id="2_d373i"]
+
+[sub_resource type="Gradient" id="Gradient_fewmc"]
+offsets = PackedFloat32Array(0, 0.150617, 0.990123, 1)
+colors = PackedColorArray(1, 0.678431, 0, 1, 1, 0.207843, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v8bnw"]
+gradient = SubResource("Gradient_fewmc")
+
+[sub_resource type="Curve" id="Curve_igr4g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.136842), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6corh"]
+curve = SubResource("Curve_igr4g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_htso5"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.4
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 100, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+angular_velocity_min = -469.56
+angular_velocity_max = 532.17
+radial_accel_min = -58.73
+radial_accel_max = -27.82
+damping_min = 7.299
+damping_max = 19.708
+angle_min = -180.0
+angle_max = 180.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_6corh")
+color_ramp = SubResource("GradientTexture1D_v8bnw")
+turbulence_enabled = true
+turbulence_noise_strength = 3.43
+turbulence_noise_scale = 3.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7u5d"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_d373i")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_806pu"]
+material = SubResource("StandardMaterial3D_b7u5d")
+
+[node name="Flammable" type="Node3D"]
+script = ExtResource("1_xkaws")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 500
+lifetime = 0.5
+trail_lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_htso5")
+draw_pass_1 = SubResource("QuadMesh_806pu")

@@ -1,19 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://ciigyoq5t4o5s"]
+[gd_scene load_steps=14 format=3 uid="uid://ciigyoq5t4o5s"]
 
 [ext_resource type="Texture2D" uid="uid://1dvauo5cq86q" path="res://Textures/ParticleEffects/flame.png" id="1_s4who"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Fire/IgniteEnemiesInArea.gd" id="2_ublmo"]
 
 [sub_resource type="Gradient" id="Gradient_26lkh"]
 offsets = PackedFloat32Array(0, 0.150617, 0.990123, 1)
 colors = PackedColorArray(1, 0.678431, 0, 1, 1, 0.207843, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_v8bnw"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qap3s"]
 gradient = SubResource("Gradient_26lkh")
 
 [sub_resource type="Curve" id="Curve_2tugj"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.136842), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_6corh"]
+[sub_resource type="CurveTexture" id="CurveTexture_mqo8g"]
 curve = SubResource("Curve_2tugj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l73fd"]
@@ -35,13 +36,13 @@ damping_max = 19.708
 angle_min = -180.0
 angle_max = 180.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_6corh")
-color_ramp = SubResource("GradientTexture1D_v8bnw")
+scale_curve = SubResource("CurveTexture_mqo8g")
+color_ramp = SubResource("GradientTexture1D_qap3s")
 turbulence_enabled = true
 turbulence_noise_strength = 3.43
 turbulence_noise_scale = 3.35
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7u5d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_led6g"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
@@ -54,7 +55,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_ee22r"]
-material = SubResource("StandardMaterial3D_b7u5d")
+material = SubResource("StandardMaterial3D_led6g")
 
 [sub_resource type="Animation" id="Animation_nphm7"]
 length = 0.001
@@ -107,6 +108,10 @@ _data = {
 "start_fire": SubResource("Animation_o7oar")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uggwb"]
+height = 11.677
+radius = 2.113
+
 [node name="FireColumn" type="Node3D"]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
@@ -121,3 +126,10 @@ autoplay = "start_fire"
 libraries = {
 "": SubResource("AnimationLibrary_qpgm6")
 }
+
+[node name="IgniteEnemiesInArea" type="Area3D" parent="."]
+script = ExtResource("2_ublmo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IgniteEnemiesInArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.757, 0)
+shape = SubResource("CylinderShape3D_uggwb")

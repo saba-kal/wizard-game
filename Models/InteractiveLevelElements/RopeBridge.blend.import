@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://hjlf10hh02nj"
-path="res://.godot/imported/IceChunk.blend-9d87b93b074596e9c43550ec315dbd55.scn"
+uid="uid://holkjn53mygn"
+path="res://.godot/imported/RopeBridge.blend-662683b489fd82ef3aca26c74c6e2908.scn"
 
 [deps]
 
-source_file="res://Models/IceChunk.blend"
-dest_files=["res://.godot/imported/IceChunk.blend-9d87b93b074596e9c43550ec315dbd55.scn"]
+source_file="res://Models/InteractiveLevelElements/RopeBridge.blend"
+dest_files=["res://.godot/imported/RopeBridge.blend-662683b489fd82ef3aca26c74c6e2908.scn"]
 
 [params]
 
