@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ccg5i8kia2h6x"
-path="res://.godot/imported/WallWithHole.blend-20156f711a1df754217c86e558a8e0c6.scn"
+uid="uid://cn0uag0foik0n"
+path="res://.godot/imported/Gate.blend-06bfa86f2dfec0495f488fabfc02ff99.scn"
 
 [deps]
 
-source_file="res://Models/WallWithHole.blend"
-dest_files=["res://.godot/imported/WallWithHole.blend-20156f711a1df754217c86e558a8e0c6.scn"]
+source_file="res://Models/InteractiveLevelElements/Gate.blend"
+dest_files=["res://.godot/imported/Gate.blend-06bfa86f2dfec0495f488fabfc02ff99.scn"]
 
 [params]
 

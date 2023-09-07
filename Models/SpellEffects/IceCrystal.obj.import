@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bdy78xjmmrfcg"
+path="res://.godot/imported/IceCrystal.obj-de070f6479e484978e949708f1b20a91.mesh"
+
+[deps]
+
+files=["res://.godot/imported/IceCrystal.obj-de070f6479e484978e949708f1b20a91.mesh"]
+
+source_file="res://Models/SpellEffects/IceCrystal.obj"
+dest_files=["res://.godot/imported/IceCrystal.obj-de070f6479e484978e949708f1b20a91.mesh", "res://.godot/imported/IceCrystal.obj-de070f6479e484978e949708f1b20a91.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

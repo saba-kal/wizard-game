@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cemm5m2y7lvny"
-path="res://.godot/imported/BaseHumanRigged.blend-92d214836ff067dace2f659ba08cf31a.scn"
+uid="uid://ct6ywpgcjokcb"
+path="res://.godot/imported/FirstAreaPlaceholderMap.blend-97f027e9332640ed902a549d84baaa1f.scn"
 
 [deps]
 
-source_file="res://Models/BaseHumanRigged.blend"
-dest_files=["res://.godot/imported/BaseHumanRigged.blend-92d214836ff067dace2f659ba08cf31a.scn"]
+source_file="res://Models/Maps/FirstAreaPlaceholderMap.blend"
+dest_files=["res://.godot/imported/FirstAreaPlaceholderMap.blend-97f027e9332640ed902a549d84baaa1f.scn"]
 
 [params]
 
