@@ -2,12 +2,13 @@ class_name Projectile extends Area3D
 
 @export var on_destroy_effect: PackedScene
 
-
 var direction: Vector3
 var speed: float = 10.0
 
+
 func _ready():
     self.body_entered.connect(self.on_body_entered)
+
 
 func _process(delta):
     self.translate(direction * self.speed * delta)

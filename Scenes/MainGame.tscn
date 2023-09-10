@@ -15,12 +15,12 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nv5o4"]
 
-[sub_resource type="Sky" id="Sky_pv3q0"]
+[sub_resource type="Sky" id="Sky_6wwvg"]
 sky_material = SubResource("ProceduralSkyMaterial_nv5o4")
 
 [sub_resource type="Environment" id="Environment_vv2v1"]
 background_mode = 2
-sky = SubResource("Sky_pv3q0")
+sky = SubResource("Sky_6wwvg")
 ssao_enabled = true
 sdfgi_enabled = true
 
