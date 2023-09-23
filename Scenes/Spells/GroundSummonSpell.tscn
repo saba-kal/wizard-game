@@ -7,3 +7,4 @@
 script = ExtResource("1_ldiye")
 
 [node name="GroundAimIndicator" parent="." instance=ExtResource("2_m165p")]
+collision_mask = 2
