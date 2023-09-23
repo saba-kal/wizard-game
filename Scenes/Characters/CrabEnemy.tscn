@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://b328usnnpi7qr"]
+
+[ext_resource type="PackedScene" uid="uid://c3koeiqcntd6e" path="res://Models/Characters/CRAB.blend" id="1_0thq0"]
+[ext_resource type="Script" path="res://Scripts/AI/EnemyAI.gd" id="1_i06xc"]
+[ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="2_ylys1"]
+[ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="3_l33mj"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezableEnemy.gd" id="5_mr15f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_si1ic"]
+height = 1.5
+radius = 1.0
+
+[node name="CrabEnemy" type="CharacterBody3D"]
+script = ExtResource("1_i06xc")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.3
+radius = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.821915, 0)
+shape = SubResource("CylinderShape3D_si1ic")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="CRAB" parent="Visuals" instance=ExtResource("1_0thq0")]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, 0, 0)
+
+[node name="Health" parent="." instance=ExtResource("2_ylys1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23138, 0)
+
+[node name="Flammable" parent="." instance=ExtResource("3_l33mj")]
+
+[node name="Freezable" type="Node3D" parent="."]
+script = ExtResource("5_mr15f")
