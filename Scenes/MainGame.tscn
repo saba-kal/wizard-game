@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://qb1xx8f4fgih"]
+[gd_scene load_steps=21 format=3 uid="uid://qb1xx8f4fgih"]
 
 [ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="1_ju7ne"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_0vrrc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="9_dwdqw"]
 [ext_resource type="Resource" uid="uid://dml2jw5po2uiy" path="res://CustomResources/Runes/Blue/CrateRune.tres" id="10_fbpvj"]
 [ext_resource type="PackedScene" uid="uid://b328usnnpi7qr" path="res://Scenes/Characters/CrabEnemy.tscn" id="10_pa4mg"]
+[ext_resource type="PackedScene" uid="uid://b0wxrri651q36" path="res://Scenes/AI/AIWonderArea_Random.tscn" id="11_bxyhi"]
 [ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="11_jsa0x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nv5o4"]
@@ -116,6 +117,9 @@ rune = ExtResource("10_fbpvj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1352, 1.12124, -11.9788)
 rune = ExtResource("11_jsa0x")
 
+[node name="AIWonderArea2" parent="Map" instance=ExtResource("11_bxyhi")]
+transform = Transform3D(0.986751, 0.162241, 0, -0.162241, 0.986751, 0, 0, 0, 1, -33.9562, 0, -30.8851)
+
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="CrabEnemy" parent="Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("10_pa4mg")]
@@ -125,6 +129,10 @@ ai_wander_area = NodePath("../../Map/AIWonderArea")
 [node name="CrabEnemy2" parent="Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("10_pa4mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7373, 0.545025, -14.9008)
 ai_wander_area = NodePath("../../Map/AIWonderArea")
+
+[node name="CrabEnemy3" parent="Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("10_pa4mg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5857, 0.49999, -23.6204)
+ai_wander_area = NodePath("../../Map/AIWonderArea2")
 
 [node name="Player" parent="." instance=ExtResource("2_0vrrc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038459, 0.460478, 0.800288)

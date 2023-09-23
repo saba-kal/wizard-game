@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://oj3a75dyepbk"]
+
+[ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_vt6tr"]
+
+[node name="ThirdPersonCamera" type="Node3D"]
+script = ExtResource("1_vt6tr")
+
+[node name="h" type="Node3D" parent="."]
+
+[node name="v" type="Node3D" parent="h"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81226, 0)
+
+[node name="Camera3D" type="Camera3D" parent="h/v"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.894)
