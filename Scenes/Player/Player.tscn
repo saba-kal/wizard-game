@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=19 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="PackedScene" uid="uid://cemm5m2y7lvny" path="res://Models/Characters/BaseHumanRigged.blend" id="1_7kr00"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
+[ext_resource type="Material" uid="uid://dl3suugmpf0on" path="res://Materials/Characters/Player/PlayerToonMaterial.tres" id="2_j3d03"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellFactory.gd" id="4_8qt2s"]
 [ext_resource type="PackedScene" uid="uid://cs233npw823ao" path="res://Scenes/Spells/GroundSummonSpell.tscn" id="6_7bph8"]
 [ext_resource type="PackedScene" uid="uid://ciigyoq5t4o5s" path="res://Scenes/Effects/FireColumn.tscn" id="7_hmg1f"]
@@ -55,7 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(-0.47, 0, -4.10887e-08, 0, 0.47, 0, 4.10887e-08, 0, -0.47, 0, -1.0149, 0)
 
 [node name="Skeleton3D" parent="Visuals/BaseHumanRigged/Spine" index="0"]
-bones/1/rotation = Quaternion(0.0124292, 1.192e-07, 3.9212e-09, 0.999923)
+bones/1/rotation = Quaternion(0.0222463, 1.1918e-07, -6.93028e-11, 0.999753)
 bones/3/rotation = Quaternion(1.90209e-07, -3.24013e-08, -0.570486, 0.821308)
 bones/4/rotation = Quaternion(3.44696e-08, -1.05082e-07, -0.184278, 0.982874)
 bones/7/rotation = Quaternion(9.49583e-08, -2.70249e-07, 0.677838, 0.735211)
@@ -63,6 +64,9 @@ bones/8/rotation = Quaternion(1.88272e-07, 3.25594e-08, 0.564674, 0.825314)
 bones/9/rotation = Quaternion(3.82295e-08, 1.04657e-07, 0.204379, 0.978892)
 bones/11/rotation = Quaternion(-0.695425, 9.28346e-08, 3.5957e-09, 0.718599)
 bones/13/rotation = Quaternion(-0.695425, -9.28346e-08, -3.5957e-09, 0.718599)
+
+[node name="Body" parent="Visuals/BaseHumanRigged/Spine/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_j3d03")
 
 [node name="CameraMount" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35106, 0)
