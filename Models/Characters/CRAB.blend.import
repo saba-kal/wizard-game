@@ -32,15 +32,15 @@ _subresources={
 "materials": {
 "Black": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Characters/Black.tres"
+"use_external/path": "res://Materials/Characters/Crab/CrabBlackMaterial.tres"
 },
 "Dark purple": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Characters/Dark purple.tres"
+"use_external/path": "res://Materials/Characters/Crab/CrabShellMaterial.tres"
 },
 "Toon Shader": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Characters/Toon Shader.tres"
+"use_external/path": "res://Materials/Characters/Crab/CrabBodyMaterial.tres"
 }
 },
 "nodes": {
