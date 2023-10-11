@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://chqdq618co11f" path="res://Scenes/AI/AIWonderArea.tscn" id="4_reoau"]
 [ext_resource type="PackedScene" uid="uid://djt7jjr33ec4h" path="res://Scenes/SpellCraftMenu/SpellCraftMenu.tscn" id="5_nr8ce"]
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="6_oo2xu"]
-[ext_resource type="PackedScene" uid="uid://bjtek74wuetor" path="res://Scenes/HUD/HUD.tscn" id="6_whkrk"]
+[ext_resource type="PackedScene" uid="uid://bjtek74wuetor" path="res://Scenes/UI/HUD/HUD.tscn" id="6_whkrk"]
 [ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="7_cxbmg"]
 [ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="8_uiyst"]
 [ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="9_dwdqw"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://b51eh1sioleha"]
+
+[ext_resource type="Script" path="res://Scripts/Common/SceneLoader.gd" id="1_u3bgu"]
+[ext_resource type="PackedScene" uid="uid://qb1xx8f4fgih" path="res://Scenes/MainGame.tscn" id="2_txsia"]
+[ext_resource type="Script" path="res://Scripts/Common/AppQuitter.gd" id="3_h03oo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibv33"]
+font_size = 60
+outline_size = 7
+outline_color = Color(0.729412, 0, 0.12549, 1)
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="SceneLoader" type="Node" parent="."]
+script = ExtResource("1_u3bgu")
+scene_to_load = ExtResource("2_txsia")
+
+[node name="AppQuitter" type="Node" parent="."]
+script = ExtResource("3_h03oo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenuBase" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/MainMenuBase"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -303.0
+offset_top = 33.0
+offset_right = 303.0
+offset_bottom = 162.0
+grow_horizontal = 2
+text = "EXPERIMAGIC"
+label_settings = SubResource("LabelSettings_ibv33")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenuBase"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -254.0
+offset_top = -166.0
+offset_right = 254.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/MainMenuBase/HBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenuBase/HBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "QUIT"
+
+[connection signal="button_down" from="CanvasLayer/MainMenuBase/HBoxContainer/PlayButton" to="SceneLoader" method="load_scene"]
+[connection signal="button_down" from="CanvasLayer/MainMenuBase/HBoxContainer/QuitButton" to="AppQuitter" method="quit_app"]
