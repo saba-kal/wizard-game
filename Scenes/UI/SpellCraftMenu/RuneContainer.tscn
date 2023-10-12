@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvykf1brht17e"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/RuneContainer.gd" id="1_vav8u"]
-[ext_resource type="PackedScene" uid="uid://druv1gblhnmbl" path="res://Scenes/SpellCraftMenu/DraggableRune.tscn" id="2_b5qyu"]
-[ext_resource type="PackedScene" uid="uid://dmxdcakhfo6mi" path="res://Scenes/SpellCraftMenu/RuneInventorySlot.tscn" id="3_uf6e5"]
+[ext_resource type="PackedScene" uid="uid://druv1gblhnmbl" path="res://Scenes/UI/SpellCraftMenu/DraggableRune.tscn" id="2_b5qyu"]
+[ext_resource type="PackedScene" uid="uid://dmxdcakhfo6mi" path="res://Scenes/UI/SpellCraftMenu/RuneInventorySlot.tscn" id="3_uf6e5"]
 
 [node name="RuneContainer" type="Control" node_paths=PackedStringArray("grid_container")]
 custom_minimum_size = Vector2(200, 200)

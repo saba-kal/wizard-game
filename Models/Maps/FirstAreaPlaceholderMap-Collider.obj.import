@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bglt8cq78t4vb"
+path="res://.godot/imported/FirstAreaPlaceholderMap-Collider.obj-146d33d1289b1099e6277c531d8f84c0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/FirstAreaPlaceholderMap-Collider.obj-146d33d1289b1099e6277c531d8f84c0.mesh"]
+
+source_file="res://Models/Maps/FirstAreaPlaceholderMap-Collider.obj"
+dest_files=["res://.godot/imported/FirstAreaPlaceholderMap-Collider.obj-146d33d1289b1099e6277c531d8f84c0.mesh", "res://.godot/imported/FirstAreaPlaceholderMap-Collider.obj-146d33d1289b1099e6277c531d8f84c0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
