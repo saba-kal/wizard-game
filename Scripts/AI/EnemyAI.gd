@@ -21,7 +21,8 @@ var move_target_position: Vector3
 
 func _ready():
     self.player = self.get_tree().get_first_node_in_group("Player")
-    self.ai_wander_area.register_agent(self)
+    if self.ai_wander_area != null:
+        self.ai_wander_area.register_agent(self)
     self.health.health_lost.connect(self.on_health_lost)
     call_deferred("actor_setup")
 

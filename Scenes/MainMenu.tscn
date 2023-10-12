@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b51eh1sioleha"]
+[gd_scene load_steps=4 format=3 uid="uid://b51eh1sioleha"]
 
 [ext_resource type="Script" path="res://Scripts/Common/SceneLoader.gd" id="1_u3bgu"]
-[ext_resource type="PackedScene" uid="uid://qb1xx8f4fgih" path="res://Scenes/MainGame.tscn" id="2_txsia"]
 [ext_resource type="Script" path="res://Scripts/Common/AppQuitter.gd" id="3_h03oo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ibv33"]
@@ -13,7 +12,7 @@ outline_color = Color(0.729412, 0, 0.12549, 1)
 
 [node name="SceneLoader" type="Node" parent="."]
 script = ExtResource("1_u3bgu")
-scene_to_load = ExtResource("2_txsia")
+scene_to_load = 1
 
 [node name="AppQuitter" type="Node" parent="."]
 script = ExtResource("3_h03oo")

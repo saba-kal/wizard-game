@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq6v5uyav5nra"]
+[gd_scene load_steps=7 format=3 uid="uid://bq6v5uyav5nra"]
 
 [ext_resource type="PackedScene" uid="uid://mpbpk763lnud" path="res://Scenes/Environment/Common/DefaultWorldEnvironment.tscn" id="1_ngil3"]
 [ext_resource type="PackedScene" uid="uid://y1gdgfxfgrg0" path="res://Models/Maps/FirstAreaPlaceholderMap.glb" id="2_8jwld"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="3_wf2w5"]
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="3_xp37y"]
-[ext_resource type="PackedScene" uid="uid://qb1xx8f4fgih" path="res://Scenes/MainGame.tscn" id="4_qs02b"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="6_i8ieh"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6xcth"]
@@ -32,7 +31,7 @@ shape = SubResource("ConcavePolygonShape3D_6xcth")
 
 [node name="LevelTransitionArea" parent="Map" instance=ExtResource("3_xp37y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8852, 4.74716, -41.9277)
-scene_to_load = ExtResource("4_qs02b")
+transition_to = 2
 
 [node name="Player" parent="." instance=ExtResource("3_wf2w5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3116, 9.32962, -64.742)
