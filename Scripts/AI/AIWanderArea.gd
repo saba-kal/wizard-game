@@ -33,4 +33,4 @@ func get_next_wonder_position(agent: EnemyAI) -> Vector3:
 
 
 func positions_are_equal_2d(position1: Vector3, position2: Vector3) -> bool:
-    return Vector3(position1.x, 0, position1.z).distance_squared_to(Vector3(position2.x, 0, position2.z)) <= 1
+    return Vector3(position1.x, 0, position1.z).distance_squared_to(Vector3(position2.x, 0, position2.z)) <= 2

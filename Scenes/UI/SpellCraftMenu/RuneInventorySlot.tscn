@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://drco4h1oww3wr" path="res://Textures/Runes/inventory_slot.png" id="1_cnp57"]
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/RuneInventorySlot.gd" id="1_j58c0"]
-[ext_resource type="PackedScene" uid="uid://druv1gblhnmbl" path="res://Scenes/SpellCraftMenu/DraggableRune.tscn" id="2_2yjqb"]
+[ext_resource type="PackedScene" uid="uid://druv1gblhnmbl" path="res://Scenes/UI/SpellCraftMenu/DraggableRune.tscn" id="2_2yjqb"]
 
 [node name="RuneInventorySlot" type="TextureRect"]
 custom_minimum_size = Vector2(70, 70)

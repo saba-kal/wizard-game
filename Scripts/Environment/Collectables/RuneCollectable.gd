@@ -9,6 +9,11 @@ func _ready():
     if rune == null:
         printerr("Rune must be set on collectable. Cannot initialize otherwise.")
         return
+    for player_rune in PlayerData.runes:
+        if player_rune.equals(self.rune):
+            print("Player alread collected rune %d %d. Destroying collectible in %s." % [self.rune.get_type(), self.rune.type, self.get_tree().current_scene.name])
+            self.queue_free() # Player already collected this rune. Destroy self.
+            return
     self.sprite.texture = rune.texture
     self.body_entered.connect(self.on_body_entered)
 

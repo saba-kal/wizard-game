@@ -18,6 +18,7 @@ script = ExtResource("1_i06xc")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.3
+avoidance_enabled = true
 radius = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

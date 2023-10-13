@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c4sxl08n2nnhd"]
+
+[ext_resource type="Texture2D" uid="uid://d74mbk2yi6xh" path="res://Textures/Environment/Grass_corrupted.png" id="1_0tqss"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_0tqss")
+uv1_scale = Vector3(20, 20, 20)

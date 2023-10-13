@@ -7,5 +7,10 @@ enum RedRuneType {
     BENEFIT
 }
 
+
 func get_type() -> Type:
     return Type.RED
+
+
+func equals(other: Rune) -> bool:
+    return super.equals(other) && self.type == other.type
