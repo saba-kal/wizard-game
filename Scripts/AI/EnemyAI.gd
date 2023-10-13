@@ -35,6 +35,8 @@ func actor_setup():
 
 
 func _physics_process(delta):
+    if !self.nav_server_ready:
+        return
     match self.current_state:
         State.WANDER:
             self.wander()
@@ -68,8 +70,6 @@ func remain_still():
 
 
 func process_nav_agent(delta):
-    if !self.nav_server_ready:
-        return
     self.nav_agent.target_position = self.move_target_position
     var next_nav_point = self.nav_agent.get_next_path_position()
     if self.nav_agent.is_navigation_finished():

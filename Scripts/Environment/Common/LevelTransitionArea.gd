@@ -1,7 +1,7 @@
 extends Area3D
 
 
-@export var transition_to: SceneLoader.SceneType = SceneLoader.SceneType.Hub
+@export var transition_to: SceneLoader.SceneType = SceneLoader.SceneType.HUB
 
 
 func _ready():
@@ -10,4 +10,4 @@ func _ready():
 
 func on_body_entered(body: Node3D):
     if body.is_in_group("Player"):
-        self.get_tree().change_scene_to_file(SceneLoader.scenes[self.transition_to])
+        SceneLoader.load_scene(self.transition_to)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn3o1a2y5k62o"]
+[gd_scene load_steps=5 format=3 uid="uid://cn3o1a2y5k62o"]
 
 [ext_resource type="Script" path="res://Scripts/UI/PauseHandler.gd" id="1_uah8e"]
 [ext_resource type="Script" path="res://Scripts/Common/SceneLoader.gd" id="2_l2yy4"]
+[ext_resource type="Script" path="res://Scripts/UI/SceneSwitcherButton.gd" id="3_p0gcp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_anxtb"]
 font_size = 50
@@ -72,7 +73,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "MAIN MENU"
+script = ExtResource("3_p0gcp")
 
-[connection signal="button_down" from="VBoxContainer/ResumeButton" to="." method="resume_game"]
+[connection signal="button_down" from="VBoxContainer/ResumeButton" to="." method="resume_game_mouse_captured"]
 [connection signal="button_down" from="VBoxContainer/MainMenuButton" to="." method="resume_game_mouse_visible"]
-[connection signal="button_down" from="VBoxContainer/MainMenuButton" to="SceneLoader" method="load_scene"]

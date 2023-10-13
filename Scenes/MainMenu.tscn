@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b51eh1sioleha"]
 
-[ext_resource type="Script" path="res://Scripts/Common/SceneLoader.gd" id="1_u3bgu"]
+[ext_resource type="Script" path="res://Scripts/UI/SceneSwitcherButton.gd" id="2_vuvf0"]
 [ext_resource type="Script" path="res://Scripts/Common/AppQuitter.gd" id="3_h03oo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ibv33"]
@@ -9,10 +9,6 @@ outline_size = 7
 outline_color = Color(0.729412, 0, 0.12549, 1)
 
 [node name="MainMenu" type="Node3D"]
-
-[node name="SceneLoader" type="Node" parent="."]
-script = ExtResource("1_u3bgu")
-scene_to_load = 1
 
 [node name="AppQuitter" type="Node" parent="."]
 script = ExtResource("3_h03oo")
@@ -65,6 +61,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "PLAY"
+script = ExtResource("2_vuvf0")
+transition_to = 1
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MainMenuBase/HBoxContainer"]
 custom_minimum_size = Vector2(150, 60)
@@ -74,5 +72,4 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
 
-[connection signal="button_down" from="CanvasLayer/MainMenuBase/HBoxContainer/PlayButton" to="SceneLoader" method="load_scene"]
 [connection signal="button_down" from="CanvasLayer/MainMenuBase/HBoxContainer/QuitButton" to="AppQuitter" method="quit_app"]

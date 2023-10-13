@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://gwlsad3v7l5s"]
+[gd_scene load_steps=7 format=3 uid="uid://gwlsad3v7l5s"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Health.gd" id="1_i8qu5"]
+[ext_resource type="Script" path="res://Scripts/Misc/SubViewportBugFix.gd" id="2_0de0u"]
 [ext_resource type="Script" path="res://Scripts/UI/HealthBar.gd" id="2_f7akt"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_q8mdy"]
@@ -38,9 +39,9 @@ billboard = 1
 texture = SubResource("ViewportTexture_q8mdy")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-process_mode = 3
 transparent_bg = true
 size = Vector2i(512, 37)
+script = ExtResource("2_0de0u")
 
 [node name="ProgressBar" type="ProgressBar" parent="SubViewport" node_paths=PackedStringArray("health")]
 anchors_preset = 15

@@ -56,7 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(-0.47, 0, -4.10887e-08, 0, 0.47, 0, 4.10887e-08, 0, -0.47, 0, -1.0149, 0)
 
 [node name="Skeleton3D" parent="Visuals/BaseHumanRigged/Spine" index="0"]
-bones/1/rotation = Quaternion(0.00474995, 1.19208e-07, 4.83652e-09, 0.999989)
+bones/1/rotation = Quaternion(0.000321802, 1.19209e-07, -3.83618e-11, 1)
 bones/3/rotation = Quaternion(1.90209e-07, -3.24013e-08, -0.570486, 0.821308)
 bones/4/rotation = Quaternion(3.44696e-08, -1.05082e-07, -0.184278, 0.982874)
 bones/7/rotation = Quaternion(9.49583e-08, -2.70249e-07, 0.677838, 0.735211)

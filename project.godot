@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Wizard-game"
+config/name="Experimagic"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SignalBus="*res://Scripts/Common/SignalBus.gd"
 Util="*res://Scripts/Common/Util.gd"
 PlayerData="*res://Scripts/Player/PlayerData.gd"
+SceneLoader="*res://Scripts/Common/SceneLoader.gd"
 
 [display]
 
