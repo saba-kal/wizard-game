@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=20 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://b328usnnpi7qr" path="res://Scenes/Characters/CrabEnemy.tscn" id="5_1ge4n"]
 [ext_resource type="PackedScene" uid="uid://ca5cjrn3xfkwu" path="res://Scenes/Environment/InteractiveLevelElements/RopeBridge.tscn" id="5_5yvg4"]
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="6_wiwrj"]
+[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="7_rng7y"]
+[ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="8_4dx02"]
+[ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="9_xd86k"]
+[ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="10_6w6g6"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_g56d8"]
 rayleigh_color = Color(0.611765, 0.192157, 0.631373, 1)
@@ -86,11 +90,40 @@ transform = Transform3D(0.995577, 0.014822, -0.0927754, 0, 0.987477, 0.157762, 0
 [node name="AIWonderArea" parent="Map" instance=ExtResource("4_5p6q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4259, 32.0112, 50.0627)
 
-[node name="CrabEnemy" parent="Map" instance=ExtResource("5_1ge4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4259, 32.0112, 47.3644)
-
 [node name="LevelTransitionArea" parent="Map" instance=ExtResource("6_wiwrj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4849, 23.2308, -72.7557)
+
+[node name="Enemies" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3092, 31.8929, 46.0744)
+
+[node name="CrabEnemy" parent="Map/Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("5_1ge4n")]
+ai_wander_area = NodePath("../../AIWonderArea")
+
+[node name="CrabEnemy2" parent="Map/Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("5_1ge4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3776, -2.96888, 13.6684)
+ai_wander_area = NodePath("../../AIWonderArea")
+
+[node name="CrabEnemy3" parent="Map/Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("5_1ge4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3776, -2.96888, 4.11104)
+ai_wander_area = NodePath("../../AIWonderArea")
+
+[node name="CrabEnemy4" parent="Map/Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("5_1ge4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11632, 0.578514, 11.6642)
+ai_wander_area = NodePath("../../AIWonderArea")
+
+[node name="Runes" type="Node3D" parent="Map"]
+
+[node name="RuneCollectable" parent="Map/Runes" instance=ExtResource("7_rng7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8777, 27.4623, -26.0975)
+rune = ExtResource("8_4dx02")
+
+[node name="RuneCollectable2" parent="Map/Runes" instance=ExtResource("7_rng7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1404, 27.4623, -28.0318)
+rune = ExtResource("9_xd86k")
+
+[node name="RuneCollectable3" parent="Map/Runes" instance=ExtResource("7_rng7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.35, 27.278, -30.6791)
+rune = ExtResource("10_6w6g6")
 
 [node name="Player" parent="." instance=ExtResource("3_rsw63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3379, 24.8174, -60.2499)

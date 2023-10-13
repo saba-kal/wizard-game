@@ -24,6 +24,7 @@ func _ready():
     if self.ai_wander_area != null:
         self.ai_wander_area.register_agent(self)
     self.health.health_lost.connect(self.on_health_lost)
+    self.nav_agent.velocity_computed.connect(self.on_nav_agent_velocity_computed)
     call_deferred("actor_setup")
 
 
@@ -73,14 +74,15 @@ func process_nav_agent(delta):
     var next_nav_point = self.nav_agent.get_next_path_position()
     if self.nav_agent.is_navigation_finished():
         return
-    self.velocity = (next_nav_point - self.global_position).normalized() * self.speed * delta
-    self.move_and_slide()
+    self.nav_agent.velocity = (next_nav_point - self.global_position).normalized() * self.speed * delta
 
 
 func look_at_target(delta):
     var look_position = Vector3(self.move_target_position.x, self.global_position.y, self.move_target_position.z)
     if look_position.distance_squared_to(self.global_position) > 1:
-        self.transform = self.transform.interpolate_with(self.transform.looking_at(look_position, Vector3.UP, true), delta * turn_speed)
+        var original_rotation = self.quaternion
+        self.look_at_from_position(self.global_position, look_position, Vector3.UP, true)
+        self.quaternion = original_rotation.slerp(self.quaternion, delta * self.turn_speed)
 
 
 func set_state(new_state: State):
@@ -91,3 +93,8 @@ func set_state(new_state: State):
 
 func on_health_lost():
     self.queue_free()
+
+
+func on_nav_agent_velocity_computed(safe_velocity: Vector3):
+    self.velocity = safe_velocity
+    self.move_and_slide()

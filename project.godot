@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://Scripts/Common/SignalBus.gd"
 Util="*res://Scripts/Common/Util.gd"
+PlayerData="*res://Scripts/Player/PlayerData.gd"
 
 [display]
 

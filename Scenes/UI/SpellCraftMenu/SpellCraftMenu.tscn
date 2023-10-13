@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://djt7jjr33ec4h"]
+[gd_scene load_steps=5 format=3 uid="uid://djt7jjr33ec4h"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/SpellCraftMenu.gd" id="1_06al5"]
 [ext_resource type="PackedScene" uid="uid://h7icssidituw" path="res://Scenes/UI/SpellCraftMenu/RuneSlot.tscn" id="1_srs3m"]
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/RuneInventory.gd" id="2_otpsu"]
-[ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="3_34m1g"]
-[ext_resource type="Resource" uid="uid://bxiuikm8748d5" path="res://CustomResources/Runes/Red/DetrimentRune.tres" id="4_7upcw"]
-[ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="5_ypeht"]
 [ext_resource type="PackedScene" uid="uid://dvykf1brht17e" path="res://Scenes/UI/SpellCraftMenu/RuneContainer.tscn" id="6_67le8"]
 
 [node name="SpellCraftMenu" type="Control" node_paths=PackedStringArray("rune_slots")]
@@ -59,7 +56,6 @@ mouse_filter = 2
 theme_override_constants/separation = 90
 alignment = 1
 script = ExtResource("2_otpsu")
-starting_runes = Array[Resource("res://Scripts/SpellCrafting/Rune.gd")]([ExtResource("3_34m1g"), ExtResource("4_7upcw"), ExtResource("5_ypeht")])
 blue_rune_container = NodePath("BlueRunes")
 red_rune_container = NodePath("RedRunes")
 yellow_rune_container = NodePath("YellowRunes")

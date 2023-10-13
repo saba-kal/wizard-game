@@ -56,7 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(-0.47, 0, -4.10887e-08, 0, 0.47, 0, 4.10887e-08, 0, -0.47, 0, -1.0149, 0)
 
 [node name="Skeleton3D" parent="Visuals/BaseHumanRigged/Spine" index="0"]
-bones/1/rotation = Quaternion(0.00973588, 1.19204e-07, 4.24226e-09, 0.999953)
+bones/1/rotation = Quaternion(0.00474995, 1.19208e-07, 4.83652e-09, 0.999989)
 bones/3/rotation = Quaternion(1.90209e-07, -3.24013e-08, -0.570486, 0.821308)
 bones/4/rotation = Quaternion(3.44696e-08, -1.05082e-07, -0.184278, 0.982874)
 bones/7/rotation = Quaternion(9.49583e-08, -2.70249e-07, 0.677838, 0.735211)
@@ -79,9 +79,10 @@ script = ExtResource("1_5i1xc")
 camera_target = NodePath("..")
 camera_mount = NodePath("../CameraMount")
 
-[node name="PlayerMovement" type="Node3D" parent="." node_paths=PackedStringArray("player_node", "animation_tree")]
+[node name="PlayerMovement" type="Node3D" parent="." node_paths=PackedStringArray("player_node", "player_visuals_node", "animation_tree")]
 script = ExtResource("2_afa8s")
 player_node = NodePath("..")
+player_visuals_node = NodePath("../Visuals")
 animation_tree = NodePath("../AnimationTree")
 
 [node name="SpellFactory" type="Node3D" parent="."]
