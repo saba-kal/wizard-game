@@ -10,3 +10,6 @@ func cast_spell(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune)
 func supports_runes(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune) -> bool:
     return false
 
+
+func get_supported_runes():
+    return

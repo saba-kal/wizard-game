@@ -1,7 +1,5 @@
 extends Control
 
-@onready var health_bar: HealthBar = $ProgressBar
-
 
 func _enter_tree():
     var player = self.get_tree().get_first_node_in_group("Player")

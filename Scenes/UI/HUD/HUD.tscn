@@ -1,7 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjtek74wuetor"]
+[gd_scene load_steps=8 format=3 uid="uid://bjtek74wuetor"]
 
 [ext_resource type="Script" path="res://Scripts/UI/PlayerHealthBar.gd" id="1_xn4ju"]
 [ext_resource type="Script" path="res://Scripts/UI/HealthBar.gd" id="2_07cuy"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerManaBar.gd" id="3_2fmb7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjgyv"]
+bg_color = Color(0.160784, 0.0862745, 0.384314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jttor"]
+bg_color = Color(0.0588235, 0.431373, 0.678431, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmck3"]
 bg_color = Color(0.333333, 0, 0.00392157, 1)
@@ -36,6 +61,50 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="PlayerManaBar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -244.0
+offset_top = -31.0
+offset_right = 244.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_2fmb7")
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerManaBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_rjgyv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jttor")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PlayerManaBar/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PlayerHealthBar" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -44,9 +113,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -244.0
-offset_top = -51.0
+offset_top = -61.0
 offset_right = 244.0
-offset_bottom = -25.0
+offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_xn4ju")
