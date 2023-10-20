@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dxoj1klhuxduk"]
+
+[ext_resource type="Shader" path="res://Shaders/flowing_noise.gdshader" id="1_xv1bl"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1aq4c"]
+noise_type = 2
+fractal_type = 0
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_amplitude = 23.28
+domain_warp_fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vjmnf"]
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_1aq4c")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xv1bl")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/flow_speed = 0.3
+shader_parameter/noise_scale = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_vjmnf")

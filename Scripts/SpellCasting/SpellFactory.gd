@@ -19,10 +19,10 @@ func _unhandled_input(event):
         self.cast_spell()
 
 
-func on_rune_slots_changed(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune):
-    self.blue_rune = blue_rune
-    self.red_rune = red_rune
-    self.yellow_rune = yellow_rune
+func on_rune_slots_changed(new_blue_rune: BlueRune, new_red_rune: RedRune, new_yellow_rune: YellowRune):
+    self.blue_rune = new_blue_rune
+    self.red_rune = new_red_rune
+    self.yellow_rune = new_yellow_rune
 
 
 func cast_spell():
