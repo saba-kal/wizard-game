@@ -1,16 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=21 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="PackedScene" uid="uid://cemm5m2y7lvny" path="res://Models/Characters/BaseHumanRigged.blend" id="1_7kr00"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
 [ext_resource type="Material" uid="uid://dl3suugmpf0on" path="res://Materials/Characters/Player/PlayerToonMaterial.tres" id="2_j3d03"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellFactory.gd" id="4_8qt2s"]
+[ext_resource type="PackedScene" uid="uid://fnppmucucsf3" path="res://Scenes/Effects/MagicCircle.tscn" id="5_ppnlc"]
 [ext_resource type="PackedScene" uid="uid://cs233npw823ao" path="res://Scenes/Spells/GroundSummonSpell.tscn" id="6_7bph8"]
 [ext_resource type="PackedScene" uid="uid://ciigyoq5t4o5s" path="res://Scenes/Effects/FireColumn.tscn" id="7_hmg1f"]
 [ext_resource type="PackedScene" uid="uid://dag86tou2cehq" path="res://Scenes/Effects/IceColumn.tscn" id="7_wbj11"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezablePlayer.gd" id="8_ffrmc"]
 [ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="9_qwkcm"]
 [ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="10_s2uey"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerMana.gd" id="12_6i8p7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
 
@@ -56,7 +58,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(-0.47, 0, -4.10887e-08, 0, 0.47, 0, 4.10887e-08, 0, -0.47, 0, -1.0149, 0)
 
 [node name="Skeleton3D" parent="Visuals/BaseHumanRigged/Spine" index="0"]
-bones/1/rotation = Quaternion(0.000321802, 1.19209e-07, -3.83618e-11, 1)
+bones/1/rotation = Quaternion(0.000184925, 1.19209e-07, -2.20448e-11, 1)
 bones/3/rotation = Quaternion(1.90209e-07, -3.24013e-08, -0.570486, 0.821308)
 bones/4/rotation = Quaternion(3.44696e-08, -1.05082e-07, -0.184278, 0.982874)
 bones/7/rotation = Quaternion(9.49583e-08, -2.70249e-07, 0.677838, 0.735211)
@@ -72,18 +74,22 @@ surface_material_override/0 = ExtResource("2_j3d03")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35106, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14051, 1.37127, 4.89405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.371, 4.894)
 
-[node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "camera_mount")]
+[node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "camera_mount", "camera")]
 script = ExtResource("1_5i1xc")
 camera_target = NodePath("..")
 camera_mount = NodePath("../CameraMount")
+camera = NodePath("../CameraMount/Camera3D")
 
 [node name="PlayerMovement" type="Node3D" parent="." node_paths=PackedStringArray("player_node", "player_visuals_node", "animation_tree")]
 script = ExtResource("2_afa8s")
 player_node = NodePath("..")
 player_visuals_node = NodePath("../Visuals")
 animation_tree = NodePath("../AnimationTree")
+
+[node name="MagicCircle" parent="." instance=ExtResource("5_ppnlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03646, -3.1733)
 
 [node name="SpellFactory" type="Node3D" parent="."]
 script = ExtResource("4_8qt2s")
@@ -109,5 +115,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05667, 0)
 [node name="Health" parent="." instance=ExtResource("10_s2uey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50256, 0)
 visible = false
+
+[node name="Mana" type="Node3D" parent="."]
+script = ExtResource("12_6i8p7")
 
 [editable path="Visuals/BaseHumanRigged"]

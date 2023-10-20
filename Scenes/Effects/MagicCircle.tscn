@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://fnppmucucsf3"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/MagicCircle.gd" id="1_hm6ne"]
+[ext_resource type="Texture2D" uid="uid://dd2r1pvjrpig5" path="res://Textures/ParticleEffects/magic_circle.png" id="1_yot47"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_r3cpl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_padvi"]
+transparency = 1
+albedo_texture = ExtResource("1_yot47")
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbeyk"]
+transparency = 1
+albedo_texture = ExtResource("1_yot47")
+emission_enabled = true
+emission = Color(0.996078, 0, 0.129412, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvrc2"]
+transparency = 1
+albedo_texture = ExtResource("1_yot47")
+emission_enabled = true
+emission = Color(1, 0.988235, 0, 1)
+emission_energy_multiplier = 16.0
+anisotropy = -0.19
+
+[node name="MagicCircle" type="Node3D"]
+script = ExtResource("1_hm6ne")
+
+[node name="BlueRune" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.577, 0)
+mesh = SubResource("QuadMesh_r3cpl")
+surface_material_override/0 = SubResource("StandardMaterial3D_padvi")
+
+[node name="RedRune" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+mesh = SubResource("QuadMesh_r3cpl")
+surface_material_override/0 = SubResource("StandardMaterial3D_gbeyk")
+
+[node name="YellowRune" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.577, 0)
+mesh = SubResource("QuadMesh_r3cpl")
+surface_material_override/0 = SubResource("StandardMaterial3D_uvrc2")

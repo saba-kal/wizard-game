@@ -6,6 +6,11 @@ extends Spell
 @onready var ground_aim_indicator: Node3D = $GroundAimIndicator
 
 
+func _ready():
+    var player = self.get_tree().get_first_node_in_group("Player")
+    self.ground_aim_indicator.visible = false
+
+
 func cast_spell(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune):
     var spell_effect: Node3D = self.instantiate_spell_effect(blue_rune)
     self.get_tree().root.add_child(spell_effect)
@@ -34,3 +39,7 @@ func supports_runes(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowR
             yellow_rune.type == YellowRune.YellowRuneType.GROUND ||
             yellow_rune.type == YellowRune.YellowRuneType.SELF
         ))
+
+
+func set_indicator_visible(is_visible: bool):
+    self.ground_aim_indicator.visible = is_visible
