@@ -11,5 +11,5 @@ func supports_runes(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowR
     return false
 
 
-func get_supported_runes():
-    return
+func set_indicator_visible(is_visible: bool):
+    pass

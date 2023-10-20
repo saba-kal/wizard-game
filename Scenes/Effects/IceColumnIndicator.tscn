@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwl3jj86owklh"]
+
+[ext_resource type="Script" path="res://Scripts/Misc/GroundAimIndicator.gd" id="1_rypii"]
+[ext_resource type="Material" uid="uid://tiedc0t33irf" path="res://Materials/Effects/IceColumnIndicatorMaterial.tres" id="2_0f1ju"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dtqle"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 5.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eajp6"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 8.0
+
+[node name="FireColumnIndicator" type="Node3D"]
+script = ExtResource("1_rypii")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53921, 0)
+mesh = SubResource("CylinderMesh_dtqle")
+surface_material_override/0 = ExtResource("2_0f1ju")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03921, 0)
+mesh = SubResource("CylinderMesh_eajp6")
+surface_material_override/0 = ExtResource("2_0f1ju")

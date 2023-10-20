@@ -23,12 +23,15 @@ func _process(delta):
     var target_fov = self.initial_camera_fov
     var target_pos = Vector3(0, self.camera.position.y, self.camera.position.z)
 
+    var old_is_aiming = self.is_aiming
     if Input.is_action_pressed("aim"):
         target_fov = self.aim_fov
         target_pos.x = self.aim_x_offset
         self.is_aiming = true
     else:
         self.is_aiming = false
+    if old_is_aiming != self.is_aiming:
+        SignalBus.player_aim_mode_changed.emit(self.is_aiming)
 
     create_tween().tween_property(self.camera, "fov", target_fov, self.aim_transition_duration)
     create_tween().tween_property(self.camera, "position", target_pos, self.aim_transition_duration)

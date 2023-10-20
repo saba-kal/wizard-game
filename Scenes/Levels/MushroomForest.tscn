@@ -23,6 +23,7 @@ sky_material = SubResource("PhysicalSkyMaterial_g56d8")
 [sub_resource type="Environment" id="Environment_y3vnl"]
 background_mode = 2
 sky = SubResource("Sky_okwxh")
+glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.658824, 0.447059, 0.776471, 1)
 fog_light_energy = 1.48
