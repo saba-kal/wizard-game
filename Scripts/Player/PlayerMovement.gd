@@ -4,7 +4,7 @@ class_name PlayerMovement extends Node3D
 @export var player_visuals_node: Node3D
 @export var speed: float = 5
 @export var aim_speed: float = 3
-@export var jump_velocity: float = 5
+@export var jump_velocity: float = 6
 @export var turn_speed: float = 20
 @export var animation_tree: AnimationTree
 
@@ -35,8 +35,8 @@ func process_velocity(delta):
     if !self.player_node.is_on_floor():
         self.player_node.velocity.y -= self.gravity * delta
 
-    if Input.is_action_pressed("jump") && self.player_node.is_on_floor():
-        self.player_node.velocity.y += self.jump_velocity
+    if Input.is_action_just_pressed("jump") && self.player_node.is_on_floor():
+        self.apply_vertical_velocity(self.jump_velocity)
 
     self.input_direction = Input.get_vector(
         "move_left", "move_right", "move_forward", "move_backward")
@@ -55,6 +55,10 @@ func process_velocity(delta):
         self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed)
 
     self.player_node.move_and_slide()
+
+
+func apply_vertical_velocity(vertical_velocity: float):
+    self.player_node.velocity.y += vertical_velocity
 
 
 func process_rotation(delta):

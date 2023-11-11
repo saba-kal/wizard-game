@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ep28sxfbburr"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/CastingIndicators/GroundAimIndicator.gd" id="1_kkmai"]
+[ext_resource type="Material" uid="uid://dxoj1klhuxduk" path="res://Materials/Effects/FireColumnIndicatorMaterial.tres" id="2_dod73"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x858j"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 5.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l6s3s"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 8.0
+
+[node name="GroundAimIndicator" type="Node3D"]
+script = ExtResource("1_kkmai")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53921, 0)
+mesh = SubResource("CylinderMesh_x858j")
+surface_material_override/0 = ExtResource("2_dod73")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03921, 0)
+mesh = SubResource("CylinderMesh_l6s3s")
+surface_material_override/0 = ExtResource("2_dod73")

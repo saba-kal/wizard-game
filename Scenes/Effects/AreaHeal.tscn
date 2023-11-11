@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://lsjae5plwkwx"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Heal/AreaHeal.gd" id="1_fdnlb"]
+
+[sub_resource type="Curve" id="Curve_rfelm"]
+_data = [Vector2(0.00188679, 0.0315789), 0.0, 0.0, 0, 0, Vector2(0.0358491, 0.231579), 0.0, 0.0, 0, 0, Vector2(1, 0.0526315), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bgtf6"]
+curve = SubResource("Curve_rfelm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ju07w"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 1.9
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_curve = SubResource("CurveTexture_bgtf6")
+color = Color(0, 1, 0, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.03
+turbulence_noise_scale = 0.92
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skv7c"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 1.59
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_3r4ot"]
+material = SubResource("StandardMaterial3D_skv7c")
+
+[sub_resource type="Animation" id="Animation_8hers"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tthpc"]
+resource_name = "start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_upj6f"]
+_data = {
+"RESET": SubResource("Animation_8hers"),
+"start": SubResource("Animation_tthpc")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f66u0"]
+radius = 2.0
+
+[node name="AreaHeal" type="Node3D"]
+script = ExtResource("1_fdnlb")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 50
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.2
+visibility_aabb = AABB(-4, -1.42803, -4, 8, 15.7496, 8)
+process_material = SubResource("ParticleProcessMaterial_ju07w")
+draw_pass_1 = SubResource("QuadMesh_3r4ot")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_upj6f")
+}
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_f66u0")

@@ -7,10 +7,11 @@ class_name HealthBar extends ProgressBar
 
 func _ready():
     self.update_health_bar()
-    self.health.damage_taken.connect(self.on_damage_taken)
+    self.health.damage_taken.connect(self.on_health_changed)
+    self.health.healed.connect(self.on_health_changed)
 
 
-func on_damage_taken(damage: float):
+func on_health_changed(damage: float):
     self.update_health_bar()
 
 

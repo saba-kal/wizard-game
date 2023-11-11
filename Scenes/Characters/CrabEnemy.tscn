@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b328usnnpi7qr"]
+[gd_scene load_steps=11 format=3 uid="uid://b328usnnpi7qr"]
 
 [ext_resource type="PackedScene" uid="uid://c3koeiqcntd6e" path="res://Models/Characters/CRAB.blend" id="1_0thq0"]
 [ext_resource type="Script" path="res://Scripts/AI/EnemyAI.gd" id="1_i06xc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://xpvp651ydt22" path="res://Materials/Characters/Crab/CrabBlackMaterial.tres" id="4_3pt2w"]
 [ext_resource type="Material" uid="uid://bdma000nb7jll" path="res://Materials/Characters/Crab/CrabShellMaterial.tres" id="5_m7xrc"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezableEnemy.gd" id="5_mr15f"]
+[ext_resource type="PackedScene" uid="uid://dpnavhw8cg2ck" path="res://Scenes/Effects/HealableCharacter.tscn" id="9_o7p16"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_si1ic"]
 height = 1.5
@@ -67,5 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23138, 0)
 
 [node name="Freezable" type="Node3D" parent="."]
 script = ExtResource("5_mr15f")
+
+[node name="Healable" parent="." instance=ExtResource("9_o7p16")]
 
 [editable path="Visuals/CRAB"]

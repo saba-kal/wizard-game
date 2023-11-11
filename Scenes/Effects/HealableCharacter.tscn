@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnavhw8cg2ck"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Heal/HealableCharacter.gd" id="1_cddxt"]
+
+[node name="Healable" type="Node3D"]
+script = ExtResource("1_cddxt")
