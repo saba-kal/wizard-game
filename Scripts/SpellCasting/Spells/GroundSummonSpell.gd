@@ -1,13 +1,17 @@
 extends Spell
 
-@export var fire_column_scene: PackedScene
-@export var ice_column_scene: PackedScene
+@export var blue_rune_type: BlueRune.BlueRuneType
+@export var red_rune_type: RedRune.RedRuneType
+@export var spell_effect_scene: PackedScene
+@export var ground_aim_indicator_scene: PackedScene
 
-@onready var ground_aim_indicator: Node3D = $GroundAimIndicator
+var ground_aim_indicator: Node3D
 
 
 func _ready():
     var player = self.get_tree().get_first_node_in_group("Player")
+    self.ground_aim_indicator = self.ground_aim_indicator_scene.instantiate()
+    self.add_child(self.ground_aim_indicator)
     self.ground_aim_indicator.visible = false
 
 
@@ -20,6 +24,8 @@ func cast_spell(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune)
 func instantiate_spell_effect(blue_rune: BlueRune) -> Node3D:
     if blue_rune.type == BlueRune.BlueRuneType.FIRE:
         return self.fire_column_scene.instantiate()
+    if blue_rune.type == BlueRune.BlueRuneType.CONDITION:
+        return self.heal_scene.instantiate()
     return self.ice_column_scene.instantiate()
 
 
@@ -30,15 +36,11 @@ func get_spell_position(yellow_rune: YellowRune) -> Vector3:
 
 
 func supports_runes(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune) -> bool:
-    return ((
-            blue_rune.type == BlueRune.BlueRuneType.FIRE ||
-            blue_rune.type == BlueRune.BlueRuneType.ICE
-        ) &&
-        red_rune.type == RedRune.RedRuneType.DETRIMENT &&
-        (
-            yellow_rune.type == YellowRune.YellowRuneType.GROUND ||
-            yellow_rune.type == YellowRune.YellowRuneType.SELF
-        ))
+    return (
+        blue_rune.type == self.blue_rune_type &&
+        red_rune.type == self.red_rune_type &&
+        (yellow_rune.type == YellowRune.YellowRuneType.GROUND || yellow_rune.type == YellowRune.YellowRuneType.SELF)
+        )
 
 
 func set_indicator_visible(is_visible: bool):
