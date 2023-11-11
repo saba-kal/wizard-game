@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=22 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="9_xd86k"]
 [ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="10_6w6g6"]
 [ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="11_m48d0"]
+[ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="14_enmni"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_g56d8"]
 rayleigh_color = Color(0.611765, 0.192157, 0.631373, 1)
@@ -134,6 +135,9 @@ rune = ExtResource("11_m48d0")
 [node name="RuneCollectable5" parent="Map/Runes" instance=ExtResource("7_rng7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6651, 27.022, -28.0318)
 rune = ExtResource("9_xd86k")
+
+[node name="BounceMushroom" parent="Map" instance=ExtResource("14_enmni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4865, 23.1691, -49.4629)
 
 [node name="Player" parent="." instance=ExtResource("3_rsw63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3379, 24.8174, -60.2499)

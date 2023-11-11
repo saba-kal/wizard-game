@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs233npw823ao"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/Spells/GroundSummonSpell.gd" id="1_j5lbf"]
+[ext_resource type="PackedScene" uid="uid://ciigyoq5t4o5s" path="res://Scenes/Effects/FireColumn.tscn" id="2_4r5ag"]
+[ext_resource type="PackedScene" uid="uid://ep28sxfbburr" path="res://Scenes/SpellCasting/CastingIndicators/GroundAimIndicator.tscn" id="3_m27je"]
+
+[node name="GroundSummonSpell" type="Node3D"]
+script = ExtResource("1_j5lbf")
+spell_effect_scene = ExtResource("2_4r5ag")
+ground_aim_indicator_scene = ExtResource("3_m27je")

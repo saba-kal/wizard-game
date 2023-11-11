@@ -16,17 +16,9 @@ func _ready():
 
 
 func cast_spell(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune):
-    var spell_effect: Node3D = self.instantiate_spell_effect(blue_rune)
+    var spell_effect: Node3D = self.spell_effect_scene.instantiate()
     self.get_tree().root.add_child(spell_effect)
     spell_effect.global_position = self.get_spell_position(yellow_rune)
-
-
-func instantiate_spell_effect(blue_rune: BlueRune) -> Node3D:
-    if blue_rune.type == BlueRune.BlueRuneType.FIRE:
-        return self.fire_column_scene.instantiate()
-    if blue_rune.type == BlueRune.BlueRuneType.CONDITION:
-        return self.heal_scene.instantiate()
-    return self.ice_column_scene.instantiate()
 
 
 func get_spell_position(yellow_rune: YellowRune) -> Vector3:

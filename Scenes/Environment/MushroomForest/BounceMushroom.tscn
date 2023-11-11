@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c86xq4dpkuan4"]
+
+[ext_resource type="PackedScene" uid="uid://cn7vj7bja53g1" path="res://Models/Maps/MushroomForest/Mushroom1.blend" id="1_15s4m"]
+[ext_resource type="Script" path="res://Scripts/Environment/InteractiveLevelElements/BouncePlatform.gd" id="2_aibmk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ijqm"]
+radius = 0.784959
+height = 2.91938
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jcr8k"]
+height = 0.824893
+radius = 1.81888
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n0vye"]
+height = 0.425428
+radius = 1.68506
+
+[node name="BounceMushroom" type="Node3D"]
+
+[node name="Mushroom1" parent="." instance=ExtResource("1_15s4m")]
+
+[node name="Skeleton3D" parent="Mushroom1/Mushroom Bone" index="0"]
+bones/1/scale = Vector3(1.14057, 1.14057, 1.14057)
+
+[node name="AnimationPlayer" parent="Mushroom1" index="1"]
+autoplay = "Idle Track"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392916, 0)
+shape = SubResource("CapsuleShape3D_7ijqm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73786, 0)
+shape = SubResource("CylinderShape3D_jcr8k")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_aibmk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01623, 0)
+shape = SubResource("CylinderShape3D_n0vye")
+
+[editable path="Mushroom1"]
