@@ -13,13 +13,10 @@ var input_direction: Vector2
 var disabled: bool = false
 var third_persion_camera: ThirdPersonCamera
 
+
 func _ready():
     self.animation_tree.active = true
     self.third_persion_camera = Util.get_child_node_of_type(self.get_parent(), ThirdPersonCamera)
-
-
-func _process(delta):
-    self.update_animation_parameters(delta)
 
 
 func _physics_process(delta):
@@ -37,6 +34,7 @@ func process_velocity(delta):
 
     if Input.is_action_just_pressed("jump") && self.player_node.is_on_floor():
         self.apply_vertical_velocity(self.jump_velocity)
+        SignalBus.player_jumped.emit()
 
     self.input_direction = Input.get_vector(
         "move_left", "move_right", "move_forward", "move_backward")
@@ -69,18 +67,15 @@ func process_rotation(delta):
         var target_y_rotation = Vector3.FORWARD.signed_angle_to(Vector3(self.input_direction.x, 0, self.input_direction.y), Vector3.UP)
         target_quaternion = Quaternion.from_euler(Vector3(0, target_y_rotation, 0))
     self.player_visuals_node.quaternion = self.player_visuals_node.quaternion.slerp(target_quaternion, delta * self.turn_speed)
-    
 
 
-func update_animation_parameters(delta: float):
-    if self.input_direction.length_squared() > 0.1:
-        self.animation_tree["parameters/idle_walk/blend_amount"] = 1
-    else:
-        self.animation_tree["parameters/idle_walk/blend_amount"] = 0
+func is_running() -> bool:
+    return !self.third_persion_camera.is_aiming && self.player_node.velocity.length_squared() > 0.1
 
-    var current_blend_amount: float = self.animation_tree.get("parameters/jump/blend_amount");
-    var jump_anim_speed = delta * 10
-    if self.player_node.is_on_floor():
-        self.animation_tree["parameters/jump/blend_amount"] = move_toward(current_blend_amount, 0, jump_anim_speed)
-    else:
-        self.animation_tree["parameters/jump/blend_amount"] = move_toward(current_blend_amount, 1, jump_anim_speed)
+
+func is_walking() -> bool:
+    return self.third_persion_camera.is_aiming && self.player_node.velocity.length_squared() > 0.1
+
+
+func is_on_floor() -> bool:
+    return self.player_node.is_on_floor()
