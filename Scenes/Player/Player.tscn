@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=32 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
@@ -18,6 +18,17 @@
 [ext_resource type="PackedScene" uid="uid://dpnavhw8cg2ck" path="res://Scenes/Effects/HealableCharacter.tscn" id="13_qlj7p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_rtblc"]
+input_0/name = "not_dead"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "dead"
+input_1/auto_advance = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_33x3j"]
+animation = &"Dies"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s4ld8"]
 animation = &"Falling"
@@ -69,7 +80,11 @@ input_3/reset = false
 animation = &"Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hssfi"]
-graph_offset = Vector2(-354.046, -22.3016)
+graph_offset = Vector2(-504.949, -86.4977)
+nodes/dead_state/node = SubResource("AnimationNodeTransition_rtblc")
+nodes/dead_state/position = Vector2(980, 360)
+nodes/death_anim/node = SubResource("AnimationNodeAnimation_33x3j")
+nodes/death_anim/position = Vector2(820, 580)
 nodes/fall_anim/node = SubResource("AnimationNodeAnimation_s4ld8")
 nodes/fall_anim/position = Vector2(-320, 240)
 nodes/idle_anim/node = SubResource("AnimationNodeAnimation_nkyb4")
@@ -82,7 +97,7 @@ nodes/land/node = SubResource("AnimationNodeOneShot_1kwml")
 nodes/land/position = Vector2(480, 260)
 nodes/land_anim/node = SubResource("AnimationNodeAnimation_bm3q7")
 nodes/land_anim/position = Vector2(160, 620)
-nodes/output/position = Vector2(940, 300)
+nodes/output/position = Vector2(1260, 340)
 nodes/run_anim/node = SubResource("AnimationNodeAnimation_reaal")
 nodes/run_anim/position = Vector2(-320, 120)
 nodes/small_stagger/node = SubResource("AnimationNodeOneShot_j0yn7")
@@ -93,7 +108,7 @@ nodes/state/node = SubResource("AnimationNodeTransition_k873e")
 nodes/state/position = Vector2(60, 60)
 nodes/walk_anim/node = SubResource("AnimationNodeAnimation_3pkky")
 nodes/walk_anim/position = Vector2(-320, 360)
-node_connections = [&"output", 0, &"small_stagger", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim"]
+node_connections = [&"output", 0, &"dead_state", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim", &"dead_state", 0, &"small_stagger", &"dead_state", 1, &"death_anim"]
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 
@@ -109,19 +124,19 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(0.0351535, -2.38432e-07, 4.56023e-09, 0.999382)
-bones/3/rotation = Quaternion(-0.267866, 0.00027243, 2.10704e-05, 0.963456)
+bones/2/rotation = Quaternion(-0.0368291, -2.37649e-07, -1.71812e-08, 0.999322)
+bones/3/rotation = Quaternion(-0.332082, -0.266897, -0.09887, 0.899285)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/7/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
-bones/8/rotation = Quaternion(-0.0258332, 0.296135, -0.405815, 0.864263)
-bones/9/rotation = Quaternion(0.234135, 0.015135, 0.00131155, 0.972086)
+bones/8/rotation = Quaternion(-0.0277375, 0.332391, -0.19347, 0.922668)
+bones/9/rotation = Quaternion(0.485162, 0.0230494, -0.463634, 0.741033)
 bones/11/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
-bones/12/rotation = Quaternion(-0.0253211, -0.295855, 0.406068, 0.864255)
-bones/13/rotation = Quaternion(0.232613, -0.0150963, -0.0014858, 0.972451)
+bones/12/rotation = Quaternion(-0.0422005, -0.309155, 0.405714, 0.859091)
+bones/13/rotation = Quaternion(0.218594, -0.0151467, -0.00139625, 0.975697)
 bones/21/rotation = Quaternion(0.991633, 0.128359, 0.00176094, -0.0136038)
 bones/23/rotation = Quaternion(0.991633, -0.128359, -0.00176069, -0.0136038)
-bones/26/position = Vector3(1.70449, -0.231748, -0.0352253)
-bones/26/rotation = Quaternion(-0.000215624, 0.962574, 6.0712e-05, 0.27102)
+bones/26/position = Vector3(1.1833, -0.456293, 0.824793)
+bones/26/rotation = Quaternion(-0.154531, 0.950089, 0.0435093, 0.267505)
 bones/28/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/29/position = Vector3(-1.70522, -0.231434, -0.0364273)
 bones/29/rotation = Quaternion(0, 0.962574, 0, -0.27102)
@@ -130,11 +145,11 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.874632, -0.000337297, -0.109029, 0.163634, 0.000308709, 0.582767, -0.000393121, -0.621946, 0.00034839, 1.21802, 7.9082, 2.5606)
+transform = Transform3D(0.754456, 0.32938, -0.014712, 0.187417, -0.182555, 0.552836, 0.43293, -0.494974, -0.213686, 0.188216, 8.49739, 1.60589)
 bone_idx = 5
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.874632, -0.000337297, -0.109029, 0.163634, 0.000308709, 0.582767, -0.000393121, -0.621946, 0.00034839, 1.21802, 7.9082, 2.5606)
+transform = Transform3D(0.754456, 0.32938, -0.014712, 0.187417, -0.182555, 0.552836, 0.43293, -0.494974, -0.213686, 0.188216, 8.49739, 1.60589)
 bone_idx = 6
 
 [node name="CameraMount" type="Node3D" parent="."]
@@ -178,6 +193,9 @@ ground_aim_indicator_scene = ExtResource("11_x5lty")
 tree_root = SubResource("AnimationNodeBlendTree_hssfi")
 anim_player = NodePath("../Visuals/Player/AnimationPlayer")
 active = true
+parameters/dead_state/current_state = "not_dead"
+parameters/dead_state/transition_request = ""
+parameters/dead_state/current_index = 0
 parameters/jump/active = false
 parameters/jump/internal_active = false
 parameters/jump/request = 0

@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c86xq4dpkuan4"]
+[gd_scene load_steps=7 format=3 uid="uid://c86xq4dpkuan4"]
 
 [ext_resource type="PackedScene" uid="uid://cn7vj7bja53g1" path="res://Models/Maps/MushroomForest/Mushroom1.blend" id="1_15s4m"]
 [ext_resource type="Script" path="res://Scripts/Environment/InteractiveLevelElements/BouncePlatform.gd" id="2_aibmk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyrlv"]
+diffuse_mode = 3
+albedo_color = Color(0.0196078, 0.356863, 0, 1)
+metallic_specular = 0.0
+roughness = 0.09
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ijqm"]
 radius = 0.784959
@@ -21,6 +27,9 @@ radius = 1.68506
 
 [node name="Skeleton3D" parent="Mushroom1/Mushroom Bone" index="0"]
 bones/1/scale = Vector3(1.14057, 1.14057, 1.14057)
+
+[node name="Mushroom Base" parent="Mushroom1/Mushroom Bone/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cyrlv")
 
 [node name="AnimationPlayer" parent="Mushroom1" index="1"]
 autoplay = "Idle Track"

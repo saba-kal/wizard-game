@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=23 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="10_6w6g6"]
 [ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="11_m48d0"]
 [ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="14_enmni"]
+[ext_resource type="PackedScene" uid="uid://dkbtip8iwehfa" path="res://Scenes/Environment/MushroomForest/PoisonMushroom.tscn" id="15_ydb8s"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_g56d8"]
 rayleigh_color = Color(0.611765, 0.192157, 0.631373, 1)
@@ -143,5 +144,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4865, 23.1691, -49.4629)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3379, 24.8174, -60.2499)
 
 [node name="GameUI" parent="." instance=ExtResource("4_bbp1r")]
+
+[node name="PoisonMushroom" parent="." instance=ExtResource("15_ydb8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2482, 22.9376, -41.4937)
 
 [editable path="Map/TempMushroomForestTerrain"]

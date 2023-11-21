@@ -18,4 +18,4 @@ func on_health_changed(damage: float):
 func update_health_bar():
     self.max_value = self.health.max_health
     self.value = self.health.current_health
-    self.label.text = str(self.health.current_health) + "/" + str(self.health.max_health)
+    self.label.text = "%d/%d" % [self.health.current_health, self.health.max_health]
