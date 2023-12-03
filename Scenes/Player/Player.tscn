@@ -108,7 +108,7 @@ nodes/state/node = SubResource("AnimationNodeTransition_k873e")
 nodes/state/position = Vector2(60, 60)
 nodes/walk_anim/node = SubResource("AnimationNodeAnimation_3pkky")
 nodes/walk_anim/position = Vector2(-320, 360)
-node_connections = [&"output", 0, &"dead_state", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim", &"dead_state", 0, &"small_stagger", &"dead_state", 1, &"death_anim"]
+node_connections = [&"output", 0, &"dead_state", &"dead_state", 0, &"small_stagger", &"dead_state", 1, &"death_anim", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim"]
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 
@@ -124,19 +124,19 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(-0.0368291, -2.37649e-07, -1.71812e-08, 0.999322)
-bones/3/rotation = Quaternion(-0.332082, -0.266897, -0.09887, 0.899285)
+bones/2/rotation = Quaternion(0.0344443, -2.3827e-07, -2.10255e-10, 0.999407)
+bones/3/rotation = Quaternion(-0.267421, 2.29679e-07, 2.02666e-10, 0.96358)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/7/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
-bones/8/rotation = Quaternion(-0.0277375, 0.332391, -0.19347, 0.922668)
-bones/9/rotation = Quaternion(0.485162, 0.0230494, -0.463634, 0.741033)
+bones/8/rotation = Quaternion(-0.0256366, 0.296132, -0.406099, 0.864137)
+bones/9/rotation = Quaternion(0.232141, 0.0150981, 0.00148274, 0.972564)
 bones/11/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
-bones/12/rotation = Quaternion(-0.0422005, -0.309155, 0.405714, 0.859091)
-bones/13/rotation = Quaternion(0.218594, -0.0151467, -0.00139625, 0.975697)
+bones/12/rotation = Quaternion(-0.0256373, -0.296132, 0.406099, 0.864137)
+bones/13/rotation = Quaternion(0.232143, -0.0150981, -0.00148278, 0.972564)
 bones/21/rotation = Quaternion(0.991633, 0.128359, 0.00176094, -0.0136038)
 bones/23/rotation = Quaternion(0.991633, -0.128359, -0.00176069, -0.0136038)
-bones/26/position = Vector3(1.1833, -0.456293, 0.824793)
-bones/26/rotation = Quaternion(-0.154531, 0.950089, 0.0435093, 0.267505)
+bones/26/position = Vector3(1.70522, -0.231434, -0.0364273)
+bones/26/rotation = Quaternion(-7.73598e-06, 0.962574, 2.17812e-06, 0.27102)
 bones/28/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/29/position = Vector3(-1.70522, -0.231434, -0.0364273)
 bones/29/rotation = Quaternion(0, 0.962574, 0, -0.27102)
@@ -145,11 +145,11 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.754456, 0.32938, -0.014712, 0.187417, -0.182555, 0.552836, 0.43293, -0.494974, -0.213686, 0.188216, 8.49739, 1.60589)
+transform = Transform3D(0.874622, 1.03739e-12, -0.109067, 0.16369, -9.28994e-08, 0.582761, -1.82772e-08, -0.621946, -3.91155e-08, 1.2166, 7.90971, 2.55607)
 bone_idx = 5
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.754456, 0.32938, -0.014712, 0.187417, -0.182555, 0.552836, 0.43293, -0.494974, -0.213686, 0.188216, 8.49739, 1.60589)
+transform = Transform3D(0.874622, 1.03739e-12, -0.109067, 0.16369, -9.28994e-08, 0.582761, -1.82772e-08, -0.621946, -3.91155e-08, 1.2166, 7.90971, 2.55607)
 bone_idx = 6
 
 [node name="CameraMount" type="Node3D" parent="."]

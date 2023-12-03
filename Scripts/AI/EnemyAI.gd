@@ -21,17 +21,22 @@ var move_target_position: Vector3
 
 func _ready():
     self.player = self.get_tree().get_first_node_in_group("Player")
-    if self.ai_wander_area != null:
-        self.ai_wander_area.register_agent(self)
     self.health.health_lost.connect(self.on_health_lost)
     self.nav_agent.velocity_computed.connect(self.on_nav_agent_velocity_computed)
     call_deferred("actor_setup")
+    if self.ai_wander_area != null:
+        call_deferred("register_agent_to_wander_area")
 
 
 func actor_setup():
     # Wait for the first physics frame so the NavigationServer can sync.
     await get_tree().physics_frame
     self.nav_server_ready = true
+
+
+func register_agent_to_wander_area():
+    await get_tree().physics_frame
+    self.ai_wander_area.register_agent(self)
 
 
 func _physics_process(delta):
