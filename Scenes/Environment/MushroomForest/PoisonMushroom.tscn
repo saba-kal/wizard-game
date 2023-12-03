@@ -32,6 +32,7 @@ data = PackedVector3Array(-0.0041, -0.7059, -0.7035, 0.3495, -0.3828, -0.8499, -
 transparency = 1
 diffuse_mode = 3
 vertex_color_use_as_albedo = true
+albedo_color = Color(0.623529, 0.721569, 1, 1)
 metallic_specular = 0.0
 roughness = 0.15
 
