@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=33 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://dpnavhw8cg2ck" path="res://Scenes/Effects/HealableCharacter.tscn" id="13_qlj7p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mhhkq"]
+radius = 0.3
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_rtblc"]
 input_0/name = "not_dead"
@@ -111,6 +114,7 @@ nodes/walk_anim/position = Vector2(-320, 360)
 node_connections = [&"output", 0, &"dead_state", &"dead_state", 0, &"small_stagger", &"dead_state", 1, &"death_anim", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim"]
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -124,19 +128,19 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(0.0344443, -2.3827e-07, -2.10255e-10, 0.999407)
-bones/3/rotation = Quaternion(-0.267421, 2.29679e-07, 2.02666e-10, 0.96358)
+bones/2/rotation = Quaternion(0.0331149, -2.38326e-07, 1.07165e-09, 0.999452)
+bones/3/rotation = Quaternion(-0.266139, 2.30108e-07, -1.033e-09, 0.963935)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/7/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
-bones/8/rotation = Quaternion(-0.0256366, 0.296132, -0.406099, 0.864137)
-bones/9/rotation = Quaternion(0.232141, 0.0150981, 0.00148274, 0.972564)
+bones/8/rotation = Quaternion(-0.0265392, 0.296919, -0.40618, 0.863801)
+bones/9/rotation = Quaternion(0.231353, 0.015101, 0.00147773, 0.972751)
 bones/11/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
-bones/12/rotation = Quaternion(-0.0256373, -0.296132, 0.406099, 0.864137)
-bones/13/rotation = Quaternion(0.232143, -0.0150981, -0.00148278, 0.972564)
+bones/12/rotation = Quaternion(-0.0265396, -0.296919, 0.40618, 0.863801)
+bones/13/rotation = Quaternion(0.230929, -0.0151025, -0.00147506, 0.972852)
 bones/21/rotation = Quaternion(0.991633, 0.128359, 0.00176094, -0.0136038)
 bones/23/rotation = Quaternion(0.991633, -0.128359, -0.00176069, -0.0136038)
 bones/26/position = Vector3(1.70522, -0.231434, -0.0364273)
-bones/26/rotation = Quaternion(-7.73598e-06, 0.962574, 2.17812e-06, 0.27102)
+bones/26/rotation = Quaternion(-0.000213841, 0.962574, 6.02084e-05, 0.27102)
 bones/28/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/29/position = Vector3(-1.70522, -0.231434, -0.0364273)
 bones/29/rotation = Quaternion(0, 0.962574, 0, -0.27102)
@@ -145,24 +149,33 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.874622, 1.03739e-12, -0.109067, 0.16369, -9.28994e-08, 0.582761, -1.82772e-08, -0.621946, -3.91155e-08, 1.2166, 7.90971, 2.55607)
+transform = Transform3D(0.874622, 1.08002e-12, -0.109067, 0.16369, -4.65661e-10, 0.58276, 1.0943e-08, -0.621946, 6.49597e-08, 1.2166, 7.91024, 2.54904)
 bone_idx = 5
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.874622, 1.03739e-12, -0.109067, 0.16369, -9.28994e-08, 0.582761, -1.82772e-08, -0.621946, -3.91155e-08, 1.2166, 7.90971, 2.55607)
+transform = Transform3D(0.874622, 1.08002e-12, -0.109067, 0.16369, -4.65661e-10, 0.58276, 1.0943e-08, -0.621946, 6.49597e-08, 1.2166, 7.91024, 2.54904)
 bone_idx = 6
 
-[node name="CameraMount" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35106, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CameraMount"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.371, 4.894)
-
-[node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "camera_mount", "camera")]
+[node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "horizontal_pivot", "vertical_pivot", "spring_arm", "camera")]
+top_level = true
 script = ExtResource("1_5i1xc")
 camera_target = NodePath("..")
-camera_mount = NodePath("../CameraMount")
-camera = NodePath("../CameraMount/Camera3D")
+horizontal_pivot = NodePath("HorizontalPivot")
+vertical_pivot = NodePath("HorizontalPivot/VerticalPivot")
+spring_arm = NodePath("HorizontalPivot/VerticalPivot/SpringArm3D")
+camera = NodePath("HorizontalPivot/VerticalPivot/SpringArm3D/Camera3D")
+
+[node name="HorizontalPivot" type="Node3D" parent="ThirdPersonCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39274, 0)
+
+[node name="VerticalPivot" type="Node3D" parent="ThirdPersonCamera/HorizontalPivot"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="ThirdPersonCamera/HorizontalPivot/VerticalPivot"]
+shape = SubResource("SphereShape3D_mhhkq")
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="ThirdPersonCamera/HorizontalPivot/VerticalPivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.019)
 
 [node name="PlayerMovement" type="Node3D" parent="." node_paths=PackedStringArray("player_node", "player_visuals_node", "animation_tree")]
 script = ExtResource("2_afa8s")
@@ -222,6 +235,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05667, 0)
 [node name="Health" parent="." instance=ExtResource("10_s2uey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50256, 0)
 visible = false
+is_player = true
 
 [node name="Mana" type="Node3D" parent="."]
 script = ExtResource("12_6i8p7")

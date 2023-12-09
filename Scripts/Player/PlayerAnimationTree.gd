@@ -8,10 +8,10 @@ var health: Health
 func _ready():
     self.player_movement = Util.get_child_node_of_type(self.get_parent(), PlayerMovement)
     SignalBus.player_jumped.connect(self.on_player_jumped)
+    SignalBus.player_died.connect(self.on_player_died)
     self.health = Util.get_child_node_of_type(self.get_parent(), Health)
     if self.health != null:
         self.health.damage_taken.connect(self.on_damage_taken)
-        self.health.health_lost.connect(self.on_health_lost)
 
 
 func _process(delta):
@@ -38,5 +38,5 @@ func on_damage_taken(damage: float):
         self.set("parameters/small_stagger/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 
-func on_health_lost():
+func on_player_died():
     self.set("parameters/dead_state/transition_request", "dead")

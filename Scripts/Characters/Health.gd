@@ -5,6 +5,7 @@ signal healed(heal_amount: float)
 signal health_lost()
 
 @export var max_health: float = 100
+@export var is_player: bool = false
 
 var current_health: float = -1
 
@@ -19,6 +20,8 @@ func take_damage(damage: float):
     self.damage_taken.emit(damage)
     if current_health <= 0:
         self.health_lost.emit()
+        if self.is_player:
+            SignalBus.player_died.emit()
 
 
 func heal(heal_amount: float):

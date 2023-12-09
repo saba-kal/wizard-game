@@ -13,10 +13,10 @@ var input_direction: Vector2
 var disabled: bool = false
 var third_persion_camera: ThirdPersonCamera
 
-
 func _ready():
     self.animation_tree.active = true
     self.third_persion_camera = Util.get_child_node_of_type(self.get_parent(), ThirdPersonCamera)
+    SignalBus.player_died.connect(self.on_player_died)
 
 
 func _physics_process(delta):
@@ -66,7 +66,12 @@ func process_rotation(delta):
     else:
         var target_y_rotation = Vector3.FORWARD.signed_angle_to(Vector3(self.input_direction.x, 0, self.input_direction.y), Vector3.UP)
         target_quaternion = Quaternion.from_euler(Vector3(0, target_y_rotation, 0))
+    
     self.player_visuals_node.quaternion = self.player_visuals_node.quaternion.slerp(target_quaternion, delta * self.turn_speed)
+
+    if self.input_direction || self.third_persion_camera.is_aiming:
+        var player_rotation = Quaternion.from_euler(Vector3(0, self.third_persion_camera.get_camera_y_rotation(), 0))
+        self.player_node.quaternion = self.player_node.quaternion.slerp(player_rotation, delta * self.turn_speed)
 
 
 func is_running() -> bool:
@@ -79,3 +84,7 @@ func is_walking() -> bool:
 
 func is_on_floor() -> bool:
     return self.player_node.is_on_floor()
+
+
+func on_player_died() -> void:
+    self.disabled = true
