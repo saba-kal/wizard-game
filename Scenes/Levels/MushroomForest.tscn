@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=22 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="9_xd86k"]
 [ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="10_6w6g6"]
 [ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="11_m48d0"]
+[ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="13_xl28e"]
 [ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="14_enmni"]
 [ext_resource type="PackedScene" uid="uid://dkbtip8iwehfa" path="res://Scenes/Environment/MushroomForest/PoisonMushroom.tscn" id="15_ydb8s"]
 
@@ -47,15 +48,6 @@ geometry_parsed_geometry_type = 1
 geometry_source_geometry_mode = 1
 filter_baking_aabb = AABB(0, 0, 0, 20.455, 14.14, 31.22)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyabc"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0.384314, 0.384314, 0.827451)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_03peo"]
-material = SubResource("StandardMaterial3D_uyabc")
-size = Vector2(190, 190)
-
 [node name="MushroomForest" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -76,11 +68,6 @@ script = ExtResource("1_j23ne")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7653, 22.9832, 6.75395)
 navigation_mesh = SubResource("NavigationMesh_7tfpk")
 script = ExtResource("1_j23ne")
-
-[node name="WaterMesh" type="MeshInstance3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.197, 0)
-mesh = SubResource("PlaneMesh_03peo")
-skeleton = NodePath("")
 
 [node name="TempMushroomForestTerrain" parent="Map" groups=["navigation_mesh_source_group"] instance=ExtResource("1_7yxs3")]
 
@@ -139,6 +126,9 @@ rune = ExtResource("9_xd86k")
 
 [node name="BounceMushroom" parent="Map" instance=ExtResource("14_enmni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4865, 23.1691, -49.4629)
+
+[node name="Water" parent="Map" instance=ExtResource("13_xl28e")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 20.7, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_rsw63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3379, 24.8174, -60.2499)
