@@ -4,34 +4,22 @@ signal state_changed(agent: EnemyAI, old_state: State, new_state: State)
 
 enum State {WANDER, PERSUIT, STUN}
 
-@export var speed: float = 200.0
-@export var turn_speed: float = 20.0
 @export var detect_radius: float = 10.0
 @export var ai_wander_area: AIWanderArea
 
-@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var pursue_target_ai: PursueTargetAI = $PersueTargetAI
 @onready var health: Health = $Health
 @onready var spawn_position: Vector3 = self.global_position
 
 var player: Node3D
-var nav_server_ready: bool = false
 var current_state: State = State.WANDER
-var move_target_position: Vector3
 
 
 func _ready():
     self.player = self.get_tree().get_first_node_in_group("Player")
     self.health.health_lost.connect(self.on_health_lost)
-    self.nav_agent.velocity_computed.connect(self.on_nav_agent_velocity_computed)
-    call_deferred("actor_setup")
     if self.ai_wander_area != null:
         call_deferred("register_agent_to_wander_area")
-
-
-func actor_setup():
-    # Wait for the first physics frame so the NavigationServer can sync.
-    await get_tree().physics_frame
-    self.nav_server_ready = true
 
 
 func register_agent_to_wander_area():
@@ -40,8 +28,6 @@ func register_agent_to_wander_area():
 
 
 func _physics_process(delta):
-    if !self.nav_server_ready:
-        return
     match self.current_state:
         State.WANDER:
             self.wander()
@@ -49,45 +35,28 @@ func _physics_process(delta):
             self.persue_player()
         State.STUN:
             self.remain_still()
-    if self.current_state != State.STUN:
-        self.process_nav_agent(delta)
-        self.look_at_target(delta)
 
 
 func persue_player():
+    self.pursue_target_ai.set_enabled(true)
     if self.global_position.distance_squared_to(self.player.global_position) > self.detect_radius * self.detect_radius:
         self.set_state(State.WANDER)
     else:
-        self.move_target_position = self.player.global_position
+        self.pursue_target_ai.set_target(self.player.global_position)
 
 
 func wander():
+    self.pursue_target_ai.set_enabled(true)
     if self.global_position.distance_squared_to(self.player.global_position) <= self.detect_radius * self.detect_radius:
         self.set_state(State.PERSUIT)
     elif self.ai_wander_area != null:
-        self.move_target_position = self.ai_wander_area.get_next_wonder_position(self)
+        self.pursue_target_ai.set_target(self.ai_wander_area.get_next_wonder_position(self))
     else:
-        self.move_target_position = self.spawn_position
+        self.pursue_target_ai.set_target(self.spawn_position)
 
 
 func remain_still():
-    self.move_target_position = self.global_position
-
-
-func process_nav_agent(delta):
-    self.nav_agent.target_position = self.move_target_position
-    var next_nav_point = self.nav_agent.get_next_path_position()
-    if self.nav_agent.is_navigation_finished():
-        return
-    self.nav_agent.velocity = (next_nav_point - self.global_position).normalized() * self.speed * delta
-
-
-func look_at_target(delta):
-    var look_position = Vector3(self.move_target_position.x, self.global_position.y, self.move_target_position.z)
-    if look_position.distance_squared_to(self.global_position) > 1:
-        var original_rotation = self.quaternion
-        self.look_at_from_position(self.global_position, look_position, Vector3.UP, true)
-        self.quaternion = original_rotation.slerp(self.quaternion, delta * self.turn_speed)
+    self.pursue_target_ai.set_enabled(false)
 
 
 func set_state(new_state: State):

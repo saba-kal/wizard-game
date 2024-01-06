@@ -83,7 +83,7 @@ input_3/reset = false
 animation = &"Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hssfi"]
-graph_offset = Vector2(-504.949, -86.4977)
+graph_offset = Vector2(-376.335, -26.1651)
 nodes/dead_state/node = SubResource("AnimationNodeTransition_rtblc")
 nodes/dead_state/position = Vector2(980, 360)
 nodes/death_anim/node = SubResource("AnimationNodeAnimation_33x3j")
@@ -128,19 +128,19 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(-0.00622095, -2.38064e-07, -9.89834e-09, 0.999981)
-bones/3/rotation = Quaternion(-0.159387, -0.00913895, -0.0284422, 0.986764)
+bones/2/rotation = Quaternion(0.0179975, -2.38234e-07, -4.13021e-09, 0.999838)
+bones/3/rotation = Quaternion(-0.251532, 2.29644e-07, 3.9813e-09, 0.967849)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/7/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
-bones/8/rotation = Quaternion(-0.0225656, 0.326069, -0.188635, 0.92606)
-bones/9/rotation = Quaternion(0.492959, 0.0283702, -0.471182, 0.730872)
+bones/8/rotation = Quaternion(-0.0286053, 0.298673, -0.406303, 0.863072)
+bones/9/rotation = Quaternion(0.227317, 0.0151158, 0.00145193, 0.973702)
 bones/11/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
-bones/12/rotation = Quaternion(-0.0340454, -0.303044, 0.406306, 0.861348)
-bones/13/rotation = Quaternion(0.221623, -0.0151361, -0.00141561, 0.975014)
+bones/12/rotation = Quaternion(-0.0286055, -0.298673, 0.406303, 0.863072)
+bones/13/rotation = Quaternion(0.22732, -0.0151157, -0.00145198, 0.973702)
 bones/21/rotation = Quaternion(0.991633, 0.128359, 0.00176094, -0.0136038)
 bones/23/rotation = Quaternion(0.991633, -0.128359, -0.00176069, -0.0136038)
-bones/26/position = Vector3(1.17197, -0.461176, 0.843496)
-bones/26/rotation = Quaternion(-0.157039, 0.949677, 0.0442156, 0.267389)
+bones/26/position = Vector3(1.70522, -0.231434, -0.0364273)
+bones/26/rotation = Quaternion(-3.44803e-05, 0.962574, 9.70818e-06, 0.27102)
 bones/28/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/29/position = Vector3(-1.70522, -0.231434, -0.0364273)
 bones/29/rotation = Quaternion(0, 0.962574, 0, -0.27102)
@@ -149,11 +149,11 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.881041, 0.0214529, -0.0804598, 0.115451, 0.0860973, 0.58211, 0.0468513, -0.615584, 0.0786115, 1.27678, 7.5038, 2.75642)
+transform = Transform3D(0.874622, 1.02318e-12, -0.109067, 0.16369, -3.72529e-08, 0.582761, -1.35042e-08, -0.621946, -2.21189e-08, 1.2166, 7.91494, 2.46901)
 bone_idx = 5
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.881041, 0.0214529, -0.0804598, 0.115451, 0.0860973, 0.58211, 0.0468513, -0.615584, 0.0786115, 1.27678, 7.5038, 2.75642)
+transform = Transform3D(0.874622, 1.02318e-12, -0.109067, 0.16369, -3.72529e-08, 0.582761, -1.35042e-08, -0.621946, -2.21189e-08, 1.2166, 7.91494, 2.46901)
 bone_idx = 6
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "horizontal_pivot", "vertical_pivot", "spring_arm", "camera")]

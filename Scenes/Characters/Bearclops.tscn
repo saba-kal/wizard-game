@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://biqqmdi2652eh"]
+
+[ext_resource type="PackedScene" uid="uid://dqws5h8h52w6l" path="res://Models/Characters/BearclopsGrouped.blend" id="1_h8pql"]
+[ext_resource type="Script" path="res://Scripts/AI/BearclopsAI.gd" id="1_lonbr"]
+[ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="2_a5tmv"]
+[ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="3_fjm2d"]
+[ext_resource type="Script" path="res://Scripts/Animation/BearclopsAnimationTree.gd" id="5_yelh4"]
+[ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="6_mn8hr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y1es1"]
+radius = 1.72594
+height = 5.16672
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qntmc"]
+animation = &"DefaultPose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e1dvj"]
+animation = &"Die(FourLegs)"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1b342"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_ub6b8"]
+xfade_time = 0.1
+input_0/name = "walk"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "idle"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "dead"
+input_2/auto_advance = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_34imo"]
+graph_offset = Vector2(-578.382, 0.372925)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_1b342")
+nodes/Animation/position = Vector2(-540, 60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_qntmc")
+"nodes/Animation 2/position" = Vector2(-560, 180)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_e1dvj")
+"nodes/Animation 3/position" = Vector2(-560, 300)
+nodes/state/node = SubResource("AnimationNodeTransition_ub6b8")
+nodes/state/position = Vector2(-280, 100)
+node_connections = [&"output", 0, &"state", &"state", 0, &"Animation", &"state", 1, &"Animation 2", &"state", 2, &"Animation 3"]
+
+[node name="Bearclops" type="CharacterBody3D"]
+script = ExtResource("1_lonbr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.7256, -0.42065)
+shape = SubResource("CapsuleShape3D_y1es1")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 1.0
+avoidance_enabled = true
+height = 2.0
+radius = 2.0
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="BearclopsGrouped" parent="Visuals" instance=ExtResource("1_h8pql")]
+
+[node name="Skeleton3D" parent="Visuals/BearclopsGrouped/BearRig_001" index="0"]
+bones/2/rotation = Quaternion(0.884034, 0.0434373, -0.183949, 0.427504)
+bones/4/rotation = Quaternion(0.234483, 0.0307609, -0.126377, 0.96338)
+bones/5/rotation = Quaternion(0.685888, 0.0762066, 0.108307, 0.715556)
+bones/6/rotation = Quaternion(-0.68057, 0.013466, -0.0144918, 0.732416)
+bones/7/rotation = Quaternion(0.584069, -0.076618, 0.105104, 0.801215)
+bones/8/rotation = Quaternion(0.172517, -0.0191677, -0.147384, 0.973729)
+bones/9/rotation = Quaternion(-0.59203, -0.0117141, 0.0159413, 0.805673)
+bones/10/rotation = Quaternion(-0.204791, 1.16688e-07, 4.15021e-07, 0.978806)
+bones/11/rotation = Quaternion(0.0136022, 3.33941e-13, -2.59441e-08, 0.999907)
+bones/12/rotation = Quaternion(0.200375, -0.235556, 0.0096444, 0.950931)
+bones/14/rotation = Quaternion(0.0145964, 0.190977, -0.0846434, 0.977829)
+bones/21/rotation = Quaternion(0.665423, 0.0937552, 0.0156033, 0.740391)
+bones/22/rotation = Quaternion(-0.195162, -0.0301849, 0.0160308, 0.980175)
+bones/23/rotation = Quaternion(-0.0936982, -0.0249808, 0.0776317, 0.992255)
+bones/24/rotation = Quaternion(0.864196, -0.107912, 0.0595576, 0.487826)
+bones/25/rotation = Quaternion(-0.118443, 0.0651232, -0.0823682, 0.987393)
+bones/26/rotation = Quaternion(-0.504611, 0.023359, -0.0830593, 0.859025)
+
+[node name="Health" parent="." instance=ExtResource("2_a5tmv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20943, 0)
+max_health = 200.0
+
+[node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("3_fjm2d")]
+character_body = NodePath("..")
+nav_agent = NodePath("../NavigationAgent3D")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_34imo")
+anim_player = NodePath("../Visuals/BearclopsGrouped/AnimationPlayer")
+active = true
+parameters/state/current_state = "walk"
+parameters/state/transition_request = ""
+parameters/state/current_index = 0
+script = ExtResource("5_yelh4")
+
+[node name="Flammable" parent="." instance=ExtResource("6_mn8hr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65289, -0.210571)
+
+[editable path="Visuals/BearclopsGrouped"]
