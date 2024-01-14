@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://biqqmdi2652eh"]
+[gd_scene load_steps=24 format=3 uid="uid://biqqmdi2652eh"]
 
 [ext_resource type="PackedScene" uid="uid://dqws5h8h52w6l" path="res://Models/Characters/BearclopsGrouped.blend" id="1_h8pql"]
 [ext_resource type="Script" path="res://Scripts/AI/BearclopsAI.gd" id="1_lonbr"]
@@ -6,19 +6,60 @@
 [ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="3_fjm2d"]
 [ext_resource type="Script" path="res://Scripts/Animation/BearclopsAnimationTree.gd" id="5_yelh4"]
 [ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="6_mn8hr"]
+[ext_resource type="Script" path="res://Scripts/AI/AreaAttack.gd" id="7_xbnmv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y1es1"]
-radius = 1.72594
-height = 5.16672
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qntmc"]
-animation = &"DefaultPose"
+radius = 1.365
+height = 3.71985
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e1dvj"]
 animation = &"Die(FourLegs)"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qntmc"]
+animation = &"DefaultPose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ptvjp"]
+animation = &"StandAttack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3i624"]
+animation = &"StandUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yfb68"]
+animation = &"Unstand"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d6spo"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2glh1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3m00p"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yv5fp"]
+xfade_time = 0.5
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qjqe2"]
+states/End/position = Vector2(880, 106)
+states/StandAttack/node = SubResource("AnimationNodeAnimation_ptvjp")
+states/StandAttack/position = Vector2(530, 106)
+states/StandUp/node = SubResource("AnimationNodeAnimation_3i624")
+states/StandUp/position = Vector2(338, 106)
+states/Start/position = Vector2(169, 106)
+states/Unstand/node = SubResource("AnimationNodeAnimation_yfb68")
+states/Unstand/position = Vector2(719, 106)
+transitions = ["Start", "StandUp", SubResource("AnimationNodeStateMachineTransition_d6spo"), "StandUp", "StandAttack", SubResource("AnimationNodeStateMachineTransition_2glh1"), "StandAttack", "Unstand", SubResource("AnimationNodeStateMachineTransition_3m00p"), "Unstand", "End", SubResource("AnimationNodeStateMachineTransition_yv5fp")]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1b342"]
 animation = &"Walk"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sfcj2"]
+fadein_time = 0.5
+fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_ub6b8"]
 xfade_time = 0.1
@@ -33,22 +74,29 @@ input_2/auto_advance = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_34imo"]
-graph_offset = Vector2(-578.382, 0.372925)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_1b342")
-nodes/Animation/position = Vector2(-540, 60)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_qntmc")
-"nodes/Animation 2/position" = Vector2(-560, 180)
-"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_e1dvj")
-"nodes/Animation 3/position" = Vector2(-560, 300)
+graph_offset = Vector2(-568.831, 6.26442)
+nodes/Die/node = SubResource("AnimationNodeAnimation_e1dvj")
+nodes/Die/position = Vector2(-600, 220)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_qntmc")
+nodes/Idle/position = Vector2(-580, 100)
+nodes/StandAndAttack/node = SubResource("AnimationNodeStateMachine_qjqe2")
+nodes/StandAndAttack/position = Vector2(-240, 420)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_1b342")
+nodes/Walk/position = Vector2(-560, -20)
+nodes/attack/node = SubResource("AnimationNodeOneShot_sfcj2")
+nodes/attack/position = Vector2(0, 140)
 nodes/state/node = SubResource("AnimationNodeTransition_ub6b8")
 nodes/state/position = Vector2(-280, 100)
-node_connections = [&"output", 0, &"state", &"state", 0, &"Animation", &"state", 1, &"Animation 2", &"state", 2, &"Animation 3"]
+node_connections = [&"output", 0, &"attack", &"state", 0, &"Walk", &"state", 1, &"Idle", &"state", 2, &"Die", &"attack", 0, &"state", &"attack", 1, &"StandAndAttack"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_36jvy"]
+radius = 1.45298
 
 [node name="Bearclops" type="CharacterBody3D"]
 script = ExtResource("1_lonbr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.7256, -0.42065)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.7256, -0.769596)
 shape = SubResource("CapsuleShape3D_y1es1")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -62,23 +110,23 @@ radius = 2.0
 [node name="BearclopsGrouped" parent="Visuals" instance=ExtResource("1_h8pql")]
 
 [node name="Skeleton3D" parent="Visuals/BearclopsGrouped/BearRig_001" index="0"]
-bones/2/rotation = Quaternion(0.884034, 0.0434373, -0.183949, 0.427504)
-bones/4/rotation = Quaternion(0.234483, 0.0307609, -0.126377, 0.96338)
-bones/5/rotation = Quaternion(0.685888, 0.0762066, 0.108307, 0.715556)
-bones/6/rotation = Quaternion(-0.68057, 0.013466, -0.0144918, 0.732416)
-bones/7/rotation = Quaternion(0.584069, -0.076618, 0.105104, 0.801215)
-bones/8/rotation = Quaternion(0.172517, -0.0191677, -0.147384, 0.973729)
-bones/9/rotation = Quaternion(-0.59203, -0.0117141, 0.0159413, 0.805673)
+bones/2/rotation = Quaternion(0.899451, 0.00974462, -0.041266, 0.43496)
+bones/4/rotation = Quaternion(0.424755, 0.0557208, -0.117528, 0.895916)
+bones/5/rotation = Quaternion(0.289053, 0.0321156, 0.143187, 0.945999)
+bones/6/rotation = Quaternion(-0.493707, 0.00976864, -0.0172023, 0.869403)
+bones/7/rotation = Quaternion(0.772309, -0.101312, 0.0815661, 0.621789)
+bones/8/rotation = Quaternion(0.24849, -0.0276088, -0.144903, 0.957337)
+bones/9/rotation = Quaternion(-0.309846, -0.00613077, 0.0188084, 0.950581)
 bones/10/rotation = Quaternion(-0.204791, 1.16688e-07, 4.15021e-07, 0.978806)
 bones/11/rotation = Quaternion(0.0136022, 3.33941e-13, -2.59441e-08, 0.999907)
-bones/12/rotation = Quaternion(0.200375, -0.235556, 0.0096444, 0.950931)
-bones/14/rotation = Quaternion(0.0145964, 0.190977, -0.0846434, 0.977829)
-bones/21/rotation = Quaternion(0.665423, 0.0937552, 0.0156033, 0.740391)
-bones/22/rotation = Quaternion(-0.195162, -0.0301849, 0.0160308, 0.980175)
-bones/23/rotation = Quaternion(-0.0936982, -0.0249808, 0.0776317, 0.992255)
-bones/24/rotation = Quaternion(0.864196, -0.107912, 0.0595576, 0.487826)
-bones/25/rotation = Quaternion(-0.118443, 0.0651232, -0.0823682, 0.987393)
-bones/26/rotation = Quaternion(-0.504611, 0.023359, -0.0830593, 0.859025)
+bones/12/rotation = Quaternion(0.205892, -0.0533575, 0.00218429, 0.977117)
+bones/14/rotation = Quaternion(0.0149092, 0.043007, -0.0190611, 0.998782)
+bones/21/rotation = Quaternion(0.793929, 0.102809, -0.065149, 0.595703)
+bones/22/rotation = Quaternion(-0.162296, -0.069966, 0.0794197, 0.981049)
+bones/23/rotation = Quaternion(-0.443939, -0.0216243, 0.0815579, 0.892076)
+bones/24/rotation = Quaternion(0.914125, -0.111936, 0.0490097, 0.386579)
+bones/25/rotation = Quaternion(-0.329494, 0.101627, -0.0886147, 0.93448)
+bones/26/rotation = Quaternion(-0.327479, 0.0152439, -0.0716685, 0.942013)
 
 [node name="Health" parent="." instance=ExtResource("2_a5tmv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20943, 0)
@@ -87,11 +135,15 @@ max_health = 200.0
 [node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("3_fjm2d")]
 character_body = NodePath("..")
 nav_agent = NodePath("../NavigationAgent3D")
+turn_speed = 3.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_34imo")
 anim_player = NodePath("../Visuals/BearclopsGrouped/AnimationPlayer")
 active = true
+parameters/attack/active = false
+parameters/attack/internal_active = false
+parameters/attack/request = 0
 parameters/state/current_state = "walk"
 parameters/state/transition_request = ""
 parameters/state/current_index = 0
@@ -99,5 +151,12 @@ script = ExtResource("5_yelh4")
 
 [node name="Flammable" parent="." instance=ExtResource("6_mn8hr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65289, -0.210571)
+
+[node name="AreaAttack" type="Area3D" parent="."]
+script = ExtResource("7_xbnmv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaAttack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0628109, 1.59185, 1.28796)
+shape = SubResource("SphereShape3D_36jvy")
 
 [editable path="Visuals/BearclopsGrouped"]

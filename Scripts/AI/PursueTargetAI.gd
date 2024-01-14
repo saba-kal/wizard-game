@@ -52,5 +52,7 @@ func look_at_target(delta: float):
 
 
 func on_nav_agent_velocity_computed(safe_velocity: Vector3):
+    if !self.enabled:
+        return
     self.character_body.velocity = safe_velocity
     self.character_body.move_and_slide()

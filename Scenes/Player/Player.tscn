@@ -149,11 +149,11 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.874622, 1.02318e-12, -0.109067, 0.16369, -3.72529e-08, 0.582761, -1.35042e-08, -0.621946, -2.21189e-08, 1.2166, 7.91494, 2.46901)
+transform = Transform3D(0.874622, 2.24532e-12, -0.109067, 0.16369, 1.07498e-06, 0.582761, 2.7928e-07, -0.621946, 1.02026e-06, 1.2166, 7.91493, 2.46901)
 bone_idx = 5
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.874622, 1.02318e-12, -0.109067, 0.16369, -3.72529e-08, 0.582761, -1.35042e-08, -0.621946, -2.21189e-08, 1.2166, 7.91494, 2.46901)
+transform = Transform3D(0.874622, 2.24532e-12, -0.109067, 0.16369, 1.07498e-06, 0.582761, 2.7928e-07, -0.621946, 1.02026e-06, 1.2166, 7.91493, 2.46901)
 bone_idx = 6
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "horizontal_pivot", "vertical_pivot", "spring_arm", "camera")]
