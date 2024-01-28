@@ -87,7 +87,7 @@ nodes/attack/node = SubResource("AnimationNodeOneShot_sfcj2")
 nodes/attack/position = Vector2(0, 140)
 nodes/state/node = SubResource("AnimationNodeTransition_ub6b8")
 nodes/state/position = Vector2(-280, 100)
-node_connections = [&"output", 0, &"attack", &"state", 0, &"Walk", &"state", 1, &"Idle", &"state", 2, &"Die", &"attack", 0, &"state", &"attack", 1, &"StandAndAttack"]
+node_connections = [&"output", 0, &"attack", &"attack", 0, &"state", &"attack", 1, &"StandAndAttack", &"state", 0, &"Walk", &"state", 1, &"Idle", &"state", 2, &"Die"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_36jvy"]
 radius = 1.45298

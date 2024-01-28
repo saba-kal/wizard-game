@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=35 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
 [ext_resource type="PackedScene" uid="uid://cg56ipkq03i76" path="res://Models/Characters/Player.blend" id="3_q8otp"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellFactory.gd" id="4_8qt2s"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerSwimming.gd" id="4_t3yqj"]
 [ext_resource type="PackedScene" uid="uid://fnppmucucsf3" path="res://Scenes/SpellCasting/CastingIndicators/MagicCircle.tscn" id="5_ppnlc"]
 [ext_resource type="PackedScene" uid="uid://cs233npw823ao" path="res://Scenes/SpellCasting/Spells/GroundSummonSpell.tscn" id="6_7bph8"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezablePlayer.gd" id="8_ffrmc"]
@@ -21,6 +22,9 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mhhkq"]
 radius = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jxyqu"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_rtblc"]
 input_0/name = "not_dead"
@@ -128,19 +132,19 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(0.0179975, -2.38234e-07, -4.13021e-09, 0.999838)
-bones/3/rotation = Quaternion(-0.251532, 2.29644e-07, 3.9813e-09, 0.967849)
+bones/2/rotation = Quaternion(0.0327039, -2.38269e-07, -6.25185e-10, 0.999465)
+bones/3/rotation = Quaternion(-0.265743, 2.29678e-07, 6.02644e-10, 0.964044)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/7/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
-bones/8/rotation = Quaternion(-0.0286053, 0.298673, -0.406303, 0.863072)
-bones/9/rotation = Quaternion(0.227317, 0.0151158, 0.00145193, 0.973702)
+bones/8/rotation = Quaternion(-0.026595, 0.296968, -0.406184, 0.863781)
+bones/9/rotation = Quaternion(0.231251, 0.0151014, 0.00147707, 0.972776)
 bones/11/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
-bones/12/rotation = Quaternion(-0.0286055, -0.298673, 0.406303, 0.863072)
-bones/13/rotation = Quaternion(0.22732, -0.0151157, -0.00145198, 0.973702)
+bones/12/rotation = Quaternion(-0.0265954, -0.296968, 0.406184, 0.863781)
+bones/13/rotation = Quaternion(0.230831, -0.0151029, -0.00147443, 0.972876)
 bones/21/rotation = Quaternion(0.991633, 0.128359, 0.00176094, -0.0136038)
 bones/23/rotation = Quaternion(0.991633, -0.128359, -0.00176069, -0.0136038)
 bones/26/position = Vector3(1.70522, -0.231434, -0.0364273)
-bones/26/rotation = Quaternion(-3.44803e-05, 0.962574, 9.70818e-06, 0.27102)
+bones/26/rotation = Quaternion(-0.000215903, 0.962574, 6.07891e-05, 0.27102)
 bones/28/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/29/position = Vector3(-1.70522, -0.231434, -0.0364273)
 bones/29/rotation = Quaternion(0, 0.962574, 0, -0.27102)
@@ -149,11 +153,11 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.874622, 2.24532e-12, -0.109067, 0.16369, 1.07498e-06, 0.582761, 2.7928e-07, -0.621946, 1.02026e-06, 1.2166, 7.91493, 2.46901)
+transform = Transform3D(0.874622, 1.08002e-12, -0.109067, 0.16369, 9.22009e-08, 0.58276, 1.58325e-08, -0.621946, 8.2422e-08, 1.2166, 7.9104, 2.54686)
 bone_idx = 5
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.874622, 2.24532e-12, -0.109067, 0.16369, 1.07498e-06, 0.582761, 2.7928e-07, -0.621946, 1.02026e-06, 1.2166, 7.91493, 2.46901)
+transform = Transform3D(0.874622, 1.08002e-12, -0.109067, 0.16369, 9.22009e-08, 0.58276, 1.58325e-08, -0.621946, 8.2422e-08, 1.2166, 7.9104, 2.54686)
 bone_idx = 6
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "horizontal_pivot", "vertical_pivot", "spring_arm", "camera")]
@@ -182,6 +186,15 @@ script = ExtResource("2_afa8s")
 player_node = NodePath("..")
 player_visuals_node = NodePath("../Visuals")
 animation_tree = NodePath("../AnimationTree")
+
+[node name="PlayerSwimming" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16704, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("4_t3yqj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerSwimming"]
+shape = SubResource("BoxShape3D_jxyqu")
 
 [node name="MagicCircle" parent="." instance=ExtResource("5_ppnlc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03646, -3.1733)

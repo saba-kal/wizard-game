@@ -8,14 +8,18 @@ class_name PlayerMovement extends Node3D
 @export var turn_speed: float = 20
 @export var animation_tree: AnimationTree
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity_adjustment: float = 0
 var input_direction: Vector2
 var disabled: bool = false
 var third_persion_camera: ThirdPersonCamera
+var player_swimming: PlayerSwimming
+
 
 func _ready():
     self.animation_tree.active = true
     self.third_persion_camera = Util.get_child_node_of_type(self.get_parent(), ThirdPersonCamera)
+    self.player_swimming = Util.get_child_node_of_type(self.get_parent(), PlayerSwimming)
     SignalBus.player_died.connect(self.on_player_died)
 
 
@@ -29,8 +33,8 @@ func _physics_process(delta):
 
 
 func process_velocity(delta):
-    if !self.player_node.is_on_floor():
-        self.player_node.velocity.y -= self.gravity * delta
+    if !self.player_node.is_on_floor() && !self.player_swimming.is_swimming:
+        self.player_node.velocity.y -= (self.gravity + self.gravity_adjustment) * delta
 
     if Input.is_action_just_pressed("jump") && self.player_node.is_on_floor():
         self.apply_vertical_velocity(self.jump_velocity)
@@ -57,6 +61,10 @@ func process_velocity(delta):
 
 func apply_vertical_velocity(vertical_velocity: float):
     self.player_node.velocity.y += vertical_velocity
+
+
+func set_vertical_velocity(vertical_velocity: float):
+    self.player_node.velocity.y = vertical_velocity
 
 
 func process_rotation(delta):
@@ -88,3 +96,7 @@ func is_on_floor() -> bool:
 
 func on_player_died() -> void:
     self.disabled = true
+
+
+func get_velocity() -> Vector3:
+    return self.player_node.velocity
