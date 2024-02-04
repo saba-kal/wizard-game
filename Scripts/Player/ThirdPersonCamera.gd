@@ -23,12 +23,12 @@ func _ready():
     SignalBus.player_died.connect(self.on_player_died)
 
 
-func _process(delta):
+func _process(delta: float):
 
     self.global_position = self.camera_target.global_position
-
+    
     var target_fov = self.initial_camera_fov
-    var target_pos = Vector3(0, self.camera.position.y, self.camera.position.z)
+    var target_pos = Vector3(0, self.spring_arm.position.y, self.spring_arm.position.z)
 
     var old_is_aiming = self.is_aiming
     if Input.is_action_pressed("aim") && !self.aim_mode_disabled:
@@ -41,7 +41,7 @@ func _process(delta):
         SignalBus.player_aim_mode_changed.emit(self.is_aiming)
 
     create_tween().tween_property(self.camera, "fov", target_fov, self.aim_transition_duration)
-    create_tween().tween_property(self.camera, "position", target_pos, self.aim_transition_duration)
+    create_tween().tween_property(self.spring_arm, "position", target_pos, self.aim_transition_duration)
 
 
 func _unhandled_input(event):

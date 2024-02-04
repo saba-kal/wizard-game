@@ -2,7 +2,7 @@ class_name BearclopsAI extends CharacterBody3D
 
 signal state_changed(agent: BearclopsAI, old_state: State, new_state: State)
 
-enum State {IDLE, PURSUIT, DEAD, ATTACK}
+enum State {IDLE, PURSUIT, DEAD, ATTACK, STUN}
 
 @export var detect_radius: float = 10.0
 @export var attack_range: float = 2.0
@@ -26,12 +26,16 @@ func _physics_process(delta):
     match self.current_state:
         State.IDLE:
             self.idle()
+        State.ATTACK:
+            self.attack()
         State.PURSUIT:
             self.persue_player()
         State.DEAD:
             self.pursue_target_ai.set_enabled(false)
         State.ATTACK:
             self.attack()
+        State.STUN:
+            self.pursue_target_ai.set_enabled(false)
 
 
 func idle():
