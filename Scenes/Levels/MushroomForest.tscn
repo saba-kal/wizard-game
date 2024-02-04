@@ -122,10 +122,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6651, 27.022, -28.0318)
 rune = ExtResource("9_xd86k")
 
 [node name="BounceMushroom" parent="Map" instance=ExtResource("14_enmni")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4865, 23.1691, -49.4629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1898, 26.1588, -28.6131)
 
-[node name="Water" parent="Map" instance=ExtResource("13_xl28e")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 20.7, 0)
+[node name="Water1" parent="Map" instance=ExtResource("13_xl28e")]
+transform = Transform3D(2.63088, 0, 0, 0, 1.07909, 0, 0, 0, 3.20774, 0, 20.7, -15.8539)
+
+[node name="Water2" parent="Map" instance=ExtResource("13_xl28e")]
+transform = Transform3D(2.61329, 0, 0, 0, 1, 0, 0, 0, 3.32486, -31.8278, 12.9714, -53.2635)
+
+[node name="Water3" parent="Map" instance=ExtResource("13_xl28e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4836, 27.924, -7.91071)
+
+[node name="Water4" parent="Map" instance=ExtResource("13_xl28e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7882, 35.6417, -21.763)
 
 [node name="Player" parent="." instance=ExtResource("3_rsw63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3379, 24.8174, -60.2499)

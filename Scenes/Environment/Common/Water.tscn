@@ -1,27 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://di6pq5w7m0qj5"]
+[gd_scene load_steps=5 format=3 uid="uid://di6pq5w7m0qj5"]
 
-[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="1_sn0tq"]
+[ext_resource type="Script" path="res://Scripts/Environment/Common/Water.gd" id="1_mksut"]
+[ext_resource type="Material" uid="uid://ny087gjwlmtm" path="res://Materials/Environment/WaterMaterial.tres" id="1_vbom2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d31m3"]
-render_priority = 0
-shader = ExtResource("1_sn0tq")
-shader_parameter/R = Vector2(0.8, 0.6)
-shader_parameter/scale = 4.0
-shader_parameter/speed = 0.05
-shader_parameter/wave_speed = 0.5
-shader_parameter/direction = Vector3(1, 1, 0)
-shader_parameter/distortion = -0.21
-shader_parameter/layers = 1.725
-shader_parameter/shades = 6.26
-shader_parameter/steps = 6
-shader_parameter/tint = Vector3(0.459, 0.765, 1)
-shader_parameter/alpha = 0.5
+[sub_resource type="BoxMesh" id="BoxMesh_2c2l6"]
+material = ExtResource("1_vbom2")
+size = Vector3(10, 10, 10)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_m66ua"]
-material = SubResource("ShaderMaterial_d31m3")
-size = Vector2(20, 20)
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3170"]
+size = Vector3(10, 10, 10)
 
-[node name="Water" type="Node3D"]
+[node name="Water" type="Area3D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_mksut")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_m66ua")
+mesh = SubResource("BoxMesh_2c2l6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_q3170")

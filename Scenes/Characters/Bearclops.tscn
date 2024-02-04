@@ -1,12 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://biqqmdi2652eh"]
+[gd_scene load_steps=26 format=3 uid="uid://biqqmdi2652eh"]
 
 [ext_resource type="PackedScene" uid="uid://dqws5h8h52w6l" path="res://Models/Characters/BearclopsGrouped.blend" id="1_h8pql"]
 [ext_resource type="Script" path="res://Scripts/AI/BearclopsAI.gd" id="1_lonbr"]
 [ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="2_a5tmv"]
 [ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="3_fjm2d"]
+[ext_resource type="PackedScene" uid="uid://dd55852bglfak" path="res://Scenes/Characters/StatusHealth.tscn" id="4_eoaf3"]
 [ext_resource type="Script" path="res://Scripts/Animation/BearclopsAnimationTree.gd" id="5_yelh4"]
 [ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="6_mn8hr"]
 [ext_resource type="Script" path="res://Scripts/AI/AreaAttack.gd" id="7_xbnmv"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezableBearclops.gd" id="8_8qrxq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y1es1"]
 radius = 1.365
@@ -87,7 +89,7 @@ nodes/attack/node = SubResource("AnimationNodeOneShot_sfcj2")
 nodes/attack/position = Vector2(0, 140)
 nodes/state/node = SubResource("AnimationNodeTransition_ub6b8")
 nodes/state/position = Vector2(-280, 100)
-node_connections = [&"output", 0, &"attack", &"state", 0, &"Walk", &"state", 1, &"Idle", &"state", 2, &"Die", &"attack", 0, &"state", &"attack", 1, &"StandAndAttack"]
+node_connections = [&"output", 0, &"attack", &"attack", 0, &"state", &"attack", 1, &"StandAndAttack", &"state", 0, &"Walk", &"state", 1, &"Idle", &"state", 2, &"Die"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_36jvy"]
 radius = 1.45298
@@ -110,27 +112,30 @@ radius = 2.0
 [node name="BearclopsGrouped" parent="Visuals" instance=ExtResource("1_h8pql")]
 
 [node name="Skeleton3D" parent="Visuals/BearclopsGrouped/BearRig_001" index="0"]
-bones/2/rotation = Quaternion(0.899451, 0.00974462, -0.041266, 0.43496)
-bones/4/rotation = Quaternion(0.424755, 0.0557208, -0.117528, 0.895916)
-bones/5/rotation = Quaternion(0.289053, 0.0321156, 0.143187, 0.945999)
-bones/6/rotation = Quaternion(-0.493707, 0.00976864, -0.0172023, 0.869403)
-bones/7/rotation = Quaternion(0.772309, -0.101312, 0.0815661, 0.621789)
-bones/8/rotation = Quaternion(0.24849, -0.0276088, -0.144903, 0.957337)
-bones/9/rotation = Quaternion(-0.309846, -0.00613077, 0.0188084, 0.950581)
+bones/2/rotation = Quaternion(0.897679, 0.0173912, -0.0736483, 0.434103)
+bones/4/rotation = Quaternion(0.389013, 0.0510322, -0.119638, 0.912004)
+bones/5/rotation = Quaternion(0.345995, 0.0384423, 0.140294, 0.926891)
+bones/6/rotation = Quaternion(-0.513654, 0.0101633, -0.0169721, 0.85777)
+bones/7/rotation = Quaternion(0.74586, -0.0978421, 0.0856972, 0.653281)
+bones/8/rotation = Quaternion(0.251139, -0.0279032, -0.144799, 0.956652)
+bones/9/rotation = Quaternion(-0.424692, -0.00840312, 0.017909, 0.905122)
 bones/10/rotation = Quaternion(-0.204791, 1.16688e-07, 4.15021e-07, 0.978806)
 bones/11/rotation = Quaternion(0.0136022, 3.33941e-13, -2.59441e-08, 0.999907)
-bones/12/rotation = Quaternion(0.205892, -0.0533575, 0.00218429, 0.977117)
-bones/14/rotation = Quaternion(0.0149092, 0.043007, -0.0190611, 0.998782)
-bones/21/rotation = Quaternion(0.793929, 0.102809, -0.065149, 0.595703)
-bones/22/rotation = Quaternion(-0.162296, -0.069966, 0.0794197, 0.981049)
-bones/23/rotation = Quaternion(-0.443939, -0.0216243, 0.0815579, 0.892076)
-bones/24/rotation = Quaternion(0.914125, -0.111936, 0.0490097, 0.386579)
-bones/25/rotation = Quaternion(-0.329494, 0.101627, -0.0886147, 0.93448)
-bones/26/rotation = Quaternion(-0.327479, 0.0152439, -0.0716685, 0.942013)
+bones/12/rotation = Quaternion(0.20525, -0.0951336, 0.00389481, 0.974067)
+bones/14/rotation = Quaternion(0.014873, 0.0767257, -0.0340057, 0.996361)
+bones/21/rotation = Quaternion(0.776967, 0.103877, -0.0551635, 0.618457)
+bones/22/rotation = Quaternion(-0.170288, -0.0667425, 0.0724412, 0.980459)
+bones/23/rotation = Quaternion(-0.393502, -0.0212159, 0.0814475, 0.915463)
+bones/24/rotation = Quaternion(0.909777, -0.109495, 0.0523685, 0.396956)
+bones/25/rotation = Quaternion(-0.281125, 0.0962382, -0.0892654, 0.950652)
+bones/26/rotation = Quaternion(-0.395502, 0.0183698, -0.0763107, 0.915105)
 
 [node name="Health" parent="." instance=ExtResource("2_a5tmv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20943, 0)
 max_health = 200.0
+
+[node name="StatusHealth" parent="." instance=ExtResource("4_eoaf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.61233, 0)
 
 [node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("3_fjm2d")]
 character_body = NodePath("..")
@@ -151,6 +156,9 @@ script = ExtResource("5_yelh4")
 
 [node name="Flammable" parent="." instance=ExtResource("6_mn8hr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65289, -0.210571)
+
+[node name="Freezable" type="Node3D" parent="."]
+script = ExtResource("8_8qrxq")
 
 [node name="AreaAttack" type="Area3D" parent="."]
 script = ExtResource("7_xbnmv")

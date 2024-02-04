@@ -3,19 +3,27 @@ extends AnimationTree
 var prev_is_on_floor: bool = true
 var player_movement: PlayerMovement
 var health: Health
+var is_swimming: bool
+
+@onready var player_model: Node3D = self.get_node("../Visuals/Player")
+@onready var original_model_rotation: Vector3 = self.player_model.rotation
+@onready var original_model_position: Vector3 = self.player_model.position
 
 
 func _ready():
     self.player_movement = Util.get_child_node_of_type(self.get_parent(), PlayerMovement)
     SignalBus.player_jumped.connect(self.on_player_jumped)
     SignalBus.player_died.connect(self.on_player_died)
+    SignalBus.player_swim_mode_changed.connect(self.on_player_swim_mode_changed)
     self.health = Util.get_child_node_of_type(self.get_parent(), Health)
     if self.health != null:
         self.health.damage_taken.connect(self.on_damage_taken)
 
 
-func _process(delta):
-    if !self.player_movement.is_on_floor():
+func _process(delta: float):
+    if self.is_swimming:
+        self.process_swim_animations(delta)
+    elif !self.player_movement.is_on_floor():
         self.set("parameters/state/transition_request", "fall")
     elif self.player_movement.is_running():
         self.set("parameters/state/transition_request", "run")
@@ -27,6 +35,31 @@ func _process(delta):
     if self.prev_is_on_floor == false && self.player_movement.is_on_floor():
         self.set("parameters/land/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
     self.prev_is_on_floor = self.player_movement.is_on_floor()
+    
+    if !self.is_swimming:
+        var target_rotation = Quaternion.from_euler(self.original_model_rotation)
+        self.player_model.quaternion = self.player_model.quaternion.slerp(target_rotation, delta * 5.0)
+        self.player_model.position = self.player_model.position.lerp(self.original_model_position, delta * 5.0)
+
+
+func process_swim_animations(delta: float) -> void:
+
+     #TODO: replace with actual animation
+    var target_rotation = Quaternion.from_euler(Vector3(PI / 4.0, self.original_model_rotation.y, self.original_model_rotation.z))
+    var target_position = Vector3(0, -0.17, 1.162)
+
+    var horizontal_velocity: Vector3 = self.player_movement.get_velocity()
+    horizontal_velocity.y = 0
+    if horizontal_velocity.length_squared() > 0.1:
+        self.set("parameters/state/transition_request", "run")
+    else:
+        self.set("parameters/state/transition_request", "idle")
+        target_rotation = Quaternion.from_euler(self.original_model_rotation)
+        target_position = self.original_model_position
+
+     #TODO: replace with actual animation
+    self.player_model.quaternion = self.player_model.quaternion.slerp(target_rotation, delta * 5.0)
+    self.player_model.position = self.player_model.position.lerp(target_position, delta * 5.0)
 
 
 func on_player_jumped():
@@ -40,3 +73,7 @@ func on_damage_taken(damage: float):
 
 func on_player_died():
     self.set("parameters/dead_state/transition_request", "dead")
+
+
+func on_player_swim_mode_changed(new_is_swimming: bool):
+    self.is_swimming = new_is_swimming

@@ -204,6 +204,8 @@ draw_pass_1 = ExtResource("2_8tfhg")
 
 [node name="FreezeEnemiesInArea" type="Area3D" parent="."]
 script = ExtResource("2_vmhyy")
+duration = null
+status_damage = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FreezeEnemiesInArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72392, 0)
