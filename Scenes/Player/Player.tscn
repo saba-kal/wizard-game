@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=34 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="9_qwkcm"]
 [ext_resource type="PackedScene" uid="uid://lsjae5plwkwx" path="res://Scenes/Effects/AreaHeal.tscn" id="10_ge2nk"]
 [ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="10_s2uey"]
+[ext_resource type="PackedScene" uid="uid://ctidfl3k4ontt" path="res://Scenes/Effects/UnFireColumn.tscn" id="11_eqfwq"]
 [ext_resource type="PackedScene" uid="uid://bs65sapypvlwa" path="res://Scenes/SpellCasting/CastingIndicators/HealColumnIndicator.tscn" id="11_x5lty"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerAnimationTree.gd" id="11_xqlkm"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMana.gd" id="12_6i8p7"]
@@ -128,19 +129,19 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(0.0179975, -2.38234e-07, -4.13021e-09, 0.999838)
-bones/3/rotation = Quaternion(-0.251532, 2.29644e-07, 3.9813e-09, 0.967849)
+bones/2/rotation = Quaternion(0.00809422, -2.38181e-07, -6.48948e-09, 0.999967)
+bones/3/rotation = Quaternion(-0.294709, -0.10347, -0.0331317, 0.949391)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/7/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
-bones/8/rotation = Quaternion(-0.0286053, 0.298673, -0.406303, 0.863072)
-bones/9/rotation = Quaternion(0.227317, 0.0151158, 0.00145193, 0.973702)
+bones/8/rotation = Quaternion(-0.0978236, 0.347651, -0.33106, 0.871762)
+bones/9/rotation = Quaternion(0.460067, 0.0223815, -0.111775, 0.880536)
 bones/11/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
-bones/12/rotation = Quaternion(-0.0286055, -0.298673, 0.406303, 0.863072)
-bones/13/rotation = Quaternion(0.22732, -0.0151157, -0.00145198, 0.973702)
+bones/12/rotation = Quaternion(-0.030736, -0.30042, 0.40635, 0.86237)
+bones/13/rotation = Quaternion(0.224727, -0.0151251, -0.00143546, 0.974303)
 bones/21/rotation = Quaternion(0.991633, 0.128359, 0.00176094, -0.0136038)
 bones/23/rotation = Quaternion(0.991633, -0.128359, -0.00176069, -0.0136038)
-bones/26/position = Vector3(1.70522, -0.231434, -0.0364273)
-bones/26/rotation = Quaternion(-3.44803e-05, 0.962574, 9.70818e-06, 0.27102)
+bones/26/position = Vector3(1.50834, -0.316255, 0.288442)
+bones/26/rotation = Quaternion(-0.0584606, 0.960797, 0.01646, 0.27052)
 bones/28/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/29/position = Vector3(-1.70522, -0.231434, -0.0364273)
 bones/29/rotation = Quaternion(0, 0.962574, 0, -0.27102)
@@ -149,11 +150,11 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.874622, 2.24532e-12, -0.109067, 0.16369, 1.07498e-06, 0.582761, 2.7928e-07, -0.621946, 1.02026e-06, 1.2166, 7.91493, 2.46901)
+transform = Transform3D(0.859114, 0.132916, -0.0881909, 0.156456, -0.0707631, 0.579731, 0.170883, -0.603442, -0.0874077, 0.789533, 8.14977, 2.29336)
 bone_idx = 5
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.874622, 2.24532e-12, -0.109067, 0.16369, 1.07498e-06, 0.582761, 2.7928e-07, -0.621946, 1.02026e-06, 1.2166, 7.91493, 2.46901)
+transform = Transform3D(0.859114, 0.132916, -0.0881909, 0.156456, -0.0707631, 0.579731, 0.170883, -0.603442, -0.0874077, 0.789533, 8.14977, 2.29336)
 bone_idx = 6
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "horizontal_pivot", "vertical_pivot", "spring_arm", "camera")]
@@ -201,6 +202,10 @@ blue_rune_type = 2
 red_rune_type = 1
 spell_effect_scene = ExtResource("10_ge2nk")
 ground_aim_indicator_scene = ExtResource("11_x5lty")
+
+[node name="UnFireColumnSummonSpell" parent="SpellFactory" instance=ExtResource("6_7bph8")]
+red_rune_type = 1
+spell_effect_scene = ExtResource("11_eqfwq")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_hssfi")
