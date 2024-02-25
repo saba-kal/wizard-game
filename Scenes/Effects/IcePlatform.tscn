@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch4wayauqn8cl"]
+
+[ext_resource type="PackedScene" uid="uid://hjlf10hh02nj" path="res://Models/InteractiveLevelElements/IceChunk.blend" id="1_7ncq0"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5tcde"]
+points = PackedVector3Array(2.37872, 0.924965, 0.397579, 1.76617, 0.924965, 1.42244, 1.51221, -1.01255, 1.65007, 2.10305, 0.270991, 0.397082, 1.66111, -0.803846, -1.29726, 2.07527, 0.391853, -0.840995, 2.15384, 0.924965, -0.212762, -0.163518, 0.924965, 2.52035, 0.215907, 0.420561, 2.7291, 0.824551, -1.34098, 1.92144, 0.659583, -1.62059, -0.984634, 1.50135, -0.994468, -0.897159, 0.594464, -1.08863, -2.31367, 1.58948, -0.337911, -2.04279, 1.50309, 0.924965, -1.7073, -1.54534, 0.924965, 2.10335, -0.473918, -0.992459, 2.11578, -0.454382, -2.00787, -0.190396, -1.26012, -0.846334, -1.75601, 0.0392182, 0.425154, -2.34846, 0.749447, 0.924965, -2.28235, -1.3439, -0.251212, 1.68934, -2.03633, 0.924965, 1.1118, -1.36605, -0.652266, 1.13466, -1.54187, -0.893989, 0.267857, -1.75849, -0.920975, -0.77191, -1.36518, 0.205536, -1.6074, -2.0563, 0.924965, -0.473697, -1.64171, 0.924965, -1.12678, -0.483469, 0.924965, -1.72519, -1.88873, 0.400752, 0.966667, -2.03156, 0.372618, 0.0615935, -1.95819, -0.145566, -0.0527213)
+
+[node name="IcePlatform" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
+
+[node name="RigidBody3D" type="StaticBody3D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="ConvexCollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("ConvexPolygonShape3D_5tcde")
+
+[node name="IceChunk" parent="RigidBody3D" instance=ExtResource("1_7ncq0")]
+
+[editable path="RigidBody3D/IceChunk"]

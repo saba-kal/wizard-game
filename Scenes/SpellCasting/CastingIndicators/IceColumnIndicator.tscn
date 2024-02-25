@@ -15,6 +15,7 @@ height = 8.0
 
 [node name="IceColumnIndicator" type="Node3D"]
 script = ExtResource("1_rypii")
+collision_mask = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53921, 0)

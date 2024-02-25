@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://btp3qchsyni6a"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/Spells/SelfSpell.gd" id="1_bjycq"]
+
+[node name="SelfSpell" type="Node3D"]
+script = ExtResource("1_bjycq")
