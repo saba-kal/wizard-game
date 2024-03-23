@@ -7,6 +7,7 @@ class_name PlayerMovement extends Node3D
 @export var jump_velocity: float = 6
 @export var turn_speed: float = 20
 @export var animation_tree: AnimationTree
+@export var slippery_friction: float = 0.003
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var gravity_adjustment: float = 0
@@ -14,12 +15,15 @@ var input_direction: Vector2
 var disabled: bool = false
 var third_persion_camera: ThirdPersonCamera
 var player_swimming: PlayerSwimming
+var player_sliding: PlayerSliding
 
 
 func _ready():
     self.animation_tree.active = true
     self.third_persion_camera = Util.get_child_node_of_type(self.get_parent(), ThirdPersonCamera)
     self.player_swimming = Util.get_child_node_of_type(self.get_parent(), PlayerSwimming)
+    self.player_sliding = Util.get_child_node_of_type(self.get_parent(), PlayerSliding)
+    self.slippery_friction = 1/player_sliding.slip_factor
     SignalBus.player_died.connect(self.on_player_died)
 
 
@@ -33,7 +37,8 @@ func _physics_process(delta):
 
 
 func process_velocity(delta):
-    if !self.player_node.is_on_floor() && !self.player_swimming.is_swimming:
+    var slippery: bool = self.player_sliding.is_sliding()
+    if slippery || (!self.player_node.is_on_floor() && !self.player_swimming.is_swimming):
         self.player_node.velocity.y -= (self.gravity + self.gravity_adjustment) * delta
 
     if Input.is_action_just_pressed("jump") && self.player_node.is_on_floor():
@@ -50,13 +55,23 @@ func process_velocity(delta):
         move_speed = self.aim_speed
 
     if direction:
-        self.player_node.velocity.x = direction.x * move_speed
-        self.player_node.velocity.z = direction.z * move_speed
+        if(slippery):
+            self.player_node.velocity.x = move_toward(self.player_node.velocity.x, direction.x * move_speed, move_speed)
+            self.player_node.velocity.z = move_toward(self.player_node.velocity.z, direction.z * move_speed, move_speed)
+        else:
+            self.player_node.velocity.x = direction.x * move_speed
+            self.player_node.velocity.z = direction.z * move_speed
     else:
-        self.player_node.velocity.x = move_toward(self.player_node.velocity.x, 0, move_speed)
-        self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed)
+        if(!slippery):
+            self.player_node.velocity.x = move_toward(self.player_node.velocity.x, 0, move_speed)
+            self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed)
+        else:
+            self.player_node.velocity.x = move_toward(self.player_node.velocity.x, 0, move_speed * slippery_friction)
+            self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed * slippery_friction)
 
     self.player_node.move_and_slide()
+    if(slippery):
+       self.player_node.velocity = self.player_node.get_real_velocity()
 
 
 func apply_vertical_velocity(vertical_velocity: float):
@@ -74,7 +89,7 @@ func process_rotation(delta):
     else:
         var target_y_rotation = Vector3.FORWARD.signed_angle_to(Vector3(self.input_direction.x, 0, self.input_direction.y), Vector3.UP)
         target_quaternion = Quaternion.from_euler(Vector3(0, target_y_rotation, 0))
-    
+
     self.player_visuals_node.quaternion = self.player_visuals_node.quaternion.slerp(target_quaternion, delta * self.turn_speed)
 
     if self.input_direction || self.third_persion_camera.is_aiming:
