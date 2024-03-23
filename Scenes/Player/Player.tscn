@@ -123,7 +123,7 @@ nodes/state/node = SubResource("AnimationNodeTransition_k873e")
 nodes/state/position = Vector2(60, 60)
 nodes/walk_anim/node = SubResource("AnimationNodeAnimation_3pkky")
 nodes/walk_anim/position = Vector2(-320, 360)
-node_connections = [&"output", 0, &"dead_state", &"dead_state", 0, &"small_stagger", &"dead_state", 1, &"death_anim", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim"]
+node_connections = [&"dead_state", 0, &"small_stagger", &"dead_state", 1, &"death_anim", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"output", 0, &"dead_state", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim"]
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 3
