@@ -1,5 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c1nmhavvp6eip"]
-
+[gd_scene load_steps=37 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
@@ -135,19 +134,19 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(-0.0277751, -2.38416e-07, 2.54406e-09, 0.999614)
-bones/3/rotation = Quaternion(-0.342757, -0.27329, -0.098415, 0.89339)
+bones/2/rotation = Quaternion(0.0320572, -2.38268e-07, -7.79346e-10, 0.999486)
+bones/3/rotation = Quaternion(-0.271541, -0.0123923, -0.00364319, 0.96234)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/7/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
-bones/8/rotation = Quaternion(-0.0221674, 0.32833, -0.189429, 0.925108)
-bones/9/rotation = Quaternion(0.483861, 0.0247131, -0.47472, 0.734785)
+bones/8/rotation = Quaternion(-0.0417939, 0.305623, -0.39801, 0.863965)
+bones/9/rotation = Quaternion(0.275364, 0.0163123, -0.00536593, 0.961187)
 bones/11/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
-bones/12/rotation = Quaternion(-0.039671, -0.307302, 0.405956, 0.859762)
-bones/13/rotation = Quaternion(0.21925, -0.0151444, -0.00140044, 0.97555)
+bones/12/rotation = Quaternion(-0.0266347, -0.297002, 0.406188, 0.863766)
+bones/13/rotation = Quaternion(0.230762, -0.0151032, -0.00147398, 0.972892)
 bones/21/rotation = Quaternion(0.991633, 0.128359, 0.00176094, -0.0136038)
 bones/23/rotation = Quaternion(0.991633, -0.128359, -0.00176069, -0.0136038)
-bones/26/position = Vector3(1.17197, -0.461176, 0.843496)
-bones/26/rotation = Quaternion(-0.157039, 0.949677, 0.0442156, 0.267389)
+bones/26/position = Vector3(1.68157, -0.241626, 0.00260752)
+bones/26/rotation = Quaternion(-0.0070063, 0.962548, 0.00197268, 0.271013)
 bones/28/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/29/position = Vector3(-1.70522, -0.231434, -0.0364273)
 bones/29/rotation = Quaternion(0, 0.962574, 0, -0.27102)
@@ -156,11 +155,11 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.749282, 0.335241, -0.0114505, 0.189433, -0.186124, 0.551448, 0.440963, -0.489682, -0.217439, 0.171029, 8.51103, 1.63334)
+transform = Transform3D(0.874735, 0.015992, -0.107588, 0.161811, -0.00833808, 0.582939, 0.0203311, -0.621684, -0.0105859, 1.16448, 7.93849, 2.5351)
 bone_idx = 5
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.749282, 0.335241, -0.0114505, 0.189433, -0.186124, 0.551448, 0.440963, -0.489682, -0.217439, 0.171029, 8.51103, 1.63334)
+transform = Transform3D(0.874735, 0.015992, -0.107588, 0.161811, -0.00833808, 0.582939, 0.0203311, -0.621684, -0.0105859, 1.16448, 7.93849, 2.5351)
 bone_idx = 6
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "horizontal_pivot", "vertical_pivot", "spring_arm", "camera")]

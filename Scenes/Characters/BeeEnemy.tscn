@@ -1,0 +1,212 @@
+[gd_scene load_steps=23 format=3 uid="uid://c3ni6ckel8bwj"]
+
+[ext_resource type="Script" path="res://Scripts/AI/EnemyAI.gd" id="1_rmo0l"]
+[ext_resource type="PackedScene" uid="uid://beg2rbh7wt6g3" path="res://Models/Characters/BeeIK.blend" id="1_s4xf3"]
+[ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="3_0j66q"]
+[ext_resource type="Script" path="res://Scripts/Animation/BeeAnimationTree.gd" id="3_b5ccq"]
+[ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="4_yews2"]
+[ext_resource type="Script" path="res://Scripts/AI/ProjectileAttack.gd" id="5_f208e"]
+[ext_resource type="PackedScene" uid="uid://cexgc7iui37g2" path="res://Scenes/Projectiles/BeeStinger.tscn" id="6_dcqr1"]
+[ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="8_rsm87"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezableEnemy.gd" id="9_pldno"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pvack"]
+radius = 0.464042
+height = 1.59058
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6qh6"]
+animation = &"DefaultPose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wqnqh"]
+animation = &"DyingLanding"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cdme1"]
+animation = &"DyingAir"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fhb6s"]
+animation = &"Flying(AlwaysOnExceptDeath)"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5coip"]
+filter_enabled = true
+filters = ["Bee Armature/Skeleton3D:l.frontleg", "Bee Armature/Skeleton3D:l.frontleg.001", "Bee Armature/Skeleton3D:l.frontleg.002", "Bee Armature/Skeleton3D:l.frontleg.003", "Bee Armature/Skeleton3D:l.midleg", "Bee Armature/Skeleton3D:l.midleg.001", "Bee Armature/Skeleton3D:l.midleg.002", "Bee Armature/Skeleton3D:l.midleg.003", "Bee Armature/Skeleton3D:l.rearleg", "Bee Armature/Skeleton3D:l.rearleg.001", "Bee Armature/Skeleton3D:l.rearleg.002", "Bee Armature/Skeleton3D:l.rearleg.003", "Bee Armature/Skeleton3D:r.frontleg", "Bee Armature/Skeleton3D:r.frontleg.001", "Bee Armature/Skeleton3D:r.frontleg.002", "Bee Armature/Skeleton3D:r.frontleg.003", "Bee Armature/Skeleton3D:r.midleg", "Bee Armature/Skeleton3D:r.midleg.001", "Bee Armature/Skeleton3D:r.midleg.002", "Bee Armature/Skeleton3D:r.midleg.003", "Bee Armature/Skeleton3D:r.rearleg", "Bee Armature/Skeleton3D:r.rearleg.001", "Bee Armature/Skeleton3D:r.rearleg.002", "Bee Armature/Skeleton3D:r.rearleg.003"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_in8m2"]
+animation = &"RegrowStinger"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_47vdc"]
+fadein_time = 0.5
+fadeout_time = 0.5
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3wav"]
+animation = &"Shoot"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_g44u0"]
+filter_enabled = true
+filters = ["Bee Armature/Skeleton3D:Head", "Bee Armature/Skeleton3D:Middlebit", "Bee Armature/Skeleton3D:butt", "Bee Armature/Skeleton3D:l.frontleg", "Bee Armature/Skeleton3D:l.frontleg.001", "Bee Armature/Skeleton3D:l.frontleg.002", "Bee Armature/Skeleton3D:l.frontleg.003", "Bee Armature/Skeleton3D:l.frontlegIK", "Bee Armature/Skeleton3D:l.midleg", "Bee Armature/Skeleton3D:l.midleg.001", "Bee Armature/Skeleton3D:l.midleg.002", "Bee Armature/Skeleton3D:l.midleg.003", "Bee Armature/Skeleton3D:l.midlegIK", "Bee Armature/Skeleton3D:l.mouth", "Bee Armature/Skeleton3D:l.rearleg", "Bee Armature/Skeleton3D:l.rearleg.001", "Bee Armature/Skeleton3D:l.rearleg.002", "Bee Armature/Skeleton3D:l.rearleg.003", "Bee Armature/Skeleton3D:l.rearlegIK", "Bee Armature/Skeleton3D:l.wing", "Bee Armature/Skeleton3D:r.frontleg", "Bee Armature/Skeleton3D:r.frontleg.001", "Bee Armature/Skeleton3D:r.frontleg.002", "Bee Armature/Skeleton3D:r.frontleg.003", "Bee Armature/Skeleton3D:r.frontlegIK", "Bee Armature/Skeleton3D:r.midleg", "Bee Armature/Skeleton3D:r.midleg.001", "Bee Armature/Skeleton3D:r.midleg.002", "Bee Armature/Skeleton3D:r.midleg.003", "Bee Armature/Skeleton3D:r.midlegIK", "Bee Armature/Skeleton3D:r.mouth", "Bee Armature/Skeleton3D:r.rearleg", "Bee Armature/Skeleton3D:r.rearleg.001", "Bee Armature/Skeleton3D:r.rearleg.002", "Bee Armature/Skeleton3D:r.rearleg.003", "Bee Armature/Skeleton3D:r.rearlegIK", "Bee Armature/Skeleton3D:r.wing"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_cv8xs"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_x1fs4"]
+input_0/name = "flying"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "dying"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "dead"
+input_2/auto_advance = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ul2ox"]
+graph_offset = Vector2(-539.171, 154.1)
+nodes/DefaultPose/node = SubResource("AnimationNodeAnimation_u6qh6")
+nodes/DefaultPose/position = Vector2(-980, 180)
+nodes/DiedAnim/node = SubResource("AnimationNodeAnimation_wqnqh")
+nodes/DiedAnim/position = Vector2(-720, 460)
+nodes/DyingAirAnim/node = SubResource("AnimationNodeAnimation_cdme1")
+nodes/DyingAirAnim/position = Vector2(-780, 300)
+nodes/Flying/node = SubResource("AnimationNodeAnimation_fhb6s")
+nodes/Flying/position = Vector2(-1100, 60)
+nodes/FlyingBlend/node = SubResource("AnimationNodeBlend2_5coip")
+nodes/FlyingBlend/position = Vector2(-740, 80)
+nodes/RemoveStingerAnim/node = SubResource("AnimationNodeAnimation_in8m2")
+nodes/RemoveStingerAnim/position = Vector2(-280, 580)
+nodes/Shoot/node = SubResource("AnimationNodeOneShot_47vdc")
+nodes/Shoot/position = Vector2(280, 380)
+nodes/ShootAnim/node = SubResource("AnimationNodeAnimation_l3wav")
+nodes/ShootAnim/position = Vector2(-340, 720)
+nodes/ShootBlend/node = SubResource("AnimationNodeBlend2_g44u0")
+nodes/ShootBlend/position = Vector2(20, 540)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_cv8xs")
+nodes/TimeScale/position = Vector2(500, 340)
+nodes/bee_state/node = SubResource("AnimationNodeTransition_x1fs4")
+nodes/bee_state/position = Vector2(-360, 180)
+nodes/output/position = Vector2(720, 340)
+node_connections = [&"output", 0, &"TimeScale", &"Shoot", 0, &"bee_state", &"Shoot", 1, &"ShootBlend", &"FlyingBlend", 0, &"Flying", &"FlyingBlend", 1, &"DefaultPose", &"ShootBlend", 0, &"RemoveStingerAnim", &"ShootBlend", 1, &"ShootAnim", &"bee_state", 0, &"FlyingBlend", &"bee_state", 1, &"DyingAirAnim", &"bee_state", 2, &"DiedAnim", &"TimeScale", 0, &"Shoot"]
+
+[node name="BeeEnemy" type="CharacterBody3D" node_paths=PackedStringArray("ai_default_attack")]
+script = ExtResource("1_rmo0l")
+detect_radius = 15.0
+ai_default_attack = NodePath("ProjectileAttack")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="BeeIK" parent="Visuals" instance=ExtResource("1_s4xf3")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Visuals/BeeIK/Bee Armature" index="0"]
+bones/0/position = Vector3(0.605002, -0.455725, 0)
+bones/1/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+bones/3/rotation = Quaternion(0.270598, 0.653281, 0.653282, -0.270598)
+bones/4/rotation = Quaternion(-0.5, 0.5, 0.5, 0.5)
+bones/6/rotation = Quaternion(-0.270598, 0.653281, 0.653282, 0.270598)
+bones/8/rotation = Quaternion(-0.70986, -0.0236317, -0.0234219, 0.703557)
+bones/10/rotation = Quaternion(-0.70986, 0.0236317, 0.0234219, 0.703557)
+bones/12/rotation = Quaternion(0.621832, 0.711231, -0.232521, -0.231105)
+bones/13/rotation = Quaternion(-0.59947, 0.00786196, 0.0296361, 0.79981)
+bones/14/rotation = Quaternion(-0.7696, 0.00297594, 0.047744, 0.636732)
+bones/15/rotation = Quaternion(-0.221782, -0.0033861, 0.027673, 0.974698)
+bones/16/rotation = Quaternion(0.709313, 0.688315, 0.13971, -0.0598173)
+bones/17/rotation = Quaternion(-0.484518, 0.173374, 0.0648922, 0.854969)
+bones/18/rotation = Quaternion(-0.597539, 0.149884, 0.188355, 0.764856)
+bones/19/rotation = Quaternion(-0.0559538, 0.0628818, 0.306103, 0.94827)
+bones/20/rotation = Quaternion(0.345405, 0.914515, -0.202467, -0.0580031)
+bones/21/rotation = Quaternion(-0.319564, -0.0156985, -0.0113762, 0.947366)
+bones/22/rotation = Quaternion(-0.626541, -0.0185237, 0.0176287, 0.778969)
+bones/23/rotation = Quaternion(-0.591945, -0.0313502, 0.00997255, 0.805307)
+bones/24/rotation = Quaternion(0.621728, -0.711369, 0.232622, -0.230861)
+bones/25/rotation = Quaternion(-0.599374, -0.00779659, -0.030131, 0.799864)
+bones/26/rotation = Quaternion(-0.769621, -0.00298063, -0.0483538, 0.636661)
+bones/27/rotation = Quaternion(-0.221686, 0.00293796, -0.0277351, 0.974719)
+bones/28/rotation = Quaternion(0.709313, -0.688316, -0.13971, -0.0598167)
+bones/29/rotation = Quaternion(-0.484519, -0.173373, -0.0648941, 0.854969)
+bones/30/rotation = Quaternion(-0.597538, -0.149883, -0.188358, 0.764856)
+bones/31/rotation = Quaternion(-0.0559529, -0.0628844, -0.306102, 0.94827)
+bones/32/rotation = Quaternion(-0.345405, 0.914515, -0.202467, 0.0580031)
+bones/33/rotation = Quaternion(-0.319564, 0.0156985, 0.0113762, 0.947366)
+bones/34/rotation = Quaternion(-0.626541, 0.0185237, -0.0176287, 0.778969)
+bones/35/rotation = Quaternion(-0.591945, 0.0313502, -0.00997255, 0.805307)
+bones/36/rotation = Quaternion(0.0423328, 9.85234e-21, -9.39962e-18, 0.999104)
+bones/39/rotation = Quaternion(0.426266, -0.0594392, 0.150677, 0.889978)
+bones/45/rotation = Quaternion(-0.731282, 5.46315e-18, 5.46315e-18, 0.682075)
+
+[node name="l_Wing" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.997786, 0.0665076, -4.81186e-09, -0.0665076, 0.997786, -3.62149e-08, 8.54906e-09, -4.23752e-08, 1, 0.470029, 0.747766, 1.19209e-07)
+bone_idx = 9
+
+[node name="r_Wing" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.997786, -0.0665076, 4.81186e-09, 0.0665076, 0.997786, -3.62149e-08, -8.54906e-09, -4.23752e-08, 1, 0.739975, 0.747766, 1.19209e-07)
+bone_idx = 11
+
+[node name="LeftMouth" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 6.14673e-08, 2.04891e-08, -3.72529e-09, 1, -8.9407e-08, -6.70552e-08, 1.49012e-07, 1, 0.605002, 0.695806, 7.15256e-07)
+bone_idx = 38
+
+[node name="RightMouth" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, -5.58794e-08, 1.69501e-07, -2.6077e-08, 1, -3.27826e-07, -7.26432e-08, 2.98023e-07, 1, 0.605001, 0.695806, 7.15256e-07)
+bone_idx = 40
+
+[node name="Antennae" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="4"]
+transform = Transform3D(1, -8.4968e-21, -8.23872e-22, 8.47033e-21, 1, -2.23517e-07, 7.97402e-22, 2.23517e-07, 1, 0.605002, 0.695806, 6.55651e-07)
+bone_idx = 41
+
+[node name="Eye" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="5"]
+transform = Transform3D(1, -8.4968e-21, -8.23872e-22, 8.47033e-21, 1, -2.23517e-07, 7.97402e-22, 2.23517e-07, 1, 0.605002, 0.695806, 6.55651e-07)
+bone_idx = 42
+
+[node name="Floofcollar" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="6"]
+transform = Transform3D(1, -2.64698e-23, 6.94832e-23, 0, 1, 0, -3.68095e-23, 9.31323e-10, 1, 0.605002, 0.695805, -2.38419e-07)
+bone_idx = 43
+
+[node name="Floofmid" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, -2.64698e-23, 6.94832e-23, 0, 1, 0, -3.68095e-23, 9.31323e-10, 1, 0.605002, 0.695805, -2.38419e-07)
+bone_idx = 44
+
+[node name="Stinger" parent="Visuals/BeeIK/Bee Armature/Skeleton3D" index="8"]
+transform = Transform3D(1, 8.27181e-25, -4.06482e-24, -3.82571e-24, 1, 0, 2.72711e-24, 0, 1, 0.605002, 1.83918, -3.50056)
+bone_idx = 46
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.087)
+shape = SubResource("CapsuleShape3D_pvack")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_ul2ox")
+anim_player = NodePath("../Visuals/BeeIK/AnimationPlayer")
+active = true
+parameters/FlyingBlend/blend_amount = 1.0
+parameters/Shoot/active = false
+parameters/Shoot/internal_active = false
+parameters/Shoot/request = 0
+parameters/ShootBlend/blend_amount = 1.0
+parameters/TimeScale/scale = 1.0
+parameters/bee_state/current_state = "flying"
+parameters/bee_state/transition_request = ""
+parameters/bee_state/current_index = 0
+script = ExtResource("3_b5ccq")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = -3.0
+avoidance_enabled = true
+
+[node name="Health" parent="." instance=ExtResource("3_0j66q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75948, 0)
+max_health = 10.0
+
+[node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("4_yews2")]
+character_body = NodePath("..")
+nav_agent = NodePath("../NavigationAgent3D")
+
+[node name="ProjectileAttack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.696471, 0.695297)
+script = ExtResource("5_f208e")
+projectile_scene = ExtResource("6_dcqr1")
+range = 7.0
+attack_delay = 1.0
+
+[node name="Flammable" parent="." instance=ExtResource("8_rsm87")]
+
+[node name="Freezable" type="Node3D" parent="."]
+script = ExtResource("9_pldno")
+
+[editable path="Visuals/BeeIK"]

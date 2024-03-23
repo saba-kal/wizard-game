@@ -72,7 +72,7 @@ script = ExtResource("5_mr15f")
 
 [node name="Healable" parent="." instance=ExtResource("9_o7p16")]
 
-[node name="PersueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("10_vmmb0")]
+[node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("10_vmmb0")]
 character_body = NodePath("..")
 nav_agent = NodePath("../NavigationAgent3D")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=23 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="6_wiwrj"]
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="7_rng7y"]
 [ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="8_4dx02"]
+[ext_resource type="PackedScene" uid="uid://c3ni6ckel8bwj" path="res://Scenes/Characters/BeeEnemy.tscn" id="8_6p3vd"]
 [ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="9_xd86k"]
 [ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="10_6w6g6"]
 [ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="11_m48d0"]
@@ -99,6 +100,10 @@ ai_wander_area = NodePath("../../AIWonderArea")
 [node name="Bearclops" parent="Map/Enemies" instance=ExtResource("17_06fly")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9686, -7.33861, -106.941)
 
+[node name="BeeEnemy" parent="Map/Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("8_6p3vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6831, -7.86696, -105.561)
+ai_wander_area = NodePath("../../AIWonderArea2")
+
 [node name="Runes" type="Node3D" parent="Map"]
 
 [node name="RuneCollectable" parent="Map/Runes" instance=ExtResource("7_rng7y")]
@@ -135,6 +140,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4836, 27.924, -7.91071)
 
 [node name="Water4" parent="Map" instance=ExtResource("13_xl28e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7882, 35.6417, -21.763)
+
+[node name="AIWonderArea2" parent="Map" instance=ExtResource("4_5p6q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2653, 22.3379, -59.0355)
 
 [node name="Player" parent="." instance=ExtResource("3_rsw63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3379, 24.8174, -60.2499)
