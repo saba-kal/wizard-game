@@ -8,6 +8,7 @@ class_name PlayerMovement extends Node3D
 @export var turn_speed: float = 20
 @export var animation_tree: AnimationTree
 @export var slippery_friction: float = 0.003
+@export var push_force: float = 10
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var gravity_adjustment: float = 0
@@ -38,8 +39,8 @@ func _physics_process(delta):
 
 func process_velocity(delta):
     var slippery: bool = self.player_sliding.is_sliding()
-    if slippery || (!self.player_node.is_on_floor() && !self.player_swimming.is_swimming):
-        self.player_node.velocity.y -= (self.gravity + self.gravity_adjustment) * delta
+    #if slippery || (!self.player_node.is_on_floor() && !self.player_swimming.is_swimming):
+    self.player_node.velocity.y -= (self.gravity + self.gravity_adjustment) * delta
 
     if Input.is_action_just_pressed("jump") && self.player_node.is_on_floor():
         self.apply_vertical_velocity(self.jump_velocity)
@@ -70,6 +71,11 @@ func process_velocity(delta):
             self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed * slippery_friction)
 
     self.player_node.move_and_slide()
+    for i in player_node.get_slide_collision_count():
+        var collision: KinematicCollision3D = player_node.get_slide_collision(i)
+        if(collision.get_collider() is RigidBody3D):
+            var v: float = self.player_node.velocity.length()
+            collision.get_collider().apply_central_force(collision.get_normal() * -push_force)
     if(slippery):
        self.player_node.velocity = self.player_node.get_real_velocity()
 

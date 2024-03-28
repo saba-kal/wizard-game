@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://xsbfgrucribr"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/IceBoard.gd" id="1_77tb6"]
+[ext_resource type="PackedScene" uid="uid://hjlf10hh02nj" path="res://Models/InteractiveLevelElements/IceChunk.blend" id="1_cunu2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_imtqw"]
+friction = 0.03
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_acslb"]
+points = PackedVector3Array(2.28963, 0.84996, 0.493827, -0.323284, -2.0482, -0.131835, 0.0833568, 0.480225, 2.64958, 0.471945, 0.730315, -2.30759, 0.610374, -1.12019, -2.2129, 1.52999, -1.08083, 1.7212, -1.54855, 0.880163, 2.05396, -1.37119, -0.919409, -1.74352, -0.162033, -1.1614, 2.12361, -1.57418, -0.896135, 0.115177, 1.58217, -0.818779, -1.38114, -1.5413, 0.874065, -1.20212, 1.45636, 0.853746, -1.71603, 0.643336, -1.72565, -0.857396, 1.75785, 0.850504, 1.40726, 1.55709, -0.285543, -1.98322, 0.885433, -1.40309, 1.96305, -1.77366, 0.127648, 1.31828, -1.75784, -0.902027, -0.730215, -2.01133, 0.877541, 1.12019, -0.151124, 0.883378, 2.52594, 2.31842, 0.868978, 0.1903, -0.0688664, 0.473309, -2.25259, -0.581205, -0.964486, 1.96867, 0.312582, 0.3985, 2.63703, -1.93868, 0.829543, -0.559151, -0.40413, -2.0482, -0.0510487, 0.467982, 0.868591, -2.19861, 0.624998, -0.983172, -2.29094, 2.08726, 0.483344, -0.734228, -1.29035, -0.919409, -1.8238, -1.99216, 0.173068, 0.0366871)
+
+[node name="IceBoard" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 9
+collision_mask = 13
+physics_material_override = SubResource("PhysicsMaterial_imtqw")
+script = ExtResource("1_77tb6")
+
+[node name="IceChunk" parent="RigidBody3D" instance=ExtResource("1_cunu2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.3, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.3, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_acslb")
+
+[editable path="RigidBody3D/IceChunk"]

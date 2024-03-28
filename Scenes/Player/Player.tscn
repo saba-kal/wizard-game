@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dpnavhw8cg2ck" path="res://Scenes/Effects/HealableCharacter.tscn" id="13_qlj7p"]
 [ext_resource type="PackedScene" uid="uid://btp3qchsyni6a" path="res://Scenes/SpellCasting/Spells/SelfSpell.tscn" id="13_y5uyg"]
 [ext_resource type="PackedScene" uid="uid://cgpoj4f3uusio" path="res://Scenes/Effects/IceDecider.tscn" id="15_33a10"]
+[ext_resource type="PackedScene" uid="uid://xsbfgrucribr" path="res://Scenes/Effects/IceBoard.tscn" id="15_xtf4v"]
 [ext_resource type="PackedScene" uid="uid://dd55852bglfak" path="res://Scenes/Characters/StatusHealth.tscn" id="17_3jrpt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
@@ -208,6 +209,7 @@ shape = SubResource("BoxShape3D_jxyqu")
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("5_sbfj4")
+spell_effect_scene = ExtResource("15_xtf4v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerSliding"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
