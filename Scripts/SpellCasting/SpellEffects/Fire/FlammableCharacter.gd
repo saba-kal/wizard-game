@@ -35,8 +35,10 @@ func extinguish():
     self.damage_over_time_enabled = false
     self.particles.emitting = false
 
+
 func un_light():
     self.immunity_enabled = true
+
 
 func un_extinguish():
     self.immunity_enabled = false

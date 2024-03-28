@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0bmily3jtf0o"
-path="res://.godot/imported/IceCrystal.blend-322d687e1c23f9e84030bdec6d78704d.scn"
+uid="uid://dq4t28e86llpr"
+path="res://.godot/imported/Stinger.blend-b1ebe47700e0c6492f213e31d6b0d62f.scn"
 
 [deps]
 
-source_file="res://Models/SpellEffects/IceCrystal.blend"
-dest_files=["res://.godot/imported/IceCrystal.blend-322d687e1c23f9e84030bdec6d78704d.scn"]
+source_file="res://Models/Projectiles/Stinger.blend"
+dest_files=["res://.godot/imported/Stinger.blend-b1ebe47700e0c6492f213e31d6b0d62f.scn"]
 
 [params]
 
@@ -29,7 +29,14 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material.003": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/Bee/BeeLegMaterial.tres"
+}
+}
+}
 gltf/naming_version=0
 gltf/embedded_image_handling=1
 blender/nodes/visible=0
