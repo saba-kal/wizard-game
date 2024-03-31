@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=64 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="2_afa8s"]
@@ -3841,6 +3841,20 @@ _data = {
 "Walk": SubResource("Animation_44mcp")
 }
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_hxia0"]
+filter_enabled = true
+filters = ["HumanRig/Skeleton3D:Head", "HumanRig/Skeleton3D:Neck", "HumanRig/Skeleton3D:l.arm", "HumanRig/Skeleton3D:l.arm.001", "HumanRig/Skeleton3D:l.shoulder", "HumanRig/Skeleton3D:r.arm", "HumanRig/Skeleton3D:r.arm.001", "HumanRig/Skeleton3D:r.shoulder", "HumanRig/Skeleton3D:spine.001"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_31ltn"]
+animation = &"Spell(Other)"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ilfxc"]
+filter_enabled = true
+filters = ["HumanRig/Skeleton3D:Head", "HumanRig/Skeleton3D:Neck", "HumanRig/Skeleton3D:l.arm", "HumanRig/Skeleton3D:l.arm.001", "HumanRig/Skeleton3D:l.shoulder", "HumanRig/Skeleton3D:r.arm", "HumanRig/Skeleton3D:r.arm.001", "HumanRig/Skeleton3D:r.shoulder", "HumanRig/Skeleton3D:spine.001"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eh6pi"]
+animation = &"Spell(Self)"
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_rtblc"]
 input_0/name = "not_dead"
 input_0/auto_advance = false
@@ -3902,11 +3916,19 @@ input_3/reset = false
 animation = &"Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hssfi"]
-graph_offset = Vector2(-246.696, 100.922)
+graph_offset = Vector2(283.217, 259.471)
+nodes/cast_spell_other/node = SubResource("AnimationNodeOneShot_hxia0")
+nodes/cast_spell_other/position = Vector2(1160, 540)
+nodes/cast_spell_other_anim/node = SubResource("AnimationNodeAnimation_31ltn")
+nodes/cast_spell_other_anim/position = Vector2(780, 800)
+nodes/cast_spell_self/node = SubResource("AnimationNodeOneShot_ilfxc")
+nodes/cast_spell_self/position = Vector2(940, 420)
+nodes/cast_spell_self_anim/node = SubResource("AnimationNodeAnimation_eh6pi")
+nodes/cast_spell_self_anim/position = Vector2(680, 600)
 nodes/dead_state/node = SubResource("AnimationNodeTransition_rtblc")
-nodes/dead_state/position = Vector2(980, 360)
+nodes/dead_state/position = Vector2(1460, 640)
 nodes/death_anim/node = SubResource("AnimationNodeAnimation_33x3j")
-nodes/death_anim/position = Vector2(820, 580)
+nodes/death_anim/position = Vector2(1280, 820)
 nodes/fall_anim/node = SubResource("AnimationNodeAnimation_s4ld8")
 nodes/fall_anim/position = Vector2(-320, 240)
 nodes/idle_anim/node = SubResource("AnimationNodeAnimation_nkyb4")
@@ -3919,7 +3941,7 @@ nodes/land/node = SubResource("AnimationNodeOneShot_1kwml")
 nodes/land/position = Vector2(480, 260)
 nodes/land_anim/node = SubResource("AnimationNodeAnimation_bm3q7")
 nodes/land_anim/position = Vector2(160, 620)
-nodes/output/position = Vector2(1260, 340)
+nodes/output/position = Vector2(1700, 620)
 nodes/run_anim/node = SubResource("AnimationNodeAnimation_reaal")
 nodes/run_anim/position = Vector2(-320, 120)
 nodes/small_stagger/node = SubResource("AnimationNodeOneShot_j0yn7")
@@ -3930,7 +3952,30 @@ nodes/state/node = SubResource("AnimationNodeTransition_k873e")
 nodes/state/position = Vector2(60, 60)
 nodes/walk_anim/node = SubResource("AnimationNodeAnimation_3pkky")
 nodes/walk_anim/position = Vector2(-320, 360)
-node_connections = [&"dead_state", 0, &"small_stagger", &"dead_state", 1, &"death_anim", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"output", 0, &"dead_state", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim"]
+node_connections = [&"cast_spell_other", 0, &"cast_spell_self", &"cast_spell_other", 1, &"cast_spell_other_anim", &"cast_spell_self", 0, &"small_stagger", &"cast_spell_self", 1, &"cast_spell_self_anim", &"dead_state", 0, &"cast_spell_other", &"dead_state", 1, &"death_anim", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"output", 0, &"dead_state", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykar1"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+gravity = Vector3(0, 9.8, 0)
+scale_min = 0.1
+scale_max = 0.1
+turbulence_enabled = true
+turbulence_noise_strength = 0.3
+turbulence_noise_scale = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbv6g"]
+albedo_color = Color(0, 0, 1, 1)
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 8.1
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_qqcu5"]
+material = SubResource("StandardMaterial3D_hbv6g")
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 3
@@ -3947,19 +3992,19 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(0.0325267, -2.38269e-07, -6.67415e-10, 0.999471)
-bones/3/rotation = Quaternion(-0.265572, 2.29678e-07, 6.43361e-10, 0.964091)
+bones/2/rotation = Quaternion(0.0331667, -2.3889e-07, 1.70524e-08, 0.99945)
+bones/3/rotation = Quaternion(-0.39654, -0.278777, -0.0815851, 0.870852)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/7/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
-bones/8/rotation = Quaternion(-0.0259811, 0.296435, -0.406132, 0.864007)
-bones/9/rotation = Quaternion(0.231632, 0.0151, 0.0014795, 0.972685)
+bones/8/rotation = Quaternion(-0.023645, 0.323113, -0.187567, 0.927285)
+bones/9/rotation = Quaternion(0.510594, 0.0348554, -0.463741, 0.723203)
 bones/11/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
-bones/12/rotation = Quaternion(-0.0259814, -0.296434, 0.406132, 0.864007)
-bones/13/rotation = Quaternion(0.231632, -0.0151, -0.00147952, 0.972685)
+bones/12/rotation = Quaternion(-0.0260077, -0.296458, 0.406136, 0.863996)
+bones/13/rotation = Quaternion(0.231868, -0.0150991, -0.00148108, 0.972629)
 bones/21/rotation = Quaternion(0.991633, 0.128359, 0.00176094, -0.0136038)
 bones/23/rotation = Quaternion(0.991633, -0.128359, -0.00176069, -0.0136038)
-bones/26/position = Vector3(1.70522, -0.231434, -0.0364273)
-bones/26/rotation = Quaternion(-1.48866e-05, 0.962574, 4.19143e-06, 0.27102)
+bones/26/position = Vector3(1.17197, -0.461176, 0.843496)
+bones/26/rotation = Quaternion(-0.157039, 0.949677, 0.0442156, 0.267389)
 bones/28/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/29/position = Vector3(-1.70522, -0.231434, -0.0364273)
 bones/29/rotation = Quaternion(0, 0.962574, 0, -0.27102)
@@ -3968,10 +4013,10 @@ bones/32/rotation = Quaternion(0.731415, -0.0857782, 0.0936405, 0.670004)
 bones/33/rotation = Quaternion(0.731415, 0.0857782, -0.0936405, 0.670004)
 
 [node name="L_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(0.874622, 1.03739e-12, -0.109067, 0.16369, -3.72529e-08, 0.582761, -3.66708e-09, -0.621946, 1.30385e-08, 1.2166, 7.91047, 2.54593)
+transform = Transform3D(0.749282, 0.33524, -0.0114505, 0.189433, -0.186124, 0.551448, 0.440963, -0.489682, -0.217439, 0.171029, 8.50685, 1.95625)
 
 [node name="R_Eye" parent="Visuals/Player/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(0.874622, 1.03739e-12, -0.109067, 0.16369, -3.72529e-08, 0.582761, -3.66708e-09, -0.621946, 1.30385e-08, 1.2166, 7.91047, 2.54593)
+transform = Transform3D(0.749282, 0.33524, -0.0114505, 0.189433, -0.186124, 0.551448, 0.440963, -0.489682, -0.217439, 0.171029, 8.50685, 1.95625)
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "horizontal_pivot", "vertical_pivot", "spring_arm", "camera")]
 top_level = true
@@ -4001,10 +4046,12 @@ player_visuals_node = NodePath("../Visuals")
 animation_tree = NodePath("../AnimationTree")
 
 [node name="PlayerSwimming" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16704, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.819372, 0)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("4_t3yqj")
+water_density = 2.0
+dampening_factor = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerSwimming"]
 shape = SubResource("BoxShape3D_jxyqu")
@@ -4063,6 +4110,12 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeBlendTree_hssfi")
 anim_player = NodePath("../Visuals/Player/AnimationPlayer")
+parameters/cast_spell_other/active = false
+parameters/cast_spell_other/internal_active = false
+parameters/cast_spell_other/request = 0
+parameters/cast_spell_self/active = false
+parameters/cast_spell_self/internal_active = false
+parameters/cast_spell_self/request = 0
 parameters/dead_state/current_state = "not_dead"
 parameters/dead_state/transition_request = ""
 parameters/dead_state/current_index = 0
@@ -4096,9 +4149,17 @@ is_player = true
 
 [node name="StatusHealth" parent="." instance=ExtResource("17_3jrpt")]
 visible = false
+max_health = 50.0
 
 [node name="Mana" type="Node3D" parent="."]
 script = ExtResource("12_6i8p7")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mana"]
+amount = 50
+visibility_aabb = AABB(-4, -6.268, -4, 8, 12.536, 8)
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_ykar1")
+draw_pass_1 = SubResource("QuadMesh_qqcu5")
 
 [connection signal="cast" from="SpellFactory/SnowboardSpell" to="PlayerSliding" method="_on_snowboard_spell_cast"]
 

@@ -25,16 +25,16 @@ func _physics_process(delta: float):
 
     if self.is_swimming && self.time_since_last_state_change > self.state_change_cooldown:
 
-        var water_level = self.entered_water_body.get_water_height()
-        var displacement = max(0.0, water_level - self.global_position.y + self.float_height)
-        var submerged_volume = displacement * 1.3 # 1.3 is the volume of the player's capsule collider
-        var buoyant_force = submerged_volume * self.water_density * self.global_gravity * delta;
+        var water_level: float = self.entered_water_body.get_water_height()
+        var displacement: float = max(0.0, water_level - self.global_position.y + self.float_height)
+        var submerged_volume: float = displacement * 1.3 # 1.3 is the volume of the player's capsule collider
+        var buoyant_force: float = submerged_volume * self.water_density * self.global_gravity * delta;
         self.player_movement.apply_vertical_velocity(buoyant_force)
 
         if self.player_movement.get_velocity().y < -self.max_sink_speed:
             self.player_movement.set_vertical_velocity(-self.max_sink_speed)
 
-        var vertical_velocity = self.player_movement.get_velocity().y
+        var vertical_velocity: float = self.player_movement.get_velocity().y
         self.player_movement.apply_vertical_velocity(-vertical_velocity * self.dampening_factor * delta)
     else:
         self.player_movement.gravity_adjustment = 0

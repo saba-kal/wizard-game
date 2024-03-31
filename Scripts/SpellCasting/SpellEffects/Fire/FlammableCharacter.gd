@@ -13,7 +13,6 @@ var immunity_enabled = false;
 
 func _ready():
     self.health = Util.get_child_node_of_type(self.get_parent(), Health)
-    super._ready()
 
 
 func _process(delta):

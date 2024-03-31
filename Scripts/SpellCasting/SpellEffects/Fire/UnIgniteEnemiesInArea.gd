@@ -8,6 +8,6 @@ func _ready():
 
 
 func on_body_entered(body: Node3D):
-    var flammable_nodes: Array = Util.get_child_nodes_of_type(body, Flammable)
-    for flammable_node in flammable_nodes:
-        flammable_node.start_un_fire(self.duration, self)
+    var flammable_nodes: Array[Flammable] = Util.get_child_nodes_of_type(body, Flammable)
+    for flammable_node: Flammable in flammable_nodes:
+        flammable_node.start_un_fire(self.duration)

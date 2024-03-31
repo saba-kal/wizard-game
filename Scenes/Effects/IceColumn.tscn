@@ -204,8 +204,7 @@ draw_pass_1 = ExtResource("2_8tfhg")
 
 [node name="FreezeEnemiesInArea" type="Area3D" parent="."]
 script = ExtResource("2_vmhyy")
-duration = null
-status_damage = null
+duration = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FreezeEnemiesInArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72392, 0)
@@ -226,7 +225,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51097, 0)
 shape = SubResource("CylinderShape3D_dogxt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "summon_ice"
 libraries = {
 "": SubResource("AnimationLibrary_fw7b1")
 }
+autoplay = "summon_ice"

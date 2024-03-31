@@ -70,6 +70,7 @@ func cast_spell():
     self.time_since_last_spell_cast = 0
     self.magic_circle.reset_timer(self.cast_time)
     spell.cast_spell(self.blue_rune, self.red_rune, self.yellow_rune)
+    SignalBus.spell_cast.emit(self.yellow_rune.type == YellowRune.YellowRuneType.SELF)
 
 
 func get_spell() -> Spell:

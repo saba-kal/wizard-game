@@ -72,6 +72,7 @@ collision_mask = 3
 
 [node name="RopeBridge" parent="Map" instance=ExtResource("5_5yvg4")]
 transform = Transform3D(0.995577, 0.014822, -0.0927754, 0, 0.987477, 0.157762, 0.0939519, -0.157064, 0.983109, 20.088, 25.9702, -7.71088)
+is_broken = false
 
 [node name="AIWonderArea" parent="Map" instance=ExtResource("4_5p6q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4259, 32.0112, 50.0627)

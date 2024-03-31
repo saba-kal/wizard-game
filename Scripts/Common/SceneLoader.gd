@@ -18,7 +18,7 @@ var load_screen_inst: Node
 var scene_to_load: String
 
 
-func load_scene(scene_type: SceneType):
+func load_scene(scene_type: SceneType) -> void:
     self.load_started = true
     self.load_screen_inst = load_screen.instantiate()
     self.get_tree().root.add_child(load_screen_inst)
@@ -26,7 +26,7 @@ func load_scene(scene_type: SceneType):
     ResourceLoader.load_threaded_request(self.scene_to_load)
 
 
-func _process(delta):
+func _process(delta: float) -> void:
     if !self.load_started:
         return
     var load_status: int = ResourceLoader.load_threaded_get_status(self.scene_to_load)

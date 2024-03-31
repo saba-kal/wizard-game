@@ -4,6 +4,7 @@ class_name PlayerMovement extends Node3D
 @export var player_visuals_node: Node3D
 @export var speed: float = 5
 @export var aim_speed: float = 3
+@export var mana_regen_speed: float = 1.5
 @export var jump_velocity: float = 6
 @export var turn_speed: float = 20
 @export var animation_tree: AnimationTree
@@ -17,6 +18,7 @@ var disabled: bool = false
 var third_persion_camera: ThirdPersonCamera
 var player_swimming: PlayerSwimming
 var player_sliding: PlayerSliding
+var is_mana_regen_active: bool = false
 
 
 func _ready():
@@ -26,6 +28,7 @@ func _ready():
     self.player_sliding = Util.get_child_node_of_type(self.get_parent(), PlayerSliding)
     self.slippery_friction = 1/player_sliding.slip_factor
     SignalBus.player_died.connect(self.on_player_died)
+    SignalBus.player_mana_regen_changed.connect(self.on_player_mana_regen_changed)
 
 
 func _physics_process(delta):
@@ -54,6 +57,8 @@ func process_velocity(delta):
     var move_speed: float = self.speed
     if self.third_persion_camera.is_aiming:
         move_speed = self.aim_speed
+    if self.is_mana_regen_active:
+        move_speed = self.mana_regen_speed
 
     if direction:
         if(slippery):
@@ -121,3 +126,7 @@ func on_player_died() -> void:
 
 func get_velocity() -> Vector3:
     return self.player_node.velocity
+
+
+func on_player_mana_regen_changed(is_mana_regen_on: bool) -> void:
+    self.is_mana_regen_active = is_mana_regen_on
