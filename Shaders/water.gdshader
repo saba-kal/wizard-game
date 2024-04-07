@@ -5,7 +5,7 @@
 //Godot version: https://godotshaders.com/shader/water-toon-torrent-shader/
 shader_type spatial;
 
-render_mode cull_disabled;
+render_mode cull_disabled, depth_prepass_alpha;
 
 uniform vec2 R = vec2(.8, .6);
 uniform float scale = 0.5;

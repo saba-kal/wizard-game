@@ -12,7 +12,7 @@ var magic_circle: MagicCircle
 var camera_is_aiming: bool = false
 
 
-func _ready():
+func _ready() -> void:
     SignalBus.rune_slots_changed.connect(self.on_rune_slots_changed)
     SignalBus.player_aim_mode_changed.connect(self.on_aim_mode_changed)
     for child in self.get_children():
@@ -22,27 +22,29 @@ func _ready():
     self.magic_circle.visible = false
 
 
-func _process(delta):
+func _process(delta: float) -> void:
     var runes_are_full = self.blue_rune != null && self.red_rune != null && self.yellow_rune != null
     if runes_are_full:
         var spell: Spell = self.get_spell()
         if spell != null:
-            spell.set_indicator_visible(self.camera_is_aiming && self.time_since_last_spell_cast >= self.cast_time)
+            var is_spell_ready: bool = self.camera_is_aiming && self.time_since_last_spell_cast >= self.cast_time
+            spell.set_indicator_visible(is_spell_ready)
+            SignalBus.spell_ready_to_cast_updated.emit(is_spell_ready)
     self.time_since_last_spell_cast += delta
 
 
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
     if event.is_action("cast_spell") && event.is_pressed():
         self.cast_spell()
 
 
-func on_rune_slots_changed(new_blue_rune: BlueRune, new_red_rune: RedRune, new_yellow_rune: YellowRune):
+func on_rune_slots_changed(new_blue_rune: BlueRune, new_red_rune: RedRune, new_yellow_rune: YellowRune) -> void:
     self.blue_rune = new_blue_rune
     self.red_rune = new_red_rune
     self.yellow_rune = new_yellow_rune
 
 
-func cast_spell():
+func cast_spell() -> void:
 
     if !self.camera_is_aiming:
         print("Spell can only be cast in aim mode")
@@ -80,7 +82,7 @@ func get_spell() -> Spell:
     return null
 
 
-func on_aim_mode_changed(is_aiming: bool):
+func on_aim_mode_changed(is_aiming: bool) -> void:
     self.magic_circle.visible = is_aiming && self.blue_rune != null && self.red_rune != null && self.yellow_rune != null
     self.time_since_last_spell_cast = 0
     self.magic_circle.reset_timer(self.cast_time)

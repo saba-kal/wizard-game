@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk2b38k4rbkgk"]
+
+[ext_resource type="Script" path="res://Scripts/Tutorial/Tutorial.gd" id="1_j3ggn"]
+
+[node name="TutorialUI" type="CanvasLayer" node_paths=PackedStringArray("open_spell_craft_label", "aim_label", "cast_spell_label", "mana_regen_label")]
+script = ExtResource("1_j3ggn")
+open_spell_craft_label = NodePath("OpenSpellCraftLabel")
+aim_label = NodePath("AimLabel")
+cast_spell_label = NodePath("CastSpellLabel")
+mana_regen_label = NodePath("ManaRegenLabel")
+
+[node name="OpenSpellCraftLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -109.0
+offset_right = 178.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[center]Press [color=CORNFLOWER_BLUE][b]C[/b][/color] to open spell crafting menu"
+
+[node name="AimLabel" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -109.0
+offset_right = 178.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[center]Hold [color=CORNFLOWER_BLUE][b]Right Mouse Button[/b][/color] to aim"
+
+[node name="CastSpellLabel" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -109.0
+offset_right = 178.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[center]Press [color=CORNFLOWER_BLUE][b]Left Mouse Button[/b][/color] to cast spell"
+
+[node name="ManaRegenLabel" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -109.0
+offset_right = 178.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[center]Hold [color=CORNFLOWER_BLUE][b]Shift[/b][/color] to regenerate mana"

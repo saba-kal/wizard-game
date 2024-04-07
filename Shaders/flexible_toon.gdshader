@@ -1,6 +1,6 @@
 shader_type spatial;
 
-render_mode ambient_light_disabled;
+render_mode ambient_light_disabled, depth_prepass_alpha;
 
 uniform vec4 albedo : source_color = vec4(1.0f);
 uniform sampler2D albedo_texture : source_color;
@@ -29,6 +29,13 @@ uniform sampler2D ramp : source_color;
 uniform bool use_borders = false;
 uniform float border_width = 0.01f;
 
+uniform bool use_dissolve = false;
+uniform sampler2D dissolve_texture : source_color;
+uniform float dissolve_value : hint_range(0,1);
+uniform float dissolve_brightness : hint_range(0,10) = 1.0;
+uniform float dissolve_burn_size: hint_range(0.0, 1.0, 0.01);
+uniform vec4 dissolve_burn_color: source_color;
+
 varying vec3 vertex_pos;
 varying vec3 normal;
 
@@ -42,7 +49,20 @@ void vertex() {
 }
 
 void fragment() {
-	ALBEDO = albedo.rgb * texture(albedo_texture, (UV + albedo_texture_offset) * albedo_texture_scale).rgb;
+    vec3 main_albedo = albedo.rgb * texture(albedo_texture, (UV + albedo_texture_offset) * albedo_texture_scale).rgb;
+    if (use_dissolve){
+        // Credit: https://godotshaders.com/shader/2d-dissolve-with-burn-edge/
+        vec4 noise_texture = texture(dissolve_texture, UV);
+        float burn_size_step = dissolve_burn_size * step(0.001, dissolve_value) * step(dissolve_value, 0.999);
+        float threshold = smoothstep(noise_texture.x-burn_size_step, noise_texture.x, dissolve_value);
+        float border = smoothstep(noise_texture.x, noise_texture.x + burn_size_step, dissolve_value);
+        ALPHA = threshold;
+        ALBEDO = mix(dissolve_burn_color.rgb, main_albedo, border);
+        EMISSION = mix(dissolve_burn_color.rgb * dissolve_brightness, vec3(0), border);
+    }
+    else{
+        ALBEDO = main_albedo;
+    }
 }
 
 void light() {
