@@ -12,7 +12,7 @@ func _process(delta):
     if(new and global_position != Vector3.ZERO):
         force_raycast_update()
         if(is_colliding()):
-            scene = load("res://Scenes/Effects/IcePlatform.tscn")
+            scene = load("res://Scenes/Effects/IceBoard.tscn")
         spell_effect= scene.instantiate()
         new = false
         self.get_tree().root.add_child(spell_effect)

@@ -9,6 +9,7 @@ class_name PlayerMovement extends Node3D
 @export var turn_speed: float = 20
 @export var animation_tree: AnimationTree
 @export var slippery_friction: float = 0.003
+@export var ground_friction = 1
 @export var push_force: float = 10
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -19,6 +20,8 @@ var third_persion_camera: ThirdPersonCamera
 var player_swimming: PlayerSwimming
 var player_sliding: PlayerSliding
 var is_mana_regen_active: bool = false
+var sticky_zip: int = 0
+var sticker: Node3D
 
 
 func _ready():
@@ -26,7 +29,7 @@ func _ready():
     self.third_persion_camera = Util.get_child_node_of_type(self.get_parent(), ThirdPersonCamera)
     self.player_swimming = Util.get_child_node_of_type(self.get_parent(), PlayerSwimming)
     self.player_sliding = Util.get_child_node_of_type(self.get_parent(), PlayerSliding)
-    self.slippery_friction = 1/player_sliding.slip_factor
+    self.slippery_friction = 1.0/player_sliding.slip_factor
     SignalBus.player_died.connect(self.on_player_died)
     SignalBus.player_mana_regen_changed.connect(self.on_player_mana_regen_changed)
 
@@ -41,8 +44,9 @@ func _physics_process(delta):
 
 
 func process_velocity(delta):
-    var slippery: bool = self.player_sliding.is_sliding()
-    #if slippery || (!self.player_node.is_on_floor() && !self.player_swimming.is_swimming):
+    var friction = ground_friction
+    if(self.player_sliding.is_sliding()): friction = slippery_friction
+
     self.player_node.velocity.y -= (self.gravity + self.gravity_adjustment) * delta
 
     if Input.is_action_just_pressed("jump") && self.player_node.is_on_floor():
@@ -61,19 +65,11 @@ func process_velocity(delta):
         move_speed = self.mana_regen_speed
 
     if direction:
-        if(slippery):
-            self.player_node.velocity.x = move_toward(self.player_node.velocity.x, direction.x * move_speed, move_speed)
-            self.player_node.velocity.z = move_toward(self.player_node.velocity.z, direction.z * move_speed, move_speed)
-        else:
-            self.player_node.velocity.x = direction.x * move_speed
-            self.player_node.velocity.z = direction.z * move_speed
+        self.player_node.velocity.x = move_toward(self.player_node.velocity.x, direction.x * move_speed, move_speed * sqrt(friction))
+        self.player_node.velocity.z = move_toward(self.player_node.velocity.z, direction.z * move_speed, move_speed * sqrt(friction))
     else:
-        if(!slippery):
-            self.player_node.velocity.x = move_toward(self.player_node.velocity.x, 0, move_speed)
-            self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed)
-        else:
-            self.player_node.velocity.x = move_toward(self.player_node.velocity.x, 0, move_speed * slippery_friction)
-            self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed * slippery_friction)
+        self.player_node.velocity.x = move_toward(self.player_node.velocity.x, 0, move_speed * friction)
+        self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed * friction)
 
     self.player_node.move_and_slide()
     for i in player_node.get_slide_collision_count():
@@ -81,8 +77,13 @@ func process_velocity(delta):
         if(collision.get_collider() is RigidBody3D):
             var v: float = self.player_node.velocity.length()
             collision.get_collider().apply_central_force(collision.get_normal() * -push_force)
-    if(slippery):
-       self.player_node.velocity = self.player_node.get_real_velocity()
+    if(sticky_zip == 0):
+        self.player_node.velocity = self.player_node.get_real_velocity() - self.player_node.get_platform_velocity()
+    else:
+        player_node.global_position.x = sticker.global_position.x
+        player_node.global_position.z = sticker.global_position.z
+        player_node.apply_floor_snap()
+        sticky_zip -= 1
 
 
 func apply_vertical_velocity(vertical_velocity: float):
@@ -90,6 +91,7 @@ func apply_vertical_velocity(vertical_velocity: float):
 
 
 func set_vertical_velocity(vertical_velocity: float):
+    self.player_node.velocity.y = vertical_velocity
     self.player_node.velocity.y = vertical_velocity
 
 
@@ -130,3 +132,7 @@ func get_velocity() -> Vector3:
 
 func on_player_mana_regen_changed(is_mana_regen_on: bool) -> void:
     self.is_mana_regen_active = is_mana_regen_on
+
+func get_sticky(sticker: Node3D):
+    sticky_zip = 5
+    self.sticker = sticker

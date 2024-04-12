@@ -13,6 +13,14 @@ size = Vector3(10, 10, 10)
 [node name="Water" type="Area3D"]
 collision_layer = 4
 collision_mask = 4
+gravity_space_override = 1
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+gravity = 10.447
+linear_damp_space_override = 1
+linear_damp = 0.5
+angular_damp_space_override = 1
+angular_damp = 0.3
 script = ExtResource("1_mksut")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

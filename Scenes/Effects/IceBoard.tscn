@@ -7,22 +7,43 @@
 friction = 0.03
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_acslb"]
-points = PackedVector3Array(2.28963, 0.84996, 0.493827, -0.323284, -2.0482, -0.131835, 0.0833568, 0.480225, 2.64958, 0.471945, 0.730315, -2.30759, 0.610374, -1.12019, -2.2129, 1.52999, -1.08083, 1.7212, -1.54855, 0.880163, 2.05396, -1.37119, -0.919409, -1.74352, -0.162033, -1.1614, 2.12361, -1.57418, -0.896135, 0.115177, 1.58217, -0.818779, -1.38114, -1.5413, 0.874065, -1.20212, 1.45636, 0.853746, -1.71603, 0.643336, -1.72565, -0.857396, 1.75785, 0.850504, 1.40726, 1.55709, -0.285543, -1.98322, 0.885433, -1.40309, 1.96305, -1.77366, 0.127648, 1.31828, -1.75784, -0.902027, -0.730215, -2.01133, 0.877541, 1.12019, -0.151124, 0.883378, 2.52594, 2.31842, 0.868978, 0.1903, -0.0688664, 0.473309, -2.25259, -0.581205, -0.964486, 1.96867, 0.312582, 0.3985, 2.63703, -1.93868, 0.829543, -0.559151, -0.40413, -2.0482, -0.0510487, 0.467982, 0.868591, -2.19861, 0.624998, -0.983172, -2.29094, 2.08726, 0.483344, -0.734228, -1.29035, -0.919409, -1.8238, -1.99216, 0.173068, 0.0366871)
+points = PackedVector3Array(2.29, 0.425, 0.494, -0.323, -1.024, -0.132, 0.083, 0.24, 2.65, 0.472, 0.365, -2.308, 0.61, -0.56, -2.213, 1.53, -0.54, 1.721, -1.549, 0.44, 2.054, -1.371, -0.459, -1.744, -0.162, -0.58, 2.124, -1.574, -0.448, 0.115, 1.582, -0.409, -1.381, -1.541, 0.437, -1.202, 1.456, 0.427, -1.716, 0.643, -0.863, -0.857, 1.758, 0.426, 1.407, 1.557, -0.143, -1.983, 0.885, -0.701, 1.963, -1.774, 0.064, 1.318, -1.758, -0.451, -0.73, -2.011, 0.439, 1.12, -0.151, 0.442, 2.526, 2.318, 0.435, 0.19, -0.069, 0.237, -2.253, -0.581, -0.482, 1.969, 0.313, 0.199, 2.637, -1.939, 0.415, -0.559, -0.404, -1.024, -0.051, 0.468, 0.435, -2.199, 0.625, -0.491, -2.291, 2.087, 0.242, -0.734, -1.29, -0.459, -1.824, -1.992, 0.087, 0.037)
 
 [node name="IceBoard" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 9
-collision_mask = 13
+collision_layer = 13
+collision_mask = 9
+mass = 3.34
 physics_material_override = SubResource("PhysicsMaterial_imtqw")
+lock_rotation = true
 script = ExtResource("1_77tb6")
 
 [node name="IceChunk" parent="RigidBody3D" instance=ExtResource("1_cunu2")]
 transform = Transform3D(0.6, 0, 0, 0, 0.3, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(0.6, 0, 0, 0, 0.3, 0, 0, 0, 0.6, 0, 0, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_acslb")
+
+[node name="PointContainer" type="Node3D" parent="RigidBody3D"]
+
+[node name="Front" type="Marker3D" parent="RigidBody3D/PointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15177, 0, 0)
+
+[node name="Back" type="Marker3D" parent="RigidBody3D/PointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1829, 0, 0)
+
+[node name="Left" type="Marker3D" parent="RigidBody3D/PointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4008)
+
+[node name="Right" type="Marker3D" parent="RigidBody3D/PointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.26591)
+
+[node name="Top" type="Marker3D" parent="RigidBody3D/PointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249031, 0)
+
+[node name="Bottom" type="Marker3D" parent="RigidBody3D/PointContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.570696, 0)
 
 [editable path="RigidBody3D/IceChunk"]

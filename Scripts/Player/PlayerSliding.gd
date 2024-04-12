@@ -11,7 +11,7 @@ var global_gravity: float = ProjectSettings.get_setting("physics/3d/default_grav
 var slip_time: float = 0
 var player_movement: PlayerMovement
 var third_person_camera: ThirdPersonCamera
-
+var board_speed: float = 9
 
 
 func _ready():
@@ -49,12 +49,18 @@ func is_sliding():
 
 
 func _on_snowboard_spell_cast():
+    print(player_movement.get_velocity())
+    print()
     var spell_effect: Node3D = self.spell_effect_scene.instantiate()
     self.get_tree().root.add_child(spell_effect)
-    spell_effect.global_position = self.global_position + Vector3(0,0.3,0)
+    spell_effect.global_position = self.global_position + Vector3(0, 0.6, 0)
+    player_movement.player_node.global_position.y += 0.3
     var rotation: float = third_person_camera.get_camera_y_rotation()
     var vec: Vector3 = Vector3(0, 0, -1).rotated(Vector3(0,1,0), rotation)
+    vec *= board_speed
     var rb: RigidBody3D = spell_effect.get_child(0)
-    rb.linear_velocity = vec * 9
-    slippery = true
-    slip_time = 1
+    vec += player_movement.get_velocity()
+    player_movement.player_node.apply_floor_snap()
+    rb.linear_velocity = vec
+    player_movement.get_sticky(rb)
+    
