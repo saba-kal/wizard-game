@@ -5,5 +5,6 @@
 [node name="IceDecider" type="RayCast3D"]
 target_position = Vector3(0, 0, 0)
 collision_mask = 4
+hit_from_inside = true
 collide_with_areas = true
 script = ExtResource("1_wxw1r")
