@@ -1,20 +1,15 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cahn5igeek8yp"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bwjcjt8n6sc2t"]
 
-[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_eufk7"]
-
-[sub_resource type="Gradient" id="Gradient_um1pb"]
-colors = PackedColorArray(0, 0.247, 0.26, 1, 0.4048, 0.6028, 0.88, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8m5u5"]
-gradient = SubResource("Gradient_um1pb")
+[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_cuaid"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_eufk7")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader = ExtResource("1_cuaid")
+shader_parameter/albedo = Color(0, 0, 0, 1)
 shader_parameter/albedo_texture_scale = Vector2(1, 1)
 shader_parameter/albedo_texture_offset = Vector2(0, 0)
 shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/light_strength = 5.0
 shader_parameter/cuts = 1
 shader_parameter/wrap = 0.0
 shader_parameter/steepness = 1.0
@@ -25,7 +20,7 @@ shader_parameter/specular_shininess = 16.0
 shader_parameter/use_rim = false
 shader_parameter/rim_width = 8.0
 shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/use_ramp = true
+shader_parameter/use_ramp = false
 shader_parameter/use_borders = false
 shader_parameter/border_width = 0.01
 shader_parameter/use_dissolve = false
@@ -33,4 +28,3 @@ shader_parameter/dissolve_value = null
 shader_parameter/dissolve_brightness = 1.0
 shader_parameter/dissolve_burn_size = null
 shader_parameter/dissolve_burn_color = null
-shader_parameter/ramp = SubResource("GradientTexture1D_8m5u5")

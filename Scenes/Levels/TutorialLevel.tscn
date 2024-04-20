@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqcu0ktix7514"]
+[gd_scene load_steps=15 format=3 uid="uid://dqcu0ktix7514"]
 
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="1_6oo27"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="1_u7ffg"]
 [ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="2_225xi"]
 [ext_resource type="PackedScene" uid="uid://dk2b38k4rbkgk" path="res://Scenes/UI/TutorialUI.tscn" id="2_h3y5k"]
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="4_11s58"]
+[ext_resource type="Material" uid="uid://0e4c0sdukg3b" path="res://Materials/PrototypeToon/GreyGridToonMaterial.tres" id="5_b3e34"]
 [ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="5_wquue"]
 [ext_resource type="Resource" uid="uid://bxiuikm8748d5" path="res://CustomResources/Runes/Red/DetrimentRune.tres" id="6_07xlr"]
 [ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="7_lftw6"]
@@ -21,7 +22,6 @@ sky_material = SubResource("ProceduralSkyMaterial_kkdpt")
 [sub_resource type="Environment" id="Environment_akchn"]
 background_mode = 2
 sky = SubResource("Sky_dto47")
-tonemap_mode = 2
 glow_enabled = true
 
 [node name="TutorialLevel" type="Node3D"]
@@ -40,6 +40,25 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_6oo27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101531, 0.45486, 3.37916)
 
+[node name="Skeleton3D" parent="Player/Visuals/Player2/HumanRig" index="0"]
+bones/2/rotation = Quaternion(0.00711406, -2.38175e-07, -6.72294e-09, 0.999975)
+bones/3/rotation = Quaternion(-0.240983, 2.29587e-07, 6.48055e-09, 0.970529)
+bones/9/rotation = Quaternion(-0.0309313, 0.300581, -0.406355, 0.862305)
+bones/10/rotation = Quaternion(0.224487, 0.015126, 0.00143384, 0.974359)
+bones/13/rotation = Quaternion(-0.0309312, -0.300581, 0.406355, 0.862305)
+bones/14/rotation = Quaternion(0.224493, -0.0151259, -0.00143396, 0.974357)
+bones/27/position = Vector3(1.70522, 3.69741, 0.284666)
+bones/27/rotation = Quaternion(0.191815, -0.680692, 0.680593, -0.191465)
+
+[node name="L_eye" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="0"]
+transform = Transform3D(-1.06833, 0.743969, 2.54208, 0.753924, -2.54227, 1.06087, 2.53914, 1.06787, 0.754568, 1.09596, 7.70259, 1.96603)
+
+[node name="MaskChin" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="1"]
+transform = Transform3D(2.85604, -3.9968e-15, -5.68434e-14, -1.11022e-14, 2.85604, -8.6613e-08, -1.13687e-13, 8.75443e-08, 2.85604, 3.56491e-08, -2.73916, -0.149396)
+
+[node name="R_eye" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="2"]
+transform = Transform3D(1.06833, -0.743969, -2.54208, 0.753924, -2.54227, 1.06087, 2.53914, 1.06787, 0.754567, -1.09596, 7.70259, 1.96603)
+
 [node name="Map" type="Node3D" parent="."]
 
 [node name="CSGGround1" type="CSGBox3D" parent="Map"]
@@ -47,6 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.08224)
 material_override = ExtResource("2_225xi")
 use_collision = true
 size = Vector3(33.9099, 1, 33.2834)
+material = ExtResource("5_b3e34")
 
 [node name="CSGWall1" type="CSGBox3D" parent="Map/CSGGround1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7682, 3.33908, 0)
@@ -84,6 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7634, 0, -48.1458)
 material_override = ExtResource("2_225xi")
 use_collision = true
 size = Vector3(41.452, 1, 14.982)
+material = ExtResource("5_b3e34")
 
 [node name="CSGWall6" type="CSGBox3D" parent="Map/CSGGround1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49925, 3.33908, -28.6606)
@@ -131,3 +152,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717006, 0.271142, -34.467
 [node name="LevelTransitionArea" parent="Map" instance=ExtResource("9_w2d25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2948, 0.5, -49.9474)
 transition_to = 2
+
+[editable path="Player"]
+[editable path="Player/Visuals/Player2"]
