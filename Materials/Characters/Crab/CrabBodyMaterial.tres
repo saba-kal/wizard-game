@@ -16,6 +16,7 @@ shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_texture_scale = Vector2(1, 1)
 shader_parameter/albedo_texture_offset = Vector2(0, 0)
 shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/light_strength = 1.0
 shader_parameter/cuts = 3
 shader_parameter/wrap = 0.0
 shader_parameter/steepness = 1.0

@@ -77,7 +77,7 @@ func process_velocity(delta):
             var v: float = self.player_node.velocity.length()
             collision.get_collider().apply_central_force(collision.get_normal() * -push_force)
     if(sticky_zip == 0):
-        #TODO: figure out what this does.
+        #TODO: This causes the player to hop slightly. Fix by conserving only horizontal velocity.
         #self.player_node.velocity = self.player_node.get_real_velocity() - self.player_node.get_platform_velocity()
         pass
     else:
