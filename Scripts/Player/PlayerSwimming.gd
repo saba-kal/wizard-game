@@ -1,6 +1,7 @@
 class_name PlayerSwimming extends Area3D
 
 @export var float_height: float = 0.0
+@export var swim_height: float = 0.0
 @export var water_density: float = 0.4
 @export var dampening_factor: float = 2.0
 @export var max_sink_speed: float = 5.0
@@ -25,8 +26,14 @@ func _physics_process(delta: float):
 
     if self.is_swimming && self.time_since_last_state_change > self.state_change_cooldown:
 
+        var float_offset = self.float_height
+        var horizontal_velocity: Vector3 = self.player_movement.get_velocity()
+        horizontal_velocity.y = 0
+        if horizontal_velocity.length_squared() > 0.1:
+            float_offset = self.swim_height
+
         var water_level: float = self.entered_water_body.get_water_height()
-        var displacement: float = max(0.0, water_level - self.global_position.y + self.float_height)
+        var displacement: float = max(0.0, water_level - self.global_position.y + float_offset)
         var submerged_volume: float = displacement * 1.3 # 1.3 is the volume of the player's capsule collider
         var buoyant_force: float = submerged_volume * self.water_density * self.global_gravity * delta;
         self.player_movement.apply_vertical_velocity(buoyant_force)

@@ -1,19 +1,20 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qgtit8s7g7qt"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d26rmil4q6x5p"]
 
-[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_ib7ll"]
+[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_gq2ug"]
+[ext_resource type="Texture2D" uid="uid://duxdc384gc22j" path="res://Textures/Player/V2/Mask.png" id="2_f45kp"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_ib7ll")
-shader_parameter/albedo = Color(0.4, 0.372549, 0.0862745, 1)
+shader = ExtResource("1_gq2ug")
+shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_texture_scale = Vector2(1, 1)
-shader_parameter/albedo_texture_offset = Vector2(0, 0)
-shader_parameter/clamp_diffuse_to_max = false
-shader_parameter/light_strength = 1.0
-shader_parameter/cuts = 2
-shader_parameter/wrap = 0.0
+shader_parameter/albedo_texture_offset = Vector2(1, 1)
+shader_parameter/clamp_diffuse_to_max = true
+shader_parameter/light_strength = 5.0
+shader_parameter/cuts = 1
+shader_parameter/wrap = -0.297
 shader_parameter/steepness = 1.0
-shader_parameter/use_attenuation = true
+shader_parameter/use_attenuation = false
 shader_parameter/use_specular = false
 shader_parameter/specular_strength = 1.0
 shader_parameter/specular_shininess = 16.0
@@ -28,3 +29,4 @@ shader_parameter/dissolve_value = null
 shader_parameter/dissolve_brightness = 1.0
 shader_parameter/dissolve_burn_size = null
 shader_parameter/dissolve_burn_color = null
+shader_parameter/albedo_texture = ExtResource("2_f45kp")

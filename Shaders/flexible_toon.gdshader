@@ -7,6 +7,7 @@ uniform sampler2D albedo_texture : source_color;
 uniform vec2 albedo_texture_scale = vec2(1.0f);
 uniform vec2 albedo_texture_offset = vec2(0.0f);
 uniform bool clamp_diffuse_to_max = false;
+uniform float light_strength : hint_range(0.0f, 20.0f) = 1.0;
 
 uniform int cuts : hint_range(1, 8) = 3;
 uniform float wrap : hint_range(-2.0f, 2.0f) = 0.0f;
@@ -89,7 +90,7 @@ void light() {
 	}
 	
 	// Apply diffuse result to different styles.
-	vec3 diffuse = ALBEDO.rgb * LIGHT_COLOR / PI;
+	vec3 diffuse = ALBEDO.rgb * LIGHT_COLOR / PI * light_strength;
 	if (use_ramp) {
 		diffuse *= texture(ramp, vec2(diffuse_stepped * (1.0f - border), 0.0f)).rgb;
 	} else {

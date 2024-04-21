@@ -1,33 +1,26 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://gimefh6hqbtt"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://yfx2ythvpx1v"]
 
-[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_ga4om"]
-
-[sub_resource type="Gradient" id="Gradient_fk3ov"]
-colors = PackedColorArray(0.46419, 0.227206, 0.130197, 1, 0.875, 0.519531, 0.378906, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8ynj3"]
-gradient = SubResource("Gradient_fk3ov")
-width = 8
+[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_x8sxh"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_ga4om")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader = ExtResource("1_x8sxh")
+shader_parameter/albedo = Color(0.721569, 0.721569, 0.721569, 1)
 shader_parameter/albedo_texture_scale = Vector2(1, 1)
 shader_parameter/albedo_texture_offset = Vector2(0, 0)
 shader_parameter/clamp_diffuse_to_max = false
-shader_parameter/light_strength = 1.0
-shader_parameter/cuts = 3
+shader_parameter/light_strength = 5.0
+shader_parameter/cuts = 1
 shader_parameter/wrap = 0.0
 shader_parameter/steepness = 1.0
 shader_parameter/use_attenuation = true
-shader_parameter/use_specular = true
+shader_parameter/use_specular = false
 shader_parameter/specular_strength = 1.0
 shader_parameter/specular_shininess = 16.0
 shader_parameter/use_rim = false
 shader_parameter/rim_width = 8.0
 shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/use_ramp = true
+shader_parameter/use_ramp = false
 shader_parameter/use_borders = false
 shader_parameter/border_width = 0.01
 shader_parameter/use_dissolve = false
@@ -35,4 +28,3 @@ shader_parameter/dissolve_value = null
 shader_parameter/dissolve_brightness = 1.0
 shader_parameter/dissolve_burn_size = null
 shader_parameter/dissolve_burn_color = null
-shader_parameter/ramp = SubResource("GradientTexture1D_8ynj3")

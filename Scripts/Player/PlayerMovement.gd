@@ -35,7 +35,6 @@ func _ready():
 
 
 func _physics_process(delta):
-
     if self.disabled:
         self.input_direction = Vector2.ZERO
         return
@@ -70,7 +69,7 @@ func process_velocity(delta):
     else:
         self.player_node.velocity.x = move_toward(self.player_node.velocity.x, 0, move_speed * friction)
         self.player_node.velocity.z = move_toward(self.player_node.velocity.z, 0, move_speed * friction)
-
+    
     self.player_node.move_and_slide()
     for i in player_node.get_slide_collision_count():
         var collision: KinematicCollision3D = player_node.get_slide_collision(i)
@@ -78,7 +77,9 @@ func process_velocity(delta):
             var v: float = self.player_node.velocity.length()
             collision.get_collider().apply_central_force(collision.get_normal() * -push_force)
     if(sticky_zip == 0):
-        self.player_node.velocity = self.player_node.get_real_velocity() - self.player_node.get_platform_velocity()
+        #TODO: This causes the player to hop slightly. Fix by conserving only horizontal velocity.
+        #self.player_node.velocity = self.player_node.get_real_velocity() - self.player_node.get_platform_velocity()
+        pass
     else:
         player_node.global_position.x = sticker.global_position.x
         player_node.global_position.z = sticker.global_position.z

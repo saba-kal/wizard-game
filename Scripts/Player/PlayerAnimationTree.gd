@@ -6,10 +6,6 @@ var health: Health
 var is_swimming: bool
 var mana_regen_is_active: bool = false
 
-@onready var player_model: Node3D = self.get_node("../Visuals/Player")
-@onready var original_model_rotation: Vector3 = self.player_model.rotation
-@onready var original_model_position: Vector3 = self.player_model.position
-
 
 func _ready():
     self.player_movement = Util.get_child_node_of_type(self.get_parent(), PlayerMovement)
@@ -25,7 +21,7 @@ func _ready():
 
 func _process(delta: float):
     if self.is_swimming:
-        self.process_swim_animations(delta)
+        self.process_swim_animations()
     elif !self.player_movement.is_on_floor():
         self.set("parameters/state/transition_request", "fall")
     elif self.player_movement.is_running() && !self.mana_regen_is_active:
@@ -38,31 +34,15 @@ func _process(delta: float):
     if self.prev_is_on_floor == false && self.player_movement.is_on_floor():
         self.set("parameters/land/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
     self.prev_is_on_floor = self.player_movement.is_on_floor()
-    
-    if !self.is_swimming:
-        var target_rotation = Quaternion.from_euler(self.original_model_rotation)
-        self.player_model.quaternion = self.player_model.quaternion.slerp(target_rotation, delta * 5.0)
-        self.player_model.position = self.player_model.position.lerp(self.original_model_position, delta * 5.0)
 
 
-func process_swim_animations(delta: float) -> void:
-
-     #TODO: replace with actual animation
-    var target_rotation = Quaternion.from_euler(Vector3(PI / 4.0, self.original_model_rotation.y, self.original_model_rotation.z))
-    var target_position = Vector3(0, -0.17, 1.162)
-
+func process_swim_animations() -> void:
     var horizontal_velocity: Vector3 = self.player_movement.get_velocity()
     horizontal_velocity.y = 0
     if horizontal_velocity.length_squared() > 0.1:
-        self.set("parameters/state/transition_request", "run")
+        self.set("parameters/state/transition_request", "swim")
     else:
-        self.set("parameters/state/transition_request", "idle")
-        target_rotation = Quaternion.from_euler(self.original_model_rotation)
-        target_position = self.original_model_position
-
-     #TODO: replace with actual animation
-    self.player_model.quaternion = self.player_model.quaternion.slerp(target_rotation, delta * 5.0)
-    self.player_model.position = self.player_model.position.lerp(target_position, delta * 5.0)
+        self.set("parameters/state/transition_request", "float")
 
 
 func on_player_jumped():
