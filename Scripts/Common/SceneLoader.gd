@@ -4,14 +4,16 @@ enum SceneType {
     MAIN_MENU = 0,
     HUB = 1,
     MUSHROOM_FOREST = 2,
-    TUTORIAL = 3
+    TUTORIAL = 3,
+    TEST = 4
 }
 
 var scenes: Array[String] = [
     "res://Scenes/MainMenu.tscn",
     "res://Scenes/Levels/Hub.tscn",
     "res://Scenes/Levels/MushroomForest.tscn",
-    "res://Scenes/Levels/TutorialLevel.tscn"
+    "res://Scenes/Levels/TutorialLevel.tscn",
+    "res://Scenes/Levels/Dev/SabaTestLevel.tscn"
 ]
 
 var load_started: bool = false

@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://b5h82my55oei6" path="res://Models/InteractiveLevelElements/Button.blend" id="1_4kdig"]
 [ext_resource type="Script" path="res://Scripts/Environment/InteractiveLevelElements/Button.gd" id="1_bei0u"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dct1"]
+size = Vector3(1.615, 0.285, 1.7)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_e46nh"]
 size = Vector3(2, 0.04, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7dct1"]
-size = Vector3(2, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_78ffb"]
 size = Vector3(2.572, 0.36, 2.572)
@@ -19,19 +19,18 @@ script = ExtResource("1_bei0u")
 
 [node name="Cube_001" parent="Model/Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.843611, 0, 0, 0, 0.302812, 0, 0, 0, 0.843611, 0, 0.131641, 0)
-bone_idx = 1
 
-[node name="Model@Armature@GeneralSkeleton@Cube_001@StaticBodyPress" type="StaticBody3D" parent="."]
+[node name="Red_Body" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189404, 0)
 
-[node name="Model@Armature@GeneralSkeleton@Cube_001@ShapeCast3D" type="ShapeCast3D" parent="."]
-shape = SubResource("BoxShape3D_e46nh")
-target_position = Vector3(0, 1.165, 0)
-debug_shape_custom_color = Color(0.117647, 0.352941, 0.215686, 1)
-
-[node name="Model@Armature@GeneralSkeleton@Cube_001@StaticBodyPress@CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284, 0)
+[node name="Box" type="CollisionShape3D" parent="Red_Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103563, 0)
 shape = SubResource("BoxShape3D_7dct1")
+
+[node name="Player_detector" type="ShapeCast3D" parent="."]
+shape = SubResource("BoxShape3D_e46nh")
+target_position = Vector3(0, 0.545, 0)
+debug_shape_custom_color = Color(0.117647, 0.352941, 0.215686, 1)
 
 [node name="StaticBodyBase" type="StaticBody3D" parent="."]
 

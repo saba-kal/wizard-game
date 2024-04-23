@@ -4,23 +4,20 @@ signal button_pressed()
 signal button_unpressed()
 
 var pressed = false;
-
+var cast: ShapeCast3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    $Model/Armature/GeneralSkeleton/Cube_001/ShapeCast3D.add_exception(
-        $Model/Armature/GeneralSkeleton/Cube_001/StaticBodyPress)
-    $Model/Armature/GeneralSkeleton/Cube_001/ShapeCast3D.add_exception(
-        $StaticBodyBase)
+    cast = $Player_detector
+    cast.add_exception($Red_Body)
+    cast.add_exception($StaticBodyBase)
+    pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    var cast = $Model/Armature/GeneralSkeleton/Cube_001/ShapeCast3D
-    var result = $Model/Armature/GeneralSkeleton/Cube_001/ShapeCast3D.collision_result
-    
+
     if(cast.is_colliding() and !pressed):
         press()
-        print(result)
     elif (!cast.is_colliding() and pressed):
         unpress()
 

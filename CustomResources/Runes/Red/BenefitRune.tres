@@ -7,3 +7,5 @@
 script = ExtResource("1_7gq41")
 type = 1
 texture = ExtResource("2_qv17k")
+mana_cost = 10.0
+mana_multiplier = 1.0
