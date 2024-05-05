@@ -25,7 +25,7 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=30
+animation/fps=24.0
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
@@ -36,13 +36,13 @@ _subresources={
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",
 "settings/loop_mode": 0,
-"slice_1/end_frame": 55,
+"slice_1/end_frame": 54,
 "slice_1/loop_mode": 1,
 "slice_1/name": "loop_slice",
 "slice_1/save_to_file/enabled": false,
 "slice_1/save_to_file/keep_custom_tracks": false,
 "slice_1/save_to_file/path": "",
-"slice_1/start_frame": 30,
+"slice_1/start_frame": 29,
 "slice_10/end_frame": 0,
 "slice_10/loop_mode": 0,
 "slice_10/name": "",
