@@ -203,8 +203,8 @@ transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, 
 
 [node name="Skeleton3D" parent="Visuals/Player2/HumanRig" index="0"]
 bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
-bones/2/rotation = Quaternion(0.0342811, -2.3875e-07, 1.33484e-08, 0.999412)
-bones/3/rotation = Quaternion(-0.398236, -0.278936, -0.0810419, 0.870078)
+bones/2/rotation = Quaternion(-0.0332773, -2.37709e-07, -1.63365e-08, 0.999446)
+bones/3/rotation = Quaternion(-0.329461, -0.25452, -0.0932475, 0.904422)
 bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
 bones/5/rotation = Quaternion(0.559438, 0.232896, 0.79548, 5.79389e-05)
 bones/6/rotation = Quaternion(0.00185565, -1.19209e-07, 2.21218e-10, 0.999998)
@@ -212,15 +212,15 @@ bones/7/rotation = Quaternion(-5.78799e-05, 0.79548, -0.232896, 0.559438)
 bones/7/scale = Vector3(-2.85604, -2.85604, -2.85604)
 bones/8/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
 bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(-0.0235826, 0.323242, -0.187615, 0.927232)
-bones/10/rotation = Quaternion(0.51068, 0.0348852, -0.463703, 0.723165)
+bones/9/rotation = Quaternion(-0.040081, 0.338295, -0.202474, 0.918125)
+bones/10/rotation = Quaternion(0.496558, 0.0234002, -0.433844, 0.75144)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(-0.655527, 0.284903, -0.0770527, 0.695109)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
 bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(-0.0262373, -0.296657, 0.406155, 0.863912)
-bones/14/rotation = Quaternion(0.232561, -0.0150965, -0.00148549, 0.972463)
+bones/13/rotation = Quaternion(-0.0412657, -0.308475, 0.40581, 0.859336)
+bones/14/rotation = Quaternion(0.218441, -0.0151472, -0.00139528, 0.975732)
 bones/15/rotation = Quaternion(-0.655527, -0.284903, 0.0770527, 0.695109)
 bones/16/rotation = Quaternion(0.525119, 0.477504, 0.521527, -0.47355)
 bones/16/scale = Vector3(1, 1, 1)
@@ -234,8 +234,8 @@ bones/22/scale = Vector3(1, 1, 1)
 bones/23/rotation = Quaternion(0.173788, 0.685431, 0.685418, -0.173735)
 bones/24/rotation = Quaternion(0, 0, 0.707107, 0.707107)
 bones/25/rotation = Quaternion(-0.00377738, -1.19208e-07, -4.50299e-10, 0.999993)
-bones/27/position = Vector3(1.17197, 4.57733, 0.514407)
-bones/27/rotation = Quaternion(0.300116, -0.702788, 0.640258, -0.0780288)
+bones/27/position = Vector3(1.20937, 4.51561, 0.498291)
+bones/27/rotation = Quaternion(0.293268, -0.701916, 0.643423, -0.085522)
 bones/28/rotation = Quaternion(0.5, -0.5, 0.5, -0.5)
 bones/29/rotation = Quaternion(2.38419e-07, 0, 1, 0)
 bones/30/position = Vector3(-1.70522, 3.69741, 0.284666)
@@ -257,13 +257,13 @@ bones/55/scale = Vector3(1, 1, 1)
 bones/57/scale = Vector3(1, 1, 1)
 
 [node name="L_eye" parent="Visuals/Player2/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(-2.15422, -0.302732, 1.85058, 1.4399, -2.07263, 1.3371, 1.20124, 1.94152, 1.71594, 0.281659, 8.16651, 1.59707)
+transform = Transform3D(-2.10794, -0.216817, 1.91482, 1.40342, -2.11752, 1.30519, 1.3206, 1.90423, 1.6694, 0.325853, 8.13955, 1.29854)
 
 [node name="MaskChin" parent="Visuals/Player2/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(2.37409, 0.388206, -1.53946, 0.111607, 2.72169, 0.858444, 1.58372, -0.773743, 2.24724, -0.908399, -2.46271, 2.15367)
+transform = Transform3D(2.43634, 0.347808, -1.44922, 0.085158, 2.74015, 0.80079, 1.48794, -0.726325, 2.32711, -0.807234, -2.50433, 1.65937)
 
 [node name="R_eye" parent="Visuals/Player2/HumanRig/Skeleton3D" index="2"]
-transform = Transform3D(-0.378118, -1.53959, -2.37564, 1.5234, -2.13078, 1.13843, 2.38605, 1.11644, -1.10331, -1.54038, 8.08086, 0.381614)
+transform = Transform3D(-0.285272, -1.4861, -2.42221, 1.46712, -2.16188, 1.15359, 2.43375, 1.12904, -0.979335, -1.54396, 8.07419, 0.156594)
 
 [node name="NotShroomGrimoire" parent="Visuals/Player2/HumanRig/Skeleton3D" index="3"]
 transform = Transform3D(-0.309915, 0.167898, 4.56594e-07, -3.25897e-07, 3.52306e-07, -0.352472, -0.167898, -0.309915, -1.54411e-07, 0.849065, 1.27412, -0.904484)

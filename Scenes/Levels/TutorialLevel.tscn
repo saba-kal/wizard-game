@@ -41,48 +41,34 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101531, 0.45486, 3.37916)
 
 [node name="Skeleton3D" parent="Player/Visuals/Player2/HumanRig" index="0"]
-bones/1/rotation = Quaternion(0.00377738, 1.19208e-07, 4.50299e-10, 0.999993)
 bones/2/rotation = Quaternion(-0.0346463, -2.37686e-07, -1.66621e-08, 0.9994)
 bones/3/rotation = Quaternion(0.020422, 0.175406, 0.0228535, 0.984019)
-bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
-bones/8/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
 bones/9/rotation = Quaternion(-0.0221181, 0.329032, -0.189639, 0.924817)
 bones/10/rotation = Quaternion(0.481107, 0.0235449, -0.475788, 0.73594)
-bones/12/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
 bones/13/rotation = Quaternion(-0.0416616, -0.308764, 0.40577, 0.859232)
 bones/14/rotation = Quaternion(0.218491, -0.0151471, -0.0013956, 0.97572)
-bones/22/rotation = Quaternion(0.999993, -3.35509e-05, -3.31805e-05, 0.00375904)
-bones/27/position = Vector3(1.17197, 4.57733, 0.514407)
 bones/27/rotation = Quaternion(0.300116, -0.702788, 0.640258, -0.0780289)
-bones/29/rotation = Quaternion(2.38419e-07, 0, 1, 0)
-bones/30/position = Vector3(-1.70522, 3.69741, 0.284666)
-bones/32/rotation = Quaternion(-2.38419e-07, 0, 1, 0)
-bones/40/rotation = Quaternion(-0.0215877, 2.28096e-13, -1.62985e-09, 0.999767)
-bones/44/rotation = Quaternion(0.0544114, 0.0631287, 0.0965104, 0.991837)
-bones/45/rotation = Quaternion(-0.0916858, 0.080555, 0.0106641, 0.992467)
-bones/53/rotation = Quaternion(0.0544114, -0.0631287, -0.0965104, 0.991837)
-bones/54/rotation = Quaternion(-0.0916858, -0.080555, -0.0106641, 0.992467)
 
 [node name="L_eye" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(-0.0812993, 0.737248, 2.75805, -0.430046, -2.73084, 0.7173, 2.82231, -0.394873, 0.188746, 1.95532, 6.69194, 2.17407)
+transform = Transform3D(-0.0812988, 0.737247, 2.75805, -0.430049, -2.73084, 0.717299, 2.82231, -0.394876, 0.188746, 1.95532, 6.69193, 2.17407)
 
 [node name="MaskChin" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(2.67731, 0.346754, 0.932054, 0.0879535, 2.58374, -1.21388, -0.990569, 1.16662, 2.41138, -1.03015, -1.88894, -3.49707)
+transform = Transform3D(2.67731, 0.346755, 0.932054, 0.0879534, 2.58374, -1.21388, -0.99057, 1.16662, 2.41137, -1.03015, -1.88894, -3.49708)
 
 [node name="R_eye" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="2"]
-transform = Transform3D(1.92164, -0.657576, -2.00795, -0.364247, -2.77667, 0.56073, 2.08124, 0.121194, 1.9521, -0.0994258, 6.62444, 2.9343)
+transform = Transform3D(1.92164, -0.657577, -2.00795, -0.36425, -2.77667, 0.560729, 2.08124, 0.121191, 1.9521, -0.0994244, 6.62443, 2.9343)
 
 [node name="NotShroomGrimoire" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="3"]
-transform = Transform3D(-0.309915, 0.167898, 4.56594e-07, -3.25897e-07, 3.52306e-07, -0.352472, -0.167898, -0.309915, -1.54411e-07, 0.849065, 1.27412, -0.904484)
+transform = Transform3D(-0.309915, 0.167898, 4.56582e-07, -3.25417e-07, 3.53166e-07, -0.352472, -0.167898, -0.309915, -1.55395e-07, 0.849065, 1.27412, -0.904484)
 
 [node name="Grimoire_Rune" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="4"]
-transform = Transform3D(0.167898, 0.309915, 4.56594e-07, 3.52306e-07, 3.25897e-07, -0.352472, -0.309915, 0.167898, -1.54411e-07, 1.08463, 1.31802, -0.775961)
+transform = Transform3D(0.167898, 0.309915, 4.56582e-07, 3.53166e-07, 3.25417e-07, -0.352472, -0.309915, 0.167898, -1.55395e-07, 1.08463, 1.31802, -0.775961)
 
 [node name="Belt" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="5"]
-transform = Transform3D(2.85604, -6.66134e-15, 2.50111e-12, 7.10543e-15, 2.85604, -2.04891e-08, -2.6148e-12, 1.49012e-08, 2.85604, -1.77636e-15, -2.74664, -3.72529e-09)
+transform = Transform3D(2.85604, 4.44089e-16, -5.68434e-14, 0, 2.85604, -1.86265e-09, 0, -1.86265e-09, 2.85604, 3.64153e-14, -2.74664, 1.86265e-08)
 
 [node name="Vials" parent="Player/Visuals/Player2/HumanRig/Skeleton3D" index="6"]
-transform = Transform3D(-0.104072, -6.9698e-16, 9.1139e-14, -2.58918e-16, 0.298829, -7.2238e-10, 9.52817e-14, 1.48954e-09, 0.104072, -0.84853, 1.49497, 1.06118)
+transform = Transform3D(-0.104072, 4.64654e-17, -2.07134e-15, 0, 0.298829, -4.36425e-11, 0, -2.64467e-10, 0.104072, -0.84853, 1.49497, 1.06118)
 
 [node name="Map" type="Node3D" parent="."]
 

@@ -4,7 +4,6 @@ var bearclops_ai: BearclopsAI
 var health: Health
 var is_dead: bool = false
 
-
 func _ready():
     self.bearclops_ai = self.get_parent()
     self.bearclops_ai.state_changed.connect(self.on_state_changed)
@@ -16,7 +15,9 @@ func _process(delta):
     if self.is_dead:
         return
 
-    if self.bearclops_ai.velocity.length_squared() > 0.1 && self.bearclops_ai.current_state != BearclopsAI.State.ATTACK:
+    if self.bearclops_ai.current_state == BearclopsAI.State.TELEKINESIS_ATTACK:
+        self.set("parameters/state/transition_request", "telekinesis")
+    elif self.bearclops_ai.velocity.length_squared() > 0.1 && self.bearclops_ai.current_state != BearclopsAI.State.ATTACK:
         self.set("parameters/state/transition_request", "walk")
     else:
         self.set("parameters/state/transition_request", "idle")
