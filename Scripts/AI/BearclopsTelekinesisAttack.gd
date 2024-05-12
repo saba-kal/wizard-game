@@ -6,6 +6,7 @@ class_name BearclopsTelekinesisAttack extends Area3D
 @export var object_throw_force: float = 3000.0
 @export var cooldown: float = 5.0
 @export var minimum_objects_needed_to_attack: int = 2
+@export var time_between_throws: float = 0.2
 
 var player: Node3D
 var nearby_physics_objects: Array[PhysicsObject] = []
@@ -13,6 +14,7 @@ var is_enabled: bool = false
 var objects_were_thrown: bool = false
 var time_since_attack_start: float = 0.0
 var time_since_attack_end: float = 0.0
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 
 func _ready() -> void:
@@ -54,9 +56,14 @@ func set_enabled(enabled: bool) -> void:
 func throw_objects() -> void:
     self.objects_were_thrown = true
     for physics_object: PhysicsObject in self.nearby_physics_objects:
-        var force_direction: Vector3 = (self.player.global_position - physics_object.global_position).normalized()
+        var player_position: Vector3 = self.player.global_position + Vector3(
+            self.rng.randf_range(-1.0, 1.0), 
+            self.rng.randf_range(0.0, 2.0), 
+            self.rng.randf_range(-1.0, 1.0))
+        var force_direction: Vector3 = (player_position - physics_object.global_position).normalized()
         physics_object.set_float_enabled(false)
         physics_object.apply_force(force_direction * self.object_throw_force)
+        await get_tree().create_timer(self.time_between_throws).timeout
 
 
 func float_physics_object(physics_object: PhysicsObject, is_float_enabled: bool) -> void:

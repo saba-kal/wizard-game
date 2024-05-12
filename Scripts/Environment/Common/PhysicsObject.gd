@@ -34,5 +34,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 func on_body_entered(body: Node3D) -> void:
     var health: Health = Util.get_child_node_of_type(body, Health)
-    if is_instance_valid(health) && self.linear_velocity.length() >= self.minimum_speed_to_damage:
-        health.take_damage(self.on_hit_damage)
+    if !is_instance_valid(health) || self.linear_velocity.length() < self.minimum_speed_to_damage:
+        return
+
+    health.take_damage(self.on_hit_damage)
+    var knock_down: KnockDown = Util.get_child_node_of_type(body, KnockDown)
+    if is_instance_valid(knock_down):
+        knock_down.execute()
