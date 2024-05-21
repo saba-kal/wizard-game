@@ -3,7 +3,7 @@ class_name AIMeleeAttack extends AIDefaultAttack
 @onready var player = self.get_tree().get_first_node_in_group("Player")
 @onready var hitbox: Area3D = $Area3D
 
-@export var range = 3
+@export var range: float = 3
 
 var entered_bodies: Array[Node3D] = []
 

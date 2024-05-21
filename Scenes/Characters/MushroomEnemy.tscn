@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dqkj10yn050io"]
+[gd_scene load_steps=42 format=3 uid="uid://dqkj10yn050io"]
 
 [ext_resource type="Script" path="res://Scripts/AI/Mushroom/MushroomEnemy.gd" id="1_iyqyo"]
 [ext_resource type="PackedScene" uid="uid://5npreb7s64s" path="res://Models/Characters/MushroomEnemy.blend" id="2_ov2io"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezableEnemy.gd" id="6_cdk42"]
 [ext_resource type="Script" path="res://Scripts/AI/Mushroom/AnimationTree.gd" id="8_1b1c3"]
 [ext_resource type="Script" path="res://Scripts/AI/Mushroom/MeleeAttack.gd" id="8_sdgcx"]
-[ext_resource type="Script" path="res://Scripts/AI/AIWanderArea.gd" id="9_a2v7d"]
+[ext_resource type="Script" path="res://Scripts/AI/AIDefaultAttack.gd" id="10_fatxd"]
 
 [sub_resource type="Shader" id="Shader_dobpx"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.2.1.stable's StandardMaterial3D.
@@ -158,6 +158,10 @@ _surfaces = [{
 "vertex_data": PackedByteArray(201, 251, 100, 64, 193, 63, 227, 64, 10, 227, 101, 192, 75, 162, 114, 64, 224, 62, 241, 64, 140, 137, 115, 192, 75, 162, 114, 64, 224, 62, 241, 64, 140, 137, 115, 192, 13, 92, 135, 60, 193, 63, 227, 64, 2, 38, 162, 192, 97, 178, 161, 64, 193, 63, 227, 64, 194, 252, 250, 188, 201, 251, 100, 64, 193, 63, 227, 64, 24, 247, 97, 64, 13, 92, 135, 60, 193, 63, 227, 64, 9, 48, 160, 64, 212, 1, 124, 64, 80, 217, 1, 65, 21, 233, 124, 192, 15, 92, 135, 60, 224, 62, 241, 64, 254, 204, 171, 192, 15, 92, 135, 60, 224, 62, 241, 64, 254, 204, 171, 192, 94, 89, 171, 64, 224, 62, 241, 64, 192, 252, 250, 188, 94, 89, 171, 64, 224, 62, 241, 64, 192, 252, 250, 188, 75, 162, 114, 64, 224, 62, 241, 64, 152, 157, 111, 64, 75, 162, 114, 64, 224, 62, 241, 64, 152, 157, 111, 64, 15, 92, 135, 60, 224, 62, 241, 64, 5, 215, 169, 64, 15, 92, 135, 60, 224, 62, 241, 64, 5, 215, 169, 64, 72, 167, 113, 64, 94, 4, 18, 65, 137, 142, 114, 192, 24, 92, 135, 60, 80, 217, 1, 65, 185, 109, 178, 192, 25, 250, 177, 64, 80, 217, 1, 65, 192, 252, 250, 188, 212, 1, 124, 64, 80, 217, 1, 65, 33, 253, 120, 64, 24, 92, 135, 60, 80, 217, 1, 65, 192, 119, 176, 64, 248, 91, 135, 60, 94, 4, 18, 65, 126, 27, 171, 192, 221, 167, 170, 64, 94, 4, 18, 65, 136, 252, 250, 188, 72, 167, 113, 64, 94, 4, 18, 65, 149, 162, 110, 64, 248, 91, 135, 60, 94, 4, 18, 65, 132, 37, 169, 64, 13, 92, 225, 63, 38, 176, 65, 65, 60, 35, 242, 191, 6, 92, 135, 60, 38, 11, 217, 64, 110, 247, 133, 64, 201, 121, 135, 64, 38, 11, 217, 64, 183, 252, 250, 188, 189, 230, 63, 64, 38, 11, 217, 64, 10, 226, 60, 64, 6, 92, 135, 60, 38, 11, 217, 64, 105, 237, 135, 192, 189, 230, 63, 64, 38, 11, 217, 64, 254, 205, 64, 192, 88, 222, 98, 192, 193, 63, 227, 64, 10, 227, 101, 192, 217, 132, 112, 192, 224, 62, 241, 64, 140, 137, 115, 192, 217, 132, 112, 192, 224, 62, 241, 64, 140, 137, 115, 192, 169, 163, 160, 192, 193, 63, 227, 64, 194, 252, 250, 188, 88, 222, 98, 192, 193, 63, 227, 64, 24, 247, 97, 64, 97, 228, 121, 192, 80, 217, 1, 65, 21, 233, 124, 192, 166, 74, 170, 192, 224, 62, 241, 64, 192, 252, 250, 188, 166, 74, 170, 192, 224, 62, 241, 64, 192, 252, 250, 188, 217, 132, 112, 192, 224, 62, 241, 64, 152, 157, 111, 64, 217, 132, 112, 192, 224, 62, 241, 64, 152, 157, 111, 64, 214, 137, 111, 192, 94, 4, 18, 65, 137, 142, 114, 192, 97, 235, 176, 192, 80, 217, 1, 65, 192, 252, 250, 188, 97, 228, 121, 192, 80, 217, 1, 65, 33, 253, 120, 64, 37, 153, 169, 192, 94, 4, 18, 65, 136, 252, 250, 188, 214, 137, 111, 192, 94, 4, 18, 65, 149, 162, 110, 64, 16, 107, 134, 192, 38, 11, 217, 64, 183, 252, 250, 188, 77, 201, 61, 192, 38, 11, 217, 64, 10, 226, 60, 64, 77, 201, 61, 192, 38, 11, 217, 64, 254, 205, 64, 192, 33, 105, 24, 64, 212, 225, 45, 65, 88, 188, 31, 192, 63, 104, 56, 62, 61, 154, 42, 65, 77, 99, 95, 192, 126, 76, 78, 64, 206, 144, 50, 65, 131, 64, 119, 190, 134, 159, 13, 64, 208, 232, 53, 65, 176, 225, 249, 63, 32, 191, 110, 189, 109, 244, 53, 65, 155, 52, 51, 64, 253, 211, 5, 192, 219, 165, 42, 65, 142, 31, 41, 192, 250, 128, 70, 192, 222, 253, 45, 65, 102, 213, 229, 190, 152, 157, 16, 192, 214, 172, 50, 65, 77, 27, 231, 63, 173, 111, 38, 63, 200, 73, 64, 65, 151, 8, 26, 192, 91, 114, 11, 64, 106, 86, 70, 65, 11, 110, 70, 191, 235, 117, 212, 63, 83, 131, 75, 65, 56, 234, 147, 62, 195, 243, 1, 63, 199, 46, 78, 65, 110, 83, 45, 63, 162, 123, 35, 63, 91, 97, 79, 65, 15, 136, 126, 191, 64, 136, 0, 191, 58, 245, 66, 65, 4, 49, 1, 192, 249, 178, 130, 191, 35, 34, 72, 65, 236, 96, 116, 191, 145, 84, 26, 191, 103, 200, 76, 65, 11, 222, 37, 62, 75, 162, 114, 64, 224, 62, 241, 64, 140, 137, 115, 192, 75, 162, 114, 64, 224, 62, 241, 64, 140, 137, 115, 192, 75, 162, 114, 64, 224, 62, 241, 64, 140, 137, 115, 192, 13, 92, 135, 60, 193, 63, 227, 64, 2, 38, 162, 192, 201, 251, 100, 64, 193, 63, 227, 64, 24, 247, 97, 64, 94, 89, 171, 64, 224, 62, 241, 64, 192, 252, 250, 188, 94, 89, 171, 64, 224, 62, 241, 64, 192, 252, 250, 188, 75, 162, 114, 64, 224, 62, 241, 64, 152, 157, 111, 64, 15, 92, 135, 60, 224, 62, 241, 64, 5, 215, 169, 64, 15, 92, 135, 60, 224, 62, 241, 64, 5, 215, 169, 64, 24, 92, 135, 60, 80, 217, 1, 65, 185, 109, 178, 192, 212, 1, 124, 64, 80, 217, 1, 65, 33, 253, 120, 64, 6, 92, 135, 60, 38, 11, 217, 64, 110, 247, 133, 64, 201, 121, 135, 64, 38, 11, 217, 64, 183, 252, 250, 188, 189, 230, 63, 64, 38, 11, 217, 64, 10, 226, 60, 64, 88, 222, 98, 192, 193, 63, 227, 64, 10, 227, 101, 192, 217, 132, 112, 192, 224, 62, 241, 64, 140, 137, 115, 192, 166, 74, 170, 192, 224, 62, 241, 64, 192, 252, 250, 188, 166, 74, 170, 192, 224, 62, 241, 64, 192, 252, 250, 188, 217, 132, 112, 192, 224, 62, 241, 64, 152, 157, 111, 64, 16, 107, 134, 192, 38, 11, 217, 64, 183, 252, 250, 188, 77, 201, 61, 192, 38, 11, 217, 64, 10, 226, 60, 64, 3, 199, 130, 35, 219, 206, 187, 224, 195, 222, 98, 47, 187, 127, 98, 154, 195, 222, 98, 47, 194, 180, 24, 230, 246, 187, 0, 0, 164, 234, 200, 214, 246, 187, 246, 59, 64, 210, 11, 230, 129, 163, 4, 71, 57, 237, 40, 221, 255, 127, 246, 59, 207, 234, 98, 169, 0, 251, 128, 61, 58, 148, 131, 151, 143, 213, 0, 0, 24, 219, 169, 179, 143, 213, 0, 0, 41, 227, 144, 213, 143, 213, 144, 85, 8, 61, 34, 143, 143, 213, 144, 85, 229, 190, 217, 239, 97, 175, 196, 94, 132, 237, 34, 152, 97, 175, 196, 94, 130, 231, 211, 225, 255, 127, 144, 85, 41, 217, 250, 204, 255, 127, 144, 85, 99, 227, 152, 170, 251, 220, 172, 209, 24, 183, 148, 154, 12, 249, 0, 0, 131, 221, 177, 175, 12, 249, 12, 121, 161, 81, 86, 130, 128, 189, 1, 123, 183, 234, 63, 154, 255, 127, 12, 121, 176, 222, 191, 207, 106, 45, 146, 255, 8, 229, 215, 170, 233, 211, 33, 172, 119, 193, 107, 144, 83, 174, 20, 163, 167, 233, 180, 158, 135, 127, 25, 173, 243, 227, 114, 213, 171, 204, 167, 220, 156, 202, 176, 156, 255, 127, 76, 12, 78, 252, 198, 172, 75, 140, 76, 12, 59, 247, 194, 214, 91, 136, 184, 16, 113, 252, 18, 213, 75, 140, 0, 0, 60, 252, 151, 211, 183, 144, 92, 8, 13, 247, 41, 213, 251, 56, 130, 35, 121, 237, 203, 162, 59, 33, 98, 47, 26, 236, 117, 232, 59, 33, 98, 47, 222, 231, 49, 158, 8, 68, 246, 59, 253, 210, 136, 153, 125, 92, 4, 71, 219, 206, 84, 159, 254, 4, 128, 61, 48, 233, 40, 230, 111, 42, 144, 85, 179, 65, 180, 239, 111, 42, 144, 85, 220, 192, 167, 143, 157, 80, 196, 94, 156, 129, 170, 228, 157, 80, 196, 94, 196, 180, 216, 153, 162, 36, 52, 210, 42, 231, 73, 225, 242, 6, 12, 121, 138, 81, 168, 253, 126, 66, 1, 123, 160, 149, 48, 231, 55, 46, 115, 174, 85, 193, 49, 238, 214, 81, 64, 164, 77, 184, 237, 227, 179, 115, 76, 12, 91, 247, 160, 168, 163, 119, 184, 16, 12, 247, 138, 170, 71, 111, 92, 8, 135, 252, 168, 170, 167, 206, 247, 217, 245, 199, 132, 158, 72, 63, 243, 255, 213, 229, 22, 166, 208, 194, 204, 190, 187, 202, 174, 152, 171, 163, 93, 184, 44, 233, 96, 163, 106, 124, 130, 197, 184, 230, 44, 218, 76, 56, 160, 222, 153, 239, 186, 219, 204, 66, 146, 201, 100, 214, 129, 228, 137, 90, 66, 189, 90, 209, 243, 226, 218, 193, 216, 249, 108, 224, 110, 163, 163, 191, 155, 205, 172, 208, 154, 154, 83, 164, 109, 199, 251, 228, 30, 163, 70, 129, 17, 221, 232, 245, 161, 212, 7, 160, 138, 250, 238, 241, 186, 167, 83, 59, 75, 231, 123, 254, 217, 214, 210, 71, 103, 217, 165, 230, 185, 223, 185, 95, 119, 208, 233, 223, 34, 223, 190, 210, 173, 212, 194, 180, 24, 230, 51, 199, 226, 49, 194, 180, 24, 230, 231, 200, 83, 17, 194, 180, 24, 230, 235, 192, 74, 12, 164, 234, 200, 214, 67, 151, 82, 49, 57, 237, 40, 221, 96, 200, 196, 110, 8, 61, 34, 143, 93, 207, 80, 219, 229, 190, 217, 239, 241, 178, 20, 103, 132, 237, 34, 152, 137, 157, 30, 97, 41, 217, 250, 204, 30, 115, 150, 92, 99, 227, 152, 170, 162, 24, 222, 17, 131, 221, 177, 175, 25, 182, 165, 108, 183, 234, 63, 154, 163, 201, 187, 244, 78, 252, 198, 172, 134, 171, 53, 33, 59, 247, 194, 214, 190, 208, 115, 218, 113, 252, 18, 213, 178, 75, 117, 31, 121, 237, 203, 162, 227, 29, 184, 27, 26, 236, 117, 232, 219, 4, 28, 160, 220, 192, 167, 143, 15, 74, 134, 62, 220, 192, 167, 143, 80, 99, 106, 90, 196, 180, 216, 153, 77, 21, 60, 172, 91, 247, 160, 168, 74, 12, 170, 88, 12, 247, 138, 170)
 }]
 blend_shape_mode = 0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tr4k6"]
+height = 0.619793
+radius = 1.31296
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8wev4"]
 radius = 0.295039
@@ -1634,6 +1638,9 @@ input_2/name = "death"
 input_2/auto_advance = false
 input_2/reset = true
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xln5l"]
+animation = &"Attack"
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_hfsh4"]
 input_0/name = "idle"
 input_0/auto_advance = false
@@ -1641,9 +1648,12 @@ input_0/reset = true
 input_1/name = "walking"
 input_1/auto_advance = false
 input_1/reset = true
-input_2/name = "ouchie"
+input_2/name = "hurt"
 input_2/auto_advance = false
 input_2/reset = true
+input_3/name = "attack"
+input_3/auto_advance = false
+input_3/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ss34u"]
 animation = &"Death"
@@ -1653,31 +1663,40 @@ input_0/name = "idle"
 input_0/auto_advance = false
 input_0/reset = true
 input_1/name = "attack"
-input_1/auto_advance = false
+input_1/auto_advance = true
 input_1/reset = true
-input_2/name = "hurt"
+input_2/name = "reverseattack"
 input_2/auto_advance = false
 input_2/reset = true
+input_3/name = "hurt"
+input_3/auto_advance = false
+input_3/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8oxl2"]
 animation = &"AttackFromHiding"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_to4s2"]
-animation = &"Default"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3dna7"]
 animation = &"Ouchie"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_to4s2"]
+animation = &"Default"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jru4y"]
+animation = &"AttackFromHiding"
+play_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yrj4q"]
+animation = &"Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_scnbh"]
-graph_offset = Vector2(-642.88, -130.753)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_jekw1")
 nodes/Animation/position = Vector2(-280, -180)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_lx3cq")
-"nodes/Animation 3/position" = Vector2(-260, 80)
+"nodes/Animation 3/position" = Vector2(-500, 200)
 nodes/Transition/node = SubResource("AnimationNodeTransition_ay1d8")
 nodes/Transition/position = Vector2(280, 180)
+nodes/attack/node = SubResource("AnimationNodeAnimation_xln5l")
+nodes/attack/position = Vector2(-180, 460)
 nodes/combat_transition/node = SubResource("AnimationNodeTransition_hfsh4")
 nodes/combat_transition/position = Vector2(-20, 220)
 nodes/death/node = SubResource("AnimationNodeAnimation_ss34u")
@@ -1685,29 +1704,28 @@ nodes/death/position = Vector2(200, 500)
 nodes/hide_transition/node = SubResource("AnimationNodeTransition_3yoxk")
 nodes/hide_transition/position = Vector2(0, -40)
 nodes/hideattack/node = SubResource("AnimationNodeAnimation_8oxl2")
-nodes/hideattack/position = Vector2(-300, -60)
+nodes/hideattack/position = Vector2(-660, -80)
+nodes/hurt/node = SubResource("AnimationNodeAnimation_3dna7")
+nodes/hurt/position = Vector2(-400, 440)
 nodes/idle/node = SubResource("AnimationNodeAnimation_to4s2")
 nodes/idle/position = Vector2(-200, 220)
-nodes/ouchie/node = SubResource("AnimationNodeAnimation_3dna7")
-nodes/ouchie/position = Vector2(-160, 500)
 nodes/output/position = Vector2(420, 200)
+"nodes/reverse hideattack/node" = SubResource("AnimationNodeAnimation_jru4y")
+"nodes/reverse hideattack/position" = Vector2(-700, 60)
 nodes/walking/node = SubResource("AnimationNodeAnimation_yrj4q")
-nodes/walking/position = Vector2(-180, 360)
-node_connections = [&"Transition", 0, &"hide_transition", &"Transition", 1, &"combat_transition", &"Transition", 2, &"death", &"combat_transition", 0, &"idle", &"combat_transition", 1, &"walking", &"combat_transition", 2, &"ouchie", &"hide_transition", 0, &"Animation", &"hide_transition", 1, &"hideattack", &"hide_transition", 2, &"Animation 3", &"output", 0, &"Transition"]
+nodes/walking/position = Vector2(-300, 340)
+node_connections = [&"Transition", 0, &"hide_transition", &"Transition", 1, &"combat_transition", &"Transition", 2, &"death", &"combat_transition", 0, &"idle", &"combat_transition", 1, &"walking", &"combat_transition", 2, &"hurt", &"combat_transition", 3, &"attack", &"hide_transition", 0, &"Animation", &"hide_transition", 1, &"hideattack", &"hide_transition", 2, &"reverse hideattack", &"hide_transition", 3, &"Animation 3", &"output", 0, &"Transition"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2tfkn"]
 height = 1.12046
 radius = 1.76366
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_tr4k6"]
-height = 0.619793
-radius = 1.31296
-
-[node name="MushroomEnemy" type="CharacterBody3D" node_paths=PackedStringArray("hide_attack", "combat_attack", "ai_wander_area")]
+[node name="MushroomEnemy" type="CharacterBody3D" node_paths=PackedStringArray("hide_attack", "combat_attack", "jump_attatck")]
 script = ExtResource("1_iyqyo")
 hide_attack = NodePath("HideAttack")
 combat_attack = NodePath("Attack")
-ai_wander_area = NodePath("AIWanderArea")
+jump_attatck = NodePath("JumpAttack")
+detect_radius = 15.0
 
 [node name="Visuals" parent="." instance=ExtResource("2_ov2io")]
 transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, 0, 0, 0)
@@ -1747,8 +1765,7 @@ visible = false
 
 [node name="Health" parent="." instance=ExtResource("3_wu66h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75948, 0)
-visible = false
-max_health = 10.0
+max_health = 1000.0
 
 [node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("4_ga7t4")]
 character_body = NodePath("..")
@@ -1760,6 +1777,13 @@ nav_agent = NodePath("../NavigationAgent3D")
 script = ExtResource("6_cdk42")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 1.0
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="CapCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.989428, 0.139943, -0.0380647, -0.145025, 0.95322, -0.265213, -0.000830748, 0.267929, 0.963438, 0.286037, 2.46647, 0.0436642)
+shape = SubResource("CylinderShape3D_tr4k6")
 
 [node name="StemCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.979452, 0.201676, 0, -0.201676, 0.979452, 0, 0, 0, 1, 0.172144, 1.00591, 0)
@@ -1775,9 +1799,9 @@ anim_player = NodePath("../Visuals/AnimationPlayer")
 parameters/Transition/current_state = "hide"
 parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
-parameters/combat_transition/current_state = "idle"
-parameters/combat_transition/transition_request = ""
-parameters/combat_transition/current_index = 0
+parameters/combat_transition/current_state = "attack"
+parameters/combat_transition/transition_request = "idle"
+parameters/combat_transition/current_index = 3
 parameters/hide_transition/current_state = "idle"
 parameters/hide_transition/transition_request = ""
 parameters/hide_transition/current_index = 0
@@ -1788,6 +1812,7 @@ aabb = AABB(-1.16883, 0, -1.15306, 2.33767, 2.7, 2.30613)
 
 [node name="Attack" type="Node3D" parent="."]
 script = ExtResource("8_sdgcx")
+range = 2.45
 attack_delay = 0.5
 
 [node name="Area3D" type="Area3D" parent="Attack"]
@@ -1795,9 +1820,6 @@ attack_delay = 0.5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Attack/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4862, 0.138631)
 shape = SubResource("CylinderShape3D_2tfkn")
-
-[node name="AIWanderArea" type="Node3D" parent="."]
-script = ExtResource("9_a2v7d")
 
 [node name="HideAttack" type="Node3D" parent="."]
 script = ExtResource("8_sdgcx")
@@ -1809,12 +1831,11 @@ attack_delay = 0.5
 transform = Transform3D(1, 0, 0, 0, 0.681475, -0.731842, 0, 0.731842, 0.681475, 0.170589, 2.6894, 1.16043)
 shape = SubResource("CylinderShape3D_2tfkn")
 
-[node name="CapCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.989428, 0.139943, -0.0380647, -0.145025, 0.95322, -0.265213, -0.000830748, 0.267929, 0.963438, 0.286037, 2.46647, 0.0436642)
-shape = SubResource("CylinderShape3D_tr4k6")
+[node name="JumpAttack" type="Node3D" parent="."]
+script = ExtResource("10_fatxd")
 
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="on_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_screen_exited"]
-[connection signal="body_entered" from="Attack/Area3D" to="Attack" method="_on_body_entered"]
 
 [editable path="Visuals"]
