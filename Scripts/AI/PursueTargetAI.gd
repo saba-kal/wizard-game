@@ -30,7 +30,7 @@ func set_target(new_target: Vector3) -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float):
+func _physics_process(delta: float) -> void:
     if !self.enabled || !self.nav_server_ready:
         return
 
@@ -43,7 +43,7 @@ func _physics_process(delta: float):
     self.look_at_target(delta)
 
 
-func look_at_target(delta: float):
+func look_at_target(delta: float) -> void:
     var look_position = Vector3(self.target_position.x, self.character_body.global_position.y, self.target_position.z)
     if look_position.distance_squared_to(self.character_body.global_position) > 1:
         var original_rotation = self.character_body.quaternion
@@ -51,7 +51,7 @@ func look_at_target(delta: float):
         self.character_body.quaternion = original_rotation.slerp(self.character_body.quaternion, delta * self.turn_speed)
 
 
-func on_nav_agent_velocity_computed(safe_velocity: Vector3):
+func on_nav_agent_velocity_computed(safe_velocity: Vector3) -> void:
     if !self.enabled:
         return
     self.character_body.velocity = safe_velocity

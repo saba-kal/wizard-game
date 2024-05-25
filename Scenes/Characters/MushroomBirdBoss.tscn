@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3fp1m7nc0qhp"]
+
+[ext_resource type="Script" path="res://Scripts/AI/FlyToTargetAI.gd" id="1_jrmxm"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomBirdBossAI.gd" id="1_lhm3l"]
+[ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="2_yfdji"]
+[ext_resource type="PackedScene" uid="uid://bbj4miag5qsc" path="res://Scenes/Debug/DebugSphere.tscn" id="3_4l7u7"]
+[ext_resource type="PackedScene" uid="uid://cf7s8g750xcju" path="res://Scenes/Debug/DebugText.tscn" id="4_o2573"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e1enu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q7q2k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8llew"]
+size = Vector3(3.03, 0.08, 0.57)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n4p5q"]
+viewport_path = NodePath("SubViewport")
+
+[node name="MushroomBirdBoss" type="CharacterBody3D"]
+script = ExtResource("1_lhm3l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_e1enu")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_q7q2k")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visuals"]
+mesh = SubResource("BoxMesh_8llew")
+
+[node name="FlyToTargetAI" type="Node" parent="."]
+script = ExtResource("1_jrmxm")
+
+[node name="CircularFlightHelper" type="Node3D" parent="FlyToTargetAI"]
+top_level = true
+
+[node name="CircularFlightTarget" type="Node3D" parent="FlyToTargetAI/CircularFlightHelper"]
+
+[node name="DebugSphere" parent="FlyToTargetAI/CircularFlightHelper/CircularFlightTarget" instance=ExtResource("3_4l7u7")]
+
+[node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("2_yfdji")]
+character_body = NodePath("..")
+nav_agent = NodePath("../NavigationAgent3D")
+
+[node name="DebugText" parent="." instance=ExtResource("4_o2573")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20986, 0)
+texture = SubResource("ViewportTexture_n4p5q")

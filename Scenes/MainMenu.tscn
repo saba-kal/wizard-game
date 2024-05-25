@@ -122,4 +122,14 @@ text = "TEST"
 script = ExtResource("2_vuvf0")
 transition_to = 4
 
+[node name="PlayButton5" type="Button" parent="CanvasLayer/MainMenuBase/LevelSelect"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "BOSS"
+script = ExtResource("2_vuvf0")
+transition_to = 5
+
 [connection signal="button_down" from="CanvasLayer/MainMenuBase/HBoxContainer/QuitButton" to="AppQuitter" method="quit_app"]
