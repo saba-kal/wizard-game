@@ -6,6 +6,7 @@ signal attack_finished()
 @export var attack_delay: float = 2.0
 @export var attack_duration: float = 1.0
 @export var damage: float = 10.0
+@export var particle_effect: MultiParticleSystem
 
 var entered_bodies: Array[Node3D] = []
 var is_attacking: bool = false
@@ -28,6 +29,12 @@ func attack() -> void:
         var health: Health = Util.get_child_node_of_type(body, Health)
         if health != null && self.get_parent() != body:
             health.take_damage(self.damage)
+    self.emit_particles()
+
+
+func emit_particles() -> void:
+    if self.particle_effect:
+        self.particle_effect.emitting = true
 
 
 func complete_attack() -> void:

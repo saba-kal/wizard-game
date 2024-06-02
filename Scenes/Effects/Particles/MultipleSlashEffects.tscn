@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5o00ayi067bc"]
+
+[ext_resource type="Script" path="res://Scripts/Common/MultiParticleSystem.gd" id="1_rt082"]
+[ext_resource type="PackedScene" uid="uid://d0370f1413m6f" path="res://Scenes/Effects/Particles/SlashEffect.tscn" id="2_qcr3h"]
+
+[node name="MultipleSlashEffects" type="Node3D" node_paths=PackedStringArray("particle_systems")]
+script = ExtResource("1_rt082")
+particle_systems = [NodePath("SlashEffect"), NodePath("SlashEffect2"), NodePath("SlashEffect3")]
+
+[node name="SlashEffect" parent="." instance=ExtResource("2_qcr3h")]
+
+[node name="SlashEffect2" parent="." instance=ExtResource("2_qcr3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="SlashEffect3" parent="." instance=ExtResource("2_qcr3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
