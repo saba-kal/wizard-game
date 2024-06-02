@@ -28,7 +28,7 @@ func _process(delta):
             self.set("parameters/Transition/transition_request", "combat")
             match(ai.current_state):
                 mushroomAI.State.ATTACK:
-                    var val = get("parameters/combat_transition/current_state")
+                    var val: String = get("parameters/combat_transition/current_state")
                     if(val != "attack" && val != "reverseattack"):
                         self.set("parameters/combat_transition/transition_request", "attack")
                 mushroomAI.State.STUN:
@@ -40,4 +40,6 @@ func _process(delta):
                             self.set("parameters/combat_transition/transition_request", "walking")
                     else:
                         self.set("parameters/combat_transition/transition_request", "idle")
+        mushroomAI.Mushroom_State.JUMP:
+            self.set("parameters/Transition/transition_request", "jump")
 
