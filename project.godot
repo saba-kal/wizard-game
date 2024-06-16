@@ -35,6 +35,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Wizard-game"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
+
 [input]
 
 move_forward={
@@ -100,6 +104,7 @@ regen_mana={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Water"
 3d_physics/layer_4="Ice"
+3d_physics/layer_11="FoliagePlacement"
 
 [rendering]
 
