@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=25 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -17,20 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="13_xl28e"]
 [ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="14_enmni"]
 [ext_resource type="PackedScene" uid="uid://dkbtip8iwehfa" path="res://Scenes/Environment/MushroomForest/PoisonMushroom.tscn" id="15_ydb8s"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="17_1atcu"]
 [ext_resource type="PackedScene" uid="uid://biqqmdi2652eh" path="res://Scenes/Characters/Bearclops.tscn" id="17_06fly"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="18_8dar8"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="19_itt25"]
 [ext_resource type="PackedScene" uid="uid://dglm4v4eyn5ev" path="res://Scenes/Environment/PhysicsObjects/RockPhysicsObject.tscn" id="19_rmpdl"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="20_jeylb"]
 [ext_resource type="PackedScene" uid="uid://dqkj10yn050io" path="res://Scenes/Characters/MushroomEnemy.tscn" id="20_ustba"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="21_8exoa"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="22_f8jqk"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="23_lnppi"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="24_jt50v"]
-[ext_resource type="Shader" path="res://Shaders/grass.gdshader" id="24_nbp4u"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="25_x7uw1"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/cache/scatter_cache.gd" id="26_wdunn"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_g56d8"]
 rayleigh_color = Color(0.611765, 0.192157, 0.631373, 1)
@@ -56,75 +45,6 @@ geometry_parsed_geometry_type = 1
 geometry_source_geometry_mode = 1
 filter_baking_aabb = AABB(0, 0, 0, 100, 14.14, 80)
 
-[sub_resource type="Resource" id="Resource_3tl85"]
-script = ExtResource("19_itt25")
-amount = 100000
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = true
-reference_frame = 1
-
-[sub_resource type="Resource" id="Resource_tpkde"]
-script = ExtResource("20_jeylb")
-position = Vector3(0.15, 0.15, 0.15)
-rotation = Vector3(20, 360, 20)
-scale = Vector3(0.1, 0.1, 0.1)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_jenay"]
-script = ExtResource("21_8exoa")
-iterations = 3
-offset_step = 0.2
-consecutive_step_multiplier = 0.75
-use_computeshader = true
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = true
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_4jyp1"]
-script = ExtResource("22_f8jqk")
-ray_direction = Vector3(0, -1, 0)
-ray_length = 100.0
-ray_offset = 50.0
-remove_points_on_miss = true
-align_with_collision_normal = false
-max_slope = 90.0
-collision_mask = 1024
-exclude_mask = 4
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_6qebv"]
-script = ExtResource("18_8dar8")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_3tl85"), SubResource("Resource_tpkde"), SubResource("Resource_jenay"), SubResource("Resource_4jyp1")])
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6vy8k"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_plqr0"]
-noise = SubResource("FastNoiseLite_6vy8k")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdw31"]
-render_priority = 0
-shader = ExtResource("24_nbp4u")
-shader_parameter/color = Color(0, 0.97, 0.97, 1)
-shader_parameter/color2 = Color(0, 0, 0.470588, 1)
-shader_parameter/noiseScale = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_plqr0")
-
-[sub_resource type="Resource" id="Resource_g8bsm"]
-script = ExtResource("25_x7uw1")
-radius = 50.0
-
 [node name="MushroomForest" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -149,7 +69,7 @@ script = ExtResource("1_j23ne")
 [node name="TempMushroomForestTerrain" parent="Map" groups=["navigation_mesh_source_group"] instance=ExtResource("1_7yxs3")]
 
 [node name="StaticBody3D" parent="Map/TempMushroomForestTerrain/Terrain" index="0"]
-collision_layer = 1027
+collision_layer = 3
 collision_mask = 3
 
 [node name="RopeBridge" parent="Map" instance=ExtResource("5_5yvg4")]
@@ -255,31 +175,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49183, -0.654642, 7.44105)
 
 [node name="RockPhysicsObject9" parent="Map/PhysicsObjects" instance=ExtResource("19_rmpdl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49183, 0, 13.6119)
-
-[node name="ProtonScatter" type="Node3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3084, 26.8616, -20.6384)
-script = ExtResource("17_1atcu")
-render_mode = 2
-force_rebuild_on_load = false
-modifier_stack = SubResource("Resource_6qebv")
-Performance/use_chunks = true
-Performance/chunk_dimensions = Vector3(15, 15, 15)
-
-[node name="ScatterItem" type="Node3D" parent="Map/ProtonScatter"]
-script = ExtResource("23_lnppi")
-source_scale_multiplier = 0.5
-override_material = SubResource("ShaderMaterial_wdw31")
-override_cast_shadow = 0
-path = "res://Scenes/Environment/Foliage/GrassBlade.tscn"
-
-[node name="ScatterShape" type="Node3D" parent="Map/ProtonScatter"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-script = ExtResource("24_jt50v")
-shape = SubResource("Resource_g8bsm")
-
-[node name="ScatterCache" type="Node3D" parent="Map/ProtonScatter"]
-script = ExtResource("26_wdunn")
-cache_file = "res://addons/proton_scatter/cache/MushroomForestGrassCache.tres"
 
 [node name="Player" parent="." instance=ExtResource("3_rsw63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3379, 24.8174, -60.2499)
