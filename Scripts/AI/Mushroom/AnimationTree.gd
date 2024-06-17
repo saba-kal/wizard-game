@@ -7,6 +7,7 @@ var is_dead: bool = false
 func _ready():
     self.ai = self.get_parent()
     self.health = Util.get_child_node_of_type(self.get_parent(), Health)
+    ai.died.connect(on_death)
 
 
 func _process(delta):
@@ -34,7 +35,7 @@ func _process(delta):
                 mushroomAI.State.STUN:
                     self.set("parameters/combat_transition/transition_request", "hurt")
                 _:
-                    if self.ai.velocity.length_squared() > 0.1:
+                    if self.ai.velocity.length_squared() > 2:
                         var val: String = get("parameters/combat_transition/current_state")
                         if(val != "walking"):
                             self.set("parameters/combat_transition/transition_request", "walking")
@@ -43,3 +44,7 @@ func _process(delta):
         mushroomAI.Mushroom_State.JUMP:
             self.set("parameters/Transition/transition_request", "jump")
 
+func on_death(midjump: bool):
+    if(!is_dead && !midjump):
+        self.set("parameters/Transition/transition_request", "death")
+    self.is_dead = true

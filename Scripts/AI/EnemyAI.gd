@@ -84,6 +84,8 @@ func attack(delta: float):
 
 func set_state(new_state: State):
     var old_state = self.current_state
+    if old_state == State.DEAD:
+        return
     self.current_state = new_state
     self.state_changed.emit(self, old_state, new_state)
 
