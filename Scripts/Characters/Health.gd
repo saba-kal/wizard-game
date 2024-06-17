@@ -6,6 +6,7 @@ signal health_lost()
 
 @export var max_health: float = 100
 @export var is_player: bool = false
+@export var healable: Healable
 
 var current_health: float = -1
 var is_immune: bool = false
@@ -13,6 +14,10 @@ var is_immune: bool = false
 
 func _enter_tree():
     self.current_health = self.max_health
+
+func _ready() -> void:
+    if healable:
+        healable.healed.connect(heal)
 
 
 func take_damage(damage: float):

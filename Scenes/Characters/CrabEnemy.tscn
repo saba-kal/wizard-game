@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b328usnnpi7qr"]
+[gd_scene load_steps=13 format=3 uid="uid://b328usnnpi7qr"]
 
 [ext_resource type="PackedScene" uid="uid://c3koeiqcntd6e" path="res://Models/Characters/CRAB.blend" id="1_0thq0"]
 [ext_resource type="Script" path="res://Scripts/AI/EnemyAI.gd" id="1_i06xc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://bdma000nb7jll" path="res://Materials/Characters/Crab/CrabShellMaterial.tres" id="5_m7xrc"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezableEnemy.gd" id="5_mr15f"]
 [ext_resource type="PackedScene" uid="uid://dpnavhw8cg2ck" path="res://Scenes/Effects/HealableCharacter.tscn" id="9_o7p16"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Heal/Healable.gd" id="10_f0qu8"]
 [ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="10_vmmb0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_si1ic"]
@@ -62,8 +63,9 @@ surface_material_override/0 = ExtResource("3_o0bwf")
 [node name="Arm_001" parent="Visuals/CRAB" index="8"]
 surface_material_override/0 = ExtResource("3_o0bwf")
 
-[node name="Health" parent="." instance=ExtResource("2_ylys1")]
+[node name="Health" parent="." node_paths=PackedStringArray("healable") instance=ExtResource("2_ylys1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23138, 0)
+healable = NodePath("../Healable")
 
 [node name="Flammable" parent="." instance=ExtResource("3_l33mj")]
 
@@ -71,6 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23138, 0)
 script = ExtResource("5_mr15f")
 
 [node name="Healable" parent="." instance=ExtResource("9_o7p16")]
+script = ExtResource("10_f0qu8")
 
 [node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("10_vmmb0")]
 character_body = NodePath("..")
