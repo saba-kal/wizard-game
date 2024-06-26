@@ -2,6 +2,7 @@ class_name AIMeleeAttack extends AIDefaultAttack
 
 @onready var player = self.get_tree().get_first_node_in_group("Player")
 @onready var hitbox: Area3D = $Area3D
+@onready var attack_particles: GPUParticles3D = $AttackParticles
 
 @export var range: float = 3
 
@@ -12,6 +13,7 @@ func _ready():
     hitbox.body_exited.connect(on_body_exited)
 
 func attack() -> void:
+    attack_particles.emitting = true
     for body in self.entered_bodies:
         var health: Health = Util.get_child_node_of_type(body, Health)
         if health != null && self.get_parent() != body:
@@ -22,6 +24,11 @@ func _on_body_entered(body: Node3D):
 
 func on_body_exited(body: Node3D):
     self.entered_bodies.erase(body)
+
+func complete_attack() -> void:
+    self.is_attacking = false
+    attack_particles.emitting = false
+    self.attack_finished.emit()
 
 func is_in_range():
     var player_pos: Vector3 = self.player.global_position

@@ -120,6 +120,7 @@ func soar(delta: float):
     move_and_slide()
     if(is_on_floor() && velocity.y <= 0):
         soaring = false
+        jump_attack.attack_particles.emitting = false
         set_mushroom_state(Mushroom_State.COMBAT)
         finish_attack()
 
