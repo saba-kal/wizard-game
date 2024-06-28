@@ -30,9 +30,6 @@ func _ready():
     jump_attack.jumped.connect(on_jump_attack_started)
 
 func on_damage_taken(damage: float):
-    if current_state == State.STUN:
-        return
-    self.set_state(State.STUN)
     health.visible = true
 
 func on_health_lost():

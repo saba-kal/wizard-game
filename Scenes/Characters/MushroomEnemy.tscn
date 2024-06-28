@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dqkj10yn050io"]
+[gd_scene load_steps=41 format=3 uid="uid://dqkj10yn050io"]
 
 [ext_resource type="Script" path="res://Scripts/AI/Mushroom/MushroomEnemy.gd" id="1_iyqyo"]
 [ext_resource type="PackedScene" uid="uid://5npreb7s64s" path="res://Models/Characters/MushroomEnemy.blend" id="2_ov2io"]
@@ -207,12 +207,9 @@ input_0/reset = true
 input_1/name = "attack"
 input_1/auto_advance = true
 input_1/reset = true
-input_2/name = "reverseattack"
+input_2/name = "hurt"
 input_2/auto_advance = false
 input_2/reset = true
-input_3/name = "hurt"
-input_3/auto_advance = false
-input_3/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8oxl2"]
 animation = &"AttackFromHiding"
@@ -226,10 +223,6 @@ animation = &"Default"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1xkuv"]
 animation = &"JumpAttack(NoMovement)"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jru4y"]
-animation = &"AttackFromHiding"
-play_mode = 1
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yrj4q"]
 animation = &"Walk"
 
@@ -237,7 +230,7 @@ animation = &"Walk"
 nodes/Animation/node = SubResource("AnimationNodeAnimation_jekw1")
 nodes/Animation/position = Vector2(-280, -180)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_lx3cq")
-"nodes/Animation 3/position" = Vector2(-500, 200)
+"nodes/Animation 3/position" = Vector2(-500, 80)
 nodes/Transition/node = SubResource("AnimationNodeTransition_ay1d8")
 nodes/Transition/position = Vector2(280, 180)
 nodes/attack/node = SubResource("AnimationNodeAnimation_xln5l")
@@ -257,11 +250,9 @@ nodes/idle/position = Vector2(-200, 220)
 nodes/jumpAttack/node = SubResource("AnimationNodeAnimation_1xkuv")
 nodes/jumpAttack/position = Vector2(40, 500)
 nodes/output/position = Vector2(420, 200)
-"nodes/reverse hideattack/node" = SubResource("AnimationNodeAnimation_jru4y")
-"nodes/reverse hideattack/position" = Vector2(-700, 60)
 nodes/walking/node = SubResource("AnimationNodeAnimation_yrj4q")
 nodes/walking/position = Vector2(-300, 340)
-node_connections = [&"Transition", 0, &"hide_transition", &"Transition", 1, &"combat_transition", &"Transition", 2, &"jumpAttack", &"Transition", 3, &"death", &"combat_transition", 0, &"idle", &"combat_transition", 1, &"walking", &"combat_transition", 2, &"hurt", &"combat_transition", 3, &"attack", &"hide_transition", 0, &"Animation", &"hide_transition", 1, &"hideattack", &"hide_transition", 2, &"reverse hideattack", &"hide_transition", 3, &"Animation 3", &"output", 0, &"Transition"]
+node_connections = [&"Transition", 0, &"hide_transition", &"Transition", 1, &"combat_transition", &"Transition", 2, &"jumpAttack", &"Transition", 3, &"death", &"combat_transition", 0, &"idle", &"combat_transition", 1, &"walking", &"combat_transition", 2, &"hurt", &"combat_transition", 3, &"attack", &"hide_transition", 0, &"Animation", &"hide_transition", 1, &"hideattack", &"hide_transition", 2, &"Animation 3", &"output", 0, &"Transition"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34wjh"]
 transparency = 1
@@ -472,6 +463,7 @@ shape = SubResource("CylinderShape3D_2tfkn")
 [node name="JumpAttack" type="Node3D" parent="."]
 script = ExtResource("9_ads6h")
 attack_delay = 0.25
+attack_duration = 3.0
 damage = 20.0
 
 [node name="AttackParticles" type="GPUParticles3D" parent="JumpAttack"]
@@ -498,6 +490,7 @@ shape = SubResource("CapsuleShape3D_2roc0")
 script = ExtResource("10_nq77o")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="AnimationTree" method="_on_animation_finished"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="on_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_screen_exited"]
 
