@@ -1,19 +1,27 @@
 class_name Projectile extends Area3D
 
 @export var on_destroy_effect: PackedScene
+@export var projectile_gravity: float = 0
 
-var direction: Vector3
-var speed: float = 10.0
+# These are set by the nodes that spawn projectiles. They should not be exposed via export.
 var damage: float = 10.0
+var speed: float = 10.0
+var direction: Vector3
+
+# Private variables
+var velocity: Vector3
 
 
-func _ready():
+func _ready() -> void:
+    self.velocity = self.direction * self.speed
     self.body_entered.connect(self.on_body_entered)
 
 
-func _process(delta):
+func _process(delta: float) -> void:
     self.look_at(self.global_transform.origin + self.direction, Vector3.UP)
-    self.global_position = self.global_position + (self.direction * self.speed * delta)
+
+    self.velocity.y -= self.projectile_gravity * delta
+    self.global_position = self.global_position + (self.velocity * delta)
 
 
 func on_body_entered(body: Node3D):

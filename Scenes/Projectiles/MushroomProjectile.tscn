@@ -1,0 +1,85 @@
+[gd_scene load_steps=17 format=3 uid="uid://bdo8gj7vydfqb"]
+
+[ext_resource type="PackedScene" uid="uid://cn7vj7bja53g1" path="res://Models/Maps/MushroomForest/Mushroom1.blend" id="1_1ueto"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/Projectile.gd" id="1_csqxf"]
+[ext_resource type="PackedScene" uid="uid://dfvbfnx4vfj6b" path="res://Scenes/Effects/MushroomProjectileExplosion.tscn" id="2_1u7ui"]
+[ext_resource type="Script" path="res://Scripts/Common/RandomRotation.gd" id="2_pd881"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/ProjectileTrail.gd" id="3_akb5g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p20e4"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjeba"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.554667, 0.64, 0, 1)
+
+[sub_resource type="Curve" id="Curve_13rfp"]
+_data = [Vector2(0, 0.500434), 0.0, 0.0, 0, 0, Vector2(0.310134, 0.0601391), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5etcs"]
+curve = SubResource("Curve_13rfp")
+
+[sub_resource type="Curve" id="Curve_tn1ll"]
+_data = [Vector2(0, 0.0121582), 0.0, 0.0, 0, 0, Vector2(0.0976801, 1), 0.0, 0.0, 0, 0, Vector2(0.391941, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.187147), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_e6iui"]
+curve = SubResource("Curve_tn1ll")
+
+[sub_resource type="Curve" id="Curve_3x66l"]
+_data = [Vector2(0, 0.0218042), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6h4qi"]
+curve = SubResource("Curve_3x66l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nm3rc"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3(1, 1, 1)
+spread = 180.0
+radial_velocity_min = 1.0
+radial_velocity_max = 2.0
+radial_velocity_curve = SubResource("CurveTexture_5etcs")
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_e6iui")
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 1.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_6h4qi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_av2it"]
+transparency = 1
+diffuse_mode = 3
+albedo_color = Color(0.566667, 1, 0, 0.364706)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rff6t"]
+material = SubResource("StandardMaterial3D_av2it")
+
+[node name="MushroomProjectile" type="Area3D"]
+script = ExtResource("1_csqxf")
+on_destroy_effect = ExtResource("2_1u7ui")
+projectile_gravity = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_p20e4")
+
+[node name="Mushroom1" parent="." instance=ExtResource("1_1ueto")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, -0.111336, 0)
+script = ExtResource("2_pd881")
+
+[node name="Mushroom Base" parent="Mushroom1/Mushroom Bone/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pjeba")
+
+[node name="ProjectileTrail" type="GPUParticles3D" parent="."]
+amount = 40
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_nm3rc")
+draw_pass_1 = SubResource("SphereMesh_rff6t")
+script = ExtResource("3_akb5g")
+
+[editable path="Mushroom1"]

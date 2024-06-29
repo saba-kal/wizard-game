@@ -1,0 +1,135 @@
+[gd_scene load_steps=16 format=3 uid="uid://dfvbfnx4vfj6b"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Damage/AreaDamage.gd" id="1_mluv7"]
+
+[sub_resource type="Curve" id="Curve_t635y"]
+_data = [Vector2(0.528694, 0.00369084), 0.0, 0.0, 0, 0, Vector2(1, 0.508902), 2.16242, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ictw7"]
+curve_y = SubResource("Curve_t635y")
+
+[sub_resource type="Curve" id="Curve_13rfp"]
+_data = [Vector2(0, 0.500434), 0.0, 0.0, 0, 0, Vector2(0.310134, 0.0601391), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5etcs"]
+curve = SubResource("Curve_13rfp")
+
+[sub_resource type="Curve" id="Curve_tn1ll"]
+_data = [Vector2(0, 0.0121582), 0.0, 0.0, 0, 0, Vector2(0.0976801, 1), 0.0, 0.0, 0, 0, Vector2(0.343101, 1), 0.0, 0.0, 0, 0, Vector2(0.669109, 0.0657838), 0.0, 0.0, 0, 0, Vector2(0.937729, 0.0262702), 0.0, 0.0, 0, 0, Vector2(1, 0.00086844), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_e6iui"]
+curve = SubResource("Curve_tn1ll")
+
+[sub_resource type="Curve" id="Curve_3x66l"]
+_data = [Vector2(0, 0.0218042), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6h4qi"]
+curve = SubResource("Curve_3x66l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v8bmc"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(1, 5, 1)
+spread = 180.0
+directional_velocity_min = -1.0
+directional_velocity_max = -1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_ictw7")
+radial_velocity_min = 2.0
+radial_velocity_max = 3.0
+radial_velocity_curve = SubResource("CurveTexture_5etcs")
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_e6iui")
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 1.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_6h4qi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_av2it"]
+transparency = 1
+diffuse_mode = 3
+albedo_color = Color(0.566667, 1, 0, 0.364706)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rff6t"]
+material = SubResource("StandardMaterial3D_av2it")
+
+[sub_resource type="Animation" id="Animation_odt3s"]
+resource_name = "explode"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AreaDamage")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2brl"]
+_data = {
+"explode": SubResource("Animation_odt3s")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_viyct"]
+radius = 3.5
+
+[node name="MushroomProjectileExplosion" type="GPUParticles3D"]
+emitting = false
+amount = 60
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_v8bmc")
+draw_pass_1 = SubResource("SphereMesh_rff6t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q2brl")
+}
+autoplay = "explode"
+
+[node name="AreaDamage" type="Area3D" parent="."]
+script = ExtResource("1_mluv7")
+damage = 25.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDamage"]
+shape = SubResource("SphereShape3D_viyct")

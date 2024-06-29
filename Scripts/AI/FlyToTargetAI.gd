@@ -68,13 +68,13 @@ func face_velocity(delta: float) -> void:
 
     # Look direction
     var original_rotation: Quaternion = self.character_body.quaternion
-    self.character_body.look_at(self.character_body.global_position + self.character_body.velocity)
+    self.character_body.look_at(self.character_body.global_position - self.character_body.velocity)
     self.character_body.quaternion = original_rotation.slerp(self.character_body.quaternion, delta * self.turn_speed)
 
     # Roll towards velocity change
     var previous_velocity_2d = Vector2(self.previous_velocity.x, self.previous_velocity.z)
     var current_velocity_2d = Vector2(self.character_body.velocity.x, self.character_body.velocity.z)
-    var roll_angle_change: float = clampf(-current_velocity_2d.angle_to(previous_velocity_2d), -0.025, 0.025)
+    var roll_angle_change: float = clampf(current_velocity_2d.angle_to(previous_velocity_2d), -0.025, 0.025)
     self.character_body.rotate_object_local(Vector3.FORWARD, roll_angle_change)
 
 
@@ -90,7 +90,9 @@ func set_circular_flight_enabled(is_enabled: bool) -> void:
     if !self.is_circle_flight_active && is_enabled:
         # first time activating circular flight.
         self.circular_flight_helper.global_position = self.target_position
-        self.circular_flight_helper.look_at(Vector3(self.target_position.x, self.circular_flight_helper.global_position.y, self.target_position.z))
+        var look_at_target: Vector3 = Vector3(self.target_position.x, self.circular_flight_helper.global_position.y, self.target_position.z)
+        if !self.circular_flight_helper.global_position.is_equal_approx(look_at_target):
+            self.circular_flight_helper.look_at(look_at_target)
     self.is_circle_flight_active = is_enabled
 
 

@@ -61,7 +61,7 @@ scale_amount_curve = SubResource("Curve_dnm8n")
 color_ramp = SubResource("Gradient_kmj2u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "destroy"
 libraries = {
 "": SubResource("AnimationLibrary_bes7b")
 }
+autoplay = "destroy"
