@@ -27,6 +27,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     if self.is_swimming:
         self.process_swim_animations()
+    elif self.player_movement.disabled:
+        # would likely place the ballista animation here, placeholder idle for now
+        self.set("parameters/state/transition_request", "idle")
     elif !self.player_movement.is_on_floor():
         self.set("parameters/state/transition_request", "fall")
     elif self.player_movement.is_running() && !self.mana_regen_is_active:

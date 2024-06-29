@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhak28tjshvpe"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/InteractiveLevelElements/Ballista.gd" id="1_ybd5n"]
+[ext_resource type="PackedScene" uid="uid://cexgc7iui37g2" path="res://Scenes/Projectiles/BeeStinger.tscn" id="2_85js8"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Heal/HealableBallista.gd" id="2_j86s5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ftt5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7x1f"]
+albedo_color = Color(0, 0, 256, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qj8ed"]
+size = Vector3(1, 0.5, 1.75)
+
+[node name="Ballista" type="Node3D" node_paths=PackedStringArray("ballista_box", "firing_box", "collider")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_ybd5n")
+ballista_box = NodePath("CSGBox3D")
+firing_box = NodePath("CSGBox3D/FiringPoint")
+collider = NodePath("Area3D")
+projectile_scene = ExtResource("2_85js8")
+projectile_speed = 50.0
+cur_state = 0
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, -1.77636e-14, 0, 1, 0, 1.77636e-14, 0, 1, -0.1, 0.5, 0.850824)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.15, 0, -1.42109e-14, 0, 1.15, 0, 1.42109e-14, 0, 1.15, 1.19209e-07, 0, -2.66646)
+shape = SubResource("BoxShape3D_8ftt5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.095, 0.25, -0.344)
+material_override = SubResource("StandardMaterial3D_k7x1f")
+size = Vector3(1, 0.5, 1.75)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.931834)
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="FiringPoint" type="Node3D" parent="CSGBox3D"]
+transform = Transform3D(-1, 0, 8.74229e-08, 0, 1, 0, -8.74229e-08, 0, -1, -0.00199977, -0.002, -1.38386)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0940751, 0.252288, -0.347321)
+shape = SubResource("BoxShape3D_qj8ed")
+
+[node name="Healable" type="Node" parent="StaticBody3D" node_paths=PackedStringArray("ballista")]
+script = ExtResource("2_j86s5")
+ballista = NodePath("../..")
