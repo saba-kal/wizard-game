@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd55852bglfak"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/StatusHealth.gd" id="1_0y4r5"]
+[ext_resource type="Script" path="res://Scripts/Characters/Health.gd" id="2_xh2rh"]
+[ext_resource type="Script" path="res://Scripts/Misc/SubViewportBugFix.gd" id="3_tmj1b"]
+[ext_resource type="Script" path="res://Scripts/UI/HealthBar.gd" id="4_62d8x"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lrrkh"]
+viewport_path = NodePath("Health/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n25cr"]
+bg_color = Color(0.0352941, 0.0862745, 0.247059, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8u22"]
+bg_color = Color(0, 0.905882, 0.709804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="StatusHealth" type="Node3D"]
+script = ExtResource("1_0y4r5")
+
+[node name="Health" type="Node3D" parent="."]
+script = ExtResource("2_xh2rh")
+
+[node name="Sprite3D" type="Sprite3D" parent="Health"]
+billboard = 1
+texture = SubResource("ViewportTexture_lrrkh")
+
+[node name="SubViewport" type="SubViewport" parent="Health"]
+transparent_bg = true
+size = Vector2i(512, 37)
+render_target_update_mode = 4
+script = ExtResource("3_tmj1b")
+
+[node name="ProgressBar" type="ProgressBar" parent="Health/SubViewport" node_paths=PackedStringArray("health")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_n25cr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b8u22")
+value = 50.0
+show_percentage = false
+script = ExtResource("4_62d8x")
+health = NodePath("../..")
+
+[node name="Label" type="Label" parent="Health/SubViewport/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -13.0
+offset_right = 31.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1

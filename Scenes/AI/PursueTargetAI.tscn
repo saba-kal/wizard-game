@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qbw3al5veunh"]
+
+[ext_resource type="Script" path="res://Scripts/AI/PursueTargetAI.gd" id="1_thmbp"]
+
+[node name="PursueTargetAI" type="Node3D"]
+script = ExtResource("1_thmbp")

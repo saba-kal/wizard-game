@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://xsbfgrucribr"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/IceBoard.gd" id="1_77tb6"]
+[ext_resource type="PackedScene" uid="uid://hjlf10hh02nj" path="res://Models/InteractiveLevelElements/IceChunk.blend" id="1_cunu2"]
+[ext_resource type="Script" path="res://Scripts/Environment/Common/Floating.gd" id="3_aialk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_imtqw"]
+friction = 0.03
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_acslb"]
+points = PackedVector3Array(2.29, 0.425, 0.494, -0.323, -1.024, -0.132, 0.083, 0.24, 2.65, 0.472, 0.365, -2.308, 0.61, -0.56, -2.213, 1.53, -0.54, 1.721, -1.549, 0.44, 2.054, -1.371, -0.459, -1.744, -0.162, -0.58, 2.124, -1.574, -0.448, 0.115, 1.582, -0.409, -1.381, -1.541, 0.437, -1.202, 1.456, 0.427, -1.716, 0.643, -0.863, -0.857, 1.758, 0.426, 1.407, 1.557, -0.143, -1.983, 0.885, -0.701, 1.963, -1.774, 0.064, 1.318, -1.758, -0.451, -0.73, -2.011, 0.439, 1.12, -0.151, 0.442, 2.526, 2.318, 0.435, 0.19, -0.069, 0.237, -2.253, -0.581, -0.482, 1.969, 0.313, 0.199, 2.637, -1.939, 0.415, -0.559, -0.404, -1.024, -0.051, 0.468, 0.435, -2.199, 0.625, -0.491, -2.291, 2.087, 0.242, -0.734, -1.29, -0.459, -1.824, -1.992, 0.087, 0.037)
+
+[node name="IceBoard" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 13
+collision_mask = 9
+mass = 3.34
+physics_material_override = SubResource("PhysicsMaterial_imtqw")
+lock_rotation = true
+script = ExtResource("1_77tb6")
+
+[node name="IceChunk" parent="RigidBody3D" instance=ExtResource("1_cunu2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.3, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_acslb")
+
+[node name="Floating" type="Node3D" parent="RigidBody3D"]
+script = ExtResource("3_aialk")
+
+[node name="Front" type="RayCast3D" parent="RigidBody3D/Floating"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.19742)
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Back" type="RayCast3D" parent="RigidBody3D/Floating"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25082)
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Right" type="RayCast3D" parent="RigidBody3D/Floating"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.368, 0, 0)
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Left" type="RayCast3D" parent="RigidBody3D/Floating"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19793, 0, 0)
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Bottom" type="RayCast3D" parent="RigidBody3D/Floating"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.544632, 0)
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Up" type="RayCast3D" parent="RigidBody3D/Floating"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254161, 0)
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[editable path="RigidBody3D/IceChunk"]

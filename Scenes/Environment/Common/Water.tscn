@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://di6pq5w7m0qj5"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/Common/Water.gd" id="1_mksut"]
+[ext_resource type="Material" uid="uid://ny087gjwlmtm" path="res://Materials/Environment/WaterMaterial.tres" id="1_vbom2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2c2l6"]
+material = ExtResource("1_vbom2")
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3170"]
+size = Vector3(10, 10, 10)
+
+[node name="Water" type="Area3D"]
+collision_layer = 4
+collision_mask = 4
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+linear_damp_space_override = 1
+linear_damp = 0.5
+angular_damp_space_override = 1
+angular_damp = 0.3
+script = ExtResource("1_mksut")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2c2l6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_q3170")

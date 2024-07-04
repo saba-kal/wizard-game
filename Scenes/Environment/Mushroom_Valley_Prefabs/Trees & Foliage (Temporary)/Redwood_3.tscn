@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjb533pirj0v2"]
+
+[ext_resource type="PackedScene" uid="uid://ccdwv2xdn6n8f" path="res://Models/Maps/Mushroom_Valley_Models/Trees&Plants_Models (Temporary)/Redwood_3.glb" id="1_veoph"]
+
+[node name="Redwood_3" instance=ExtResource("1_veoph")]

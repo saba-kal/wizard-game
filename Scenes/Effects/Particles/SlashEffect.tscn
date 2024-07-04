@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0370f1413m6f"]
+
+[sub_resource type="Curve" id="Curve_ure7p"]
+max_value = 2.0
+_data = [Vector2(0, 0.998809), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_bat8m"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_gwp5f"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_3vlk7"]
+curve_x = SubResource("Curve_ure7p")
+curve_y = SubResource("Curve_bat8m")
+curve_z = SubResource("Curve_gwp5f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fb3lg"]
+emission_shape_offset = Vector3(0, 5, -5)
+orbit_velocity_min = -1.0
+orbit_velocity_max = -1.0
+orbit_velocity_curve = SubResource("CurveXYZTexture_3vlk7")
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Curve" id="Curve_8xkoh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.250271, 0.497897), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_8a73n"]
+offsets = PackedFloat32Array(0, 0.480969, 1)
+colors = PackedColorArray(1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mq7d2"]
+gradient = SubResource("Gradient_8a73n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw358"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture1D_mq7d2")
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_11wu7"]
+material = SubResource("StandardMaterial3D_aw358")
+curve = SubResource("Curve_8xkoh")
+
+[node name="SlashEffect" type="GPUParticles3D"]
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+local_coords = true
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_fb3lg")
+draw_pass_1 = SubResource("RibbonTrailMesh_11wu7")

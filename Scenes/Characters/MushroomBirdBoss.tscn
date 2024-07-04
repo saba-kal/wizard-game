@@ -1,0 +1,164 @@
+[gd_scene load_steps=25 format=3 uid="uid://d3fp1m7nc0qhp"]
+
+[ext_resource type="Script" path="res://Scripts/AI/FlyToTargetAI.gd" id="1_jrmxm"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomBirdBossAI.gd" id="1_lhm3l"]
+[ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="2_yfdji"]
+[ext_resource type="PackedScene" uid="uid://bbj4miag5qsc" path="res://Scenes/Debug/DebugSphere.tscn" id="3_4l7u7"]
+[ext_resource type="PackedScene" uid="uid://cf7s8g750xcju" path="res://Scenes/Debug/DebugText.tscn" id="4_o2573"]
+[ext_resource type="Script" path="res://Scripts/AI/AreaAttack.gd" id="5_1b2q4"]
+[ext_resource type="PackedScene" uid="uid://c5o00ayi067bc" path="res://Scenes/Effects/Particles/MultipleSlashEffects.tscn" id="6_waoxi"]
+[ext_resource type="Script" path="res://Scripts/Animation/BirdBossAnimationTree.gd" id="7_nam30"]
+[ext_resource type="Script" path="res://Scripts/AI/ProjectileAttack.gd" id="7_tiypd"]
+[ext_resource type="PackedScene" uid="uid://bdo8gj7vydfqb" path="res://Scenes/Projectiles/MushroomProjectile.tscn" id="8_icupn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e1enu"]
+radius = 0.75
+height = 3.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q7q2k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8llew"]
+size = Vector3(3.03, 0.08, 0.57)
+
+[sub_resource type="PrismMesh" id="PrismMesh_apfvd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmbc8"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_waxrs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1wl6u"]
+resource_name = "short_range_attack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.5708, -12.5664, 0), Vector3(0, -12.5664, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_72kit"]
+_data = {
+"RESET": SubResource("Animation_waxrs"),
+"short_range_attack": SubResource("Animation_1wl6u")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6asse"]
+radius = 2.5
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ev00a"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_x8bcn"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1rom"]
+animation = &"short_range_attack"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uxuku"]
+graph_offset = Vector2(-590.426, 33.6026)
+nodes/reset/node = SubResource("AnimationNodeAnimation_ev00a")
+nodes/reset/position = Vector2(-220, 120)
+nodes/short_range_attack/node = SubResource("AnimationNodeOneShot_x8bcn")
+nodes/short_range_attack/position = Vector2(40, 160)
+nodes/short_range_attack_anim/node = SubResource("AnimationNodeAnimation_f1rom")
+nodes/short_range_attack_anim/position = Vector2(-300, 320)
+node_connections = [&"output", 0, &"short_range_attack", &"short_range_attack", 0, &"reset", &"short_range_attack", 1, &"short_range_attack_anim"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n4p5q"]
+viewport_path = NodePath("SubViewport")
+
+[node name="MushroomBirdBoss" type="CharacterBody3D"]
+script = ExtResource("1_lhm3l")
+long_range_attack_cooldown = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_e1enu")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 2.0
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_q7q2k")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_8llew")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(0.99947, -0.0325446, 1.42257e-09, 0, -4.37114e-08, -1, 0.0325446, 0.99947, -4.36882e-08, 0, 0, 1.47673)
+mesh = SubResource("PrismMesh_apfvd")
+surface_material_override/0 = SubResource("StandardMaterial3D_lmbc8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+libraries = {
+"": SubResource("AnimationLibrary_72kit")
+}
+
+[node name="FlyToTargetAI" type="Node" parent="."]
+script = ExtResource("1_jrmxm")
+
+[node name="CircularFlightHelper" type="Node3D" parent="FlyToTargetAI"]
+top_level = true
+
+[node name="CircularFlightTarget" type="Node3D" parent="FlyToTargetAI/CircularFlightHelper"]
+
+[node name="DebugSphere" parent="FlyToTargetAI/CircularFlightHelper/CircularFlightTarget" instance=ExtResource("3_4l7u7")]
+
+[node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("2_yfdji")]
+character_body = NodePath("..")
+nav_agent = NodePath("../NavigationAgent3D")
+
+[node name="AreaAttack" type="Area3D" parent="." node_paths=PackedStringArray("particle_effect")]
+script = ExtResource("5_1b2q4")
+attack_delay = 0.3
+particle_effect = NodePath("MultipleSlashEffects")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaAttack"]
+shape = SubResource("SphereShape3D_6asse")
+
+[node name="MultipleSlashEffects" parent="AreaAttack" instance=ExtResource("6_waoxi")]
+transform = Transform3D(2.18557e-08, 0.5, -4.37114e-08, 0.5, -2.18557e-08, 0, -1.91069e-15, -4.37114e-08, -0.5, 0, 0.440189, -0.942098)
+
+[node name="ProjectileAttack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.58807)
+script = ExtResource("7_tiypd")
+projectile_scene = ExtResource("8_icupn")
+range = 30.0
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Visuals")
+tree_root = SubResource("AnimationNodeBlendTree_uxuku")
+anim_player = NodePath("../Visuals/AnimationPlayer")
+parameters/short_range_attack/active = false
+parameters/short_range_attack/internal_active = false
+parameters/short_range_attack/request = 0
+script = ExtResource("7_nam30")
+
+[node name="DebugText" parent="." instance=ExtResource("4_o2573")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20986, 0)
+texture = SubResource("ViewportTexture_n4p5q")

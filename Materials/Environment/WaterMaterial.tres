@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ny087gjwlmtm"]
+
+[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="1_yr5f5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yr5f5")
+shader_parameter/R = Vector2(0.8, 0.6)
+shader_parameter/scale = 0.15
+shader_parameter/speed = 0.1
+shader_parameter/wave_speed = 0.84
+shader_parameter/direction = Vector3(1, 1, 0)
+shader_parameter/distortion = -0.135
+shader_parameter/layers = 1.565
+shader_parameter/shades = 0.795
+shader_parameter/steps = 5
+shader_parameter/tint = Color(0.270588, 0.803922, 0.94902, 1)
+shader_parameter/alpha = 0.7

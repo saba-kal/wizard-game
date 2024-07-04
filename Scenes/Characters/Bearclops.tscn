@@ -1,0 +1,242 @@
+[gd_scene load_steps=37 format=3 uid="uid://biqqmdi2652eh"]
+
+[ext_resource type="PackedScene" uid="uid://dqws5h8h52w6l" path="res://Models/Characters/BearclopsGrouped.blend" id="1_h8pql"]
+[ext_resource type="Script" path="res://Scripts/AI/BearclopsAI.gd" id="1_lonbr"]
+[ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="2_a5tmv"]
+[ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="3_fjm2d"]
+[ext_resource type="PackedScene" uid="uid://dd55852bglfak" path="res://Scenes/Characters/StatusHealth.tscn" id="4_eoaf3"]
+[ext_resource type="Script" path="res://Scripts/Animation/BearclopsAnimationTree.gd" id="5_yelh4"]
+[ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="6_mn8hr"]
+[ext_resource type="Script" path="res://Scripts/AI/AreaAttack.gd" id="7_xbnmv"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezableBearclops.gd" id="8_8qrxq"]
+[ext_resource type="PackedScene" uid="uid://c5o00ayi067bc" path="res://Scenes/Effects/Particles/MultipleSlashEffects.tscn" id="10_h2ied"]
+[ext_resource type="Script" path="res://Scripts/AI/BearclopsTelekinesisAttack.gd" id="10_s6nfn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y1es1"]
+radius = 1.365
+height = 3.71985
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e1dvj"]
+animation = &"Die(FourLegs)"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qntmc"]
+animation = &"DefaultPose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ptvjp"]
+animation = &"StandAttack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3i624"]
+animation = &"StandUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yfb68"]
+animation = &"Unstand"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d6spo"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2glh1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3m00p"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yv5fp"]
+xfade_time = 0.5
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qjqe2"]
+states/End/position = Vector2(880, 106)
+states/StandAttack/node = SubResource("AnimationNodeAnimation_ptvjp")
+states/StandAttack/position = Vector2(530, 106)
+states/StandUp/node = SubResource("AnimationNodeAnimation_3i624")
+states/StandUp/position = Vector2(338, 106)
+states/Start/position = Vector2(169, 106)
+states/Unstand/node = SubResource("AnimationNodeAnimation_yfb68")
+states/Unstand/position = Vector2(719, 106)
+transitions = ["Start", "StandUp", SubResource("AnimationNodeStateMachineTransition_d6spo"), "StandUp", "StandAttack", SubResource("AnimationNodeStateMachineTransition_2glh1"), "StandAttack", "Unstand", SubResource("AnimationNodeStateMachineTransition_3m00p"), "Unstand", "End", SubResource("AnimationNodeStateMachineTransition_yv5fp")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8gxfx"]
+animation = &"StandUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1gbuw"]
+animation = &"Unstand"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qr3u5"]
+animation = &"loop_slice"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_binid"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i2ewh"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dp8r5"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sfywq"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7df7c"]
+states/End/position = Vector2(883, 100)
+states/StandUp/node = SubResource("AnimationNodeAnimation_8gxfx")
+states/StandUp/position = Vector2(358, 100)
+states/Unstand/node = SubResource("AnimationNodeAnimation_1gbuw")
+states/Unstand/position = Vector2(697, 100)
+states/loop_slice/node = SubResource("AnimationNodeAnimation_qr3u5")
+states/loop_slice/position = Vector2(523, 100)
+transitions = ["Start", "StandUp", SubResource("AnimationNodeStateMachineTransition_binid"), "StandUp", "loop_slice", SubResource("AnimationNodeStateMachineTransition_i2ewh"), "loop_slice", "Unstand", SubResource("AnimationNodeStateMachineTransition_dp8r5"), "Unstand", "End", SubResource("AnimationNodeStateMachineTransition_sfywq")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1b342"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sfcj2"]
+fadein_time = 0.5
+fadeout_time = 0.5
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_ub6b8"]
+xfade_time = 0.1
+input_0/name = "walk"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "idle"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "dead"
+input_2/auto_advance = false
+input_2/reset = true
+input_3/name = "telekinesis"
+input_3/auto_advance = false
+input_3/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_34imo"]
+graph_offset = Vector2(-697.438, 27.1459)
+nodes/Die/node = SubResource("AnimationNodeAnimation_e1dvj")
+nodes/Die/position = Vector2(-600, 220)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_qntmc")
+nodes/Idle/position = Vector2(-580, 100)
+nodes/StandAndAttack/node = SubResource("AnimationNodeStateMachine_qjqe2")
+nodes/StandAndAttack/position = Vector2(-180, 440)
+nodes/TelekinesisStateMachine/node = SubResource("AnimationNodeStateMachine_7df7c")
+nodes/TelekinesisStateMachine/position = Vector2(-640, 380)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_1b342")
+nodes/Walk/position = Vector2(-560, -20)
+nodes/attack/node = SubResource("AnimationNodeOneShot_sfcj2")
+nodes/attack/position = Vector2(0, 140)
+nodes/state/node = SubResource("AnimationNodeTransition_ub6b8")
+nodes/state/position = Vector2(-280, 100)
+node_connections = [&"attack", 0, &"state", &"attack", 1, &"StandAndAttack", &"output", 0, &"attack", &"state", 0, &"Walk", &"state", 1, &"Idle", &"state", 2, &"Die", &"state", 3, &"TelekinesisStateMachine"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_36jvy"]
+radius = 1.45298
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6dwkf"]
+height = 40.0
+radius = 10.0
+
+[node name="Bearclops" type="CharacterBody3D"]
+script = ExtResource("1_lonbr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.7256, -0.769596)
+shape = SubResource("CapsuleShape3D_y1es1")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 1.0
+avoidance_enabled = true
+height = 2.0
+radius = 2.0
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="BearclopsGrouped" parent="Visuals" instance=ExtResource("1_h8pql")]
+
+[node name="Skeleton3D" parent="Visuals/BearclopsGrouped/BearRig_001" index="0"]
+bones/2/rotation = Quaternion(0.897404, 0.0182941, -0.0774718, 0.43397)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.21693, 6.78118e-14, 4.31843e-14, 0.976187)
+bones/4/rotation = Quaternion(0.384281, 0.0504115, -0.119901, 0.914008)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.355404, 0.0394877, 0.13976, 0.923361)
+bones/6/rotation = Quaternion(-0.517707, 0.0102435, -0.0169238, 0.855329)
+bones/7/rotation = Quaternion(0.740735, -0.0971698, 0.0864588, 0.659086)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.251586, -0.0279528, -0.144782, 0.956536)
+bones/9/rotation = Quaternion(-0.44418, -0.00878872, 0.0177229, 0.895719)
+bones/10/rotation = Quaternion(-0.204791, 1.16688e-07, 4.15021e-07, 0.978806)
+bones/11/rotation = Quaternion(0.0136022, 3.33941e-13, -2.59441e-08, 0.999907)
+bones/12/rotation = Quaternion(0.20515, -0.10005, 0.0040961, 0.973595)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(0.0148674, 0.0807018, -0.0357679, 0.995985)
+bones/15/rotation = Quaternion(-0.0323801, -9.53175e-07, 1.0808e-07, 0.999476)
+bones/16/rotation = Quaternion(0.658855, 1.79355e-07, -1.41375e-06, 0.75227)
+bones/17/rotation = Quaternion(-0.705758, -6.75636e-07, 2.01919e-06, 0.708453)
+bones/18/rotation = Quaternion(-0.419241, -2.16454e-07, 1.0995e-06, 0.907875)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.458564, 0.136072, 0.24982, 0.841899)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(0.774311, 0.103809, -0.0534632, 0.621939)
+bones/22/rotation = Quaternion(-0.171029, -0.0660592, 0.0712216, 0.980466)
+bones/23/rotation = Quaternion(-0.385951, -0.0212071, 0.0814186, 0.918674)
+bones/24/rotation = Quaternion(0.90888, -0.109324, 0.0526932, 0.39901)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(-0.275577, 0.0954354, -0.0892122, 0.952361)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(-0.40161, 0.0186505, -0.0767143, 0.912401)
+
+[node name="Health" parent="." instance=ExtResource("2_a5tmv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20943, 0)
+max_health = 200.0
+
+[node name="StatusHealth" parent="." instance=ExtResource("4_eoaf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.61233, 0)
+
+[node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("3_fjm2d")]
+character_body = NodePath("..")
+nav_agent = NodePath("../NavigationAgent3D")
+turn_speed = 3.0
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Visuals/BearclopsGrouped")
+tree_root = SubResource("AnimationNodeBlendTree_34imo")
+anim_player = NodePath("../Visuals/BearclopsGrouped/AnimationPlayer")
+parameters/attack/active = false
+parameters/attack/internal_active = false
+parameters/attack/request = 0
+parameters/state/current_state = "walk"
+parameters/state/transition_request = ""
+parameters/state/current_index = 0
+script = ExtResource("5_yelh4")
+
+[node name="Flammable" parent="." instance=ExtResource("6_mn8hr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65289, -0.210571)
+
+[node name="Freezable" type="Node3D" parent="."]
+script = ExtResource("8_8qrxq")
+
+[node name="AreaAttack" type="Area3D" parent="." node_paths=PackedStringArray("particle_effect")]
+script = ExtResource("7_xbnmv")
+particle_effect = NodePath("MultipleSlashEffects")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaAttack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0628109, 1.59185, 1.28796)
+shape = SubResource("SphereShape3D_36jvy")
+
+[node name="MultipleSlashEffects" parent="AreaAttack" instance=ExtResource("10_h2ied")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 2.8315, -0.749253)
+
+[node name="TelekinesisAttack" type="Area3D" parent="."]
+script = ExtResource("10_s6nfn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TelekinesisAttack"]
+shape = SubResource("CylinderShape3D_6dwkf")
+
+[editable path="Visuals/BearclopsGrouped"]

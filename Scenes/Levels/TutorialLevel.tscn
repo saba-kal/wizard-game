@@ -1,0 +1,135 @@
+[gd_scene load_steps=15 format=3 uid="uid://dqcu0ktix7514"]
+
+[ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="1_6oo27"]
+[ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="1_u7ffg"]
+[ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="2_225xi"]
+[ext_resource type="PackedScene" uid="uid://dk2b38k4rbkgk" path="res://Scenes/UI/TutorialUI.tscn" id="2_h3y5k"]
+[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="4_11s58"]
+[ext_resource type="Material" uid="uid://0e4c0sdukg3b" path="res://Materials/PrototypeToon/GreyGridToonMaterial.tres" id="5_b3e34"]
+[ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="5_wquue"]
+[ext_resource type="Resource" uid="uid://bxiuikm8748d5" path="res://CustomResources/Runes/Red/DetrimentRune.tres" id="6_07xlr"]
+[ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="7_lftw6"]
+[ext_resource type="PackedScene" uid="uid://b0md0m2petekx" path="res://Scenes/Environment/InteractiveLevelElements/Vines.tscn" id="8_v0pn1"]
+[ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="9_w2d25"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kkdpt"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_dto47"]
+sky_material = SubResource("ProceduralSkyMaterial_kkdpt")
+
+[sub_resource type="Environment" id="Environment_akchn"]
+background_mode = 2
+sky = SubResource("Sky_dto47")
+glow_enabled = true
+
+[node name="TutorialLevel" type="Node3D"]
+
+[node name="TutorialUi" parent="." instance=ExtResource("2_h3y5k")]
+
+[node name="GameUI" parent="." instance=ExtResource("1_u7ffg")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_akchn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_6oo27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856173, 3.26555)
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="CSGGround1" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.08224)
+material_override = ExtResource("2_225xi")
+use_collision = true
+size = Vector3(33.9099, 1, 33.2834)
+material = ExtResource("5_b3e34")
+
+[node name="CSGWall1" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7682, 3.33908, 0)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 33.3447)
+
+[node name="CSGWall2" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4744, 3.33908, 0)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 32.6738)
+
+[node name="CSGWall3" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0239172, 3.30208, 16.2732)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 33.7913)
+
+[node name="CSGWall4" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.8614, 3.30208, -16.1323)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 10.1162)
+
+[node name="CSGWall5" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.4997, 3.30208, -16.1323)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 10.1162)
+
+[node name="CSGGround2" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.174072, 0, -28.1524)
+material_override = ExtResource("2_225xi")
+use_collision = true
+size = Vector3(14.2734, 1, 26.3048)
+
+[node name="CSGGround3" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7634, 0, -48.1458)
+material_override = ExtResource("2_225xi")
+use_collision = true
+size = Vector3(41.452, 1, 14.982)
+material = ExtResource("5_b3e34")
+
+[node name="CSGWall6" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49925, 3.33908, -28.6606)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 24.7695)
+
+[node name="CSGWall7" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72784, 3.33908, -36.0705)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 39.5894)
+
+[node name="CSGWall8" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.3956, 3.33908, -55.5963)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 42.822)
+
+[node name="CSGWall9" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.5032, 3.33908, -41.2301)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7.67816, 28.6068)
+
+[node name="CSGWall10" type="CSGBox3D" parent="Map/CSGGround1"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 34.9308, 3.67816, -48.1647)
+material_override = ExtResource("2_225xi")
+size = Vector3(0.766907, 7, 14.7375)
+
+[node name="Runes" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.18326)
+
+[node name="RuneCollectable" parent="Map/Runes" instance=ExtResource("4_11s58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7006, 1.26835, 0.558928)
+rune = ExtResource("5_wquue")
+
+[node name="RuneCollectable2" parent="Map/Runes" instance=ExtResource("4_11s58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507261, 1.26835, 0.558928)
+rune = ExtResource("6_07xlr")
+
+[node name="RuneCollectable3" parent="Map/Runes" instance=ExtResource("4_11s58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8951, 1.26835, 0.558928)
+rune = ExtResource("7_lftw6")
+
+[node name="Vines" parent="Map" instance=ExtResource("8_v0pn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717006, 0.271142, -34.4672)
+
+[node name="LevelTransitionArea" parent="Map" instance=ExtResource("9_w2d25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2948, 0.5, -49.9474)
+transition_to = 2

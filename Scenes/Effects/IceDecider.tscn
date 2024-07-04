@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgpoj4f3uusio"]
+
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/IceDecider.gd" id="1_wxw1r"]
+
+[node name="IceDecider" type="RayCast3D"]
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+script = ExtResource("1_wxw1r")

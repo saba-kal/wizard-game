@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cdlxy3jtvuovr"]
+
+[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_pubvd"]
+[ext_resource type="Texture2D" uid="uid://1ecj3jo3c821" path="res://Textures/Player/V2/Cufflinks.png" id="2_dr6o0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pubvd")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture_scale = Vector2(1, 1)
+shader_parameter/albedo_texture_offset = Vector2(1, 1)
+shader_parameter/clamp_diffuse_to_max = true
+shader_parameter/light_strength = 5.0
+shader_parameter/cuts = 1
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/use_dissolve = false
+shader_parameter/dissolve_value = null
+shader_parameter/dissolve_brightness = 1.0
+shader_parameter/dissolve_burn_size = null
+shader_parameter/dissolve_burn_color = null
+shader_parameter/albedo_texture = ExtResource("2_dr6o0")

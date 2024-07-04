@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dc43te6nscf2v"]
+
+[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_lo8aj"]
+
+[sub_resource type="Gradient" id="Gradient_h1fkm"]
+offsets = PackedFloat32Array(0, 0.321739, 0.634783, 1)
+colors = PackedColorArray(0.164706, 0.109804, 0.0745098, 1, 0.235294, 0.160784, 0.109804, 1, 0.317647, 0.211765, 0.145098, 1, 0.447059, 0.301961, 0.207843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lhejk"]
+gradient = SubResource("Gradient_h1fkm")
+width = 8
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lo8aj")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture_scale = Vector2(1, 1)
+shader_parameter/albedo_texture_offset = Vector2(0, 0)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = true
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/ramp = SubResource("GradientTexture1D_lhejk")

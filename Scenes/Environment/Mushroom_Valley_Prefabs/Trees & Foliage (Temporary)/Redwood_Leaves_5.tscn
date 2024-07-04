@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3twypcswexji"]
+
+[ext_resource type="PackedScene" uid="uid://c01ypo7hae7cp" path="res://Models/Maps/Mushroom_Valley_Models/Trees&Plants_Models (Temporary)/Redwood_Leaves_5.glb" id="1_bdr0f"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_ld3h4"]
+
+[node name="Redwood_Leaves_5" instance=ExtResource("1_bdr0f")]
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="." index="2"]
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_ld3h4")

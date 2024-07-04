@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dglm4v4eyn5ev"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/Common/PhysicsObject.gd" id="1_rs8qv"]
+[ext_resource type="ArrayMesh" uid="uid://bp6qv5jrdhib7" path="res://Models/Environment/Rock.obj" id="2_dxsic"]
+[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="3_mctob"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmwps"]
+render_priority = 0
+shader = ExtResource("3_mctob")
+shader_parameter/albedo = Color(0.369802, 0.289476, 0.218905, 1)
+shader_parameter/albedo_texture_scale = Vector2(1, 1)
+shader_parameter/albedo_texture_offset = Vector2(0, 0)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/light_strength = 6.223
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = false
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/use_dissolve = false
+shader_parameter/dissolve_value = null
+shader_parameter/dissolve_brightness = 1.0
+shader_parameter/dissolve_burn_size = null
+shader_parameter/dissolve_burn_color = null
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_shxa3"]
+points = PackedVector3Array(-0.189583, -0.283621, -0.696103, 0.172349, 0.168835, 0.934223, 0.204872, 0.140289, 0.941234, 0.479823, 0.689222, -0.549219, 0.697178, -0.777247, -0.0931634, -0.820287, -0.46236, 0.180825, -0.36805, 0.946771, 0.450117, -0.364269, 0.520631, -0.677875, -0.0988526, -0.981555, 0.272327, 0.387886, 0.566206, 0.485951, -0.308888, -0.702439, 0.721566, 0.330807, -0.656794, -0.524012, 0.144721, 0.963695, -0.458081, -0.339458, 0.951952, 0.542274, -0.371739, -0.193176, -0.72803, 0.540297, 0.627578, -0.548652, -0.823674, -0.464391, 0.120674, -0.217091, -0.694855, 0.714805, -0.0981185, -0.958027, 0.179596, 0.201514, 0.0481839, 0.930974, -0.251164, 0.536041, -0.700563, 0.083314, 0.96115, -0.486886, -0.813923, -0.36908, 0.180189, 0.6592, -0.31465, -0.243055, 0.527263, -0.458276, 0.29933, 0.478702, 0.626823, -0.578496, -0.398287, 0.887644, 0.510346, 0.114059, -0.955728, 0.151309, -0.281527, -0.0116, -0.730968, -0.372017, 0.140105, -0.728795, 0.110222, -0.0116, 0.92588, -0.795568, -0.49594, 0.211729)
+
+[node name="RockPhysicsObject" type="RigidBody3D"]
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_rs8qv")
+
+[node name="Rock" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_dxsic")
+surface_material_override/0 = SubResource("ShaderMaterial_xmwps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_shxa3")
