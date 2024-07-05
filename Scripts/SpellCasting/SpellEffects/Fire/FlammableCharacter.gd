@@ -8,6 +8,7 @@ extends Flammable
 var damage_over_time_enabled = false
 var time_since_last_damage = 0
 var health: Health
+var immunity_enabled = false;
 
 
 func _ready():
@@ -16,7 +17,7 @@ func _ready():
 
 func _process(delta):
     super._process(delta)
-    if !self.damage_over_time_enabled:
+    if !self.damage_over_time_enabled || self.immunity_enabled:
         return
     if self.time_since_last_damage >= self.time_between_damage:
         self.health.take_damage(self.damage_unit_amount)
@@ -32,3 +33,11 @@ func light():
 func extinguish():
     self.damage_over_time_enabled = false
     self.particles.emitting = false
+
+
+func un_light():
+    self.immunity_enabled = true
+
+
+func un_extinguish():
+    self.immunity_enabled = false

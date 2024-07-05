@@ -6,14 +6,20 @@ var agent_to_position_index: Dictionary = {}
 
 
 func _ready():
-    for child in self.get_children():
-        if child is Marker3D:
-            self.wonder_positions.append(child)
+    self.initialize_wonder_positions()
 
 
 func register_agent(agent: EnemyAI):
+    if len(self.wonder_positions) == 0:
+        self.initialize_wonder_positions()
     var agent_position_index = len(self.agent_to_position_index)
     self.agent_to_position_index[agent] = agent_position_index % len(self.wonder_positions)
+
+
+func initialize_wonder_positions() -> void:
+    for child in self.get_children():
+        if child is Marker3D:
+            self.wonder_positions.append(child)
 
 
 func get_next_wonder_position(agent: EnemyAI) -> Vector3:

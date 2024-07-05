@@ -15,6 +15,7 @@ func _process(delta):
     var to = from + self.camera.project_ray_normal(screen_center) * 1000
     var worldspace = get_world_3d().direct_space_state
     var query = PhysicsRayQueryParameters3D.create(from, to, self.collision_mask)
+    query.collide_with_areas = true
     var result = worldspace.intersect_ray(query)
     if result:
         self.global_position = result["position"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b51eh1sioleha"]
+[gd_scene load_steps=5 format=3 uid="uid://b51eh1sioleha"]
 
 [ext_resource type="Script" path="res://Scripts/UI/SceneSwitcherButton.gd" id="2_vuvf0"]
 [ext_resource type="Script" path="res://Scripts/Common/AppQuitter.gd" id="3_h03oo"]
@@ -7,6 +7,11 @@
 font_size = 60
 outline_size = 7
 outline_color = Color(0.729412, 0, 0.12549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p1dhg"]
+font_size = 25
+shadow_size = 2
+shadow_color = Color(0.698039, 0.160784, 0.0823529, 1)
 
 [node name="MainMenu" type="Node3D"]
 
@@ -62,7 +67,7 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "PLAY"
 script = ExtResource("2_vuvf0")
-transition_to = 1
+transition_to = 3
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MainMenuBase/HBoxContainer"]
 custom_minimum_size = Vector2(150, 60)
@@ -71,5 +76,60 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
+
+[node name="LevelSelect" type="VBoxContainer" parent="CanvasLayer/MainMenuBase"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 861.0
+offset_top = 163.0
+offset_right = 1053.0
+offset_bottom = 416.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenuBase/LevelSelect"]
+layout_mode = 2
+text = "LEVEL SELECT"
+label_settings = SubResource("LabelSettings_p1dhg")
+horizontal_alignment = 1
+
+[node name="PlayButton2" type="Button" parent="CanvasLayer/MainMenuBase/LevelSelect"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "HUB"
+script = ExtResource("2_vuvf0")
+transition_to = 1
+
+[node name="PlayButton3" type="Button" parent="CanvasLayer/MainMenuBase/LevelSelect"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "FOREST"
+script = ExtResource("2_vuvf0")
+transition_to = 2
+
+[node name="PlayButton4" type="Button" parent="CanvasLayer/MainMenuBase/LevelSelect"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "TEST"
+script = ExtResource("2_vuvf0")
+transition_to = 4
+
+[node name="PlayButton5" type="Button" parent="CanvasLayer/MainMenuBase/LevelSelect"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "BOSS"
+script = ExtResource("2_vuvf0")
+transition_to = 5
 
 [connection signal="button_down" from="CanvasLayer/MainMenuBase/HBoxContainer/QuitButton" to="AppQuitter" method="quit_app"]

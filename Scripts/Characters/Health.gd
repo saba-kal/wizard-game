@@ -8,6 +8,7 @@ signal health_lost()
 @export var is_player: bool = false
 
 var current_health: float = -1
+var is_immune: bool = false
 
 
 func _enter_tree():
@@ -15,6 +16,8 @@ func _enter_tree():
 
 
 func take_damage(damage: float):
+    if self.is_immune:
+        return
     self.current_health -= damage
     self.current_health = max(self.current_health, 0)
     self.damage_taken.emit(damage)
