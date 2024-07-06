@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://6o4l4ioosvyd"]
+
+[ext_resource type="PackedScene" uid="uid://caeulvtyq2mvi" path="res://Scenes/Levels/ImportedScenes/mushroom_valley.tscn" id="1_n3op0"]
+[ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_d6qgv"]
+[ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="2_omhl6"]
+[ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="3_ba8je"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_xiu28"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tp3lc"]
+size = Vector3(1000, 1, 1000)
+
+[node name="MushroomValley" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Mushroom_Valley_ImportedModel" parent="Map" instance=ExtResource("1_n3op0")]
+
+[node name="Water" parent="Map" instance=ExtResource("2_omhl6")]
+transform = Transform3D(100, 0, 0, 0, 7.092, 0, 0, 0, 100, 0, -31.4774, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.303574, 0)
+mesh = SubResource("QuadMesh_xiu28")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_tp3lc")
+
+[node name="Player" parent="." instance=ExtResource("2_d6qgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.484, 14.6683, -67.3001)
+
+[node name="GameUI" parent="." instance=ExtResource("3_ba8je")]

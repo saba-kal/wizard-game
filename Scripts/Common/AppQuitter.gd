@@ -2,4 +2,4 @@ extends Node
 
 
 func quit_app():
-	self.get_tree().quit()
+    self.get_tree().quit()

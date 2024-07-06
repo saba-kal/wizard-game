@@ -6,7 +6,8 @@ enum SceneType {
     MUSHROOM_FOREST = 2,
     TUTORIAL = 3,
     TEST = 4,
-    MUSHROOM_BOSS = 5
+    MUSHROOM_BOSS = 5,
+    MUSHROOM_VALLEY = 6
 }
 
 var scenes: Array[String] = [
@@ -15,7 +16,8 @@ var scenes: Array[String] = [
     "res://Scenes/Levels/MushroomForest.tscn",
     "res://Scenes/Levels/TutorialLevel.tscn",
     "res://Scenes/Levels/Dev/SabaTestLevel.tscn",
-    "res://Scenes/Levels/MushroomBossLevel.tscn"
+    "res://Scenes/Levels/MushroomBossLevel.tscn",
+    "res://Scenes/Levels/MushroomValley.tscn"
 ]
 
 var load_started: bool = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=27 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -188,6 +188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2482, 22.9376, -41.4937)
 
 [node name="Torch_Fire_VFX" parent="." instance=ExtResource("16_p4orb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9635, 31.2904, 51.4123)
+
 [node name="MushroomEnemy" parent="." instance=ExtResource("20_ustba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.786, 24.2159, -42.6137)
 
