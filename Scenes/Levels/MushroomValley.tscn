@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://6o4l4ioosvyd"]
+[gd_scene load_steps=8 format=3 uid="uid://d2t8qs2j1fk3c"]
 
 [ext_resource type="PackedScene" uid="uid://caeulvtyq2mvi" path="res://Scenes/Levels/ImportedScenes/mushroom_valley.tscn" id="1_n3op0"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_d6qgv"]
 [ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="2_omhl6"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="3_ba8je"]
+[ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="5_k74qs"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_xiu28"]
 size = Vector2(1000, 1000)
@@ -34,3 +35,5 @@ shape = SubResource("BoxShape3D_tp3lc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.484, 14.6683, -67.3001)
 
 [node name="GameUI" parent="." instance=ExtResource("3_ba8je")]
+
+[node name="DebugConsole" parent="." instance=ExtResource("5_k74qs")]

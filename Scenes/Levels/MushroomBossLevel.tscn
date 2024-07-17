@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bma56cyhvqceb"]
+[gd_scene load_steps=10 format=3 uid="uid://bma56cyhvqceb"]
 
 [ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="1_0v4l8"]
 [ext_resource type="PackedScene" uid="uid://d3fp1m7nc0qhp" path="res://Scenes/Characters/MushroomBirdBoss.tscn" id="2_tjwid"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_vgqay"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="3_2dah2"]
+[ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="5_73dt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hcyub"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -48,3 +49,5 @@ size = Vector3(100, 0.18, 100)
 material = ExtResource("1_0v4l8")
 
 [node name="GameUI" parent="." instance=ExtResource("3_2dah2")]
+
+[node name="DebugConsole" parent="." instance=ExtResource("5_73dt5")]

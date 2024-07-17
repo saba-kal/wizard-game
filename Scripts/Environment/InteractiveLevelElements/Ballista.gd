@@ -36,12 +36,14 @@ func _ready() -> void:
 	collider.body_exited.connect(player_check)
 
 func _physics_process(delta) -> void:
+	# Could improve this to use signal, 
+	# Also possible issue now with ballista removing disable of movement from console or other disables
 	if player_inside && Input.is_action_just_pressed("interact"):
 		if cur_state == State.UNMANNED:
-			player_movement.disabled = true
+			player_movement.on_player_disabled(true);
 			cur_state = State.AIMING
 		elif cur_state == State.AIMING:
-			player_movement.disabled = false
+			player_movement.on_player_disabled(false);
 			cur_state = State.UNMANNED
 
 	if (player_inside && Input.is_action_just_pressed("mouse_left")):

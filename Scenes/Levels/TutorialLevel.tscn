@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqcu0ktix7514"]
+[gd_scene load_steps=16 format=3 uid="uid://dqcu0ktix7514"]
 
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="1_6oo27"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="1_u7ffg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="7_lftw6"]
 [ext_resource type="PackedScene" uid="uid://b0md0m2petekx" path="res://Scenes/Environment/InteractiveLevelElements/Vines.tscn" id="8_v0pn1"]
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="9_w2d25"]
+[ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="12_ig2p8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kkdpt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -133,3 +134,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717006, 0.271142, -34.467
 [node name="LevelTransitionArea" parent="Map" instance=ExtResource("9_w2d25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2948, 0.5, -49.9474)
 transition_to = 2
+
+[node name="DebugConsole" parent="." instance=ExtResource("12_ig2p8")]

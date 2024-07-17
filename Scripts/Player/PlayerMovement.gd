@@ -16,6 +16,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var gravity_adjustment: float = 0
 var input_direction: Vector2
 var disabled: bool = false
+var dead: bool = false
 var third_persion_camera: ThirdPersonCamera
 var player_swimming: PlayerSwimming
 var player_sliding: PlayerSliding
@@ -31,11 +32,12 @@ func _ready():
     self.player_sliding = Util.get_child_node_of_type(self.get_parent(), PlayerSliding)
     self.slippery_friction = 1.0/player_sliding.slip_factor
     SignalBus.player_died.connect(self.on_player_died)
+    SignalBus.player_disabled.connect(on_player_disabled)
     SignalBus.player_mana_regen_changed.connect(self.on_player_mana_regen_changed)
 
 
 func _physics_process(delta):
-    if self.disabled:
+    if self.dead or self.disabled:
         self.input_direction = Vector2.ZERO
         return
     self.process_velocity(delta)
@@ -124,7 +126,10 @@ func is_on_floor() -> bool:
 
 
 func on_player_died() -> void:
-    self.disabled = true
+    self.dead = true
+
+func on_player_disabled(is_disabled: bool) -> void:
+    self.disabled = is_disabled
 
 
 func get_velocity() -> Vector3:
