@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="13_xl28e"]
 [ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="14_enmni"]
 [ext_resource type="PackedScene" uid="uid://dkbtip8iwehfa" path="res://Scenes/Environment/MushroomForest/PoisonMushroom.tscn" id="15_ydb8s"]
-[ext_resource type="PackedScene" path="res://Scenes/Effects/Torch_Fire_VFX.tscn" id="16_p4orb"]
+[ext_resource type="PackedScene" uid="uid://dgrcnk2v5gw81" path="res://Scenes/Effects/Torch_Fire_VFX.tscn" id="16_p4orb"]
 [ext_resource type="PackedScene" uid="uid://biqqmdi2652eh" path="res://Scenes/Characters/Bearclops.tscn" id="17_06fly"]
 [ext_resource type="PackedScene" uid="uid://dglm4v4eyn5ev" path="res://Scenes/Environment/PhysicsObjects/RockPhysicsObject.tscn" id="19_rmpdl"]
 [ext_resource type="PackedScene" uid="uid://dqkj10yn050io" path="res://Scenes/Characters/MushroomEnemy.tscn" id="20_ustba"]

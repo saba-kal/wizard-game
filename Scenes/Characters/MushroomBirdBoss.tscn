@@ -1,15 +1,24 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3fp1m7nc0qhp"]
+[gd_scene load_steps=34 format=3 uid="uid://d3fp1m7nc0qhp"]
 
 [ext_resource type="Script" path="res://Scripts/AI/FlyToTargetAI.gd" id="1_jrmxm"]
-[ext_resource type="Script" path="res://Scripts/AI/MushroomBirdBossAI.gd" id="1_lhm3l"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/MushroomBirdBossAI.gd" id="1_lhm3l"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingIdleState.gd" id="2_f4shs"]
 [ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="2_yfdji"]
 [ext_resource type="PackedScene" uid="uid://bbj4miag5qsc" path="res://Scenes/Debug/DebugSphere.tscn" id="3_4l7u7"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingLocationPursuitState.gd" id="3_7pmko"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingLongRangeAttackState.gd" id="4_1gnnd"]
 [ext_resource type="PackedScene" uid="uid://cf7s8g750xcju" path="res://Scenes/Debug/DebugText.tscn" id="4_o2573"]
 [ext_resource type="Script" path="res://Scripts/AI/AreaAttack.gd" id="5_1b2q4"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingPlayerCircleState.gd" id="5_ssaek"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingPlayerPursuitState.gd" id="6_uhfup"]
 [ext_resource type="PackedScene" uid="uid://c5o00ayi067bc" path="res://Scenes/Effects/Particles/MultipleSlashEffects.tscn" id="6_waoxi"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedIdleState.gd" id="7_dqtiy"]
 [ext_resource type="Script" path="res://Scripts/Animation/BirdBossAnimationTree.gd" id="7_nam30"]
 [ext_resource type="Script" path="res://Scripts/AI/ProjectileAttack.gd" id="7_tiypd"]
 [ext_resource type="PackedScene" uid="uid://bdo8gj7vydfqb" path="res://Scenes/Projectiles/MushroomProjectile.tscn" id="8_icupn"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedLongRangeAttackState.gd" id="8_lytyi"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedPlayerPursuitState.gd" id="9_aoqd3"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedShortRangeAttackState.gd" id="10_0n2cc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e1enu"]
 radius = 0.75
@@ -88,7 +97,6 @@ viewport_path = NodePath("SubViewport")
 
 [node name="MushroomBirdBoss" type="CharacterBody3D"]
 script = ExtResource("1_lhm3l")
-long_range_attack_cooldown = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -118,6 +126,38 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lmbc8")
 libraries = {
 "": SubResource("AnimationLibrary_72kit")
 }
+
+[node name="States" type="Node" parent="."]
+
+[node name="FlyingIdleState" type="Node" parent="States"]
+script = ExtResource("2_f4shs")
+
+[node name="FlyingLocationPursuitState" type="Node" parent="States"]
+script = ExtResource("3_7pmko")
+
+[node name="FlyingLongRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("projectile_attack")]
+script = ExtResource("4_1gnnd")
+projectile_attack = NodePath("../../ProjectileAttack")
+
+[node name="FlyingPlayerCircleState" type="Node" parent="States"]
+script = ExtResource("5_ssaek")
+
+[node name="FlyingPlayerPursuitState" type="Node" parent="States"]
+script = ExtResource("6_uhfup")
+
+[node name="GroundedIdleState" type="Node" parent="States"]
+script = ExtResource("7_dqtiy")
+
+[node name="GroundedLongRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("projectile_attack")]
+script = ExtResource("8_lytyi")
+projectile_attack = NodePath("../../ProjectileAttack")
+
+[node name="GroundedPlayerPursuitState" type="Node" parent="States"]
+script = ExtResource("9_aoqd3")
+
+[node name="GroundedShortRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("short_range_attack")]
+script = ExtResource("10_0n2cc")
+short_range_attack = NodePath("../../AreaAttack")
 
 [node name="FlyToTargetAI" type="Node" parent="."]
 script = ExtResource("1_jrmxm")
