@@ -1,5 +1,7 @@
 class_name Projectile extends Area3D
 
+signal collided(body: Node3D)
+
 @export var on_destroy_effect: PackedScene
 @export var projectile_gravity: float = 0
 
@@ -32,4 +34,5 @@ func on_body_entered(body: Node3D):
     var health: Health = Util.get_child_node_of_type(body, Health)
     if health != null:
         health.take_damage(self.damage)
+    self.collided.emit(body)
     self.queue_free()

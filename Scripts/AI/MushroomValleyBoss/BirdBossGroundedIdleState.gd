@@ -14,7 +14,7 @@ func enter_state() -> void:
 
 func process_state(delta: float) -> void:
     if self.is_player_inside_attack_zone():
-        self.transition_state.emit(Type.FLYING_LOCATION_PURSUIT)
+        self.transition_state.emit(Type.FLYING_RISE_UP)
 
 
 func exit_state() -> void:

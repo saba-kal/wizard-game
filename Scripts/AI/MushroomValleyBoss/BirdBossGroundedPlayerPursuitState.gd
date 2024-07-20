@@ -1,10 +1,15 @@
 extends BirdBossAIState
 
-@export var short_range_attack_radius: float = 2.5
-@export var long_range_attack_distance: float = 15.0
-@export var max_state_time: float = 10.0
+@export var min_time_in_state: float = 3.0
+@export var max_time_in_state: float = 15.0
+@export var short_range_attack_min_distance: float = 0
+@export var short_range_attack_max_distance: float = 2.5
+@export var medium_range_attack_min_distance: float = 3.0
+@export var medium_range_attack_max_distance: float = 15.0
+@export var long_range_attack_min_distance: float = 18.0
+@export var long_range_attack_max_distance: float = 25.0
 
-var time_in_state: float = 0
+var time_in_state: float = 0.0
 
 
 func get_type() -> Type:
@@ -20,15 +25,20 @@ func enter_state() -> void:
 func process_state(delta: float) -> void:
 
     self.shared_data.pursue_target_ai.set_target(self.shared_data.player.global_position)
-    var distance_sqr_to_player: float = self.shared_data.character_body.global_position.distance_squared_to(
-        self.shared_data.player.global_position)
-    if distance_sqr_to_player < self.short_range_attack_radius * self.short_range_attack_radius:
+    if self.time_in_state < self.min_time_in_state:
+        self.time_in_state += delta
+        return
+
+    if self.can_attack(self.short_range_attack_min_distance, self.short_range_attack_max_distance):
         self.transition_state.emit(Type.GROUNDED_SHORT_RANGE_ATTACK)
-    elif self.can_perform_long_range_attack():
+    elif self.can_attack(self.medium_range_attack_min_distance, self.medium_range_attack_max_distance):
+        self.transition_state.emit(Type.GROUNDED_MEDIUM_RANGE_ATTACK)
+    elif (self.can_attack(self.long_range_attack_min_distance, self.long_range_attack_max_distance) && 
+        self.shared_data.long_range_attack_cooldown < self.shared_data.time_since_long_range_attack):
         self.transition_state.emit(Type.GROUNDED_LONG_RANGE_ATTACK)
-        pass
-    elif self.time_in_state >= self.max_state_time:
-        self.transition_state.emit(Type.FLYING_LOCATION_PURSUIT)
+    elif self.time_in_state >= self.max_time_in_state:
+        self.transition_state.emit(Type.FLYING_RISE_UP)
+
     self.time_in_state += delta
 
 
@@ -40,7 +50,5 @@ func is_flying() -> bool:
     return false
 
 
-func can_perform_long_range_attack() -> bool:
-    var distance_sqr_to_player: float = self.shared_data.character_body.global_position.distance_squared_to(
-        self.shared_data.player.global_position)
-    return distance_sqr_to_player <= self.long_range_attack_distance * self.long_range_attack_distance
+func can_attack(min_range: float, max_range: float) -> bool:
+    return self.shared_functions.player_is_inside_range(min_range, max_range)

@@ -26,7 +26,7 @@ func enter_state() -> void:
 func process_state(delta: float) -> void:
 
     self.time_in_state += delta
-    self.look_at_player(delta)
+    self.shared_functions.look_at_player(delta)
 
     if self.time_in_state < self.wait_time_before_attack:
         return
@@ -51,12 +51,5 @@ func is_flying() -> bool:
     return true
 
 
-func look_at_player(delta: float) -> void:
-    # Even if the pursue target AI is disabled, we can re-use its code for looking at target positions.
-    self.shared_data.pursue_target_ai.set_target(self.shared_data.player.global_position)
-    self.shared_data.pursue_target_ai.look_at_target(delta)
-
-
 func can_attack(min_range: float, max_range: float) -> bool:
-    var distance_sqr_to_player: float = self.shared_data.character_body.global_position.distance_squared_to(self.shared_data.player.global_position)
-    return distance_sqr_to_player >= min_range * min_range && distance_sqr_to_player <= max_range * max_range
+    return self.shared_functions.player_is_inside_range(min_range, max_range)

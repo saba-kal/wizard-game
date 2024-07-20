@@ -47,7 +47,6 @@ func on_rune_slots_changed(new_blue_rune: BlueRune, new_red_rune: RedRune, new_y
 func cast_spell() -> void:
 
     if !self.camera_is_aiming:
-        print("Spell can only be cast in aim mode")
         return
 
     if self.blue_rune == null || self.red_rune == null || self.yellow_rune == null:

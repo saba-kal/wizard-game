@@ -83,6 +83,7 @@ func fire() -> void :
     projectile.direction = firing_box.global_transform.basis.z
     projectile.speed = projectile_speed
     projectile.damage = self.projectile_damage
+    projectile.collided.connect(self.on_projectile_collided)
     get_tree().root.add_child(projectile)
     projectile.global_position = firing_box.global_position
 
@@ -124,3 +125,7 @@ func screen_point_to_ray() -> Vector3:
     var rayOrigin = camera.project_ray_origin(mousePos)
     var rayEnd = rayOrigin + camera.project_ray_normal(mousePos) * 1000
     return rayEnd
+
+
+func on_projectile_collided(body: Node3D):
+    SignalBus.ballista_projectile_collided.emit(body)

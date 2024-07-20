@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d3fp1m7nc0qhp"]
+[gd_scene load_steps=55 format=3 uid="uid://d3fp1m7nc0qhp"]
 
 [ext_resource type="Script" path="res://Scripts/AI/FlyToTargetAI.gd" id="1_jrmxm"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/MushroomBirdBossAI.gd" id="1_lhm3l"]
@@ -23,8 +23,11 @@
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedLongRangeAttackState.gd" id="8_lytyi"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedPlayerPursuitState.gd" id="9_aoqd3"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedShortRangeAttackState.gd" id="10_0n2cc"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingRiseUpState.gd" id="11_6a5yb"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingComeDownState.gd" id="12_o1j51"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedKnockedDownState.gd" id="12_smtrd"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossDeadState.gd" id="13_pjban"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedMediumRangeAttackState.gd" id="15_sre7i"]
 [ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="19_1tisk"]
 [ext_resource type="PackedScene" uid="uid://dd55852bglfak" path="res://Scenes/Characters/StatusHealth.tscn" id="20_rc6y4"]
 
@@ -69,34 +72,6 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_gs6jc"]
-resource_name = "medium_range_attack"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.261799, 0), Vector3(0, 0, 0), Vector3(0, -0.261799, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BirdBossMediumAttackEffect:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="Animation" id="Animation_41jed"]
 resource_name = "flying_short_range_attack"
 length = 0.6
@@ -127,6 +102,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-1.5708, -12.5664, 0), Vector3(0, -12.5664, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gs6jc"]
+resource_name = "medium_range_attack"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.261799, 0), Vector3(0, 0, 0), Vector3(0, -0.261799, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BirdBossMediumAttackEffect:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_72kit"]
@@ -234,30 +237,50 @@ script = ExtResource("2_f4shs")
 
 [node name="FlyingLocationPursuitState" type="Node" parent="States"]
 script = ExtResource("3_7pmko")
+action_points = -1
 
 [node name="FlyingShortRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("short_range_attack")]
 script = ExtResource("5_nm2xt")
 short_range_attack = NodePath("../../ShortRangeAttack")
+action_points = -1
 
 [node name="FlyingMediumRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("medium_attack")]
 script = ExtResource("5_4gd0j")
 medium_attack = NodePath("../../MediumRangeAttack")
+action_points = -1
 
 [node name="FlyingLongRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("projectile_attack")]
 script = ExtResource("4_1gnnd")
 projectile_attack = NodePath("../../ProjectileAttack")
+action_points = -1
 
 [node name="FlyingPlayerCircleState" type="Node" parent="States"]
 script = ExtResource("5_ssaek")
+action_points = -1
 
 [node name="FlyingPlayerPursuitState" type="Node" parent="States"]
 script = ExtResource("6_uhfup")
+action_points = -1
 
 [node name="FlyingFallState" type="Node" parent="States"]
 script = ExtResource("7_psyr0")
 
+[node name="FlyingRiseUp" type="Node" parent="States"]
+script = ExtResource("11_6a5yb")
+
+[node name="FlyingComeDown" type="Node" parent="States"]
+script = ExtResource("12_o1j51")
+
 [node name="GroundedIdleState" type="Node" parent="States"]
 script = ExtResource("7_dqtiy")
+
+[node name="GroundedShortRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("short_range_attack")]
+script = ExtResource("10_0n2cc")
+short_range_attack = NodePath("../../ShortRangeAttack")
+
+[node name="GroundedMediumRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("medium_attack")]
+script = ExtResource("15_sre7i")
+medium_attack = NodePath("../../MediumRangeAttack")
 
 [node name="GroundedLongRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("projectile_attack")]
 script = ExtResource("8_lytyi")
@@ -265,10 +288,6 @@ projectile_attack = NodePath("../../ProjectileAttack")
 
 [node name="GroundedPlayerPursuitState" type="Node" parent="States"]
 script = ExtResource("9_aoqd3")
-
-[node name="GroundedShortRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("short_range_attack")]
-script = ExtResource("10_0n2cc")
-short_range_attack = NodePath("../../ShortRangeAttack")
 
 [node name="GroundedKnockedDownState" type="Node" parent="States"]
 script = ExtResource("12_smtrd")
@@ -293,6 +312,7 @@ nav_agent = NodePath("../NavigationAgent3D")
 [node name="ShortRangeAttack" type="Area3D" parent="." node_paths=PackedStringArray("particle_effect")]
 script = ExtResource("5_1b2q4")
 attack_delay = 0.3
+damage = 30.0
 particle_effect = NodePath("MultipleSlashEffects")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShortRangeAttack"]
@@ -303,22 +323,22 @@ transform = Transform3D(2.18557e-08, 0.5, -4.37114e-08, 0.5, -2.18557e-08, 0, -1
 
 [node name="MediumRangeAttack" type="Area3D" parent="."]
 script = ExtResource("5_1b2q4")
-attack_duration = 1.2
+attack_duration = 3.0
 damage = 25.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumRangeAttack"]
+[node name="CollisionShape3D_4" type="CollisionShape3D" parent="MediumRangeAttack"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.77101, 17.0922)
 shape = SubResource("SphereShape3D_bco1p")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="MediumRangeAttack"]
+[node name="CollisionShape3D_3" type="CollisionShape3D" parent="MediumRangeAttack"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.556583, 11.5693)
 shape = SubResource("SphereShape3D_ym0c1")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="MediumRangeAttack"]
+[node name="CollisionShape3D_2" type="CollisionShape3D" parent="MediumRangeAttack"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264776, 7.24051)
 shape = SubResource("SphereShape3D_l42n4")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="MediumRangeAttack"]
+[node name="CollisionShape3D_1" type="CollisionShape3D" parent="MediumRangeAttack"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207743, 4.46288)
 shape = SubResource("SphereShape3D_yqm60")
 

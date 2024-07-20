@@ -14,6 +14,8 @@ func on_state_changed(prev_state: BirdBossAIState.Type, new_state: BirdBossAISta
     match new_state:
         BirdBossAIState.Type.FLYING_MEDIUM_RANGE_ATTACK:
             self.set("parameters/medium_range_attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+        BirdBossAIState.Type.GROUNDED_MEDIUM_RANGE_ATTACK:
+            self.set("parameters/medium_range_attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 
 func on_short_range_attack_started():

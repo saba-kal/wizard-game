@@ -36,9 +36,9 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("2_vgqay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64929, 0.0900006, 45.0543)
 
-[node name="MushroomBirdBoss" parent="." node_paths=PackedStringArray("hover_positions") instance=ExtResource("2_tjwid")]
+[node name="MushroomBirdBoss" parent="." node_paths=PackedStringArray("hover_positions_container") instance=ExtResource("2_tjwid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46633, 0.789404, -0.676008)
-hover_positions = [NodePath("../BossHoverPositions/HoverPosition1"), NodePath("../BossHoverPositions/HoverPosition2"), NodePath("../BossHoverPositions/HoverPosition3"), NodePath("../BossHoverPositions/HoverPosition4")]
+hover_positions_container = NodePath("../BossHoverPositions")
 
 [node name="BossHoverPositions" type="Node3D" parent="."]
 
