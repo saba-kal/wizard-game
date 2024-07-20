@@ -3,7 +3,7 @@ class_name FlyToTargetAI extends Node
 @export var speed: float = 7.0
 @export var acceleration: float = 20.0
 @export var turn_speed: float = 5.0
-@export var stop_distance: float = 1.0
+@export var stop_distance: float = 0.5
 @export var circle_flight_radius: float = 5.0
 @export var min_flight_height: float = 5.0
 
@@ -65,7 +65,6 @@ func face_velocity(delta: float) -> void:
     if self.current_velocity.length_squared() < 0.1:
         return
 
-    print(self.current_velocity)
     # Look direction
     if !self.current_velocity.is_zero_approx():
         var original_rotation: Quaternion = self.character_body.quaternion
@@ -84,8 +83,8 @@ func set_enabled(is_enabled: bool) -> void:
     self.is_active = is_enabled
 
 
-func set_target(new_target: Vector3) -> void:
-    if new_target.y < self.min_flight_height:
+func set_target(new_target: Vector3, ignore_flight_height: bool = false) -> void:
+    if !ignore_flight_height && new_target.y < self.min_flight_height:
         new_target.y = self.min_flight_height
     self.target_position = new_target
 

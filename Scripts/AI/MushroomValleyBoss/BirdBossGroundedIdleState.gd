@@ -8,13 +8,13 @@ func get_type() -> Type:
 
 
 func enter_state() -> void:
-    self.pursue_target_ai.set_enabled(false)
-    self.fly_to_target_ai.set_enabled(false)
+    self.shared_data.pursue_target_ai.set_enabled(false)
+    self.shared_data.fly_to_target_ai.set_enabled(false)
 
 
 func process_state(delta: float) -> void:
     if self.is_player_inside_attack_zone():
-        self.transition_state.emit(Type.FLYING_PLAYER_PURSUIT)
+        self.transition_state.emit(Type.FLYING_LOCATION_PURSUIT)
 
 
 func exit_state() -> void:
@@ -23,6 +23,10 @@ func exit_state() -> void:
 
 func is_player_inside_attack_zone() -> bool:
     return (
-        self.start_position.distance_squared_to(self.player.global_position) < 
+        self.shared_data.start_position.distance_squared_to(self.shared_data.player.global_position) < 
         self.boss_activation_radius * self.boss_activation_radius
     )
+
+
+func is_flying() -> bool:
+    return false

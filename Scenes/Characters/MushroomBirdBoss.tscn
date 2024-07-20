@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://d3fp1m7nc0qhp"]
+[gd_scene load_steps=52 format=3 uid="uid://d3fp1m7nc0qhp"]
 
 [ext_resource type="Script" path="res://Scripts/AI/FlyToTargetAI.gd" id="1_jrmxm"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/MushroomBirdBossAI.gd" id="1_lhm3l"]
+[ext_resource type="PackedScene" uid="uid://d0du5q2jmm5nb" path="res://Scenes/Effects/Particles/BirdBossMediumAttackEffect.tscn" id="2_43r61"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingIdleState.gd" id="2_f4shs"]
 [ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="2_yfdji"]
 [ext_resource type="PackedScene" uid="uid://bbj4miag5qsc" path="res://Scenes/Debug/DebugSphere.tscn" id="3_4l7u7"]
@@ -9,16 +10,23 @@
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingLongRangeAttackState.gd" id="4_1gnnd"]
 [ext_resource type="PackedScene" uid="uid://cf7s8g750xcju" path="res://Scenes/Debug/DebugText.tscn" id="4_o2573"]
 [ext_resource type="Script" path="res://Scripts/AI/AreaAttack.gd" id="5_1b2q4"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingMediumRangeAttackState.gd" id="5_4gd0j"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingShortRangeAttackState.gd" id="5_nm2xt"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingPlayerCircleState.gd" id="5_ssaek"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingPlayerPursuitState.gd" id="6_uhfup"]
 [ext_resource type="PackedScene" uid="uid://c5o00ayi067bc" path="res://Scenes/Effects/Particles/MultipleSlashEffects.tscn" id="6_waoxi"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedIdleState.gd" id="7_dqtiy"]
 [ext_resource type="Script" path="res://Scripts/Animation/BirdBossAnimationTree.gd" id="7_nam30"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingFallState.gd" id="7_psyr0"]
 [ext_resource type="Script" path="res://Scripts/AI/ProjectileAttack.gd" id="7_tiypd"]
 [ext_resource type="PackedScene" uid="uid://bdo8gj7vydfqb" path="res://Scenes/Projectiles/MushroomProjectile.tscn" id="8_icupn"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedLongRangeAttackState.gd" id="8_lytyi"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedPlayerPursuitState.gd" id="9_aoqd3"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedShortRangeAttackState.gd" id="10_0n2cc"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossGroundedKnockedDownState.gd" id="12_smtrd"]
+[ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossDeadState.gd" id="13_pjban"]
+[ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="19_1tisk"]
+[ext_resource type="PackedScene" uid="uid://dd55852bglfak" path="res://Scenes/Characters/StatusHealth.tscn" id="20_rc6y4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e1enu"]
 radius = 0.75
@@ -48,9 +56,65 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BirdBossMediumAttackEffect:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gs6jc"]
+resource_name = "medium_range_attack"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.261799, 0), Vector3(0, 0, 0), Vector3(0, -0.261799, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BirdBossMediumAttackEffect:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_41jed"]
+resource_name = "flying_short_range_attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -12.5664)]
+}
 
 [sub_resource type="Animation" id="Animation_1wl6u"]
-resource_name = "short_range_attack"
+resource_name = "grounded_short_range_attack"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -62,35 +126,67 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 1.2, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.5708, -12.5664, 0), Vector3(0, -12.5664, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-1.5708, -12.5664, 0), Vector3(0, -12.5664, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_72kit"]
 _data = {
 "RESET": SubResource("Animation_waxrs"),
-"short_range_attack": SubResource("Animation_1wl6u")
+"flying_short_range_attack": SubResource("Animation_41jed"),
+"grounded_short_range_attack": SubResource("Animation_1wl6u"),
+"medium_range_attack": SubResource("Animation_gs6jc")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6asse"]
 radius = 2.5
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ev00a"]
-animation = &"RESET"
+[sub_resource type="SphereShape3D" id="SphereShape3D_bco1p"]
+radius = 5.6719
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ym0c1"]
+radius = 2.96485
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l42n4"]
+radius = 1.99259
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yqm60"]
+radius = 1.1654
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_x8bcn"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1rom"]
-animation = &"short_range_attack"
+animation = &"flying_short_range_attack"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_dft5c"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t2aup"]
+animation = &"grounded_short_range_attack"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_0pbir"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vlrts"]
+animation = &"medium_range_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ev00a"]
+animation = &"RESET"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uxuku"]
-graph_offset = Vector2(-590.426, 33.6026)
+graph_offset = Vector2(-588.602, -40.7903)
+nodes/flying_short_range_attack/node = SubResource("AnimationNodeOneShot_x8bcn")
+nodes/flying_short_range_attack/position = Vector2(-660, 20)
+nodes/flying_short_range_attack_anim/node = SubResource("AnimationNodeAnimation_f1rom")
+nodes/flying_short_range_attack_anim/position = Vector2(-1020, 120)
+nodes/grounded_short_range_attack/node = SubResource("AnimationNodeOneShot_dft5c")
+nodes/grounded_short_range_attack/position = Vector2(-300, 180)
+nodes/grounded_short_range_attack_anim/node = SubResource("AnimationNodeAnimation_t2aup")
+nodes/grounded_short_range_attack_anim/position = Vector2(-680, 340)
+nodes/medium_range_attack/node = SubResource("AnimationNodeOneShot_0pbir")
+nodes/medium_range_attack/position = Vector2(80, 260)
+nodes/medium_range_attack_anim/node = SubResource("AnimationNodeAnimation_vlrts")
+nodes/medium_range_attack_anim/position = Vector2(-240, 480)
 nodes/reset/node = SubResource("AnimationNodeAnimation_ev00a")
-nodes/reset/position = Vector2(-220, 120)
-nodes/short_range_attack/node = SubResource("AnimationNodeOneShot_x8bcn")
-nodes/short_range_attack/position = Vector2(40, 160)
-nodes/short_range_attack_anim/node = SubResource("AnimationNodeAnimation_f1rom")
-nodes/short_range_attack_anim/position = Vector2(-300, 320)
-node_connections = [&"output", 0, &"short_range_attack", &"short_range_attack", 0, &"reset", &"short_range_attack", 1, &"short_range_attack_anim"]
+nodes/reset/position = Vector2(-880, -40)
+node_connections = [&"flying_short_range_attack", 0, &"reset", &"flying_short_range_attack", 1, &"flying_short_range_attack_anim", &"grounded_short_range_attack", 0, &"flying_short_range_attack", &"grounded_short_range_attack", 1, &"grounded_short_range_attack_anim", &"medium_range_attack", 0, &"grounded_short_range_attack", &"medium_range_attack", 1, &"medium_range_attack_anim", &"output", 0, &"medium_range_attack"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n4p5q"]
 viewport_path = NodePath("SubViewport")
@@ -127,6 +223,10 @@ libraries = {
 "": SubResource("AnimationLibrary_72kit")
 }
 
+[node name="BirdBossMediumAttackEffect" parent="Visuals" instance=ExtResource("2_43r61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.22041)
+emitting = false
+
 [node name="States" type="Node" parent="."]
 
 [node name="FlyingIdleState" type="Node" parent="States"]
@@ -134,6 +234,14 @@ script = ExtResource("2_f4shs")
 
 [node name="FlyingLocationPursuitState" type="Node" parent="States"]
 script = ExtResource("3_7pmko")
+
+[node name="FlyingShortRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("short_range_attack")]
+script = ExtResource("5_nm2xt")
+short_range_attack = NodePath("../../ShortRangeAttack")
+
+[node name="FlyingMediumRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("medium_attack")]
+script = ExtResource("5_4gd0j")
+medium_attack = NodePath("../../MediumRangeAttack")
 
 [node name="FlyingLongRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("projectile_attack")]
 script = ExtResource("4_1gnnd")
@@ -144,6 +252,9 @@ script = ExtResource("5_ssaek")
 
 [node name="FlyingPlayerPursuitState" type="Node" parent="States"]
 script = ExtResource("6_uhfup")
+
+[node name="FlyingFallState" type="Node" parent="States"]
+script = ExtResource("7_psyr0")
 
 [node name="GroundedIdleState" type="Node" parent="States"]
 script = ExtResource("7_dqtiy")
@@ -157,7 +268,13 @@ script = ExtResource("9_aoqd3")
 
 [node name="GroundedShortRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("short_range_attack")]
 script = ExtResource("10_0n2cc")
-short_range_attack = NodePath("../../AreaAttack")
+short_range_attack = NodePath("../../ShortRangeAttack")
+
+[node name="GroundedKnockedDownState" type="Node" parent="States"]
+script = ExtResource("12_smtrd")
+
+[node name="DeadState" type="Node" parent="States"]
+script = ExtResource("13_pjban")
 
 [node name="FlyToTargetAI" type="Node" parent="."]
 script = ExtResource("1_jrmxm")
@@ -173,19 +290,40 @@ top_level = true
 character_body = NodePath("..")
 nav_agent = NodePath("../NavigationAgent3D")
 
-[node name="AreaAttack" type="Area3D" parent="." node_paths=PackedStringArray("particle_effect")]
+[node name="ShortRangeAttack" type="Area3D" parent="." node_paths=PackedStringArray("particle_effect")]
 script = ExtResource("5_1b2q4")
 attack_delay = 0.3
 particle_effect = NodePath("MultipleSlashEffects")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaAttack"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShortRangeAttack"]
 shape = SubResource("SphereShape3D_6asse")
 
-[node name="MultipleSlashEffects" parent="AreaAttack" instance=ExtResource("6_waoxi")]
+[node name="MultipleSlashEffects" parent="ShortRangeAttack" instance=ExtResource("6_waoxi")]
 transform = Transform3D(2.18557e-08, 0.5, -4.37114e-08, 0.5, -2.18557e-08, 0, -1.91069e-15, -4.37114e-08, -0.5, 0, 0.440189, -0.942098)
 
+[node name="MediumRangeAttack" type="Area3D" parent="."]
+script = ExtResource("5_1b2q4")
+attack_duration = 1.2
+damage = 25.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumRangeAttack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.77101, 17.0922)
+shape = SubResource("SphereShape3D_bco1p")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MediumRangeAttack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.556583, 11.5693)
+shape = SubResource("SphereShape3D_ym0c1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MediumRangeAttack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264776, 7.24051)
+shape = SubResource("SphereShape3D_l42n4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="MediumRangeAttack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207743, 4.46288)
+shape = SubResource("SphereShape3D_yqm60")
+
 [node name="ProjectileAttack" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.58807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83603, 3.26915)
 script = ExtResource("7_tiypd")
 projectile_scene = ExtResource("8_icupn")
 range = 30.0
@@ -194,11 +332,25 @@ range = 30.0
 root_node = NodePath("../Visuals")
 tree_root = SubResource("AnimationNodeBlendTree_uxuku")
 anim_player = NodePath("../Visuals/AnimationPlayer")
-parameters/short_range_attack/active = false
-parameters/short_range_attack/internal_active = false
-parameters/short_range_attack/request = 0
+parameters/flying_short_range_attack/active = false
+parameters/flying_short_range_attack/internal_active = false
+parameters/flying_short_range_attack/request = 0
+parameters/grounded_short_range_attack/active = false
+parameters/grounded_short_range_attack/internal_active = false
+parameters/grounded_short_range_attack/request = 0
+parameters/medium_range_attack/active = false
+parameters/medium_range_attack/internal_active = false
+parameters/medium_range_attack/request = 0
 script = ExtResource("7_nam30")
 
+[node name="Health" parent="." instance=ExtResource("19_1tisk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37328, 0)
+max_health = 1000.0
+
+[node name="StatusHealth" parent="." instance=ExtResource("20_rc6y4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77102, 0)
+max_health = 50.0
+
 [node name="DebugText" parent="." instance=ExtResource("4_o2573")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20986, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.81592, 0)
 texture = SubResource("ViewportTexture_n4p5q")

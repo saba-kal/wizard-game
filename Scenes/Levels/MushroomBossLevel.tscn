@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bma56cyhvqceb"]
+[gd_scene load_steps=11 format=3 uid="uid://bma56cyhvqceb"]
 
 [ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="1_0v4l8"]
 [ext_resource type="PackedScene" uid="uid://d3fp1m7nc0qhp" path="res://Scenes/Characters/MushroomBirdBoss.tscn" id="2_tjwid"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_vgqay"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="3_2dah2"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="5_73dt5"]
+[ext_resource type="PackedScene" uid="uid://dhak28tjshvpe" path="res://Scenes/Environment/InteractiveLevelElements/Ballista.tscn" id="6_7prvu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hcyub"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -66,3 +67,11 @@ material = ExtResource("1_0v4l8")
 [node name="GameUI" parent="." instance=ExtResource("3_2dah2")]
 
 [node name="DebugConsole" parent="." instance=ExtResource("5_73dt5")]
+
+[node name="Ballista" parent="." instance=ExtResource("6_7prvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06353, 0.0899997, 24.2457)
+break_on_use = false
+cur_state = 1
+
+[node name="Ballista2" parent="." instance=ExtResource("6_7prvu")]
+transform = Transform3D(0.736156, 0, 0.676812, 0, 1, 0, -0.676812, 0, 0.736156, 16.3464, 0.0899997, 18.7474)

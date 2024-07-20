@@ -37,5 +37,5 @@ func get_projectile_direction(projectile_gravity: float) -> Vector3:
     if !is_zero_approx(projectile_gravity):
         # Calculating projectile direction when gravity is involved is too complicated.
         # Aiming as if the player was slightly higher is good enough for now.
-        player_pos.y += 4
+        player_pos.y += 6
     return self.global_position.direction_to(player_pos)

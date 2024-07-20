@@ -8,8 +8,8 @@ func get_type() -> Type:
 
 
 func enter_state() -> void:
-    self.pursue_target_ai.set_enabled(false)
-    self.fly_to_target_ai.set_enabled(false)
+    self.shared_data.pursue_target_ai.set_enabled(false)
+    self.shared_data.fly_to_target_ai.set_enabled(false)
     self.projectile_attack.perform_attack()
 
 
@@ -23,7 +23,11 @@ func exit_state() -> void:
     pass
 
 
+func is_flying() -> bool:
+    return false
+
+
 func look_at_player(delta: float) -> void:
     # Even if the pursue target AI is disabled, we can re-use its code for looking at target positions.
-    self.pursue_target_ai.set_target(self.player.global_position)
-    self.pursue_target_ai.look_at_target(delta)
+    self.shared_data.pursue_target_ai.set_target(self.shared_data.player.global_position)
+    self.shared_data.pursue_target_ai.look_at_target(delta)

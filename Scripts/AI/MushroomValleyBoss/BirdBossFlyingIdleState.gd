@@ -2,7 +2,12 @@ extends BirdBossAIState
 
 @export var boss_activation_radius: float = 30.0
 @export var wait_time_before_attack: float = 2.0
-@export var long_range_attack_distance: float = 15.0
+@export var short_range_attack_min_distance: float = 0.0
+@export var short_range_attack_max_distance: float = 12.0
+@export var medium_range_attack_min_distance: float = 13.0
+@export var medium_range_attack_max_distance: float = 20.0
+@export var long_range_attack_min_distance: float = 21.0
+@export var long_range_attack_max_distance: float = 35.0
 
 var time_in_state: float = 0
 
@@ -12,9 +17,9 @@ func get_type() -> Type:
 
 
 func enter_state() -> void:
-    self.pursue_target_ai.set_enabled(false)
-    self.fly_to_target_ai.set_enabled(true)
-    self.fly_to_target_ai.set_target(self.global_position)
+    self.shared_data.pursue_target_ai.set_enabled(false)
+    self.shared_data.fly_to_target_ai.set_enabled(true)
+    self.shared_data.fly_to_target_ai.set_target(self.shared_data.character_body.global_position)
     self.time_in_state = 0
 
 
@@ -26,10 +31,15 @@ func process_state(delta: float) -> void:
     if self.time_in_state < self.wait_time_before_attack:
         return
 
-    if self.can_perform_long_range_attack():
+    if self.can_attack(self.short_range_attack_min_distance, self.short_range_attack_max_distance):
+        self.transition_state.emit(Type.FLYING_SHORT_RANGE_ATTACK)
+    elif self.can_attack(self.medium_range_attack_min_distance, self.medium_range_attack_max_distance):
+        self.transition_state.emit(Type.FLYING_MEDIUM_RANGE_ATTACK)
+    elif (self.can_attack(self.long_range_attack_min_distance, self.long_range_attack_max_distance) && 
+        self.shared_data.long_range_attack_cooldown < self.shared_data.time_since_long_range_attack):
         self.transition_state.emit(Type.FLYING_LONG_RANGE_ATTACK)
     else:
-        var random_state: Type = [Type.GROUNDED_PLAYER_PURSUIT, Type.FLYING_LOCATION_PURSUIT].pick_random()
+        var random_state: Type = [Type.FLYING_PLAYER_PURSUIT, Type.FLYING_LOCATION_PURSUIT].pick_random()
         self.transition_state.emit(random_state)
 
 
@@ -37,12 +47,16 @@ func exit_state() -> void:
     pass
 
 
+func is_flying() -> bool:
+    return true
+
+
 func look_at_player(delta: float) -> void:
     # Even if the pursue target AI is disabled, we can re-use its code for looking at target positions.
-    self.pursue_target_ai.set_target(self.player.global_position)
-    self.pursue_target_ai.look_at_target(delta)
+    self.shared_data.pursue_target_ai.set_target(self.shared_data.player.global_position)
+    self.shared_data.pursue_target_ai.look_at_target(delta)
 
 
-func can_perform_long_range_attack() -> bool:
-    var distance_sqr_to_player: float = self.character_body.global_position.distance_squared_to(self.player.global_position)
-    return distance_sqr_to_player <= self.long_range_attack_distance * self.long_range_attack_distance
+func can_attack(min_range: float, max_range: float) -> bool:
+    var distance_sqr_to_player: float = self.shared_data.character_body.global_position.distance_squared_to(self.shared_data.player.global_position)
+    return distance_sqr_to_player >= min_range * min_range && distance_sqr_to_player <= max_range * max_range
