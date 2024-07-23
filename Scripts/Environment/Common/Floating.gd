@@ -17,4 +17,4 @@ func _process(delta):
     var points = Util.get_child_nodes_of_type(self, RayCast3D)
     for point: RayCast3D in points:
         if(point.is_colliding()):
-            parent.apply_force(Vector3(0, force, 0), point.global_position - parent.global_position)
+            parent.apply_force(Vector3(0, force * parent.mass, 0), point.global_position - parent.global_position)
