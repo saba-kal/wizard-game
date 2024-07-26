@@ -14,7 +14,6 @@ signal died(midjump: bool)
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 enum Mushroom_State {HIDE, JUMP, COMBAT}
 var seen: bool = false
-var soaring: bool = false
 var current_mushroom_state: Mushroom_State
 var attack_timer: float = 0
 
@@ -26,15 +25,15 @@ func _ready():
     health.health_lost.connect(on_health_lost)
     combat_attack.attack_finished.connect(on_combat_attack_finished)
     hide_attack.attack_finished.connect(on_hide_attack_finished)
-    jump_attack.attack_finished.connect(on_jump_attack_finished)
     jump_attack.jumped.connect(on_jump_attack_started)
+    jump_attack.dived.connect(on_jump_attack_dive)
 
-func on_damage_taken(damage: float):
+func on_damage_taken(_damage: float):
     health.visible = true
 
 func on_health_lost():
     self.set_state(State.DEAD)
-    died.emit(current_mushroom_state == Mushroom_State.JUMP && soaring)
+    died.emit(current_mushroom_state == Mushroom_State.JUMP)
 
 func on_combat_attack_finished():
     finish_attack()
@@ -43,24 +42,18 @@ func on_hide_attack_finished():
     finish_attack()
     set_mushroom_state(Mushroom_State.COMBAT)
 
-func on_jump_attack_finished():
-    #soaring = false
-    #set_mushroom_state(Mushroom_State.COMBAT)
-    #finish_attack()
-    velocity.x = 0
-    velocity.z = 0
-
 func finish_attack() -> void:
     attack_timer = attack_cooldown
     set_state(State.PERSUIT)
 
 func on_jump_attack_started() -> void:
-    soaring = true
-    var duration: float = jump_attack.attack_duration
-    velocity = (player.position - position) / duration
-    velocity += player.velocity
-    velocity.y = duration * gravity / 2
+    velocity = (player.position - position) / 3.6
+    velocity += player.velocity / 9
+    velocity.y = velocity.length()
     self.pursue_target_ai.set_enabled(false)
+
+func on_jump_attack_dive() -> void:
+    velocity.y /= 5
 
 func set_mushroom_state(new_state: Mushroom_State) -> void:
     if current_state == State.DEAD:
@@ -109,25 +102,22 @@ func hiding():
 
 func be_dead(delta: float):
     remain_still()
-    if(soaring):
-        soar(delta)
-
-func soar(delta: float):
-    velocity.y -= gravity * delta
-    move_and_slide()
-    if(is_on_floor() && velocity.y <= 0):
-        soaring = false
-        jump_attack.attack_particles.emitting = false
-        set_mushroom_state(Mushroom_State.COMBAT)
-        finish_attack()
 
 func jump(delta: float):
-    if soaring:
-        self.pursue_target_ai.set_enabled(false)
-        soar(delta)
-    else:
-        self.pursue_target_ai.set_target(self.player.global_position)
-        self.pursue_target_ai.look_at_target(delta)
+    match jump_attack.state:
+        JumpAttack.Jump_State.PREPPING:
+            self.pursue_target_ai.set_target(self.player.global_position)
+            self.pursue_target_ai.look_at_target(delta)
+        JumpAttack.Jump_State.SOARING, JumpAttack.Jump_State.TWISTING:
+            self.pursue_target_ai.set_enabled(false)
+            move_and_slide()
+        JumpAttack.Jump_State.DIVING:
+            velocity.y -= gravity * delta * 2
+            move_and_slide()
+            if(is_on_floor()):
+                jump_attack.end_dive()
+        JumpAttack.Jump_State.RECOVERING:
+            remain_still()
 
 func combat(delta: float):
     match(current_state):
@@ -167,4 +157,8 @@ func _on_animation_finished(anim_name):
         "DamagedWhileHiding", "Ouchie":
             set_mushroom_state(Mushroom_State.COMBAT)
             set_state(State.PERSUIT)
-
+        "JumpAttack(NoMovement)":
+            velocity = Vector3.ZERO
+            attack_timer = attack_cooldown
+            set_mushroom_state(Mushroom_State.COMBAT)
+            set_state(State.PERSUIT)

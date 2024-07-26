@@ -4,6 +4,8 @@ class_name PlayerSliding extends Area3D
 @export var slip_factor: int = 300
 @export var slip_duration: int = 10
 @export var spell_effect_scene: PackedScene
+@export var spawn_height: float = 3
+@export var player_height_offset: float = 0
 
 var sliding: bool = false
 var slippery: bool = false
@@ -49,12 +51,10 @@ func is_sliding():
 
 
 func _on_snowboard_spell_cast():
-    print(player_movement.get_velocity())
-    print()
     var spell_effect: Node3D = self.spell_effect_scene.instantiate()
     self.get_tree().root.add_child(spell_effect)
-    spell_effect.global_position = self.global_position + Vector3(0, 0.6, 0)
-    player_movement.player_node.global_position.y += 0.3
+    spell_effect.global_position = self.global_position + Vector3(0, spawn_height, 0)
+    player_movement.player_node.global_position.y += spawn_height + player_height_offset
     var rotation: float = third_person_camera.get_camera_y_rotation()
     var vec: Vector3 = Vector3(0, 0, -1).rotated(Vector3(0,1,0), rotation)
     vec *= board_speed

@@ -63,6 +63,8 @@ func on_damage_taken(damage):
         time_since_hurt = 0
         is_hurt = true
 
+func on_jump_seek(time: float) -> void:
+    set("parameters/TimeSeek/seek_request", time)
 
 func _on_animation_finished(anim_name):
     match anim_name:

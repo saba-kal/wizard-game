@@ -408,6 +408,8 @@ collision_layer = 8
 collision_mask = 8
 script = ExtResource("5_sbfj4")
 spell_effect_scene = ExtResource("15_xtf4v")
+spawn_height = 2.88
+player_height_offset = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerSliding"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
