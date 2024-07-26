@@ -53,7 +53,7 @@ func cast_spell() -> void:
         print("Cannot cast spell until all rune slots are full")
         return
 
-    var spell = self.get_spell()
+    var spell: Spell = self.get_spell()
     if spell == null:
         print("Unable to find spell for rune types %d, %d, %d" % [self.blue_rune.type, self.red_rune.type, self.yellow_rune.type])
         return
@@ -65,6 +65,10 @@ func cast_spell() -> void:
 
     if self.time_since_last_spell_cast < self.cast_time:
         print("Cannot cast yet. Need to wait %.3f seconds" % (self.cast_time - self.time_since_last_spell_cast))
+        return
+
+    if !spell.can_cast_spell():
+        print("Spell is not cannot be cast because it is not ready. Check implementation of Spell.can_cast_spell() for why this may happen.")
         return
 
     self.player_mana.consume_mana(mana_cost)

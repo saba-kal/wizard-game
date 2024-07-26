@@ -63,6 +63,7 @@ void fragment() {
     }
     else{
         ALBEDO = main_albedo;
+        ALPHA = 1.0;
     }
 }
 

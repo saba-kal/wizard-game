@@ -51,3 +51,7 @@ func get_direction_to_screen_center() -> Vector3:
     if result:
         return self.global_position.direction_to(result["position"])
     return self.global_position.direction_to(to)
+
+
+func can_cast_spell() -> bool:
+    return true
