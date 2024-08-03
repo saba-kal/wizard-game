@@ -1,0 +1,69 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://djy1l8j2ndan4"
+path="res://.godot/imported/MushroomMagpie.glb-b4c1ae9f99dc70116a9b64f212d0f17d.scn"
+
+[deps]
+
+source_file="res://Models/Characters/MushroomMagpie/MushroomMagpie.glb"
+dest_files=["res://.godot/imported/MushroomMagpie.glb-b4c1ae9f99dc70116a9b64f212d0f17d.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"BackFluff": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/MushroomMagpie/BackFluffMaterial.tres"
+},
+"BirdMat": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/MushroomMagpie/BirdMaterial.tres"
+},
+"Claw": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/MushroomMagpie/ClawMaterial.tres"
+},
+"Eye": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/MushroomMagpie/EyeMaterial.tres"
+},
+"Feathers": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/MushroomMagpie/FeathersMaterial.tres"
+},
+"FrontFluff": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/MushroomMagpie/FrontFluffMaterial.tres"
+},
+"MushroomCap": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/MushroomMagpie/MushroomCapMaterial.tres"
+},
+"RedScarf": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/MushroomMagpie/RedScarfMaterial.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

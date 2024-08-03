@@ -1,7 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://d3fp1m7nc0qhp"]
+[gd_scene load_steps=56 format=3 uid="uid://d3fp1m7nc0qhp"]
 
 [ext_resource type="Script" path="res://Scripts/AI/FlyToTargetAI.gd" id="1_jrmxm"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/MushroomBirdBossAI.gd" id="1_lhm3l"]
+[ext_resource type="PackedScene" uid="uid://djy1l8j2ndan4" path="res://Models/Characters/MushroomMagpie/MushroomMagpie.glb" id="2_4g5hf"]
 [ext_resource type="PackedScene" uid="uid://d0du5q2jmm5nb" path="res://Scenes/Effects/Particles/BirdBossMediumAttackEffect.tscn" id="2_43r61"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/BirdBossFlyingIdleState.gd" id="2_f4shs"]
 [ext_resource type="PackedScene" uid="uid://qbw3al5veunh" path="res://Scenes/AI/PursueTargetAI.tscn" id="2_yfdji"]
@@ -207,17 +208,89 @@ radius = 2.0
 
 [node name="Visuals" type="Node3D" parent="."]
 
+[node name="MushroomMagpie" parent="Visuals" instance=ExtResource("2_4g5hf")]
+
+[node name="Skeleton3D" parent="Visuals/MushroomMagpie/Rig" index="0"]
+bones/7/rotation = Quaternion(0.310475, 0.000474975, 0.000474975, 0.984475)
+bones/9/rotation = Quaternion(0.810608, -2.09423e-07, -9.66321e-08, 0.58559)
+bones/10/rotation = Quaternion(0.750429, 2.46821e-08, 1.95678e-07, 0.660951)
+bones/11/rotation = Quaternion(-0.245456, -1.15562e-07, -2.92607e-08, 0.969408)
+bones/12/rotation = Quaternion(0.180687, -1.56076e-14, 6.40831e-16, 0.983541)
+bones/12/scale = Vector3(0.836697, 0.836696, 0.836697)
+bones/13/rotation = Quaternion(0.227744, 0.667896, 0.6725, -0.223141)
+bones/14/rotation = Quaternion(-1.44383e-06, 0.707106, 3.64115e-07, 0.707107)
+bones/15/rotation = Quaternion(-0.227744, 0.667896, 0.6725, 0.223141)
+bones/16/rotation = Quaternion(-0.707106, -1.31791e-06, 0.707107, -2.34169e-06)
+bones/18/rotation = Quaternion(0.106227, 0.13996, -0.78416, 0.595163)
+bones/20/rotation = Quaternion(-0.00409646, 5.57016e-06, 0.0912637, 0.995818)
+bones/21/rotation = Quaternion(0.000183627, -1.03469e-07, 0.0509761, 0.9987)
+bones/22/rotation = Quaternion(-0.33416, 0.0380341, -0.0180806, 0.941575)
+bones/24/rotation = Quaternion(0.30787, -0.0384164, -0.0192801, 0.950457)
+bones/28/rotation = Quaternion(-0.00108408, 0.00144077, -0.604339, 0.796726)
+bones/30/rotation = Quaternion(-0.000705274, 0.00166284, -0.393205, 0.919449)
+bones/32/rotation = Quaternion(-0.00130365, 0.00124217, -0.726722, 0.68693)
+bones/34/rotation = Quaternion(-0.00410807, -0.00210916, -0.70539, 0.708805)
+bones/38/rotation = Quaternion(5.44161e-06, 5.34701e-06, -0.733108, 0.680112)
+bones/40/rotation = Quaternion(0.989379, -1.07726e-14, 2.35886e-07, 0.14536)
+bones/42/rotation = Quaternion(0.979373, 2.40874e-08, 1.16751e-07, -0.20206)
+bones/43/rotation = Quaternion(0.18215, -4.69014e-07, 4.61733e-07, 0.983271)
+bones/44/rotation = Quaternion(0.106227, -0.139961, 0.784161, 0.595163)
+bones/46/rotation = Quaternion(-0.00409646, -5.5671e-06, -0.0912637, 0.995818)
+bones/47/rotation = Quaternion(0.000183629, 1.04972e-07, -0.0509761, 0.9987)
+bones/49/rotation = Quaternion(0.11317, -0.0596356, 0.344905, 0.92988)
+bones/50/rotation = Quaternion(0.30787, 0.0384165, 0.0192801, 0.950457)
+bones/52/rotation = Quaternion(-0.0013067, -0.00123895, 0.728419, 0.685129)
+bones/56/rotation = Quaternion(-0.000705283, -0.00166285, 0.393205, 0.919449)
+bones/57/rotation = Quaternion(1.6699e-09, 2.24149e-07, 2.30968e-07, 1)
+bones/58/rotation = Quaternion(-0.00130365, -0.0012422, 0.726721, 0.68693)
+bones/60/rotation = Quaternion(-0.00410807, 0.00210913, 0.70539, 0.708805)
+bones/64/rotation = Quaternion(5.46383e-06, -5.33027e-06, 0.733108, 0.680112)
+bones/68/rotation = Quaternion(-0.147588, 0.0167928, -0.206175, 0.967175)
+bones/70/rotation = Quaternion(-0.147588, -0.0167928, 0.206175, 0.967175)
+bones/72/rotation = Quaternion(-0.436984, -0.555918, -0.436984, 0.555918)
+bones/73/rotation = Quaternion(-0.785832, -0.0236242, -0.01857, 0.61771)
+bones/75/rotation = Quaternion(5.38404e-08, -1.29688e-07, 0.629095, 0.777328)
+bones/76/rotation = Quaternion(1.00231e-08, -1.15782e-09, 0.0395262, 0.999219)
+bones/77/rotation = Quaternion(-0.0724864, 0.0780319, -0.728505, 0.676711)
+bones/78/rotation = Quaternion(0.103839, -0.0187915, 0.173727, 0.979124)
+bones/79/rotation = Quaternion(0.0700357, -0.0754467, -0.729002, 0.676726)
+bones/81/rotation = Quaternion(-0.436984, 0.555918, 0.436984, 0.555918)
+bones/82/rotation = Quaternion(-0.785832, 0.0236242, 0.01857, 0.61771)
+bones/84/rotation = Quaternion(5.38404e-08, 1.29688e-07, -0.629095, 0.777328)
+bones/85/rotation = Quaternion(1.00231e-08, 1.15782e-09, -0.0395262, 0.999219)
+bones/86/rotation = Quaternion(-0.0724864, -0.0780319, 0.728505, 0.676711)
+bones/87/rotation = Quaternion(0.103839, 0.0187915, -0.173727, 0.979124)
+bones/88/rotation = Quaternion(0.0700357, 0.0754467, 0.729002, 0.676726)
+
+[node name="Mushroom_2" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.836696, -0.000635081, 0.000884201, 0.000732171, 0.83119, -0.095828, -0.000805646, 0.0958287, 0.83119, -0.00125277, 4.22497, 0.100403)
+
+[node name="EyeLeft" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="1"]
+transform = Transform3D(-0.0021822, 0.172861, -0.227331, -0.276605, -0.0578498, -0.0413335, -0.0710654, 0.219858, 0.167861, 0.497419, 3.67159, 0.590195)
+
+[node name="EyeRight" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="2"]
+transform = Transform3D(0.00252943, 0.172334, 0.227728, -0.276601, 0.0581522, -0.0409348, -0.0710699, -0.220192, 0.167421, -0.498012, 3.67072, 0.591154)
+
+[node name="Fluff_001" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="3"]
+transform = Transform3D(-0.12364, 5.98497e-08, 3.05392e-08, -1.86692e-08, -0.046894, 0.0724422, 9.92435e-08, 0.065741, 0.0516741, -0.0126134, 2.13959, 0.878536)
+
+[node name="Fluff_002" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="4"]
+transform = Transform3D(0.169897, -1.66343e-07, -1.28124e-07, -1.15121e-07, -0.14078, 0.0692801, -1.91733e-07, -0.0628715, -0.15513, -0.0126134, 2.12413, -1.15356)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
 transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_q7q2k")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Visuals"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_8llew")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Visuals"]
 transform = Transform3D(0.99947, -0.0325446, 1.42257e-09, 0, -4.37114e-08, -1, 0.0325446, 0.99947, -4.36882e-08, 0, 0, 1.47673)
+visible = false
 mesh = SubResource("PrismMesh_apfvd")
 surface_material_override/0 = SubResource("StandardMaterial3D_lmbc8")
 
@@ -364,13 +437,15 @@ parameters/medium_range_attack/request = 0
 script = ExtResource("7_nam30")
 
 [node name="Health" parent="." instance=ExtResource("19_1tisk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37328, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.79722, 0)
 max_health = 1000.0
 
 [node name="StatusHealth" parent="." instance=ExtResource("20_rc6y4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77102, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.19496, 0)
 max_health = 50.0
 
 [node name="DebugText" parent="." instance=ExtResource("4_o2573")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.81592, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.1676, 0)
 texture = SubResource("ViewportTexture_n4p5q")
+
+[editable path="Visuals/MushroomMagpie"]

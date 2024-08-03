@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bqmnuu7sc3nax"]
+
+[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="1_ek3mr"]
+[ext_resource type="Texture2D" uid="uid://b0d4h6ocxxeit" path="res://Textures/MushroomMagpie/MushroomCap.png" id="2_lru4k"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ek3mr")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture_scale = Vector2(1, 1)
+shader_parameter/albedo_texture_offset = Vector2(0, 0)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/light_strength = 1.0
+shader_parameter/contrast = 2.5
+shader_parameter/saturation = 1.0
+shader_parameter/red_val = 1.0
+shader_parameter/green_val = 1.0
+shader_parameter/blue_val = 1.0
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/use_dissolve = false
+shader_parameter/dissolve_value = null
+shader_parameter/dissolve_brightness = 1.0
+shader_parameter/dissolve_burn_size = null
+shader_parameter/dissolve_burn_color = null
+shader_parameter/albedo_texture = ExtResource("2_lru4k")

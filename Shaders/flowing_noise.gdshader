@@ -20,6 +20,6 @@ void fragment() {
         ALPHA = 0.0;
     }
     else {
-        ALPHA = UV.y * textureColor.r * color.a;
+        ALPHA = UV.y * textureColor.r * color.a * textureColor.a;
     }
 }
