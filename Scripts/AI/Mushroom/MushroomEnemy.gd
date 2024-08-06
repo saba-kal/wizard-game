@@ -5,8 +5,8 @@ signal mushroom_state_changed(agent: EnemyAI,
 
 signal died(midjump: bool)
 
-@export var hide_attack: AIMeleeAttack
-@export var combat_attack: AIMeleeAttack
+@export var hide_attack: AIDefaultAttack
+@export var combat_attack: AIDefaultAttack
 @export var jump_attack: AIDefaultAttack
 @export var attack_cooldown: float = 2
 @export var jump_distance: float = 5

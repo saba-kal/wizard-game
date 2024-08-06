@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dqkj10yn050io"]
+[gd_scene load_steps=60 format=3 uid="uid://dqkj10yn050io"]
 
 [ext_resource type="Script" path="res://Scripts/AI/Mushroom/MushroomEnemy.gd" id="1_iyqyo"]
 [ext_resource type="PackedScene" uid="uid://5npreb7s64s" path="res://Models/Characters/MushroomEnemy.blend" id="2_ov2io"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Ice/FreezableEnemy.gd" id="6_cdk42"]
 [ext_resource type="Script" path="res://Scripts/AI/Mushroom/AnimationTree.gd" id="8_1b1c3"]
 [ext_resource type="Script" path="res://Scripts/AI/Mushroom/MeleeAttack.gd" id="8_sdgcx"]
+[ext_resource type="Script" path="res://Scripts/AI/Mushroom/DamageOverTime.gd" id="9_84mey"]
 [ext_resource type="Script" path="res://Scripts/AI/Mushroom/JumpAttack.gd" id="9_ads6h"]
 [ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Heal/HealableCharacter.gd" id="10_nq77o"]
 
@@ -1853,6 +1854,13 @@ nodes/walking/node = SubResource("AnimationNodeAnimation_yrj4q")
 nodes/walking/position = Vector2(-300, 340)
 node_connections = [&"TimeSeek", 0, &"jumpAttack", &"Transition", 0, &"hide_transition", &"Transition", 1, &"combat_transition", &"Transition", 2, &"TimeSeek", &"Transition", 3, &"death", &"combat_transition", 0, &"idle", &"combat_transition", 1, &"walking", &"combat_transition", 2, &"hurt", &"combat_transition", 3, &"attack", &"hide_transition", 0, &"Animation", &"hide_transition", 1, &"hideattack", &"hide_transition", 2, &"Animation 3", &"output", 0, &"Transition"]
 
+[sub_resource type="Curve" id="Curve_chvcx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0rdpk"]
+curve = SubResource("Curve_chvcx")
+
 [sub_resource type="Gradient" id="Gradient_u5a4p"]
 offsets = PackedFloat32Array(0, 0.644068, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.262745, 0.654902, 0.219608, 1, 0.839216, 0.8, 0.188235, 1)
@@ -1864,19 +1872,21 @@ gradient = SubResource("Gradient_u5a4p")
 emission_shape_offset = Vector3(0, 1.8, 0.3)
 emission_shape_scale = Vector3(1, 0.2, 1)
 emission_shape = 6
-emission_ring_axis = Vector3(0, 1, 1)
-emission_ring_height = 0.0
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
 emission_ring_radius = 3.0
 emission_ring_inner_radius = 0.0
 inherit_velocity_ratio = 0.585
-direction = Vector3(0, 2, 1)
-spread = 50.0
-initial_velocity_min = 10.0
-initial_velocity_max = 10.0
+direction = Vector3(0, -0.4, 1)
+spread = 85.455
+flatness = 0.75
+initial_velocity_min = 7.0
+initial_velocity_max = 12.0
 gravity = Vector3(0, -0.5, 0)
 linear_accel_min = -30.0
 linear_accel_max = -20.0
 color_ramp = SubResource("GradientTexture1D_abs1s")
+alpha_curve = SubResource("CurveTexture_0rdpk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wboy4"]
 transparency = 1
@@ -1887,9 +1897,8 @@ material = SubResource("StandardMaterial3D_wboy4")
 
 [sub_resource type="Skin" id="Skin_8k3vf"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_2tfkn"]
-height = 1.12046
-radius = 1.76366
+[sub_resource type="BoxShape3D" id="BoxShape3D_wwx1u"]
+size = Vector3(8.7, 2.5, 5.1)
 
 [sub_resource type="Curve" id="Curve_up4ii"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.318681), 0.0, 0.0, 0, 0]
@@ -1899,23 +1908,26 @@ point_count = 2
 curve = SubResource("Curve_up4ii")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l1uca"]
-emission_shape_offset = Vector3(0, 2.8, 0.8)
-emission_shape_scale = Vector3(1, 0.2, 1)
+emission_shape_offset = Vector3(0, 3, 1.2)
 emission_shape = 6
-emission_ring_axis = Vector3(0, 1, 2.5)
-emission_ring_height = 0.0
-emission_ring_radius = 3.0
+emission_ring_axis = Vector3(0, 1, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 2.0
 emission_ring_inner_radius = 0.0
 inherit_velocity_ratio = 0.585
-direction = Vector3(0, 1, 2.5)
-spread = 50.0
+direction = Vector3(0, -1, 2)
+spread = 46.863
+flatness = 0.515
 initial_velocity_min = 10.0
-initial_velocity_max = 10.0
+initial_velocity_max = 15.0
 gravity = Vector3(0, -0.5, 0)
 linear_accel_min = -30.0
 linear_accel_max = -20.0
 color_ramp = SubResource("GradientTexture1D_abs1s")
 alpha_curve = SubResource("CurveTexture_yt6iy")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xkv8"]
+size = Vector3(6.5, 3.494, 4)
 
 [sub_resource type="Curve" id="Curve_qcdd2"]
 min_value = -2.23517e-10
@@ -1929,24 +1941,24 @@ curve = SubResource("Curve_qcdd2")
 emission_shape_offset = Vector3(0, 0.78, 0)
 emission_shape_scale = Vector3(1, 0.2, 1)
 emission_shape = 6
-emission_ring_axis = Vector3(0, 1, 2.5)
-emission_ring_height = 0.0
-emission_ring_radius = 3.0
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 3.0
+emission_ring_radius = 2.0
 emission_ring_inner_radius = 0.0
-direction = Vector3(0, 0, 0)
+direction = Vector3(1, 0, 1)
 spread = 180.0
-flatness = 0.883
+flatness = 0.8
 initial_velocity_min = 7.0
-initial_velocity_max = 15.0
+initial_velocity_max = 10.0
 gravity = Vector3(0, -0.5, 0)
-linear_accel_min = -15.0
-linear_accel_max = -10.0
+damping_min = 0.4
+damping_max = 1.0
 color_ramp = SubResource("GradientTexture1D_abs1s")
 alpha_curve = SubResource("CurveTexture_r1o8k")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_mb0uw"]
-height = 1.09045
-radius = 1.64184
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_15umq"]
+height = 8.78386
+radius = 10.1127
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2roc0"]
 radius = 1.22897
@@ -2038,40 +2050,48 @@ aabb = AABB(-1.16883, 0, -1.15306, 2.33767, 2.7, 2.30613)
 
 [node name="Attack" type="Node3D" parent="."]
 script = ExtResource("8_sdgcx")
-range = 2.45
+range = 4.0
 attack_delay = 0.5
+damage = 0.0
 
 [node name="AttackParticles" type="GPUParticles3D" parent="Attack"]
 emitting = false
-amount = 20
+amount = 70
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_gbtec")
 draw_pass_1 = SubResource("SphereMesh_it2lt")
 draw_skin = SubResource("Skin_8k3vf")
 
-[node name="Area3D" type="Area3D" parent="Attack"]
+[node name="Area3D" type="Area3D" parent="Attack" node_paths=PackedStringArray("source")]
+script = ExtResource("9_84mey")
+source = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Attack/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4862, 0.138631)
-shape = SubResource("CylinderShape3D_2tfkn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 1.3)
+shape = SubResource("BoxShape3D_wwx1u")
 
 [node name="HideAttack" type="Node3D" parent="."]
 script = ExtResource("8_sdgcx")
+range = 5.0
 attack_delay = 0.5
+damage = 0.0
 
 [node name="AttackParticles" type="GPUParticles3D" parent="HideAttack"]
 emitting = false
-amount = 20
+amount = 50
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_l1uca")
 draw_pass_1 = SubResource("SphereMesh_it2lt")
 draw_skin = SubResource("Skin_8k3vf")
 
-[node name="Area3D" type="Area3D" parent="HideAttack"]
+[node name="Area3D" type="Area3D" parent="HideAttack" node_paths=PackedStringArray("source")]
+visible = false
+script = ExtResource("9_84mey")
+source = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HideAttack/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.681475, -0.731842, 0, 0.731842, 0.681475, 0.170589, 2.6894, 1.16043)
-shape = SubResource("CylinderShape3D_2tfkn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.086, 3)
+shape = SubResource("BoxShape3D_5xkv8")
 
 [node name="JumpAttack" type="Node3D" parent="."]
 script = ExtResource("9_ads6h")
@@ -2081,16 +2101,19 @@ damage = 0.0
 
 [node name="AttackParticles" type="GPUParticles3D" parent="JumpAttack"]
 emitting = false
-amount = 100
+amount = 200
 lifetime = 1.25
 process_material = SubResource("ParticleProcessMaterial_rbv2o")
 draw_pass_1 = SubResource("SphereMesh_it2lt")
 
-[node name="Area3D" type="Area3D" parent="JumpAttack"]
+[node name="Area3D" type="Area3D" parent="JumpAttack" node_paths=PackedStringArray("source")]
+script = ExtResource("9_84mey")
+damage_per_second = 100
+source = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpAttack/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.455, 1.07)
-shape = SubResource("CylinderShape3D_mb0uw")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_15umq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
