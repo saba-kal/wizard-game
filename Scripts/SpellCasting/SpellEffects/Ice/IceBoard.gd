@@ -1,6 +1,7 @@
-extends RigidBody3D
+class_name IceBoard extends RigidBody3D
 
 @export var accel_tolerance: float = 9
+@export var target_speed: float = 15
 var prev_velocity: Vector3
 var first_frame: bool = true
 
