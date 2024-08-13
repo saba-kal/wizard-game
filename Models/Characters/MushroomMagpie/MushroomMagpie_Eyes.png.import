@@ -3,9 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://p1106teh671p"
-path="res://.godot/imported/MushroomMagpie_Eyes.png-21d6ec1e1be74b45f8e5b8dabd4f6b45.ctex"
+path.s3tc="res://.godot/imported/MushroomMagpie_Eyes.png-21d6ec1e1be74b45f8e5b8dabd4f6b45.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "b53e09abeaaf3ebcaecb618ed00f8637"
@@ -14,11 +15,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Characters/MushroomMagpie/MushroomMagpie_Eyes.png"
-dest_files=["res://.godot/imported/MushroomMagpie_Eyes.png-21d6ec1e1be74b45f8e5b8dabd4f6b45.ctex"]
+dest_files=["res://.godot/imported/MushroomMagpie_Eyes.png-21d6ec1e1be74b45f8e5b8dabd4f6b45.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -34,4 +35,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
