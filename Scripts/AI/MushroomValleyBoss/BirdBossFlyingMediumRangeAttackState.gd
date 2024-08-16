@@ -9,8 +9,7 @@ func get_type() -> Type:
 
 func enter_state() -> void:
     self.shared_data.pursue_target_ai.set_enabled(false)
-    self.shared_data.fly_to_target_ai.set_enabled(true)
-    self.shared_data.fly_to_target_ai.set_target(self.shared_data.character_body.global_position)
+    self.shared_data.fly_to_target_ai.set_enabled(false)
     self.medium_attack.perform_attack()
 
 

@@ -1,7 +1,7 @@
 extends BirdBossAIState
 
 @export var boss_activation_radius: float = 30.0
-@export var wait_time_before_attack: float = 2.0
+@export var wait_time_before_attack: float = 5.0
 @export var short_range_attack_min_distance: float = 0.0
 @export var short_range_attack_max_distance: float = 12.0
 @export var medium_range_attack_min_distance: float = 13.0
@@ -10,6 +10,7 @@ extends BirdBossAIState
 @export var long_range_attack_max_distance: float = 35.0
 
 var time_in_state: float = 0
+var look_speed: float = 5.0
 
 
 func get_type() -> Type:
@@ -18,8 +19,7 @@ func get_type() -> Type:
 
 func enter_state() -> void:
     self.shared_data.pursue_target_ai.set_enabled(false)
-    self.shared_data.fly_to_target_ai.set_enabled(true)
-    self.shared_data.fly_to_target_ai.set_target(self.shared_data.character_body.global_position)
+    self.shared_data.fly_to_target_ai.set_enabled(false)
     self.time_in_state = 0
 
 

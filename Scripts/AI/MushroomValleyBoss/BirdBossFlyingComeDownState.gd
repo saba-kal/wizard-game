@@ -1,6 +1,8 @@
 extends BirdBossAIState
 
 var come_down_position_offset: float = 5.0
+var exit_state_delay: float = 2.0
+var time_since_target_reached: float = 0.0
 
 
 func get_type() -> Type:
@@ -8,6 +10,7 @@ func get_type() -> Type:
 
 
 func enter_state() -> void:
+    self.time_since_target_reached = 0.0
     self.shared_data.pursue_target_ai.set_enabled(false)
     self.shared_data.fly_to_target_ai.set_enabled(true)
 
@@ -21,7 +24,9 @@ func enter_state() -> void:
 
 func process_state(delta: float) -> void:
     if self.shared_data.fly_to_target_ai.target_reached():
-        self.transition_state.emit(Type.GROUNDED_PLAYER_PURSUIT)
+        if self.time_since_target_reached >= self.exit_state_delay:
+            self.transition_state.emit(Type.GROUNDED_PLAYER_PURSUIT)
+        self.time_since_target_reached += delta
 
 
 func exit_state() -> void:

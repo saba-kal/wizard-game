@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://d3fp1m7nc0qhp"]
+[gd_scene load_steps=67 format=3 uid="uid://d3fp1m7nc0qhp"]
 
 [ext_resource type="Script" path="res://Scripts/AI/FlyToTargetAI.gd" id="1_jrmxm"]
 [ext_resource type="Script" path="res://Scripts/AI/MushroomValleyBoss/MushroomBirdBossAI.gd" id="1_lhm3l"]
@@ -94,9 +94,11 @@ transitions = ["Start", "FlyForward_start", SubResource("AnimationNodeStateMachi
 animation = &"FlyStationary"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_x8bcn"]
+fadein_time = 0.2
+fadeout_time = 0.2
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1rom"]
-animation = &"ClawSwipe"
+animation = &"BakedClawSwipe"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gtock"]
 animation = &"GroundWalk_loop"
@@ -123,9 +125,11 @@ states/GroundWalk_start/position = Vector2(398, 110)
 transitions = ["Start", "GroundWalk_start", SubResource("AnimationNodeStateMachineTransition_q2qj5"), "GroundWalk_start", "GroundWalk_loop", SubResource("AnimationNodeStateMachineTransition_hii3u"), "GroundWalk_loop", "End", SubResource("AnimationNodeStateMachineTransition_2tq7d")]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_dft5c"]
+fadein_time = 0.2
+fadeout_time = 0.2
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t2aup"]
-animation = &"BeakStrike"
+animation = &"BakedBeakStrike"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ev00a"]
 animation = &"GroundStationary"
@@ -133,17 +137,31 @@ animation = &"GroundStationary"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_juo0n"]
 animation = &"GroundStationary"
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_8gycx"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_28im3"]
+animation = &"LandFromFlying"
+
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_0pbir"]
+filter_enabled = true
+filters = ["Rig/Skeleton3D:BeakLower", "Rig/Skeleton3D:BeakUpper", "Rig/Skeleton3D:Eye.L", "Rig/Skeleton3D:Eye.R", "Rig/Skeleton3D:Head", "Rig/Skeleton3D:Mushroom", "Rig/Skeleton3D:Neck", "Rig/Skeleton3D:Scarf", "Rig/Skeleton3D:Spine", "Rig/Skeleton3D:Spine.001", "Rig/Skeleton3D:Spine.002"]
+fadein_time = 0.2
+fadeout_time = 0.2
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vlrts"]
 animation = &"SporeBreathAttack"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_hxko0"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gl71u"]
+animation = &"TakeOffFromGround"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_12jrg"]
 filter_enabled = true
 filters = ["Rig/Skeleton3D:Arm.L", "Rig/Skeleton3D:Arm.L.001", "Rig/Skeleton3D:Arm.R", "Rig/Skeleton3D:Arm.R.001", "Rig/Skeleton3D:ArmIK.L", "Rig/Skeleton3D:ArmIK.R", "Rig/Skeleton3D:BackFluff", "Rig/Skeleton3D:BeakLower", "Rig/Skeleton3D:BeakUpper", "Rig/Skeleton3D:Eye.L", "Rig/Skeleton3D:Eye.R", "Rig/Skeleton3D:Feathers.L", "Rig/Skeleton3D:Feathers.L.001", "Rig/Skeleton3D:Feathers.L.002", "Rig/Skeleton3D:Feathers.L.003", "Rig/Skeleton3D:Feathers.L.004", "Rig/Skeleton3D:Feathers.L.005", "Rig/Skeleton3D:Feathers.L.006", "Rig/Skeleton3D:Feathers.L.007", "Rig/Skeleton3D:Feathers.L.008", "Rig/Skeleton3D:Feathers.L.009", "Rig/Skeleton3D:Feathers.L.010", "Rig/Skeleton3D:Feathers.L.011", "Rig/Skeleton3D:Feathers.L.012", "Rig/Skeleton3D:Feathers.L.013", "Rig/Skeleton3D:Feathers.R", "Rig/Skeleton3D:Feathers.R.001", "Rig/Skeleton3D:Feathers.R.002", "Rig/Skeleton3D:Feathers.R.003", "Rig/Skeleton3D:Feathers.R.004", "Rig/Skeleton3D:Feathers.R.005", "Rig/Skeleton3D:Feathers.R.006", "Rig/Skeleton3D:Feathers.R.007", "Rig/Skeleton3D:Feathers.R.008", "Rig/Skeleton3D:Feathers.R.009", "Rig/Skeleton3D:Feathers.R.010", "Rig/Skeleton3D:Feathers.R.011", "Rig/Skeleton3D:Feathers.R.012", "Rig/Skeleton3D:Feathers.R.013", "Rig/Skeleton3D:Finger1.001.L", "Rig/Skeleton3D:Finger1.001.R", "Rig/Skeleton3D:Finger1.L", "Rig/Skeleton3D:Finger1.R", "Rig/Skeleton3D:Finger2.001.L", "Rig/Skeleton3D:Finger2.001.R", "Rig/Skeleton3D:Finger2.L", "Rig/Skeleton3D:Finger2.R", "Rig/Skeleton3D:FrontFluff", "Rig/Skeleton3D:Hand.L", "Rig/Skeleton3D:Hand.R", "Rig/Skeleton3D:Head", "Rig/Skeleton3D:Mushroom", "Rig/Skeleton3D:Neck", "Rig/Skeleton3D:Root", "Rig/Skeleton3D:Scarf", "Rig/Skeleton3D:Shoulder.L", "Rig/Skeleton3D:Shoulder.R", "Rig/Skeleton3D:Tail.L", "Rig/Skeleton3D:Tail.L.001", "Rig/Skeleton3D:Tail.R", "Rig/Skeleton3D:Tail.R.001"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uxuku"]
-graph_offset = Vector2(-333, 0)
+graph_offset = Vector2(978.264, -141.871)
 nodes/boss_state/node = SubResource("AnimationNodeTransition_vg3cl")
 nodes/boss_state/position = Vector2(-1220, -20)
 nodes/fly_forward_state_machine/node = SubResource("AnimationNodeStateMachine_qtdrk")
@@ -151,27 +169,35 @@ nodes/fly_forward_state_machine/position = Vector2(-1640, -20)
 nodes/flying_idle_anim/node = SubResource("AnimationNodeAnimation_43rle")
 nodes/flying_idle_anim/position = Vector2(-1540, 500)
 nodes/flying_short_range_attack/node = SubResource("AnimationNodeOneShot_x8bcn")
-nodes/flying_short_range_attack/position = Vector2(-660, 20)
+nodes/flying_short_range_attack/position = Vector2(-700, 0)
 nodes/flying_short_range_attack_anim/node = SubResource("AnimationNodeAnimation_f1rom")
-nodes/flying_short_range_attack_anim/position = Vector2(-1000, 220)
+nodes/flying_short_range_attack_anim/position = Vector2(-980, 120)
 nodes/ground_walk_state_machine/node = SubResource("AnimationNodeStateMachine_ee700")
 nodes/ground_walk_state_machine/position = Vector2(-2020, 140)
 nodes/grounded_short_range_attack/node = SubResource("AnimationNodeOneShot_dft5c")
-nodes/grounded_short_range_attack/position = Vector2(-220, 80)
+nodes/grounded_short_range_attack/position = Vector2(-80, 0)
 nodes/grounded_short_range_attack_anim/node = SubResource("AnimationNodeAnimation_t2aup")
-nodes/grounded_short_range_attack_anim/position = Vector2(-760, 360)
+nodes/grounded_short_range_attack_anim/position = Vector2(-400, 120)
 nodes/idle_anim/node = SubResource("AnimationNodeAnimation_ev00a")
 nodes/idle_anim/position = Vector2(-1600, -200)
 nodes/idle_anim_2/node = SubResource("AnimationNodeAnimation_juo0n")
 nodes/idle_anim_2/position = Vector2(-2020, 340)
+nodes/land_from_flying/node = SubResource("AnimationNodeOneShot_8gycx")
+nodes/land_from_flying/position = Vector2(1560, 0)
+nodes/land_from_flying_anim/node = SubResource("AnimationNodeAnimation_28im3")
+nodes/land_from_flying_anim/position = Vector2(1300, 120)
 nodes/medium_range_attack/node = SubResource("AnimationNodeOneShot_0pbir")
-nodes/medium_range_attack/position = Vector2(140, 140)
+nodes/medium_range_attack/position = Vector2(560, 0)
 nodes/medium_range_attack_anim/node = SubResource("AnimationNodeAnimation_vlrts")
-nodes/medium_range_attack_anim/position = Vector2(-140, 360)
-nodes/output/position = Vector2(380, 160)
+nodes/medium_range_attack_anim/position = Vector2(260, 140)
+nodes/output/position = Vector2(2080, 160)
+nodes/take_off/node = SubResource("AnimationNodeOneShot_hxko0")
+nodes/take_off/position = Vector2(1060, 0)
+nodes/take_off_anim/node = SubResource("AnimationNodeAnimation_gl71u")
+nodes/take_off_anim/position = Vector2(820, 120)
 nodes/walk_anim_blend/node = SubResource("AnimationNodeBlend2_12jrg")
 nodes/walk_anim_blend/position = Vector2(-1600, 180)
-node_connections = [&"boss_state", 0, &"idle_anim", &"boss_state", 1, &"fly_forward_state_machine", &"boss_state", 2, &"walk_anim_blend", &"boss_state", 3, &"flying_idle_anim", &"flying_short_range_attack", 0, &"boss_state", &"flying_short_range_attack", 1, &"flying_short_range_attack_anim", &"grounded_short_range_attack", 0, &"flying_short_range_attack", &"grounded_short_range_attack", 1, &"grounded_short_range_attack_anim", &"medium_range_attack", 0, &"grounded_short_range_attack", &"medium_range_attack", 1, &"medium_range_attack_anim", &"output", 0, &"medium_range_attack", &"walk_anim_blend", 0, &"ground_walk_state_machine", &"walk_anim_blend", 1, &"idle_anim_2"]
+node_connections = [&"boss_state", 0, &"idle_anim", &"boss_state", 1, &"fly_forward_state_machine", &"boss_state", 2, &"walk_anim_blend", &"boss_state", 3, &"flying_idle_anim", &"flying_short_range_attack", 0, &"boss_state", &"flying_short_range_attack", 1, &"flying_short_range_attack_anim", &"grounded_short_range_attack", 0, &"flying_short_range_attack", &"grounded_short_range_attack", 1, &"grounded_short_range_attack_anim", &"land_from_flying", 0, &"take_off", &"land_from_flying", 1, &"land_from_flying_anim", &"medium_range_attack", 0, &"grounded_short_range_attack", &"medium_range_attack", 1, &"medium_range_attack_anim", &"output", 0, &"land_from_flying", &"take_off", 0, &"medium_range_attack", &"take_off", 1, &"take_off_anim", &"walk_anim_blend", 0, &"ground_walk_state_machine", &"walk_anim_blend", 1, &"idle_anim_2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n4p5q"]
 viewport_path = NodePath("SubViewport")
@@ -192,10 +218,12 @@ radius = 2.0
 [node name="MushroomMagpie" parent="Visuals" instance=ExtResource("2_4g5hf")]
 
 [node name="Skeleton3D" parent="Visuals/MushroomMagpie/Rig" index="0"]
-bones/5/rotation = Quaternion(0.178432, -2.11403e-17, -5.97506e-17, 0.983952)
-bones/6/rotation = Quaternion(-0.176614, 1.15997e-07, -2.85536e-08, 0.98428)
+bones/2/position = Vector3(9.31547, 3.07688, 4.13406e-07)
+bones/3/position = Vector3(-9.31547, 3.07688, 4.13406e-07)
+bones/5/rotation = Quaternion(0.170191, -2.11919e-17, -6.19287e-17, 0.985411)
+bones/6/rotation = Quaternion(-0.14093, 1.18212e-07, -1.57222e-08, 0.99002)
 bones/7/rotation = Quaternion(0.175708, -6.57955e-15, 4.1892e-08, 0.984442)
-bones/8/rotation = Quaternion(-0.271545, -1.17503e-07, -2.13046e-08, 0.962426)
+bones/8/rotation = Quaternion(-0.300212, -1.13421e-07, -3.69748e-08, 0.953873)
 bones/9/rotation = Quaternion(0.810608, -2.09423e-07, -9.66321e-08, 0.58559)
 bones/10/rotation = Quaternion(0.750429, 2.46821e-08, 1.95678e-07, 0.660951)
 bones/11/rotation = Quaternion(-0.245456, -1.15562e-07, -2.92607e-08, 0.969408)
@@ -205,81 +233,84 @@ bones/13/rotation = Quaternion(0.227744, 0.667896, 0.6725, -0.223141)
 bones/14/rotation = Quaternion(-1.44383e-06, 0.707106, 3.64115e-07, 0.707107)
 bones/15/rotation = Quaternion(-0.227744, 0.667896, 0.6725, 0.223141)
 bones/16/rotation = Quaternion(-0.707106, -1.31791e-06, 0.707107, -2.34169e-06)
-bones/17/position = Vector3(0.270289, 0.150011, -1.00014)
+bones/17/rotation = Quaternion(-0.914018, -3.48939e-08, -1.02983e-07, 0.405673)
 bones/18/rotation = Quaternion(0.106227, 0.13996, -0.78416, 0.595163)
-bones/19/rotation = Quaternion(0.563995, 0.12785, 0.0869428, 0.811175)
-bones/20/rotation = Quaternion(-0.0310246, 0.0037962, 0.261473, 0.964705)
+bones/19/rotation = Quaternion(0.0789655, 0.731641, -0.312467, 0.600691)
+bones/20/rotation = Quaternion(0.00143884, 0.00398185, 0.935418, 0.353519)
 bones/21/rotation = Quaternion(0.000183627, -1.03469e-07, 0.0509761, 0.9987)
-bones/22/rotation = Quaternion(-0.329603, -0.0668688, -0.307565, 0.890109)
-bones/23/rotation = Quaternion(0.0905831, 0.0903251, -0.603507, 0.787029)
-bones/24/rotation = Quaternion(0.304712, 0.0583974, -0.311445, 0.898189)
-bones/25/rotation = Quaternion(-0.0826653, -0.0864907, -0.607469, 0.785281)
-bones/26/rotation = Quaternion(-0.0013067, 0.00123893, -0.728419, 0.685129)
-bones/28/rotation = Quaternion(-0.00149428, 0.00100905, -0.830914, 0.556397)
-bones/30/rotation = Quaternion(-0.00137774, 0.00116803, -0.764689, 0.644397)
-bones/32/rotation = Quaternion(-0.00130365, 0.00124217, -0.726721, 0.68693)
-bones/34/rotation = Quaternion(-0.00410828, -0.00210874, -0.705318, 0.708876)
-bones/36/rotation = Quaternion(-0.00421793, -0.00188072, -0.665556, 0.746333)
-bones/38/position = Vector3(0.740664, 1.1239, 0.0576589)
-bones/38/rotation = Quaternion(0.13352, 0.128272, -0.720433, 0.668353)
+bones/22/rotation = Quaternion(-0.332069, -0.0532877, -0.270781, 0.90198)
+bones/23/rotation = Quaternion(0.0977631, 0.0825004, -0.536147, 0.834375)
+bones/24/rotation = Quaternion(0.306851, 0.0458449, -0.274327, 0.910212)
+bones/25/rotation = Quaternion(-0.0895545, -0.0793358, -0.54024, 0.832962)
+bones/26/rotation = Quaternion(-0.00169195, 0.000600908, -0.943166, 0.332318)
+bones/28/rotation = Quaternion(-0.00164643, 0.000717854, -0.917831, 0.396967)
+bones/30/rotation = Quaternion(-0.00143835, 0.00108047, -0.801907, 0.597446)
+bones/32/rotation = Quaternion(-0.00172836, 0.000484191, -0.963485, 0.267757)
+bones/34/position = Vector3(0.584945, 2.27437, -0.222971)
+bones/34/rotation = Quaternion(-0.00441687, -0.00135196, -0.56974, 0.821812)
+bones/36/rotation = Quaternion(-0.00462076, -0.000123398, -0.33006, 0.943949)
+bones/38/position = Vector3(0.57776, 1.36434, -0.857313)
+bones/38/rotation = Quaternion(-0.587194, 0.463317, -0.580187, 0.322373)
 bones/40/rotation = Quaternion(0.989379, -1.07726e-14, 2.35886e-07, 0.14536)
 bones/42/rotation = Quaternion(0.979373, 2.40874e-08, 1.16751e-07, -0.20206)
 bones/43/rotation = Quaternion(0.18215, -4.69014e-07, 4.61733e-07, 0.983271)
 bones/44/rotation = Quaternion(0.106227, -0.139961, 0.784161, 0.595163)
-bones/45/rotation = Quaternion(0.556928, -0.125971, -0.0874977, 0.816276)
-bones/46/rotation = Quaternion(-0.0308998, -0.00376749, -0.258776, 0.965436)
+bones/45/rotation = Quaternion(0.0789656, -0.731642, 0.312467, 0.600691)
+bones/46/rotation = Quaternion(0.00143897, -0.00398184, -0.935418, 0.353519)
 bones/47/rotation = Quaternion(0.000183629, 1.04972e-07, -0.0509761, 0.9987)
-bones/48/rotation = Quaternion(-0.329603, 0.0668688, 0.307565, 0.890109)
-bones/49/rotation = Quaternion(0.0905831, -0.0903251, 0.603507, 0.787029)
-bones/50/rotation = Quaternion(0.304712, -0.0583974, 0.311445, 0.898189)
-bones/51/rotation = Quaternion(-0.0826654, 0.0864907, 0.607469, 0.785281)
-bones/52/rotation = Quaternion(-0.00130669, -0.00123893, 0.728434, 0.685113)
-bones/54/rotation = Quaternion(-0.00149431, -0.00100907, 0.830914, 0.556397)
-bones/56/rotation = Quaternion(-0.00137775, -0.00116806, 0.764689, 0.644397)
+bones/48/rotation = Quaternion(-0.33207, 0.0532877, 0.270781, 0.90198)
+bones/49/rotation = Quaternion(0.0977631, -0.0825004, 0.536147, 0.834375)
+bones/50/rotation = Quaternion(0.306851, -0.0458449, 0.274327, 0.910212)
+bones/51/rotation = Quaternion(-0.0895545, 0.0793358, 0.540241, 0.832962)
+bones/52/rotation = Quaternion(-0.00169193, -0.000600934, 0.943166, 0.332318)
+bones/54/rotation = Quaternion(-0.00164644, -0.000717885, 0.917831, 0.396967)
+bones/56/rotation = Quaternion(-0.00143832, -0.00108049, 0.801907, 0.597446)
 bones/57/rotation = Quaternion(1.6699e-09, 2.24149e-07, 2.30968e-07, 1)
-bones/58/rotation = Quaternion(-0.00130369, -0.00124216, 0.726739, 0.686911)
-bones/60/rotation = Quaternion(-0.00410809, 0.0021091, 0.705383, 0.708812)
-bones/62/rotation = Quaternion(-0.00421798, 0.00188062, 0.66554, 0.746348)
-bones/64/position = Vector3(-0.740664, 1.1239, 0.0576589)
-bones/64/rotation = Quaternion(0.13352, -0.128272, 0.720433, 0.668353)
-bones/66/rotation = Quaternion(-0.88811, 4.53408e-17, 2.50785e-17, 0.459632)
-bones/68/rotation = Quaternion(-0.147626, 0.0164549, -0.208389, 0.9667)
-bones/70/rotation = Quaternion(-0.147626, -0.0164549, 0.208389, 0.9667)
+bones/58/rotation = Quaternion(-0.0017284, -0.000484193, 0.963485, 0.267757)
+bones/60/position = Vector3(-0.584944, 2.27437, -0.222971)
+bones/60/rotation = Quaternion(-0.00441686, 0.00135189, 0.56974, 0.821812)
+bones/62/rotation = Quaternion(-0.00462076, 0.000123364, 0.33006, 0.943949)
+bones/64/position = Vector3(-0.57776, 1.36435, -0.857313)
+bones/64/rotation = Quaternion(-0.587194, -0.463317, 0.580187, 0.322373)
+bones/66/rotation = Quaternion(-0.963756, 3.8285e-17, 1.43671e-17, 0.266787)
+bones/67/rotation = Quaternion(0.37837, 1.88087e-17, 5.01551e-17, 0.925654)
+bones/68/rotation = Quaternion(-0.143789, 0.0372692, -0.0688815, 0.986504)
+bones/69/rotation = Quaternion(0.373729, 0.0473667, 0.0353175, 0.925654)
+bones/70/rotation = Quaternion(-0.143789, -0.0372692, 0.0688816, 0.986504)
+bones/71/rotation = Quaternion(0.373729, -0.0473667, -0.0353175, 0.925654)
 bones/72/rotation = Quaternion(-0.436984, -0.555918, -0.436984, 0.555918)
-bones/73/rotation = Quaternion(-0.722414, -0.309637, -0.241426, 0.569172)
-bones/74/rotation = Quaternion(-2.94146e-08, 1.36002e-08, 0.446665, 0.894701)
-bones/75/rotation = Quaternion(7.90524e-08, -1.00968e-07, 0.430835, 0.902431)
-bones/76/rotation = Quaternion(1.71331e-08, 2.5184e-08, -0.28656, 0.958062)
-bones/77/rotation = Quaternion(-0.0982605, 0.0410867, -0.383594, 0.91734)
-bones/78/rotation = Quaternion(0.0830815, -0.0662438, 0.612384, 0.783387)
-bones/79/rotation = Quaternion(0.091334, -0.0474903, -0.45887, 0.88252)
-bones/80/rotation = Quaternion(-0.0727716, 0.0679536, 0.581202, 0.807645)
+bones/73/rotation = Quaternion(-0.770832, -0.154622, -0.121542, 0.605919)
+bones/74/rotation = Quaternion(-1.19581e-08, 1.37445e-08, 0.237737, 0.97133)
+bones/75/rotation = Quaternion(5.38404e-08, -1.29688e-07, 0.629095, 0.777328)
+bones/76/rotation = Quaternion(1.00231e-08, -1.15782e-09, 0.0395262, 0.999219)
+bones/77/rotation = Quaternion(-0.0724864, 0.0780319, -0.728505, 0.676711)
+bones/78/rotation = Quaternion(0.103839, -0.0187915, 0.173727, 0.979124)
+bones/79/rotation = Quaternion(0.0700357, -0.0754467, -0.729002, 0.676726)
 bones/81/rotation = Quaternion(-0.436984, 0.555918, 0.436984, 0.555918)
-bones/82/rotation = Quaternion(-0.72205, 0.311109, 0.240984, 0.569019)
-bones/83/rotation = Quaternion(-5.44552e-08, -9.16825e-09, -0.593734, 0.804662)
-bones/84/rotation = Quaternion(9.7761e-08, 7.17404e-08, -0.36635, 0.930477)
-bones/85/rotation = Quaternion(5.22814e-08, -5.52714e-08, 0.432619, 0.901577)
-bones/86/rotation = Quaternion(-0.0872026, -0.0611471, 0.570873, 0.814101)
-bones/87/rotation = Quaternion(0.0813821, 0.0684024, -0.632338, 0.767363)
-bones/88/rotation = Quaternion(0.084414, 0.0589194, 0.569305, 0.815656)
-bones/89/rotation = Quaternion(-0.0755722, -0.0626259, -0.535634, 0.838727)
-bones/90/position = Vector3(3.2609, 1.8832, 5.95248)
-bones/91/position = Vector3(-3.36571, 1.8916, 5.91918)
+bones/82/rotation = Quaternion(-0.770832, 0.154622, 0.121542, 0.605919)
+bones/83/rotation = Quaternion(-1.19581e-08, -1.37445e-08, -0.237737, 0.97133)
+bones/84/rotation = Quaternion(5.38404e-08, 1.29688e-07, -0.629095, 0.777328)
+bones/85/rotation = Quaternion(1.00231e-08, 1.15782e-09, -0.0395262, 0.999219)
+bones/86/rotation = Quaternion(-0.0724864, -0.0780319, 0.728505, 0.676711)
+bones/87/rotation = Quaternion(0.103839, 0.0187915, -0.173727, 0.979124)
+bones/88/rotation = Quaternion(0.0700357, 0.0754467, 0.729002, 0.676726)
+bones/90/position = Vector3(1.99881, 1.74982, 1.1924)
+bones/91/position = Vector3(-1.99881, 1.74982, 1.1924)
 
 [node name="Mushroom_2" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="0"]
-transform = Transform3D(0.836697, 2.32738e-08, -2.05199e-07, 1.53678e-08, 0.822044, 0.155899, 2.05942e-07, -0.155899, 0.822045, 6.26434e-08, 4.07446, 0.685967)
+transform = Transform3D(0.836697, 2.62511e-08, -1.97088e-07, 1.17814e-08, 0.821369, 0.159418, 1.98479e-07, -0.159418, 0.821369, 4.50116e-08, 4.05967, 0.732243)
 
 [node name="EyeLeft" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="1"]
-transform = Transform3D(-0.00235552, 0.172599, -0.227529, -0.28522, 0.0101128, 0.0106241, 0.0144772, 0.227316, 0.172288, 0.497716, 3.69166, 1.31885)
+transform = Transform3D(-0.00235552, 0.172599, -0.227529, -0.285155, 0.0110861, 0.0113617, 0.0156984, 0.227271, 0.172241, 0.497716, 3.67959, 1.36676)
 
 [node name="EyeRight" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="2"]
-transform = Transform3D(0.00235552, 0.172597, 0.22753, -0.28522, -0.0101129, 0.010624, 0.0144772, -0.227318, 0.172286, -0.497716, 3.69166, 1.31885)
+transform = Transform3D(0.00235552, 0.172597, 0.22753, -0.285155, -0.0110862, 0.0113617, 0.0156984, -0.227272, 0.172239, -0.497716, 3.67959, 1.36676)
 
 [node name="Fluff_001" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="3"]
-transform = Transform3D(-0.12364, 5.88334e-08, 3.13035e-08, -6.1722e-08, -0.0725009, 0.0391852, 7.87192e-08, 0.0355604, 0.0798912, -0.0126134, 1.63476, 1.39002)
+transform = Transform3D(-0.12364, 5.99993e-08, 3.04353e-08, -6.81115e-08, -0.0743634, 0.0346891, 7.47558e-08, 0.0314802, 0.0819436, -0.0126134, 1.59869, 1.36896)
 
 [node name="Fluff_002" parent="Visuals/MushroomMagpie/Rig/Skeleton3D" index="4"]
-transform = Transform3D(0.169897, -1.68025e-07, -1.26317e-07, -1.27443e-08, -0.0939934, 0.134675, -2.23775e-07, -0.122217, -0.103574, -0.0126134, 2.58681, -0.405328)
+transform = Transform3D(0.169897, -1.66109e-07, -1.28393e-07, 2.60481e-09, -0.0870626, 0.140218, -2.23567e-07, -0.127248, -0.0959372, -0.0126134, 2.64895, -0.370757)
 
 [node name="BirdBossMediumAttackEffect" parent="Visuals" instance=ExtResource("2_43r61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.22041)
@@ -296,7 +327,7 @@ action_points = -1
 
 [node name="FlyingShortRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("short_range_attack")]
 script = ExtResource("5_nm2xt")
-short_range_attack = NodePath("../../ShortRangeAttack")
+short_range_attack = NodePath("../../FlyingShortRangeAttack")
 action_points = -1
 
 [node name="FlyingMediumRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("medium_attack")]
@@ -331,7 +362,7 @@ script = ExtResource("7_dqtiy")
 
 [node name="GroundedShortRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("short_range_attack")]
 script = ExtResource("10_0n2cc")
-short_range_attack = NodePath("../../ShortRangeAttack")
+short_range_attack = NodePath("../../GroundedShortRangeAttack")
 
 [node name="GroundedMediumRangeAttackState" type="Node" parent="States" node_paths=PackedStringArray("medium_attack")]
 script = ExtResource("15_sre7i")
@@ -363,38 +394,51 @@ top_level = true
 [node name="PursueTargetAI" parent="." node_paths=PackedStringArray("character_body", "nav_agent") instance=ExtResource("2_yfdji")]
 character_body = NodePath("..")
 nav_agent = NodePath("../NavigationAgent3D")
+turn_speed = 5.0
 
-[node name="ShortRangeAttack" type="Area3D" parent="." node_paths=PackedStringArray("particle_effect")]
+[node name="FlyingShortRangeAttack" type="Area3D" parent="." node_paths=PackedStringArray("particle_effect")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.77939)
 script = ExtResource("5_1b2q4")
 attack_delay = 0.3
 damage = 30.0
 particle_effect = NodePath("MultipleSlashEffects")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShortRangeAttack"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlyingShortRangeAttack"]
 shape = SubResource("SphereShape3D_6asse")
 
-[node name="MultipleSlashEffects" parent="ShortRangeAttack" instance=ExtResource("6_waoxi")]
-transform = Transform3D(2.18557e-08, 0.5, -4.37114e-08, 0.5, -2.18557e-08, 0, -1.91069e-15, -4.37114e-08, -0.5, 0, 0.440189, -0.942098)
+[node name="MultipleSlashEffects" parent="FlyingShortRangeAttack" instance=ExtResource("6_waoxi")]
+transform = Transform3D(-0.5, 5.32907e-15, 1.91069e-15, 5.57046e-15, 0.433013, 0.25, 1.00983e-15, 0.25, -0.433013, 0, 1.1593, -1.90256)
 
-[node name="MediumRangeAttack" type="Area3D" parent="."]
+[node name="GroundedShortRangeAttack" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.09096)
 script = ExtResource("5_1b2q4")
-attack_duration = 3.0
+attack_delay = 0.3
+damage = 30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundedShortRangeAttack"]
+shape = SubResource("SphereShape3D_6asse")
+
+[node name="MediumRangeAttack" type="Area3D" parent="." node_paths=PackedStringArray("particle_effect")]
+script = ExtResource("5_1b2q4")
+attack_delay = 1.0
+attack_duration = 5.0
 damage = 25.0
+particle_effect = NodePath("../Visuals/BirdBossMediumAttackEffect")
 
 [node name="CollisionShape3D_4" type="CollisionShape3D" parent="MediumRangeAttack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.77101, 17.0922)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50785, 17.0922)
 shape = SubResource("SphereShape3D_bco1p")
 
 [node name="CollisionShape3D_3" type="CollisionShape3D" parent="MediumRangeAttack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.556583, 11.5693)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72228, 11.5693)
 shape = SubResource("SphereShape3D_ym0c1")
 
 [node name="CollisionShape3D_2" type="CollisionShape3D" parent="MediumRangeAttack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264776, 7.24051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.54364, 7.24051)
 shape = SubResource("SphereShape3D_l42n4")
 
 [node name="CollisionShape3D_1" type="CollisionShape3D" parent="MediumRangeAttack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207743, 4.46288)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.48661, 4.46288)
 shape = SubResource("SphereShape3D_yqm60")
 
 [node name="ProjectileAttack" type="Node3D" parent="."]
@@ -403,26 +447,32 @@ script = ExtResource("7_tiypd")
 projectile_scene = ExtResource("8_icupn")
 range = 30.0
 
-[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("medium_attack_effect", "skeleton")]
+[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("skeleton", "medium_attack_effect")]
 root_node = NodePath("../Visuals/MushroomMagpie")
 tree_root = SubResource("AnimationNodeBlendTree_uxuku")
 anim_player = NodePath("../Visuals/MushroomMagpie/AnimationPlayer")
-parameters/boss_state/current_state = "flying_idle"
+parameters/boss_state/current_state = "idle"
 parameters/boss_state/transition_request = ""
-parameters/boss_state/current_index = 3
+parameters/boss_state/current_index = 0
 parameters/flying_short_range_attack/active = false
 parameters/flying_short_range_attack/internal_active = false
 parameters/flying_short_range_attack/request = 0
 parameters/grounded_short_range_attack/active = false
 parameters/grounded_short_range_attack/internal_active = false
 parameters/grounded_short_range_attack/request = 0
+parameters/land_from_flying/active = false
+parameters/land_from_flying/internal_active = false
+parameters/land_from_flying/request = 0
 parameters/medium_range_attack/active = false
 parameters/medium_range_attack/internal_active = false
 parameters/medium_range_attack/request = 0
+parameters/take_off/active = false
+parameters/take_off/internal_active = false
+parameters/take_off/request = 0
 parameters/walk_anim_blend/blend_amount = 1.0
 script = ExtResource("7_nam30")
-medium_attack_effect = NodePath("../Visuals/BirdBossMediumAttackEffect")
 skeleton = NodePath("../Visuals/MushroomMagpie/Rig/Skeleton3D")
+medium_attack_effect = NodePath("../Visuals/BirdBossMediumAttackEffect")
 
 [node name="Health" parent="." instance=ExtResource("19_1tisk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.18727, 0)
