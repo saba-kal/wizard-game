@@ -11,6 +11,7 @@ class_name PlayerMovement extends Node3D
 @export var slippery_friction: float = 0.003
 @export var ground_friction = 1
 @export var push_force: float = 10
+@export var doppleganger: Doppleganger
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var gravity_adjustment: float = 0
@@ -58,6 +59,11 @@ func process_velocity(delta):
         "move_left", "move_right", "move_forward", "move_backward")
     var direction = (self.player_node.transform.basis *
         Vector3(self.input_direction.x, 0, self.input_direction.y)).normalized()
+    if doppleganger and direction:
+        var self_pos = player_node.position
+        var player_pos = doppleganger.player.position
+        var from_player: Vector3 = self_pos - player_pos
+        direction = direction.bounce(from_player.normalized())
 
     var move_speed: float = self.speed
     if self.third_persion_camera.is_aiming:

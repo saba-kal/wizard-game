@@ -50,11 +50,13 @@ func end_dive() -> void:
     seek.emit(recover_time)
     state = Jump_State.RECOVERING
     attack_particles.emitting = true
+    hitbox.active = true
     var tween = get_tree().create_tween()
     tween.tween_callback(stop_emitting).set_delay(recover_time - dive_time)
 
 func stop_emitting() -> void:
     attack_particles.emitting = false
+    hitbox.active = false
 
 func _on_body_entered(body: Node3D) -> void:
     if not is_attacking: return
