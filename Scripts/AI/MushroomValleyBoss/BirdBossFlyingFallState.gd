@@ -1,6 +1,6 @@
 extends BirdBossAIState
 
-@export var gravity: float = 9.8
+@export var gravity: float = 5.0
 
 var current_velocity: Vector3
 var health: Health

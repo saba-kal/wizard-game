@@ -3,10 +3,10 @@ extends BirdBossAIState
 @export var boss_activation_radius: float = 30.0
 @export var wait_time_before_attack: float = 5.0
 @export var short_range_attack_min_distance: float = 0.0
-@export var short_range_attack_max_distance: float = 12.0
-@export var medium_range_attack_min_distance: float = 13.0
+@export var short_range_attack_max_distance: float = 10.0
+@export var medium_range_attack_min_distance: float = 10.0
 @export var medium_range_attack_max_distance: float = 20.0
-@export var long_range_attack_min_distance: float = 21.0
+@export var long_range_attack_min_distance: float = 20.0
 @export var long_range_attack_max_distance: float = 35.0
 
 var time_in_state: float = 0

@@ -2,7 +2,7 @@ class_name MushroomBirdBossAI extends CharacterBody3D
 
 signal state_changed(old_state: BirdBossAIState.Type, new_state: BirdBossAIState.Type)
 
-@export var long_range_attack_cooldown: float = 15.0
+@export var long_range_attack_cooldown: float = 5.0
 @export var hover_positions_container: Node3D
 @export var starting_action_points: int = 5
 @export var max_time_in_grounded_states: float = 20.0
@@ -85,11 +85,13 @@ func transition_to_state(new_state_type: BirdBossAIState.Type) -> void:
     if self.current_action_points <= 0:
         self.current_action_points = self.starting_action_points
         self.time_in_grounded_state = 0
-        self.current_state = self.get_state(BirdBossAIState.Type.FLYING_COME_DOWN)
+        new_state_type = BirdBossAIState.Type.FLYING_COME_DOWN
+        self.current_state = self.get_state(new_state_type)
     # Boss spent maximum amount of time in grounded state. They should fly up.
     elif !self.current_state.is_flying() && self.time_in_grounded_state >= self.max_time_in_grounded_states:
         self.current_action_points = self.starting_action_points
-        self.current_state = self.get_state(BirdBossAIState.Type.FLYING_RISE_UP)
+        new_state_type = BirdBossAIState.Type.FLYING_RISE_UP
+        self.current_state = self.get_state(new_state_type)
 
     self.current_state.enter_state()
 

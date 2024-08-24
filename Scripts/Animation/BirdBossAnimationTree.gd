@@ -7,6 +7,7 @@ extends AnimationTree
 @onready var flying_short_range_attack: AreaAttack = $"../FlyingShortRangeAttack"
 @onready var grounded_short_range_attack: AreaAttack = $"../GroundedShortRangeAttack"
 @onready var medium_range_attack: AreaAttack = $"../MediumRangeAttack"
+@onready var long_range_attack: ProjectileAttack = $"../ProjectileAttack"
 
 var head_bone_index: int
 var player: Node3D
@@ -18,6 +19,7 @@ func _ready() -> void:
     self.flying_short_range_attack.attack_started.connect(self.on_flying_short_range_attack_started)
     self.grounded_short_range_attack.attack_started.connect(self.on_grounded_short_range_attack_started)
     self.medium_range_attack.attack_started.connect(self.on_medium_range_attack_started)
+    self.long_range_attack.attack_started.connect(self.on_long_range_attack_started)
 
     self.set("parameters/boss_state/transition_request", "idle")
     self.head_bone_index = self.skeleton.find_bone("Neck")
@@ -51,11 +53,24 @@ func on_state_changed(prev_state: BirdBossAIState.Type, new_state: BirdBossAISta
 
     var new_state_data: BirdBossAIState = self.bird_boss_ai.get_state(new_state)
 
-    if new_state in [
+    # ------------------- Animation state transition ------------------------
+    if new_state == BirdBossAIState.Type.FLYING_COME_DOWN:
+        self.set("parameters/transition_to_ground/transition_request", "land_from_flying")
+        self.set("parameters/boss_state/transition_request", "stand_up")
+    elif new_state == BirdBossAIState.Type.GROUNDED_PLAYER_PURSUIT && prev_state == BirdBossAIState.Type.GROUNDED_KNOCKED_OUT:
+        self.set("parameters/transition_to_ground/transition_request", "prone_then_stand")
+        self.set("parameters/boss_state/transition_request", "stand_up")
+    elif new_state in [
+        BirdBossAIState.Type.FLYING_FALL,
+        BirdBossAIState.Type.GROUNDED_KNOCKED_OUT,
+        BirdBossAIState.Type.DEAD
+    ]:
+        self.set("parameters/boss_state/transition_request", "shot_down")
+    elif new_state in [
         BirdBossAIState.Type.GROUNDED_IDLE,
         BirdBossAIState.Type.GROUNDED_SHORT_RANGE_ATTACK,
         BirdBossAIState.Type.GROUNDED_MEDIUM_RANGE_ATTACK,
-        BirdBossAIState.Type.GROUNDED_LONG_RANGE_ATTACK,
+        BirdBossAIState.Type.GROUNDED_LONG_RANGE_ATTACK
     ]:
         self.set("parameters/boss_state/transition_request", "idle")
     elif new_state in [
@@ -69,11 +84,10 @@ func on_state_changed(prev_state: BirdBossAIState.Type, new_state: BirdBossAISta
     else:
         self.set("parameters/boss_state/transition_request", "running")
 
+    # ------------------- One-shot animations ------------------------
     match new_state:
         BirdBossAIState.Type.FLYING_RISE_UP:
             self.set("parameters/take_off/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-        BirdBossAIState.Type.FLYING_COME_DOWN:
-            self.set("parameters/land_from_flying/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 
 func on_flying_short_range_attack_started() -> void:
@@ -86,3 +100,7 @@ func on_grounded_short_range_attack_started() -> void:
 
 func on_medium_range_attack_started() -> void:
     self.set("parameters/medium_range_attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+
+func on_long_range_attack_started() -> void:
+    self.set("parameters/long_range_attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)

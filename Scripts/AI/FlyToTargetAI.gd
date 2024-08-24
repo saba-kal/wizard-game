@@ -4,14 +4,15 @@ class_name FlyToTargetAI extends Node
 @export var acceleration: float = 20.0
 @export var turn_speed: float = 5.0
 @export var stop_distance: float = 0.5
-@export var circle_flight_radius: float = 5.0
-@export var min_flight_height: float = 5.0
+@export var circle_flight_radius: float = 7.0
+@export var min_flight_height: float = 6.0
 
 @onready var character_body: CharacterBody3D = self.get_parent()
 @onready var circular_flight_helper: Node3D = $CircularFlightHelper
 @onready var circular_flight_target: Node3D = $CircularFlightHelper/CircularFlightTarget
 
 var is_active: bool = false
+var is_look_at_enabled: bool = true
 var target_position: Vector3
 var is_circle_flight_active: bool = false
 var previous_velocity: Vector3
@@ -62,14 +63,15 @@ func move_character(target_pos: Vector3, delta: float) -> void:
 
 func face_velocity(delta: float) -> void:
 
-    if self.current_velocity.length_squared() < 0.1:
+    if !self.is_look_at_enabled || self.current_velocity.length_squared() < 0.1:
         return
 
     # Look direction
     if !self.current_velocity.is_zero_approx():
         var original_rotation: Quaternion = self.character_body.quaternion
         var target: Vector3 = self.character_body.global_position - self.current_velocity
-        self.character_body.look_at(self.character_body.global_position - self.current_velocity, Vector3.UP)
+        target.y = self.character_body.global_position.y
+        self.character_body.look_at(target, Vector3.UP)
         self.character_body.quaternion = original_rotation.slerp(self.character_body.quaternion, delta * self.turn_speed)
 
     # Roll towards velocity change
@@ -81,6 +83,10 @@ func face_velocity(delta: float) -> void:
 
 func set_enabled(is_enabled: bool) -> void:
     self.is_active = is_enabled
+
+
+func set_look_at_enabled(is_enabled: bool) -> void:
+    self.is_look_at_enabled = is_enabled
 
 
 func set_target(new_target: Vector3, ignore_flight_height: bool = false) -> void:

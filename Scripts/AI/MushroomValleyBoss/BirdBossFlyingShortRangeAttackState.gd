@@ -2,6 +2,7 @@ extends BirdBossAIState
 
 enum SubState {
     DIVING,
+    ATTACKING,
     CLIMBING
 }
 
@@ -20,6 +21,7 @@ func get_type() -> Type:
 func enter_state() -> void:
     self.shared_data.pursue_target_ai.set_enabled(false)
     self.shared_data.fly_to_target_ai.set_enabled(true)
+    self.shared_data.fly_to_target_ai.set_look_at_enabled(false)
 
     var dive_position: Vector3 = self.get_dive_to_position()
     self.shared_data.fly_to_target_ai.set_target(dive_position, true)
@@ -35,9 +37,13 @@ func process_state(delta: float) -> void:
             if !self.can_attack(self.distance_before_attacking):
                 return
             self.short_range_attack.perform_attack()
-            self.current_sub_state = SubState.CLIMBING
-            self.shared_data.fly_to_target_ai.set_target(self.get_climb_position())
+            self.current_sub_state = SubState.ATTACKING
+        SubState.ATTACKING:
+            if !self.short_range_attack.is_attacking:
+                self.current_sub_state = SubState.CLIMBING
+                self.shared_data.fly_to_target_ai.set_target(self.get_climb_position())
         SubState.CLIMBING:
+            self.shared_data.fly_to_target_ai.set_look_at_enabled(true)
             if self.shared_data.fly_to_target_ai.target_reached():
                 self.transition_state.emit(Type.FLYING_LOCATION_PURSUIT)
 

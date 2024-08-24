@@ -30,7 +30,7 @@ func attack() -> void:
         var health: Health = Util.get_child_node_of_type(body, Health)
         if health != null && self.get_parent() != body:
             health.take_damage(self.damage)
-    self.set_particles_enabled(false)
+    self.set_particles_enabled(true)
 
 
 func complete_attack() -> void:

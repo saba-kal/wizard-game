@@ -337,31 +337,31 @@ bones/59/rotation = Quaternion(-9.06678e-05, -0.137004, -0.00476738, 0.990559)
 bones/60/rotation = Quaternion(0.00222611, 0.0116363, 0.00407081, 0.999922)
 
 [node name="L_eye" parent="Visuals/Player2/HumanRig/Skeleton3D" index="0"]
-transform = Transform3D(-1.06832, 0.743969, 2.54208, 0.753924, -2.54227, 1.06087, 2.53914, 1.06787, 0.754566, 0.671044, 6.24425, 3.43224)
+transform = Transform3D(-1.06832, 0.743969, 2.54208, 0.75392, -2.54227, 1.06086, 2.53914, 1.06787, 0.754568, 0.671044, 6.24424, 3.43225)
 
 [node name="MaskChin" parent="Visuals/Player2/HumanRig/Skeleton3D" index="1"]
-transform = Transform3D(2.85604, 2.6113e-08, -4.28579e-08, 1.27421e-08, 2.85604, 5.21541e-08, 2.34631e-08, 3.35276e-08, 2.85604, -0.424914, -4.1975, 1.31682)
+transform = Transform3D(2.85604, 2.35618e-07, 6.63014e-08, -1.57492e-07, 2.85604, -4.63147e-06, -6.1653e-08, 4.63147e-06, 2.85604, -0.424915, -4.1975, 1.31681)
 
 [node name="R_eye" parent="Visuals/Player2/HumanRig/Skeleton3D" index="2"]
-transform = Transform3D(1.06833, -0.743969, -2.54208, 0.753924, -2.54227, 1.06087, 2.53914, 1.06787, 0.754567, -1.52087, 6.24425, 3.43224)
+transform = Transform3D(1.06833, -0.743969, -2.54208, 0.75392, -2.54227, 1.06087, 2.53914, 1.06787, 0.754569, -1.52087, 6.24424, 3.43225)
 
 [node name="NotShroomGrimoire" parent="Visuals/Player2/HumanRig/Skeleton3D" index="3"]
-transform = Transform3D(-0.310214, 0.102661, 0.132154, 0.0174191, 0.296651, -0.189557, -0.166435, -0.160299, -0.266158, 0.927197, 0.770133, -0.994165)
+transform = Transform3D(-0.310214, 0.102661, 0.132154, 0.017419, 0.296651, -0.189556, -0.166435, -0.160299, -0.266158, 0.927197, 0.770135, -0.994165)
 
 [node name="NotShroomGrimoire" parent="Visuals/Player2/HumanRig/Skeleton3D/NotShroomGrimoire" index="0"]
 transform = Transform3D(1, 2.98023e-08, -4.26326e-14, 2.98023e-08, 1, 0, 5.68434e-14, -2.84217e-14, 1, 0, 0, 0)
 
 [node name="Grimoire_Rune" parent="Visuals/Player2/HumanRig/Skeleton3D" index="4"]
-transform = Transform3D(0.102661, 0.310214, 0.132154, 0.296651, -0.0174191, -0.189557, -0.160299, 0.166435, -0.266158, 1.14668, 0.779816, -0.833938)
+transform = Transform3D(0.102661, 0.310214, 0.132154, 0.296651, -0.017419, -0.189556, -0.160299, 0.166435, -0.266158, 1.14668, 0.779818, -0.833939)
 
 [node name="Grimoire_Rune" parent="Visuals/Player2/HumanRig/Skeleton3D/Grimoire_Rune" index="0"]
 transform = Transform3D(1, -2.98023e-08, 0, -2.98023e-08, 1, 4.26326e-14, -2.84217e-14, -5.68434e-14, 1, 0, 0, 0)
 
 [node name="Belt" parent="Visuals/Player2/HumanRig/Skeleton3D" index="5"]
-transform = Transform3D(2.8374, -0.307469, 0.107613, 0.325757, 2.67811, -0.937333, 8.24065e-08, 0.94349, 2.6957, 0.399963, -3.62537, -1.23048)
+transform = Transform3D(2.8374, -0.307469, 0.107614, 0.325757, 2.67811, -0.937333, 9.83659e-08, 0.943491, 2.6957, 0.399963, -3.62537, -1.23048)
 
 [node name="Vials" parent="Visuals/Player2/HumanRig/Skeleton3D" index="6"]
-transform = Transform3D(-0.103393, -0.0321707, 0.00392137, -0.0118704, 0.280212, -0.0341559, -3.00285e-09, 0.0987181, 0.0982297, -0.859678, -0.0930688, 1.17233)
+transform = Transform3D(-0.103393, -0.0321707, 0.00392137, -0.0118704, 0.280212, -0.0341559, -3.5844e-09, 0.0987181, 0.0982297, -0.859678, -0.0930676, 1.17233)
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "horizontal_pivot", "vertical_pivot", "spring_arm", "camera")]
 top_level = true

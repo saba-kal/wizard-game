@@ -16,7 +16,6 @@ func enter_state() -> void:
     var target_position: Vector3 = self.shared_data.character_body.global_position + foward_direction
     target_position.y = self.shared_data.fly_to_target_ai.min_flight_height
 
-    # Carry over the velocity from the nav agent.
     await get_tree().create_timer(self.flight_start_delay).timeout
     self.shared_data.fly_to_target_ai.set_enabled(true)
     self.shared_data.fly_to_target_ai.current_velocity = self.shared_data.pursue_target_ai.nav_agent.velocity
