@@ -16,6 +16,7 @@ size = Vector3(1000, 1, 1000)
 [node name="Map" type="Node3D" parent="."]
 
 [node name="Mushroom_Valley_ImportedModel" parent="Map" instance=ExtResource("1_n3op0")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -49.8004, -119.143, -46.6132)
 
 [node name="Water" parent="Map" instance=ExtResource("2_omhl6")]
 transform = Transform3D(100, 0, 0, 0, 7.092, 0, 0, 0, 100, 0, -31.4774, 0)
@@ -34,3 +35,6 @@ shape = SubResource("BoxShape3D_tp3lc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.484, 14.6683, -67.3001)
 
 [node name="GameUI" parent="." instance=ExtResource("3_ba8je")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.924559, 0.381038, 0, -0.381038, 0.924559, 0, 0, 0)

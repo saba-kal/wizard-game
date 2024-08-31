@@ -1,0 +1,65 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ctna0ocv6oksl"
+path="res://.godot/imported/Windmill.glb-98de196376e91396bb2ccf239c910d5b.scn"
+
+[deps]
+
+source_file="res://Models/Environment/Windmill.glb"
+dest_files=["res://.godot/imported/Windmill.glb-98de196376e91396bb2ccf239c910d5b.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"Black": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Transitional_Tower_Materials/black.tres"
+},
+"BrownWood": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Wooden_Planks_M.tres"
+},
+"DarkBrownWood": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Trees&Plants_Materials/Redwood_M.tres"
+},
+"LightWood": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Yellow_Wood_M.tres"
+},
+"Metal": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Metal_M.tres"
+},
+"Roof_Tiles": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Roof_Tiles_M.tres"
+},
+"WingCloth": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Mushroom_Materials/GreatDryad'sSaddle.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

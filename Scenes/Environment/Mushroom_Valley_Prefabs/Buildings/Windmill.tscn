@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://muvagatcu5lw"]
+
+[ext_resource type="PackedScene" uid="uid://ctna0ocv6oksl" path="res://Models/Environment/Windmill.glb" id="1_84663"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ji23"]
+size = Vector3(1.46045, 3.28107, 2.02396)
+
+[node name="Windmill2" instance=ExtResource("1_84663")]
+
+[node name="Skeleton3D" parent="Windmill/Armature" index="0"]
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Windmill" index="7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Windmill/StaticBody3D" index="0"]
+transform = Transform3D(0.795578, 0.605839, 0.00364876, -0.595207, 0.780464, 0.191329, 0.113066, -0.154389, 0.981519, -0.353991, -1.65987, -0.210262)
+shape = SubResource("BoxShape3D_6ji23")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "ArmatureAction"

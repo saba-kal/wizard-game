@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxaaln6akhbj5"]
+
+[ext_resource type="PackedScene" uid="uid://rjdod5nstprf" path="res://Models/Environment/Magic-Door.glb" id="1_1jujk"]
+
+[node name="Magic-Door" instance=ExtResource("1_1jujk")]

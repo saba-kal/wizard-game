@@ -1,0 +1,45 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ctuvh5hnmn0jj"
+path="res://.godot/imported/PressurePlate-Runic.glb-6905098b93f16bc476f222c46df53045.scn"
+
+[deps]
+
+source_file="res://Models/InteractiveLevelElements/PressurePlate-Runic.glb"
+dest_files=["res://.godot/imported/PressurePlate-Runic.glb-6905098b93f16bc476f222c46df53045.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"DarkMetal": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Transitional_Tower_Materials/dark_metal.tres"
+},
+"Tower": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Transitional_Tower_Materials/Tower.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

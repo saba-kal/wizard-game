@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyv4c0fsuw5bq"]
+
+[ext_resource type="PackedScene" uid="uid://ctuvh5hnmn0jj" path="res://Models/InteractiveLevelElements/PressurePlate-Runic.glb" id="1_yteba"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5lc8v"]
+height = 0.134194
+radius = 0.186602
+
+[node name="PressurePlate-Runic" instance=ExtResource("1_yteba")]
+
+[node name="Magic_Pressure_Plate_001" parent="." index="0"]
+transform = Transform3D(-0.632209, -0.00937143, -0.774741, -0.0034338, 0.999951, -0.00929354, 0.77479, -0.00321515, -0.63221, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Magic_Pressure_Plate_001" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Magic_Pressure_Plate_001/StaticBody3D" index="0"]
+transform = Transform3D(1, -2.09548e-09, 0, 9.31323e-10, 1, 2.32831e-10, 0, -4.65661e-10, 1, 7.46008e-05, -0.0217243, 0.000201906)
+shape = SubResource("CylinderShape3D_5lc8v")

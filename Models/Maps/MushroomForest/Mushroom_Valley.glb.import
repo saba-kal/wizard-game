@@ -87,10 +87,6 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Mushroom_Materials/Honey_Fungus.tres"
 },
-"LightSilver": {
-"use_external/enabled": true,
-"use_external/path": ""
-},
 "LightWood": {
 "use_external/enabled": true,
 "use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Yellow_Wood_M.tres"
@@ -129,11 +125,7 @@ _subresources={
 },
 "Vest(SporeShroom)": {
 "use_external/enabled": true,
-"use_external/path": ""
-},
-"WingCloth": {
-"use_external/enabled": true,
-"use_external/path": ""
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Mushroom_Materials/FairyEars.tres"
 }
 }
 }
