@@ -23,7 +23,6 @@ func link_to(anim: Animation) -> void:
 		# If the path is empty, skip
 		var target_path := get_axis_path(axis)
 		if target_path.is_empty(): continue
-		print("link to ", anim.resource_name, ", axis ", axis)
 
 		# If the target track already exists, remove it
 		var target := anim.find_track(target_path, target_type)
