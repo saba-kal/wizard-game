@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
         var freezable: Freezable = object.get("freezable")
 
         if health != null:
-            health.take_damage(self.damage_per_second * delta)
+            health.take_damage(self.damage_per_second * delta, Health.DamageType.FIRE)
         if freezable != null:
             freezable.unfreeze()
         if status_health != null:
