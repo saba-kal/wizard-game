@@ -1,0 +1,649 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhtss1qq2ipn7"]
+
+[ext_resource type="Script" path="res://Scripts/Common/ProjectedPlane.gd" id="1_2qsjl"]
+[ext_resource type="Shader" path="res://Shaders/plane_projection_shader.gdshader" id="2_wn2ud"]
+[ext_resource type="Script" path="res://Scripts/Common/ProjectedPlaneRayCast.gd" id="3_ceroe"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tqi03"]
+size = Vector2(15, 15)
+subdivide_width = 9
+subdivide_depth = 9
+
+[sub_resource type="Image" id="Image_ex5fs"]
+data = {
+"data": PackedByteArray(197, 197, 197, 180, 180, 180, 169, 169, 169, 165, 165, 165, 167, 167, 167, 176, 176, 176, 191, 191, 191, 214, 214, 214, 244, 244, 244, 255, 255, 255, 255, 255, 255, 199, 199, 199, 181, 181, 181, 170, 170, 170, 166, 166, 166, 168, 168, 168, 177, 177, 177, 192, 192, 192, 215, 215, 215, 246, 246, 246, 255, 255, 255, 255, 255, 255, 207, 207, 207, 189, 189, 189, 178, 178, 178, 174, 174, 174, 176, 176, 176, 185, 185, 185, 200, 200, 200, 223, 223, 223, 255, 255, 255, 255, 255, 255, 255, 255, 255, 222, 222, 222, 204, 204, 204, 192, 192, 192, 188, 188, 188, 190, 190, 190, 199, 199, 199, 215, 215, 215, 239, 239, 239, 255, 255, 255, 255, 255, 255, 255, 255, 255, 245, 245, 245, 226, 226, 226, 214, 214, 214, 210, 210, 210, 212, 212, 212, 221, 221, 221, 238, 238, 238, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 244, 244, 244, 239, 239, 239, 242, 242, 242, 252, 252, 252, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
+"format": "RGB8",
+"height": 11,
+"mipmaps": false,
+"width": 11
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_2xc5v"]
+image = SubResource("Image_ex5fs")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv2ui"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_wn2ud")
+shader_parameter/min_height = 2.0
+shader_parameter/max_height = -2.0
+shader_parameter/height_offset = 0.2
+shader_parameter/heightmap = SubResource("ImageTexture_2xc5v")
+
+[node name="ProjectedPlane" type="Node3D"]
+script = ExtResource("1_2qsjl")
+projection_start_height = 2.0
+projection_end_height = -2.0
+collision_mask = null
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="."]
+custom_aabb = AABB(-100, -100, -100, 200, 200, 200)
+mesh = SubResource("PlaneMesh_tqi03")
+surface_material_override/0 = SubResource("ShaderMaterial_lv2ui")
+
+[node name="RayCasts" type="Node3D" parent="."]
+
+[node name="RayCast_0_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_0" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_1" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_3" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_4" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_5" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_6" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 1)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_7" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 2)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_8" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 3)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_9" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 4)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_0_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_1_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_2_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_3_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_4_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_5_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_6_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_7_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_8_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_9_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
+
+[node name="RayCast_10_10" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 5)
+target_position = Vector3(0, -4, 0)
+script = ExtResource("3_ceroe")
