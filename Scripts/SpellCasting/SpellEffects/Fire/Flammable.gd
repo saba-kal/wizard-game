@@ -58,3 +58,6 @@ func un_light():
 
 func un_extinguish():
     pass
+
+func immune_to_fire():
+    return false

@@ -20,7 +20,7 @@ func _process(delta):
     if !self.damage_over_time_enabled || self.immunity_enabled:
         return
     if self.time_since_last_damage >= self.time_between_damage:
-        self.health.take_damage(self.damage_unit_amount)
+        self.health.take_damage(self.damage_unit_amount, Health.DamageType.FIRE)
         self.time_since_last_damage = 0
     self.time_since_last_damage += delta
 
@@ -41,3 +41,6 @@ func un_light():
 
 func un_extinguish():
     self.immunity_enabled = false
+
+func immune_to_fire():
+    return immunity_enabled
