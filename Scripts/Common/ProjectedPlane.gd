@@ -25,7 +25,6 @@ func _ready() -> void:
 func project_plane() -> void:
     self.update_plane_mesh_resolution()
     self.update_plane_mesh_size()
-    # self.update_ray_casts()
     self.update_shader(true)
 
 
@@ -76,7 +75,6 @@ func update_shader(force_raycast: bool) -> void:
         for xi: int in range(self.resolution_x + 1):
             var collision_point = self.cast_ray(xi, yi)
             var height = inverse_lerp(self.projection_start_height, self.projection_end_height, collision_point.y)
-            printt(self.projection_start_height, self.projection_end_height, collision_point.y, height)
             heightmap.set_pixel(xi, yi, Color(height, height, height, 1.0))
 
     var mesh_instance: MeshInstance3D = $PlaneMesh
@@ -105,7 +103,6 @@ func cast_ray(x_index: int, y_index: int) -> Vector3:
     var worldspace = self.get_world_3d().direct_space_state
     var query = PhysicsRayQueryParameters3D.create(from_position, to_position, self.collision_mask)
     var result = worldspace.intersect_ray(query)
-    print(result)
     if result:
         var ground_pos: Vector3 = result["position"]
         return ground_pos - self.global_position
