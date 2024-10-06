@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5h82my55oei6"
-path="res://.godot/imported/Button.blend-57b4fd72956f3706c3a0a38dc68c21c4.scn"
+uid="uid://bgho02lsleh2c"
+path="res://.godot/imported/RegularMushroom.blend-971c866a330f1705b204342e52c3028b.scn"
 
 [deps]
 
-source_file="res://Models/InteractiveLevelElements/Button.blend"
-dest_files=["res://.godot/imported/Button.blend-57b4fd72956f3706c3a0a38dc68c21c4.scn"]
+source_file="res://Models/Environment/textures/RegularMushroom.blend"
+dest_files=["res://.godot/imported/RegularMushroom.blend-971c866a330f1705b204342e52c3028b.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -31,7 +31,18 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Cap": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/Mushroom/MushroomCap.tres"
+},
+"Stem": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Characters/Mushroom/MushroomStem.tres"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
