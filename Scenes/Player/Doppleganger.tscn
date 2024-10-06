@@ -1,0 +1,414 @@
+[gd_scene load_steps=45 format=3 uid="uid://camgjowju3wn6"]
+
+[ext_resource type="Script" path="res://Scripts/AI/Doppelganger/Doppelganger.gd" id="1_05ntj"]
+[ext_resource type="PackedScene" uid="uid://dh1b1a7qfjn3" path="res://Models/Characters/Player/Player.glb" id="2_s6ro1"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerSwimming.gd" id="3_jpa1f"]
+[ext_resource type="Script" path="res://Scripts/AI/Doppelganger/DoppelgangerMovement.gd" id="3_leh4i"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerSliding.gd" id="4_g4jv5"]
+[ext_resource type="PackedScene" uid="uid://xsbfgrucribr" path="res://Scenes/Effects/IceBoard.tscn" id="5_jynaq"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerAnimationTree.gd" id="6_kllkp"]
+[ext_resource type="PackedScene" uid="uid://dtluxk7384hxd" path="res://Scenes/Effects/Flammable.tscn" id="8_3gkra"]
+[ext_resource type="Script" path="res://Scripts/AI/Doppelganger/FreezableDoppelgang.gd" id="8_r2pyg"]
+[ext_resource type="PackedScene" uid="uid://dpnavhw8cg2ck" path="res://Scenes/Effects/HealableCharacter.tscn" id="9_obgoy"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Fire/FlammableDoppelganger.gd" id="10_dbj5s"]
+[ext_resource type="PackedScene" uid="uid://gwlsad3v7l5s" path="res://Scenes/Characters/Health.tscn" id="10_gswn1"]
+[ext_resource type="PackedScene" uid="uid://dd55852bglfak" path="res://Scenes/Characters/StatusHealth.tscn" id="11_4d78h"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerKnockDown.gd" id="12_bocye"]
+[ext_resource type="Script" path="res://Scripts/AI/Doppelganger/DoppelgangerHealth.gd" id="13_vsoi8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b4ek0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7f6w"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q23lx"]
+height = 1.1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g77ho"]
+animation = &"BigOuchie_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u4u04"]
+animation = &"Stand"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nukqu"]
+xfade_time = 0.1
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5wyrh"]
+xfade_time = 0.1
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"start_standup"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fuvml"]
+xfade_time = 0.1
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dvbxk"]
+states/BigOuchie_001/node = SubResource("AnimationNodeAnimation_g77ho")
+states/BigOuchie_001/position = Vector2(408, 100)
+states/Stand/node = SubResource("AnimationNodeAnimation_u4u04")
+states/Stand/position = Vector2(713, 100)
+transitions = ["Start", "BigOuchie_001", SubResource("AnimationNodeStateMachineTransition_nukqu"), "BigOuchie_001", "Stand", SubResource("AnimationNodeStateMachineTransition_5wyrh"), "Stand", "End", SubResource("AnimationNodeStateMachineTransition_fuvml")]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_hxia0"]
+filter_enabled = true
+filters = ["HumanRig/Skeleton3D:Head", "HumanRig/Skeleton3D:Neck", "HumanRig/Skeleton3D:l.arm", "HumanRig/Skeleton3D:l.arm.001", "HumanRig/Skeleton3D:l.shoulder", "HumanRig/Skeleton3D:r.arm", "HumanRig/Skeleton3D:r.arm.001", "HumanRig/Skeleton3D:r.shoulder", "HumanRig/Skeleton3D:spine.001"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_31ltn"]
+animation = &"Spell(Other)"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ilfxc"]
+filter_enabled = true
+filters = ["HumanRig/Skeleton3D:Head", "HumanRig/Skeleton3D:Neck", "HumanRig/Skeleton3D:l.arm", "HumanRig/Skeleton3D:l.arm.001", "HumanRig/Skeleton3D:l.shoulder", "HumanRig/Skeleton3D:r.arm", "HumanRig/Skeleton3D:r.arm.001", "HumanRig/Skeleton3D:r.shoulder", "HumanRig/Skeleton3D:spine.001"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eh6pi"]
+animation = &"Spell(Self)"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_rtblc"]
+input_0/name = "not_dead"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "dead"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "knocked_down"
+input_2/auto_advance = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_33x3j"]
+animation = &"Dies"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s4ld8"]
+animation = &"Jump_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_alqq1"]
+animation = &"FloatInWater_loop"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nkyb4"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_0vibc"]
+fadein_time = 0.1
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xwieg"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_1kwml"]
+filters = ["HumanRig/Skeleton3D:Head", "HumanRig/Skeleton3D:Neck", "HumanRig/Skeleton3D:l.arm", "HumanRig/Skeleton3D:l.arm.001", "HumanRig/Skeleton3D:l.shoulder", "HumanRig/Skeleton3D:r.arm", "HumanRig/Skeleton3D:r.arm.001", "HumanRig/Skeleton3D:r.shoulder", "HumanRig/Skeleton3D:spine.001"]
+fadein_time = 0.1
+fadeout_time = 0.1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bm3q7"]
+animation = &"Jump_002"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_reaal"]
+animation = &"Run_loop"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_j0yn7"]
+filter_enabled = true
+filters = ["HumanRig/Skeleton3D:Head", "HumanRig/Skeleton3D:Neck", "HumanRig/Skeleton3D:l.arm", "HumanRig/Skeleton3D:l.arm.001", "HumanRig/Skeleton3D:l.shoulder", "HumanRig/Skeleton3D:r.arm", "HumanRig/Skeleton3D:r.arm.001", "HumanRig/Skeleton3D:r.shoulder", "HumanRig/Skeleton3D:spine.001"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qmyab"]
+animation = &"SmallOuchie"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_k873e"]
+xfade_time = 0.1
+input_0/name = "idle"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "run"
+input_1/auto_advance = false
+input_1/reset = false
+input_2/name = "fall"
+input_2/auto_advance = false
+input_2/reset = false
+input_3/name = "walk"
+input_3/auto_advance = false
+input_3/reset = false
+input_4/name = "swim"
+input_4/auto_advance = false
+input_4/reset = false
+input_5/name = "float"
+input_5/auto_advance = false
+input_5/reset = false
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_txuoq"]
+animation = &"Swim_loop"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3pkky"]
+animation = &"Walk_loop"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_k3g6i"]
+nodes/KnockDownStateMachine/node = SubResource("AnimationNodeStateMachine_dvbxk")
+nodes/KnockDownStateMachine/position = Vector2(1240, 1000)
+nodes/cast_spell_other/node = SubResource("AnimationNodeOneShot_hxia0")
+nodes/cast_spell_other/position = Vector2(1160, 540)
+nodes/cast_spell_other_anim/node = SubResource("AnimationNodeAnimation_31ltn")
+nodes/cast_spell_other_anim/position = Vector2(780, 800)
+nodes/cast_spell_self/node = SubResource("AnimationNodeOneShot_ilfxc")
+nodes/cast_spell_self/position = Vector2(940, 420)
+nodes/cast_spell_self_anim/node = SubResource("AnimationNodeAnimation_eh6pi")
+nodes/cast_spell_self_anim/position = Vector2(680, 600)
+nodes/dead_state/node = SubResource("AnimationNodeTransition_rtblc")
+nodes/dead_state/position = Vector2(1620, 740)
+nodes/death_anim/node = SubResource("AnimationNodeAnimation_33x3j")
+nodes/death_anim/position = Vector2(1320, 820)
+nodes/fall_anim/node = SubResource("AnimationNodeAnimation_s4ld8")
+nodes/fall_anim/position = Vector2(-340, 120)
+nodes/float_anim/node = SubResource("AnimationNodeAnimation_alqq1")
+nodes/float_anim/position = Vector2(-360, 520)
+nodes/idle_anim/node = SubResource("AnimationNodeAnimation_nkyb4")
+nodes/idle_anim/position = Vector2(-340, -120)
+nodes/jump/node = SubResource("AnimationNodeOneShot_0vibc")
+nodes/jump/position = Vector2(280, 160)
+nodes/jump_anim/node = SubResource("AnimationNodeAnimation_xwieg")
+nodes/jump_anim/position = Vector2(100, 460)
+nodes/land/node = SubResource("AnimationNodeOneShot_1kwml")
+nodes/land/position = Vector2(480, 260)
+nodes/land_anim/node = SubResource("AnimationNodeAnimation_bm3q7")
+nodes/land_anim/position = Vector2(160, 620)
+nodes/output/position = Vector2(1980, 740)
+nodes/run_anim/node = SubResource("AnimationNodeAnimation_reaal")
+nodes/run_anim/position = Vector2(-340, 0)
+nodes/small_stagger/node = SubResource("AnimationNodeOneShot_j0yn7")
+nodes/small_stagger/position = Vector2(720, 320)
+nodes/small_stagger_anim/node = SubResource("AnimationNodeAnimation_qmyab")
+nodes/small_stagger_anim/position = Vector2(440, 540)
+nodes/state/node = SubResource("AnimationNodeTransition_k873e")
+nodes/state/position = Vector2(60, 60)
+nodes/swim_anim/node = SubResource("AnimationNodeAnimation_txuoq")
+nodes/swim_anim/position = Vector2(-340, 380)
+nodes/walk_anim/node = SubResource("AnimationNodeAnimation_3pkky")
+nodes/walk_anim/position = Vector2(-340, 240)
+node_connections = [&"cast_spell_other", 0, &"cast_spell_self", &"cast_spell_other", 1, &"cast_spell_other_anim", &"cast_spell_self", 0, &"small_stagger", &"cast_spell_self", 1, &"cast_spell_self_anim", &"dead_state", 0, &"cast_spell_other", &"dead_state", 1, &"death_anim", &"dead_state", 2, &"KnockDownStateMachine", &"jump", 0, &"state", &"jump", 1, &"jump_anim", &"land", 0, &"jump", &"land", 1, &"land_anim", &"output", 0, &"dead_state", &"small_stagger", 0, &"land", &"small_stagger", 1, &"small_stagger_anim", &"state", 0, &"idle_anim", &"state", 1, &"run_anim", &"state", 2, &"fall_anim", &"state", 3, &"walk_anim", &"state", 4, &"swim_anim", &"state", 5, &"float_anim"]
+
+[node name="Doppleganger" type="CharacterBody3D"]
+script = ExtResource("1_05ntj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_b4ek0")
+
+[node name="Visuals" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Player2" parent="Visuals" instance=ExtResource("2_s6ro1")]
+transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0, -1.02373, 0)
+
+[node name="Skeleton3D" parent="Visuals/Player2/HumanRig" index="0"]
+bones/0/position = Vector3(0, -3.79984, 0)
+bones/1/rotation = Quaternion(0.154056, 0.00897539, 0.0516314, 0.986671)
+bones/2/rotation = Quaternion(0.0353262, -2.3827e-07, -8.88179e-16, 0.999376)
+bones/3/rotation = Quaternion(-0.409667, 0.00131231, -0.0523892, 0.910728)
+bones/4/rotation = Quaternion(0.228593, 6.91889e-15, 5.45007e-08, 0.973522)
+bones/5/rotation = Quaternion(0.559438, 0.232896, 0.79548, 5.79389e-05)
+bones/6/rotation = Quaternion(0.00185565, -1.19209e-07, 2.21218e-10, 0.999998)
+bones/7/rotation = Quaternion(-5.78799e-05, 0.79548, -0.232896, 0.559438)
+bones/7/scale = Vector3(-2.85604, -2.85604, -2.85604)
+bones/8/rotation = Quaternion(-0.168958, -0.0478624, -0.841778, 0.510463)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.240535, 0.120263, -0.38168, 0.884308)
+bones/10/rotation = Quaternion(0.660499, 0.0116543, 0.00421888, 0.750725)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-0.655527, 0.284903, -0.0770527, 0.695109)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.168958, 0.0478625, 0.841778, 0.510463)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(-0.458631, -0.591354, 0.192077, 0.634873)
+bones/14/rotation = Quaternion(0.730615, -0.0105981, -0.00466654, 0.682691)
+bones/15/rotation = Quaternion(-0.655527, -0.284903, 0.0770527, 0.695109)
+bones/16/rotation = Quaternion(0.525119, 0.477504, 0.521527, -0.47355)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(-0.672371, 0.227209, 0.201561, 0.675031)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(8.05088e-09, 1.35208e-10, 0.144455, 0.989511)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(0.525119, -0.477504, -0.521527, -0.47355)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.469359, 0.42613, 0.499201, 0.590689)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(1.06251e-07, -8.16199e-09, -0.593, 0.805202)
+bones/22/rotation = Quaternion(0.954861, 0.151499, 0.00666329, -0.25543)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(0.173788, 0.685431, 0.685418, -0.173735)
+bones/24/rotation = Quaternion(0, 0, 0.707107, 0.707107)
+bones/25/rotation = Quaternion(-0.00377738, -1.19208e-07, -4.50299e-10, 0.999993)
+bones/27/position = Vector3(1.04596, 5.31887, 3.18069)
+bones/27/rotation = Quaternion(0.19164, -0.680642, 0.680642, -0.19164)
+bones/28/position = Vector3(0.55033, 2.04811, -2.84997)
+bones/28/rotation = Quaternion(0.5, -0.5, 0.5, -0.5)
+bones/29/rotation = Quaternion(2.38419e-07, 0, 1, 0)
+bones/30/position = Vector3(-1.71071, 5.36746, -0.819296)
+bones/30/rotation = Quaternion(-0.19164, -0.680642, 0.680642, 0.19164)
+bones/31/position = Vector3(-0.55033, 1.37471, 1.59445)
+bones/31/rotation = Quaternion(0.5, 0.5, -0.5, -0.5)
+bones/32/rotation = Quaternion(-2.38419e-07, 0, 1, 0)
+bones/33/position = Vector3(-0.705613, 3.06308, 2.66477)
+bones/33/rotation = Quaternion(0.855085, 0.0789077, 0.136611, 0.493904)
+bones/33/scale = Vector3(1, 1, 1)
+bones/34/position = Vector3(-1.67812, 1.93831, 0.158702)
+bones/34/rotation = Quaternion(0.996224, 0, 0.0868217, 0)
+bones/35/position = Vector3(-1.11696, 1.95725, -1.02866)
+bones/36/position = Vector3(1.11396, 1.77196, -0.0954406)
+bones/36/rotation = Quaternion(0.944185, 0.0462004, -0.150846, -0.28918)
+bones/36/scale = Vector3(1, 1, 1)
+bones/37/position = Vector3(1.82561, 2.34898, -0.943877)
+bones/37/rotation = Quaternion(0.951611, 0.0256909, -0.0829337, -0.294787)
+bones/38/position = Vector3(1.01323, 2.9042, -2.19538)
+bones/38/rotation = Quaternion(0.946572, 0.0397223, -0.128229, -0.293226)
+bones/39/position = Vector3(1.3547e-07, 4.62605, -0.566348)
+bones/39/rotation = Quaternion(0.906232, 0.0213217, 0.00913488, -0.422144)
+bones/39/scale = Vector3(1, 1, 1)
+bones/40/rotation = Quaternion(-0.0664799, -0.00390451, 0.0447022, 0.996778)
+bones/41/rotation = Quaternion(0.353861, -0.00322042, 0.0337987, 0.934682)
+bones/42/position = Vector3(-0.0566602, 3.17237, -2.57272)
+bones/43/position = Vector3(-0.970862, 4.10787, 0.244372)
+bones/43/rotation = Quaternion(0.834214, 0.0592495, -0.00162777, 0.548247)
+bones/43/scale = Vector3(1, 1, 1)
+bones/44/rotation = Quaternion(0.00382216, 0.0588544, 0.00113516, 0.998259)
+bones/45/rotation = Quaternion(-0.00441335, 0.0777071, -0.00180973, 0.996965)
+bones/46/position = Vector3(-1.11317, 4.38806, 0.146721)
+bones/46/rotation = Quaternion(0.976857, -0.146554, 0.152386, 0.0324099)
+bones/46/scale = Vector3(1, 1, 1)
+bones/47/rotation = Quaternion(0.0288323, -0.0617059, -0.0478713, 0.996529)
+bones/48/rotation = Quaternion(-0.0118988, -0.00533615, -0.0129231, 0.999831)
+bones/48/scale = Vector3(1, 1, 1)
+bones/49/position = Vector3(-0.933782, 4.52281, -0.293987)
+bones/49/rotation = Quaternion(0.989493, -0.0361274, 0.0252763, -0.137692)
+bones/50/rotation = Quaternion(-0.000947978, 0.137197, 0.00462779, 0.990533)
+bones/51/rotation = Quaternion(0.00229308, -0.0118, -0.00383076, 0.99992)
+bones/52/position = Vector3(0.633168, 3.86526, 1.07439)
+bones/52/rotation = Quaternion(0.963295, -0.0572387, -0.0441305, -0.258531)
+bones/52/scale = Vector3(1, 1, 1)
+bones/53/rotation = Quaternion(0.0304879, -0.0666764, -0.223111, 0.972032)
+bones/54/rotation = Quaternion(-0.199166, -0.0851313, -0.0802914, 0.972954)
+bones/55/position = Vector3(1.21769, 4.32807, 0.196521)
+bones/55/rotation = Quaternion(0.904706, 0.358361, -0.049543, -0.225011)
+bones/55/scale = Vector3(1, 1, 1)
+bones/56/rotation = Quaternion(0.0415842, 0.0629487, 0.257977, 0.963201)
+bones/57/rotation = Quaternion(-0.0606327, 0.0084796, 0.185183, 0.980795)
+bones/57/scale = Vector3(1, 1, 1)
+bones/58/position = Vector3(0.892658, 4.60233, -0.162905)
+bones/58/rotation = Quaternion(0.905658, 0.0306642, -0.0167206, -0.422568)
+bones/59/rotation = Quaternion(-0.000973499, -0.13696, -0.00468498, 0.990565)
+bones/60/rotation = Quaternion(0.00241967, 0.0117476, 0.00391078, 0.99992)
+
+[node name="L_eye" parent="Visuals/Player2/HumanRig/Skeleton3D" index="0"]
+transform = Transform3D(-1.06832, 0.743969, 2.54208, 0.753924, -2.54227, 1.06087, 2.53914, 1.06787, 0.754566, 0.703323, 6.37423, 3.30335)
+
+[node name="MaskChin" parent="Visuals/Player2/HumanRig/Skeleton3D" index="1"]
+transform = Transform3D(2.85604, 7.37262e-08, -1.91304e-08, 1.80619e-08, 2.85604, 3.07336e-07, 1.28236e-08, -2.20723e-07, 2.85604, -0.392635, -4.06752, 1.18793)
+
+[node name="R_eye" parent="Visuals/Player2/HumanRig/Skeleton3D" index="2"]
+transform = Transform3D(1.06833, -0.743969, -2.54208, 0.753924, -2.54227, 1.06087, 2.53914, 1.06787, 0.754567, -1.48859, 6.37423, 3.30335)
+
+[node name="NotShroomGrimoire" parent="Visuals/Player2/HumanRig/Skeleton3D" index="3"]
+transform = Transform3D(-0.310033, 0.111029, 0.125653, 0.0145972, 0.280999, -0.21228, -0.167042, -0.181517, -0.251764, 0.929443, 0.780177, -1.01114)
+
+[node name="NotShroomGrimoire" parent="Visuals/Player2/HumanRig/Skeleton3D/NotShroomGrimoire" index="0"]
+transform = Transform3D(1, 2.98023e-08, -4.26326e-14, 2.98023e-08, 1, 0, 5.68434e-14, -2.84217e-14, 1, 0, 0, 0)
+
+[node name="Grimoire_Rune" parent="Visuals/Player2/HumanRig/Skeleton3D" index="4"]
+transform = Transform3D(0.111029, 0.310033, 0.125653, 0.280999, -0.0145972, -0.21228, -0.181517, 0.167042, -0.251764, 1.14958, 0.794874, -0.852201)
+
+[node name="Grimoire_Rune" parent="Visuals/Player2/HumanRig/Skeleton3D/Grimoire_Rune" index="0"]
+transform = Transform3D(1, -2.98023e-08, 0, -2.98023e-08, 1, 4.26326e-14, -2.84217e-14, -5.68434e-14, 1, 0, 0, 0)
+
+[node name="Belt" parent="Visuals/Player2/HumanRig/Skeleton3D" index="5"]
+transform = Transform3D(2.84035, -0.283811, 0.0938772, 0.298889, 2.71171, -0.845142, -0.00514962, 0.850324, 2.72652, 0.36929, -3.59539, -1.10926)
+
+[node name="Vials" parent="Visuals/Player2/HumanRig/Skeleton3D" index="6"]
+transform = Transform3D(-0.103501, -0.0296953, 0.00342083, -0.0108914, 0.283728, -0.0307965, 0.000187649, 0.08897, 0.0993527, -0.861197, 0.0290482, 1.16817)
+
+[node name="PlayerMovement" type="Node3D" parent="." node_paths=PackedStringArray("player_node", "player_visuals_node", "animation_tree", "doppleganger")]
+script = ExtResource("3_leh4i")
+player_node = NodePath("..")
+player_visuals_node = NodePath("../Visuals")
+animation_tree = NodePath("../AnimationTree")
+doppleganger = NodePath("..")
+
+[node name="PlayerSwimming" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.819372, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_jpa1f")
+float_height = 0.3
+swim_height = 0.5
+water_density = 2.0
+dampening_factor = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerSwimming"]
+shape = SubResource("BoxShape3D_v7f6w")
+
+[node name="PlayerSliding" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("4_g4jv5")
+spell_effect_scene = ExtResource("5_jynaq")
+spawn_height = 2.88
+player_height_offset = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerSliding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("CylinderShape3D_q23lx")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Visuals/Player2")
+tree_root = SubResource("AnimationNodeBlendTree_k3g6i")
+anim_player = NodePath("../Visuals/Player2/AnimationPlayer")
+parameters/KnockDownStateMachine/conditions/start_standup = false
+parameters/cast_spell_other/active = false
+parameters/cast_spell_other/internal_active = false
+parameters/cast_spell_other/request = 0
+parameters/cast_spell_self/active = false
+parameters/cast_spell_self/internal_active = false
+parameters/cast_spell_self/request = 0
+parameters/dead_state/current_state = "not_dead"
+parameters/dead_state/transition_request = ""
+parameters/dead_state/current_index = 0
+parameters/jump/active = false
+parameters/jump/internal_active = false
+parameters/jump/request = 0
+parameters/land/active = false
+parameters/land/internal_active = false
+parameters/land/request = 0
+parameters/small_stagger/active = false
+parameters/small_stagger/internal_active = false
+parameters/small_stagger/request = 0
+parameters/state/current_state = "run"
+parameters/state/transition_request = ""
+parameters/state/current_index = 1
+script = ExtResource("6_kllkp")
+
+[node name="Freezable" type="Node3D" parent="." node_paths=PackedStringArray("player_movement")]
+script = ExtResource("8_r2pyg")
+player_movement = NodePath("../PlayerMovement")
+
+[node name="Flammable" parent="." instance=ExtResource("8_3gkra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05667, 0)
+script = ExtResource("10_dbj5s")
+
+[node name="Healable" parent="." instance=ExtResource("9_obgoy")]
+
+[node name="Health" parent="." instance=ExtResource("10_gswn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17121, 0)
+script = ExtResource("13_vsoi8")
+
+[node name="StatusHealth" parent="." instance=ExtResource("11_4d78h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60792, 0)
+max_health = 50.0
+
+[node name="KnockDown" type="Node3D" parent="."]
+script = ExtResource("12_bocye")
+knock_down_duration = 5.0
+
+[connection signal="damage_taken" from="Health" to="." method="_on_damage_taken"]
+[connection signal="healed" from="Health" to="." method="_on_healed"]
+[connection signal="health_lost" from="Health" to="PlayerMovement" method="_on_health_lost"]
+[connection signal="health_lost" from="Health" to="AnimationTree" method="_on_health_lost"]
+
+[editable path="Visuals/Player2"]

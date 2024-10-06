@@ -18,3 +18,7 @@ func supports_runes(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowR
 
 func set_indicator_visible(is_visible: bool):
     pass
+
+
+func can_cast_spell() -> bool:
+    return true

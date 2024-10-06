@@ -16,9 +16,9 @@ collision_mask = 4
 gravity_point_center = Vector3(0, 1, 0)
 gravity_direction = Vector3(0, 1, 0)
 linear_damp_space_override = 1
-linear_damp = 0.5
+linear_damp = 2.0
 angular_damp_space_override = 1
-angular_damp = 0.3
+angular_damp = 5.0
 script = ExtResource("1_mksut")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

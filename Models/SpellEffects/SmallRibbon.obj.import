@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://chwngv4mt7oso"
+path="res://.godot/imported/SmallRibbon.obj-f12532d47b2fef89b36a88d10a03d34f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SmallRibbon.obj-f12532d47b2fef89b36a88d10a03d34f.mesh"]
+
+source_file="res://Models/SpellEffects/SmallRibbon.obj"
+dest_files=["res://.godot/imported/SmallRibbon.obj-f12532d47b2fef89b36a88d10a03d34f.mesh", "res://.godot/imported/SmallRibbon.obj-f12532d47b2fef89b36a88d10a03d34f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

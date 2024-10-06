@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhtss1qq2ipn7"]
+
+[ext_resource type="Script" path="res://Scripts/Common/ProjectedPlane.gd" id="1_2qsjl"]
+[ext_resource type="Shader" path="res://Shaders/plane_projection_shader.gdshader" id="2_wn2ud"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tqi03"]
+size = Vector2(15, 15)
+subdivide_width = 14
+subdivide_depth = 14
+
+[sub_resource type="Gradient" id="Gradient_3x7yx"]
+colors = PackedColorArray(0, 0.458824, 0.454902, 1, 0.623529, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mgy8v"]
+gradient = SubResource("Gradient_3x7yx")
+
+[sub_resource type="Image" id="Image_4r6kq"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "RGB8",
+"height": 11,
+"mipmaps": false,
+"width": 11
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_we77k"]
+image = SubResource("Image_4r6kq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv2ui"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_wn2ud")
+shader_parameter/min_height = 2.0
+shader_parameter/max_height = -2.0
+shader_parameter/height_offset = 0.2
+shader_parameter/alpha = 0.354
+shader_parameter/octaves = 3
+shader_parameter/offset = Vector2(0.5, 0.5)
+shader_parameter/tiling = Vector2(1, 1)
+shader_parameter/offset_strength = null
+shader_parameter/fade_amount = 0.775
+shader_parameter/fade_smoothing = 0.123
+shader_parameter/hypotenuse = 0.707
+shader_parameter/heightmap = SubResource("ImageTexture_we77k")
+shader_parameter/gradient = SubResource("GradientTexture1D_mgy8v")
+
+[sub_resource type="Animation" id="Animation_elc1j"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlaneMesh:surface_material_override/0:shader_parameter/fade_amount")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.775]
+}
+
+[sub_resource type="Animation" id="Animation_adjml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlaneMesh:surface_material_override/0:shader_parameter/fade_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.775]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6l2w"]
+_data = {
+"RESET": SubResource("Animation_adjml"),
+"fade_in": SubResource("Animation_elc1j")
+}
+
+[node name="ProjectedPlane" type="Node3D"]
+script = ExtResource("1_2qsjl")
+size_x = 15.0
+size_y = 15.0
+resolution_x = 15
+resolution_y = 15
+projection_start_height = 2.0
+projection_end_height = -2.0
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+custom_aabb = AABB(-100, -100, -100, 200, 200, 200)
+mesh = SubResource("PlaneMesh_tqi03")
+surface_material_override/0 = SubResource("ShaderMaterial_lv2ui")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k6l2w")
+}
+autoplay = "fade_in"

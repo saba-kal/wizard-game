@@ -1,6 +1,6 @@
 shader_type spatial;
 
-render_mode ambient_light_disabled, depth_prepass_alpha;
+render_mode ambient_light_disabled, depth_prepass_alpha, cull_disabled;
 
 uniform vec4 albedo : source_color = vec4(1.0f);
 uniform sampler2D albedo_texture : source_color;
@@ -8,6 +8,12 @@ uniform vec2 albedo_texture_scale = vec2(1.0f);
 uniform vec2 albedo_texture_offset = vec2(0.0f);
 uniform bool clamp_diffuse_to_max = false;
 uniform float light_strength : hint_range(0.0f, 20.0f) = 1.0;
+uniform float contrast : hint_range(0.0f, 10.0f) = 1.0;
+uniform float saturation : hint_range(0, 3) = 1.0;
+
+uniform float red_val : hint_range(0, 1) = 1.0;
+uniform float green_val : hint_range(0, 1) = 1.0;
+uniform float blue_val : hint_range(0, 1) = 1.0;
 
 uniform int cuts : hint_range(1, 8) = 3;
 uniform float wrap : hint_range(-2.0f, 2.0f) = 0.0f;
@@ -40,17 +46,42 @@ uniform vec4 dissolve_burn_color: source_color;
 varying vec3 vertex_pos;
 varying vec3 normal;
 
+mat4 contrast_matrix(){
+    float t = ( 1.0 - contrast ) / 2.0;
+    return mat4( 
+        vec4(contrast, 0, 0, 0),
+        vec4(0, contrast, 0, 0),
+        vec4(0, 0, contrast, 0),
+        vec4(t, t, t, 1));
+}
+
+mat4 saturation_matrix(){
+    vec3 luminance = vec3( 0.3086, 0.6094, 0.0820 );
+    float oneMinusSat = 1.0 - saturation;
+
+    vec3 red = vec3( luminance.x * oneMinusSat );
+    red+= vec3(saturation, 0, 0)*red_val;
+    vec3 green = vec3( luminance.y * oneMinusSat );
+    green += vec3( 0,saturation, 0 )*green_val;
+    vec3 blue = vec3( luminance.z * oneMinusSat );
+    blue += vec3( 0, 0,saturation )*blue_val;
+
+    return mat4(vec4(red, 0),vec4(green,0),vec4(blue,0),vec4(0, 0, 0, 1));
+}
+
 float split_specular(float specular) {
-	return step(0.5f, specular);
+    return step(0.5f, specular);
 }
 
 void vertex() {
-	vertex_pos = VERTEX;
-	normal = NORMAL;
+    vertex_pos = VERTEX;
+    normal = NORMAL;
 }
 
 void fragment() {
-    vec3 main_albedo = albedo.rgb * texture(albedo_texture, (UV + albedo_texture_offset) * albedo_texture_scale).rgb;
+    vec4 albedo_tex = texture(albedo_texture, (UV + albedo_texture_offset) * albedo_texture_scale);
+    vec4 main_albedo = albedo * albedo_tex;
+    main_albedo = main_albedo * contrast_matrix() * saturation_matrix();
     if (use_dissolve){
         // Credit: https://godotshaders.com/shader/2d-dissolve-with-burn-edge/
         vec4 noise_texture = texture(dissolve_texture, UV);
@@ -58,11 +89,12 @@ void fragment() {
         float threshold = smoothstep(noise_texture.x-burn_size_step, noise_texture.x, dissolve_value);
         float border = smoothstep(noise_texture.x, noise_texture.x + burn_size_step, dissolve_value);
         ALPHA = threshold;
-        ALBEDO = mix(dissolve_burn_color.rgb, main_albedo, border);
+        ALBEDO = mix(dissolve_burn_color, main_albedo, border).rgb;
         EMISSION = mix(dissolve_burn_color.rgb * dissolve_brightness, vec3(0), border);
     }
     else{
-        ALBEDO = main_albedo;
+        ALBEDO = main_albedo.rgb;
+        ALPHA = albedo_tex.a;
     }
 }
 

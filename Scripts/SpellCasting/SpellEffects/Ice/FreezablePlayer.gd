@@ -1,4 +1,4 @@
-extends Freezable
+class_name FreezablePlayer extends Freezable
 
 @export var player_movement: PlayerMovement
 

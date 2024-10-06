@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=29 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://dglm4v4eyn5ev" path="res://Scenes/Environment/PhysicsObjects/RockPhysicsObject.tscn" id="19_rmpdl"]
 [ext_resource type="PackedScene" uid="uid://dqkj10yn050io" path="res://Scenes/Characters/MushroomEnemy.tscn" id="20_ustba"]
 [ext_resource type="PackedScene" uid="uid://dhak28tjshvpe" path="res://Scenes/Environment/InteractiveLevelElements/Ballista.tscn" id="21_0vley"]
+[ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="22_5wron"]
+[ext_resource type="PackedScene" uid="uid://camgjowju3wn6" path="res://Scenes/Player/Doppleganger.tscn" id="24_8kwxr"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_g56d8"]
 rayleigh_color = Color(0.611765, 0.192157, 0.631373, 1)
@@ -195,5 +197,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.786, 24.2159, -42.6137)
 [node name="Ballista" parent="." instance=ExtResource("21_0vley")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3703, 24.2527, -74.9257)
 break_on_use = false
+
+[node name="DebugConsole" parent="." instance=ExtResource("22_5wron")]
+
+[node name="Doppleganger" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_8kwxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0889, 21.5572, -56.5743)
+player = NodePath("../Player")
 
 [editable path="Map/TempMushroomForestTerrain"]

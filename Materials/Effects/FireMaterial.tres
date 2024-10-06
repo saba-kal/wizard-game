@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://b37q2ctviiy7h"]
+
+[ext_resource type="Shader" path="res://Shaders/fire_effect.gdshader" id="1_nh0lv"]
+
+[sub_resource type="Gradient" id="Gradient_hw6w4"]
+offsets = PackedFloat32Array(0.119628, 0.433052, 0.55006, 0.727382)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.886275, 0, 1, 1, 0.0333334, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nginn"]
+gradient = SubResource("Gradient_hw6w4")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pan0a"]
+frequency = 0.0324
+cellular_distance_function = 1
+domain_warp_enabled = true
+domain_warp_amplitude = 100.0
+domain_warp_frequency = 0.005
+domain_warp_fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tigxn"]
+seamless = true
+seamless_blend_skirt = 0.424
+noise = SubResource("FastNoiseLite_pan0a")
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_nh0lv")
+shader_parameter/horizontal_stretch = 5.0
+shader_parameter/verticak_stretch = 0.5
+shader_parameter/twist_amount = 2.0
+shader_parameter/y_scroll_speed = -0.5
+shader_parameter/noise_scale = 0.2
+shader_parameter/brightness = 2.0
+shader_parameter/fire_amount = 0.0
+shader_parameter/albedo_texture = SubResource("GradientTexture1D_nginn")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_tigxn")

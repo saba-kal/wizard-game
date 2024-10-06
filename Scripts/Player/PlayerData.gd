@@ -7,5 +7,5 @@ func _ready() -> void:
     SignalBus.rune_collected.connect(self.on_rune_collected)
 
 
-func on_rune_collected(rune: Rune) -> void:
-    self.runes.append(rune)
+func on_rune_collected(new_rune: Rune) -> void:
+    self.runes.append(new_rune)

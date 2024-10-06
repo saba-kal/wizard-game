@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var duration: float = 60
+@export var duration: float = 10
 
 
 func _ready():
