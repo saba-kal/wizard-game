@@ -37,20 +37,20 @@ float voronoi( in vec2 x ){
         for( int i=-1; i<=1; i++ ){
             vec2 g = vec2(float(i),float(j));
             vec2 o = hash( n + g );
-            
-            o = 0.5 + 0.41*sin( 6.2831*o );	
+
+            o = 0.5 + 0.41*sin( 6.2831*o );
             vec2 r = g - f + o;
             float d =sqrt(dot(r,r));
 
-            if( d<F1 ) { 
-                F2 = F1; 
-                F1 = d; 
-            } 
+            if( d<F1 ) {
+                F2 = F1;
+                F1 = d;
+            }
             else if( d<F2 ) {
                 F2 = d;
             }
     }
-	
+
     float c = (F1+F2)/2.0;
     c = (F1+F2)/2.0;
     c *= F1;
@@ -76,7 +76,7 @@ float fbm( in vec2 p ){
 void vertex() {
     float height_val = texture(heightmap, UV).x;
     height_val = clamp(height_val, 0.0, 1.0);
-    VERTEX.y = mix(min_height, max_height, height_val) + height_offset; 
+    VERTEX.y = mix(min_height, max_height, height_val) + height_offset;
 }
 
 void fragment() {
