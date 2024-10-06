@@ -23,9 +23,6 @@ size = Vector3(1000, 1, 1000)
 
 [node name="Map" type="Node3D" parent="."]
 
-[node name="Mushroom_Valley_ImportedModel" parent="Map" instance=ExtResource("1_n3op0")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -49.8004, -119.143, -46.6132)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Map"]
 navigation_mesh = SubResource("NavigationMesh_x17wx")
 
