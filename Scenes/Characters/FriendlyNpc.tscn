@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://dx4mreaw0i3ik"]
+
+[ext_resource type="PackedScene" uid="uid://cf7s8g750xcju" path="res://Scenes/Debug/DebugText.tscn" id="1_5vatn"]
+[ext_resource type="Script" path="res://Scripts/Characters/FriendlyNPC.gd" id="1_6x0gy"]
+[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="3_h1jaj"]
+[ext_resource type="Script" path="res://Scripts/SpellCrafting/RedRune.gd" id="4_rjuyc"]
+[ext_resource type="Texture2D" uid="uid://cmklsp7qe37f7" path="res://Textures/Runes/Red/benefit_rune.png" id="5_8fybt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xr4ve"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3sfki"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qiael"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Resource" id="Resource_pxxid"]
+script = ExtResource("4_rjuyc")
+type = 1
+texture = ExtResource("5_8fybt")
+mana_cost = 10.0
+mana_multiplier = 1.0
+
+[node name="FriendlyNPC" type="CharacterBody3D"]
+script = ExtResource("1_6x0gy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_xr4ve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_3sfki")
+
+[node name="DebugText" parent="." instance=ExtResource("1_5vatn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.215, 0)
+texture = SubResource("ViewportTexture_qiael")
+
+[node name="RuneCollectable" parent="." instance=ExtResource("3_h1jaj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7237, 0.893772, 0)
+visible = false
+monitoring = false
+rune = SubResource("Resource_pxxid")

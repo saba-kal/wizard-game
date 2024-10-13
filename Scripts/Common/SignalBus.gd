@@ -3,6 +3,7 @@ extends Node
 
 signal rune_slots_changed(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune)
 signal rune_collected(rune: Rune)
+signal quest_item_collected(collectible)
 signal spell_cast(targets_self: bool)
 signal player_aim_mode_changed(is_aiming: bool)
 signal player_jumped()
