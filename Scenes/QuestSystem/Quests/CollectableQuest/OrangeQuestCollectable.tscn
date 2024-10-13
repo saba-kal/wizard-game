@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://ebok7wvdgik1"]
+
+[ext_resource type="Script" path="res://Scripts/QuestSystem/Quests/CollectableQuest/QuestCollectable.gd" id="1_tyyyj"]
+[ext_resource type="Shader" path="res://Shaders/flexible_toon.gdshader" id="2_m8wmq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s861v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0fvq"]
+render_priority = 0
+shader = ExtResource("2_m8wmq")
+shader_parameter/albedo = Color(1, 0.773833, 0.41, 1)
+shader_parameter/albedo_texture_scale = Vector2(1, 1)
+shader_parameter/albedo_texture_offset = Vector2(0, 0)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/light_strength = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+shader_parameter/red_val = 1.0
+shader_parameter/green_val = 1.0
+shader_parameter/blue_val = 1.0
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.258
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = false
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/use_dissolve = false
+shader_parameter/dissolve_value = null
+shader_parameter/dissolve_brightness = 1.0
+shader_parameter/dissolve_burn_size = null
+shader_parameter/dissolve_burn_color = null
+
+[sub_resource type="SphereMesh" id="SphereMesh_ocekd"]
+material = SubResource("ShaderMaterial_n0fvq")
+
+[node name="AppleQuestCollectable" type="Area3D"]
+script = ExtResource("1_tyyyj")
+type = "orange"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_s861v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ocekd")

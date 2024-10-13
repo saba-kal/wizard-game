@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjtek74wuetor"]
+[gd_scene load_steps=15 format=3 uid="uid://bjtek74wuetor"]
 
 [ext_resource type="Script" path="res://Scripts/UI/PlayerHealthBar.gd" id="1_xn4ju"]
 [ext_resource type="Script" path="res://Scripts/UI/HealthBar.gd" id="2_07cuy"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerManaBar.gd" id="3_2fmb7"]
 [ext_resource type="Script" path="res://Scripts/UI/PlayerStatusBar.gd" id="4_vls5t"]
+[ext_resource type="Script" path="res://Scripts/UI/QuestTrackerUI.gd" id="5_j55nd"]
+[ext_resource type="FontFile" uid="uid://ccqys3hb7hqvy" path="res://Fonts/ChailceNogginRegular.ttf" id="6_0hwrr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjgyv"]
 bg_color = Color(0.160784, 0.0862745, 0.384314, 1)
@@ -76,6 +78,18 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_k3esi"]
+font = ExtResource("6_0hwrr")
+font_size = 22
+font_color = Color(1, 0.733667, 0.06, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f7a7p"]
+font = ExtResource("6_0hwrr")
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -219,3 +233,35 @@ grow_vertical = 2
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="QuestTracker" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -152.0
+offset_right = 239.0
+offset_bottom = 116.0
+grow_vertical = 2
+script = ExtResource("5_j55nd")
+
+[node name="HeaderLabel" type="Label" parent="QuestTracker"]
+layout_mode = 1
+offset_right = 139.0
+offset_bottom = 23.0
+text = "Active Quests"
+label_settings = SubResource("LabelSettings_k3esi")
+
+[node name="QuestProgressLabel" type="Label" parent="QuestTracker"]
+layout_mode = 1
+offset_top = 51.0
+offset_right = 178.0
+offset_bottom = 275.0
+text = "Collect apples
+- 0/5 collected
+
+Collect oranges
+- 0/5 collected
+"
+label_settings = SubResource("LabelSettings_f7a7p")

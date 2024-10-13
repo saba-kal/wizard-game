@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsqrolac82pbh"]
+
+[ext_resource type="Script" path="res://Scripts/QuestSystem/QuestIcon.gd" id="1_8q0v3"]
+[ext_resource type="Texture2D" uid="uid://bs55vhbnv6ou5" path="res://Textures/Icons/QuestExclamationIcon.png" id="1_p3jgj"]
+[ext_resource type="Texture2D" uid="uid://0rufdgigds6o" path="res://Textures/Icons/QuestQuestionIcon.png" id="2_3c04q"]
+
+[node name="QuestIcon" type="Node3D"]
+script = ExtResource("1_8q0v3")
+
+[node name="SpriteScaler" type="Node3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="NewQuestIcon" type="Sprite3D" parent="SpriteScaler"]
+modulate = Color(0.729656, 0.725494, 7.70092e-07, 1)
+billboard = 2
+texture = ExtResource("1_p3jgj")
+
+[node name="QuestInProgressIcon" type="Sprite3D" parent="SpriteScaler"]
+visible = false
+modulate = Color(0.481789, 0.481789, 0.481789, 1)
+billboard = 2
+texture = ExtResource("2_3c04q")
+
+[node name="QuestCompleteIcon" type="Sprite3D" parent="SpriteScaler"]
+visible = false
+modulate = Color(0.729656, 0.725494, 7.70092e-07, 1)
+billboard = 2
+texture = ExtResource("2_3c04q")

@@ -20,18 +20,24 @@ func _process(delta: float) -> void:
 
     var regen: float = self.base_mana_regen_rate
 
-    if Input.is_action_pressed("regen_mana") && self.current_mana < self.max_mana:
+    if self.regen_active:
         regen += self.mana_regen_rate
-        if !self.regen_active:
-            self.regen_active = true
-            SignalBus.player_mana_regen_changed.emit(self.regen_active)
-    elif self.regen_active:
-        self.regen_active = false
-        SignalBus.player_mana_regen_changed.emit(self.regen_active)
 
     self.particles.emitting = self.regen_active
     self.current_mana += regen * delta
     self.current_mana = clamp(self.current_mana, 0, self.max_mana)
+
+
+func set_regen_active(is_active: bool) -> void:
+    if self.regen_active == is_active:
+        return
+
+    if is_active && self.current_mana < self.max_mana:
+        self.regen_active = true
+        SignalBus.player_mana_regen_changed.emit(self.regen_active)
+    elif self.regen_active:
+        self.regen_active = false
+        SignalBus.player_mana_regen_changed.emit(self.regen_active)
 
 
 func consume_mana(mana: float) -> void:

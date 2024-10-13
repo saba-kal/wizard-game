@@ -18,6 +18,6 @@ func get_child_nodes_of_type(node: Node3D, type: Variant) -> Array:
 
 func remove_elem(array: Array, elem: Variant) -> bool:
     var index: int = array.find(elem)
-    if index > 0:
+    if index >= 0:
         array.remove_at(index)
-    return index > 0
+    return index >= 0

@@ -55,8 +55,6 @@ func process_velocity(delta):
         self.apply_vertical_velocity(self.jump_velocity)
         SignalBus.player_jumped.emit()
 
-    self.input_direction = Input.get_vector(
-        "move_left", "move_right", "move_forward", "move_backward")
     var direction = (self.player_node.transform.basis *
         Vector3(self.input_direction.x, 0, self.input_direction.y)).normalized()
     if doppleganger and direction:

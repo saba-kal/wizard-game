@@ -1,4 +1,4 @@
-extends Node3D
+class_name SpellFactory extends Node3D
 
 @export var cast_time: float = 1.0
 
@@ -31,11 +31,6 @@ func _process(delta: float) -> void:
             spell.set_indicator_visible(is_spell_ready)
             SignalBus.spell_ready_to_cast_updated.emit(is_spell_ready)
     self.time_since_last_spell_cast += delta
-
-
-func _unhandled_input(event) -> void:
-    if event.is_action("cast_spell") && event.is_pressed():
-        self.cast_spell()
 
 
 func on_rune_slots_changed(new_blue_rune: BlueRune, new_red_rune: RedRune, new_yellow_rune: YellowRune) -> void:
