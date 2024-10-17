@@ -199,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7373, 0.545025, -14.9008)
 ai_wander_area = NodePath("../../Map/AIWonderArea")
 
 [node name="Kobold" parent="." instance=ExtResource("23_brfdi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0468206, 0.5, 20.1011)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.47354, 0.5, 5.17226)
 
 [node name="Player" parent="." instance=ExtResource("2_0vrrc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038459, 0.460478, 0.800288)

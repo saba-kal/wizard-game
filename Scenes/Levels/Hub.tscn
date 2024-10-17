@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq6v5uyav5nra"]
+[gd_scene load_steps=13 format=3 uid="uid://bq6v5uyav5nra"]
 
 [ext_resource type="PackedScene" uid="uid://mpbpk763lnud" path="res://Scenes/Environment/Common/DefaultWorldEnvironment.tscn" id="1_ngil3"]
 [ext_resource type="PackedScene" uid="uid://y1gdgfxfgrg0" path="res://Models/Maps/FirstAreaPlaceholderMap.glb" id="2_8jwld"]
@@ -9,8 +9,6 @@
 [ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="6_fd2at"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="6_i8ieh"]
 [ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="7_l3umd"]
-[ext_resource type="PackedScene" uid="uid://dx4mreaw0i3ik" path="res://Scenes/Characters/FriendlyNpc.tscn" id="14_si7bj"]
-[ext_resource type="PackedScene" uid="uid://be2uq2rik3fth" path="res://Scenes/Environment/Collectables/FetchQuestCollectible.tscn" id="15_jtw5j"]
 [ext_resource type="Texture2D" uid="uid://cq18fgtfvxuw3" path="res://Textures/Bearclops/BearclopsEyeTexture1.png" id="16_5uuhw"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="17_vddis"]
 
@@ -65,9 +63,3 @@ texture_albedo = ExtResource("16_5uuhw")
 texture_normal = ExtResource("16_5uuhw")
 
 [node name="DebugConsole" parent="." instance=ExtResource("17_vddis")]
-
-[node name="FreindlyNPC" parent="." instance=ExtResource("14_si7bj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4009, 9.79335, -76.8037)
-
-[node name="FetchQuestCollectible" parent="." instance=ExtResource("15_jtw5j")]
-transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -13.5373, 10.2157, -75.9079)

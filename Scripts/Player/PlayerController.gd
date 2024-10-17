@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
             if Input.is_action_just_pressed("interact"):
                 if self.nearby_quest != null:
                     self.nearby_quest.interact()
+                    self.current_state = State.ENGAGING_DIALOGUE
                 elif self.nearby_ballista != null:
                     self.current_state = State.AIMING_BALLISTA
                     self.nearby_ballista.change_state(Ballista.State.AIMING)
@@ -41,6 +42,13 @@ func _process(delta: float) -> void:
             if Input.is_action_just_pressed("interact"):
                 self.current_state = State.MOVING
                 self.nearby_ballista.change_state(Ballista.State.UNMANNED)
+        State.ENGAGING_DIALOGUE:
+            if self.nearby_quest != null:
+                if Input.is_action_just_pressed("interact"):
+                    if self.nearby_quest.interact():
+                        self.current_state = State.MOVING
+            else:
+                self.current_state = State.MOVING
 
 
 func _unhandled_input(event) -> void:

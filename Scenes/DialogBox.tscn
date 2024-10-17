@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgs6rftuv7hk6"]
+
+[ext_resource type="Script" path="res://Scripts/UI/DialogBox.gd" id="1_4op8q"]
+[ext_resource type="Texture2D" uid="uid://c25n12xy3wesk" path="res://Textures/DialogBoxBorder.jpg" id="1_g5wsj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afgt0"]
+texture = ExtResource("1_g5wsj")
+texture_margin_left = 32.0
+texture_margin_top = 34.0
+texture_margin_right = 31.0
+texture_margin_bottom = 31.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 96, 96)
+
+[node name="DialogBox" type="PanelContainer" node_paths=PackedStringArray("label")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -210.0
+offset_right = 335.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_afgt0")
+script = ExtResource("1_4op8q")
+label = NodePath("Label")
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/mono_font_size = 1
+theme_override_font_sizes/normal_font_size = 54
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

@@ -35,6 +35,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Wizard-game"
 
+[gui]
+
+theme/custom_font="res://Fonts/ChailceNogginRegular.ttf"
+
 [input]
 
 move_forward={

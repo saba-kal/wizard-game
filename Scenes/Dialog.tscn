@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://nrjp38rkd08l"]
+
+[ext_resource type="Script" path="res://Scripts/QuestSystem/Dialog.gd" id="1_8ddv7"]
+[ext_resource type="PackedScene" uid="uid://bgs6rftuv7hk6" path="res://Scenes/DialogBox.tscn" id="2_uigtk"]
+
+[node name="Dialog" type="Sprite3D"]
+billboard = 1
+script = ExtResource("1_8ddv7")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1024, 65)
+
+[node name="DialogBox" parent="SubViewport" instance=ExtResource("2_uigtk")]
+offset_left = -512.0
+offset_top = -32.5
+offset_right = 512.0
+offset_bottom = 32.5
+
+[connection signal="resized" from="SubViewport/DialogBox" to="." method="_on_dialog_box_resized"]

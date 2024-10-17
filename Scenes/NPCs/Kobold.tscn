@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://db7q7q2iuhxlh"]
+[gd_scene load_steps=13 format=3 uid="uid://db7q7q2iuhxlh"]
 
 [ext_resource type="PackedScene" uid="uid://bsqrolac82pbh" path="res://Scenes/QuestSystem/QuestIcon.tscn" id="1_rap2u"]
 [ext_resource type="PackedScene" uid="uid://m84pu8wq7rvp" path="res://Scenes/QuestSystem/Quests/CollectableQuest/CollectableQuest.tscn" id="2_kgvsb"]
+[ext_resource type="PackedScene" uid="uid://nrjp38rkd08l" path="res://Scenes/Dialog.tscn" id="3_pvdaq"]
+[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="5_3niwk"]
+[ext_resource type="Script" path="res://Scripts/SpellCrafting/RedRune.gd" id="6_lqffw"]
+[ext_resource type="Texture2D" uid="uid://cmklsp7qe37f7" path="res://Textures/Runes/Red/benefit_rune.png" id="7_2sxyr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgkqg"]
 albedo_color = Color(0.101865, 0.372846, 0.128081, 1)
@@ -15,6 +19,13 @@ material = SubResource("StandardMaterial3D_mgkqg")
 material = SubResource("StandardMaterial3D_3w5et")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bqrny"]
+
+[sub_resource type="Resource" id="Resource_ro8gy"]
+script = ExtResource("6_lqffw")
+type = 1
+texture = ExtResource("7_2sxyr")
+mana_cost = 10.0
+mana_multiplier = 1.0
 
 [node name="Kobold" type="Node3D"]
 
@@ -38,8 +49,26 @@ shape = SubResource("CapsuleShape3D_bqrny")
 [node name="QuestIcon" parent="." instance=ExtResource("1_rap2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7334, 0)
 
-[node name="CollectableQuest" parent="." node_paths=PackedStringArray("quest_icon") instance=ExtResource("2_kgvsb")]
+[node name="CollectableQuest" parent="." node_paths=PackedStringArray("quest_icon", "start_dialog", "reward_dialog", "reward") instance=ExtResource("2_kgvsb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 collectable_type = "apple"
 objective_text = "Collect apples"
 quest_icon = NodePath("../QuestIcon")
+start_dialog = NodePath("Dialog")
+reward_dialog = NodePath("RewardDialog")
+reward = NodePath("../RuneCollectable")
+
+[node name="Dialog" parent="CollectableQuest" instance=ExtResource("3_pvdaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27636, 1)
+visible = false
+text = Array[String](["Hello there", "How do you like this dialogue sytem?", "Anyways, collect 3 apples for me and you will get a Benefit Rune"])
+
+[node name="RewardDialog" parent="CollectableQuest" instance=ExtResource("3_pvdaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93, 0)
+text = Array[String](["Thanks! Here's a benefit rune for your trouble!"])
+
+[node name="RuneCollectable" parent="." instance=ExtResource("5_3niwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01199, 0.952569, 0)
+visible = false
+monitoring = false
+rune = SubResource("Resource_ro8gy")
