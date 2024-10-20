@@ -31,6 +31,29 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Bronze": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Miscellaneous_Materials/Bronze.tres"
+},
+"BrownWood": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Wooden_Planks_M.tres"
+},
+"DarkBrownWood": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Trees&Plants_Materials/Redwood_M.tres"
+},
+"DarkSliver": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Transitional_Tower_Materials/dark_metal.tres"
+},
+"Metal": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Metal_M.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

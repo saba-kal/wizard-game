@@ -3,7 +3,8 @@ class_name PlayerController extends CharacterBody3D
 enum State {
     MOVING,
     AIMING_BALLISTA,
-    ENGAGING_DIALOGUE
+    ENGAGING_DIALOGUE,
+    DISABLED
 }
 
 @onready var player_movement: PlayerMovement = $PlayerMovement
@@ -21,6 +22,7 @@ func _ready() -> void:
     SignalBus.player_exited_ballista_region.connect(self.on_ballista_area_exited)
     SignalBus.player_entered_quest_giver_area.connect(self.on_player_entered_quest_giver_area)
     SignalBus.player_exited_quest_giver_area.connect(self.on_player_exited_quest_giver_area)
+    SignalBus.player_disabled.connect(self.set_player_disabled)
 
 
 func _process(delta: float) -> void:
@@ -80,3 +82,12 @@ func on_player_entered_quest_giver_area(quest: Quest) -> void:
 
 func on_player_exited_quest_giver_area(quest: Quest) -> void:
     self.nearby_quest = null
+
+
+func set_player_disabled(is_disabled: bool) -> void:
+    if is_disabled:
+        self.current_state = State.DISABLED
+        self.player_movement.on_player_disabled(true)
+    else:
+        self.current_state = State.MOVING
+        self.player_movement.on_player_disabled(false)

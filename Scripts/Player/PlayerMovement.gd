@@ -132,6 +132,7 @@ func is_on_floor() -> bool:
 func on_player_died() -> void:
     self.dead = true
 
+
 func on_player_disabled(is_disabled: bool) -> void:
     self.disabled = is_disabled
 
@@ -142,6 +143,7 @@ func get_velocity() -> Vector3:
 
 func on_player_mana_regen_changed(is_mana_regen_on: bool) -> void:
     self.is_mana_regen_active = is_mana_regen_on
+
 
 func get_sticky(sticker: Node3D):
     sticky_zip = 5
