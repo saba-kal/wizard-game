@@ -24,6 +24,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+    self.player_movement.input_direction = Vector2.ZERO
     match self.current_state:
         State.MOVING:
             self.player_movement.input_direction = Input.get_vector(
@@ -33,8 +34,8 @@ func _process(delta: float) -> void:
 
             if Input.is_action_just_pressed("interact"):
                 if self.nearby_quest != null:
-                    self.nearby_quest.interact()
-                    self.current_state = State.ENGAGING_DIALOGUE
+                    if  not self.nearby_quest.interact():
+                        self.current_state = State.ENGAGING_DIALOGUE
                 elif self.nearby_ballista != null:
                     self.current_state = State.AIMING_BALLISTA
                     self.nearby_ballista.change_state(Ballista.State.AIMING)

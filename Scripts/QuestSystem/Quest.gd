@@ -54,8 +54,10 @@ func give_reward() -> void:
     self.quest_icon.visible = false
     self.reward_obtained = true
     SignalBus.quest_reward_obtained.emit(self)
-    reward.visible = true
-    reward.monitoring = true
+    var rw: WeakRef = weakref(reward)
+    if(rw.get_ref()):
+        reward.visible = true
+        reward.monitoring = true
     activate_dialog(reward_dialog)
     active_dialog.advance_dialog()
 

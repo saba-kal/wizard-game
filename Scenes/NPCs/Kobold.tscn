@@ -52,6 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7334, 0)
 [node name="CollectableQuest" parent="." node_paths=PackedStringArray("quest_icon", "start_dialog", "reward_dialog", "reward") instance=ExtResource("2_kgvsb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 collectable_type = "apple"
+amount_to_collect = 3
 objective_text = "Collect apples"
 quest_icon = NodePath("../QuestIcon")
 start_dialog = NodePath("Dialog")

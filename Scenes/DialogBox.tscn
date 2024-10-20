@@ -37,3 +37,4 @@ theme_override_font_sizes/normal_font_size = 54
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
+visible_characters_behavior = 1
