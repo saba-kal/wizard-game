@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq6v5uyav5nra"]
+[gd_scene load_steps=14 format=3 uid="uid://bq6v5uyav5nra"]
 
 [ext_resource type="PackedScene" uid="uid://mpbpk763lnud" path="res://Scenes/Environment/Common/DefaultWorldEnvironment.tscn" id="1_ngil3"]
 [ext_resource type="PackedScene" uid="uid://y1gdgfxfgrg0" path="res://Models/Maps/FirstAreaPlaceholderMap.glb" id="2_8jwld"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="6_fd2at"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="6_i8ieh"]
 [ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="7_l3umd"]
+[ext_resource type="AudioStream" uid="uid://o33i8o181igy" path="res://Audio/Music/ExperimagicMushroom.mp3" id="12_wkrrg"]
 [ext_resource type="Texture2D" uid="uid://cq18fgtfvxuw3" path="res://Textures/Bearclops/BearclopsEyeTexture1.png" id="16_5uuhw"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="17_vddis"]
 
@@ -63,3 +64,9 @@ texture_albedo = ExtResource("16_5uuhw")
 texture_normal = ExtResource("16_5uuhw")
 
 [node name="DebugConsole" parent="." instance=ExtResource("17_vddis")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_wkrrg")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

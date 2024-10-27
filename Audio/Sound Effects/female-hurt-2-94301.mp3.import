@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbocf0jonnw1l"
+path="res://.godot/imported/female-hurt-2-94301.mp3-8fe3ac40c45fccbc164ad8df4f3155d5.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/female-hurt-2-94301.mp3"
+dest_files=["res://.godot/imported/female-hurt-2-94301.mp3-8fe3ac40c45fccbc164ad8df4f3155d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=120.0
+beat_count=1
+bar_beats=2
