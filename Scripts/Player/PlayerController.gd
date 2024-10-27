@@ -4,6 +4,7 @@ enum State {
     MOVING,
     AIMING_BALLISTA,
     ENGAGING_DIALOGUE,
+    SITTING_INSIDE_CANNON,
     DISABLED
 }
 
@@ -15,6 +16,7 @@ enum State {
 var current_state: State = State.MOVING
 var nearby_ballista: Ballista
 var nearby_quest: Quest
+var nearby_cannon: Cannon
 
 
 func _ready() -> void:
@@ -23,6 +25,7 @@ func _ready() -> void:
     SignalBus.player_entered_quest_giver_area.connect(self.on_player_entered_quest_giver_area)
     SignalBus.player_exited_quest_giver_area.connect(self.on_player_exited_quest_giver_area)
     SignalBus.player_disabled.connect(self.set_player_disabled)
+    SignalBus.player_entered_cannon.connect(self.on_player_entered_cannon)
 
 
 func _process(delta: float) -> void:
@@ -52,6 +55,12 @@ func _process(delta: float) -> void:
                         self.current_state = State.MOVING
             else:
                 self.current_state = State.MOVING
+        State.SITTING_INSIDE_CANNON:
+            if Input.is_action_just_pressed("jump"):
+                self.current_state = State.MOVING
+                self.player_movement.on_player_disabled(false)
+                if self.nearby_cannon != null:
+                    self.nearby_cannon.remove_player_from_cannon()
 
 
 func _unhandled_input(event) -> void:
@@ -82,6 +91,12 @@ func on_player_entered_quest_giver_area(quest: Quest) -> void:
 
 func on_player_exited_quest_giver_area(quest: Quest) -> void:
     self.nearby_quest = null
+
+
+func on_player_entered_cannon(cannon: Cannon) -> void:
+    self.nearby_cannon = cannon
+    self.current_state = State.SITTING_INSIDE_CANNON
+    self.player_movement.on_player_disabled(true)
 
 
 func set_player_disabled(is_disabled: bool) -> void:

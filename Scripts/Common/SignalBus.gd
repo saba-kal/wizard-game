@@ -1,6 +1,5 @@
 extends Node
 
-
 signal rune_slots_changed(blue_rune: BlueRune, red_rune: RedRune, yellow_rune: YellowRune)
 signal rune_collected(rune: Rune)
 signal spell_cast(targets_self: bool)
@@ -16,6 +15,9 @@ signal spell_ready_to_cast_updated(is_spell_ready: bool)
 signal player_entered_ballista_region(ballista: Ballista)
 signal player_exited_ballista_region(ballista: Ballista)
 signal ballista_projectile_collided(body: Node3D)
+signal player_entered_cannon(cannon: Cannon)
+signal player_exited_cannon(cannon: Cannon)
+signal player_fired_from_cannon(cannon: Cannon)
 
 #quest signals
 signal player_entered_quest_giver_area(quest: Quest)

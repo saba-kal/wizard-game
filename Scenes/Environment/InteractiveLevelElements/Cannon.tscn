@@ -1,11 +1,13 @@
-[gd_scene load_steps=55 format=4 uid="uid://c8dvosq8a8djq"]
+[gd_scene load_steps=71 format=4 uid="uid://c8dvosq8a8djq"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/InteractiveLevelElements/Cannon.gd" id="1_64upe"]
 [ext_resource type="Material" uid="uid://dc43te6nscf2v" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Trees&Plants_Materials/Redwood_M.tres" id="1_wtnw3"]
+[ext_resource type="PackedScene" uid="uid://bhnkllcvwx3pu" path="res://Scenes/Projectiles/FireBall.tscn" id="2_kn6xo"]
 [ext_resource type="Material" uid="uid://djt8noyv4huax" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Metal_M.tres" id="2_l0p6e"]
 [ext_resource type="Material" uid="uid://bp6ygf8s1w277" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Windmill_Village_Materials/Wooden_Planks_M.tres" id="3_is7w0"]
 [ext_resource type="Material" uid="uid://c36qs5kffx4gb" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Miscellaneous_Materials/Bronze.tres" id="4_q1v8u"]
 [ext_resource type="Material" uid="uid://dva2x10ifnea2" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Transitional_Tower_Materials/dark_metal.tres" id="5_eq42l"]
+[ext_resource type="Script" path="res://Scripts/SpellCasting/SpellEffects/Fire/FlammableCannon.gd" id="7_v78vw"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hl7bu"]
 _surfaces = [{
@@ -722,28 +724,74 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sgpwb")
 
+[sub_resource type="Curve" id="Curve_pmdco"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0111556, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_c3ixy"]
+curve = SubResource("Curve_pmdco")
+
+[sub_resource type="Gradient" id="Gradient_u1n36"]
+offsets = PackedFloat32Array(0, 0.510018)
+colors = PackedColorArray(0.84956, 3.29696e-06, 1.54018e-06, 1, 1, 0.85, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o7wag"]
+gradient = SubResource("Gradient_u1n36")
+
+[sub_resource type="Gradient" id="Gradient_o53ep"]
+offsets = PackedFloat32Array(0, 0.593807)
+colors = PackedColorArray(1, 0.916667, 0, 1, 1, 0.55, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kcdfo"]
+gradient = SubResource("Gradient_o53ep")
+
+[sub_resource type="Curve" id="Curve_cnftr"]
+max_value = 5.0
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.2063, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_22six"]
+curve = SubResource("Curve_cnftr")
+
+[sub_resource type="CurveTexture" id="CurveTexture_ynwww"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jsekt"]
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 7.0
+gravity = Vector3(0, -5, 0)
+linear_accel_curve = SubResource("CurveTexture_ynwww")
+damping_min = 15.0
+damping_max = 20.0
+scale_min = 0.05
+scale_max = 0.05
+color_ramp = SubResource("GradientTexture1D_kcdfo")
+color_initial_ramp = SubResource("GradientTexture1D_o7wag")
+alpha_curve = SubResource("CurveTexture_c3ixy")
+emission_curve = SubResource("CurveTexture_22six")
+
+[sub_resource type="Curve" id="Curve_ytcyr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.05277, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ps5i"]
+transparency = 1
+vertex_color_use_as_albedo = true
+emission_enabled = true
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_gbown"]
+material = SubResource("StandardMaterial3D_8ps5i")
+shape = 0
+size = 0.5
+curve = SubResource("Curve_ytcyr")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_mcdx3"]
 size = Vector3(3.25293, 2.26852, 2.42395)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wn76c"]
 height = 2.20257
 radius = 0.753454
-
-[sub_resource type="Animation" id="Animation_gfydt"]
-resource_name = "aim_cannon"
-length = 7.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CannonVisuals/Barrel:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1, 2.03333, 6, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.5708, 0, 0), Vector3(-0.785398, 0, 0), Vector3(-0.785398, 0, 0), Vector3(-1.5708, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_r3h2x"]
 length = 0.001
@@ -760,14 +808,46 @@ tracks/0/keys = {
 "values": [Vector3(-1.5708, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_gfydt"]
+resource_name = "aim_cannon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CannonVisuals/Barrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(-0.785398, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_omj6m"]
+resource_name = "reset_cannon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CannonVisuals/Barrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.785398, 0, 0), Vector3(-1.5708, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jqxwe"]
 _data = {
 "RESET": SubResource("Animation_r3h2x"),
-"aim_cannon": SubResource("Animation_gfydt")
+"aim_cannon": SubResource("Animation_gfydt"),
+"reset_cannon": SubResource("Animation_omj6m")
 }
 
 [node name="Cannon" type="Node3D"]
 script = ExtResource("1_64upe")
+default_projectile_scene = ExtResource("2_kn6xo")
 
 [node name="CannonVisuals" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37357, 0)
@@ -865,7 +945,7 @@ mesh = SubResource("ArrayMesh_cf6yu")
 skeleton = NodePath("")
 
 [node name="Barrel" type="MeshInstance3D" parent="CannonVisuals"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ntrdu")
 skeleton = NodePath("")
 
@@ -885,12 +965,31 @@ transform = Transform3D(0.0246632, 0, 0, 0, 0.0935806, 0.0147283, 0, -0.0696713,
 mesh = SubResource("ArrayMesh_qarju")
 skeleton = NodePath("")
 
+[node name="FuseParticles" type="GPUParticles3D" parent="CannonVisuals/Barrel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.973029, -0.74838)
+emitting = false
+amount = 40
+lifetime = 0.5
+transform_align = 3
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_jsekt")
+draw_pass_1 = SubResource("RibbonTrailMesh_gbown")
+
+[node name="CannonProjectileStartPosition" type="Marker3D" parent="CannonVisuals/Barrel"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.96375e-07, 4.49254)
+
 [node name="WagonCollider" type="StaticBody3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WagonCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15178, 0.127014)
 shape = SubResource("BoxShape3D_mcdx3")
+
+[node name="FlammableCannon" type="Node3D" parent="WagonCollider" node_paths=PackedStringArray("particle_effect", "cannon")]
+script = ExtResource("7_v78vw")
+particle_effect = NodePath("../../CannonVisuals/Barrel/FuseParticles")
+cannon = NodePath("../..")
 
 [node name="EntranceArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.345, 0)
@@ -899,8 +998,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.345, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790454, 0)
 shape = SubResource("CylinderShape3D_wn76c")
 
-[node name="ProjectileStartPosition" type="Marker3D" parent="."]
+[node name="PlayerProjectileStartPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35158, 0)
+
+[node name="PlayerExitPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11641, -1.74417)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,6 +1,7 @@
-[gd_scene load_steps=232 format=3 uid="uid://caeulvtyq2mvi"]
+[gd_scene load_steps=233 format=3 uid="uid://caeulvtyq2mvi"]
 
 [ext_resource type="PackedScene" uid="uid://bh767jnx7a6fo" path="res://Models/Maps/MushroomForest/Mushroom_Valley.glb" id="1_0gsgm"]
+[ext_resource type="Script" path="res://Scripts/Environment/Levels/MushroomValleyLevel.gd" id="2_24qjr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0lky3"]
 sky_top_color = Color(0.417531, 0.536568, 0.33243, 1)
@@ -780,6 +781,7 @@ data = PackedVector3Array(-4.6486, -0.3166, 0.4468, -5.0502, 0.1699, 0.4523, -4.
 
 [node name="Mushroom_Valley" instance=ExtResource("1_0gsgm")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -49.8004, -120.631, -46.6132)
+script = ExtResource("2_24qjr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_qxj46")
@@ -4298,7 +4300,7 @@ transform = Transform3D(0.975663, 0, -0.219278, 0, 1, 0, 0.219278, 0, 0.975663, 
 transform = Transform3D(0.975663, 0, -0.219278, 0, 1, 0, 0.219278, 0, 0.975663, 27.8998, 37.0394, -21.0967)
 
 [node name="Fort-Tower_2_001" parent="." index="1431"]
-transform = Transform3D(0.97914, 0.00931991, 0.202975, 0.009773, -0.999951, -0.00123009, 0.202954, 0.00318811, -0.979183, 27.0295, 51.8661, -3.3892)
+transform = Transform3D(0.97914, 0.0093199, 0.202975, 0.00977301, -0.999951, -0.00123009, 0.202954, 0.00318811, -0.979183, 27.0295, 51.8661, -3.3892)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Fort-Tower_2_001/BrickLine_012" index="0"]
 
