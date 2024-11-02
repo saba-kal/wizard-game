@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c1nmhavvp6eip"]
+[gd_scene load_steps=64 format=3 uid="uid://c1nmhavvp6eip"]
 
 [ext_resource type="Script" path="res://Scripts/Player/ThirdPersonCamera.gd" id="1_5i1xc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="1_vo617"]
@@ -26,9 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://ptwhwd5y6n8i" path="res://Scenes/Effects/DamageColumn.tscn" id="16_a3otw"]
 [ext_resource type="PackedScene" uid="uid://dd55852bglfak" path="res://Scenes/Characters/StatusHealth.tscn" id="17_3jrpt"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerKnockDown.gd" id="25_ywuba"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerSelfProjectile.gd" id="27_7kie2"]
 [ext_resource type="Script" path="res://Scripts/Audio/playerSoundManager.gd" id="27_3twkq"]
 [ext_resource type="AudioStream" uid="uid://c6r6w2opafuww" path="res://Audio/Sound Effects/jump.mp3" id="27_4itiv"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerSelfProjectile.gd" id="27_7kie2"]
 [ext_resource type="AudioStream" uid="uid://dbocf0jonnw1l" path="res://Audio/Sound Effects/female-hurt-2-94301.mp3" id="29_r53a5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bqhc"]
@@ -491,6 +491,7 @@ knock_down_duration = 5.0
 
 [node name="SelfProjectile" type="Node3D" parent="."]
 script = ExtResource("27_7kie2")
+
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
 
