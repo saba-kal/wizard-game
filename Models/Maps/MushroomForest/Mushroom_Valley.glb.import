@@ -33,6 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"Beige_Leaves": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Trees&Plants_Materials/Leaves_Redwood.tres"
+},
 "Black": {
 "use_external/enabled": true,
 "use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Transitional_Tower_Materials/black.tres"
@@ -108,6 +112,14 @@ _subresources={
 "Purple_Ground": {
 "use_external/enabled": true,
 "use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Terrain_Materials/PurpleGround_M.tres"
+},
+"Red_Leaves_1": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Trees&Plants_Materials/Leaves_Redwood.tres"
+},
+"Red_Leaves_2": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Trees&Plants_Materials/Leaves_Redwood.tres"
 },
 "Rock": {
 "use_external/enabled": true,

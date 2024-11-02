@@ -5,6 +5,7 @@ enum State {
     AIMING_BALLISTA,
     ENGAGING_DIALOGUE,
     SITTING_INSIDE_CANNON,
+    FLYING,
     DISABLED
 }
 
@@ -12,6 +13,7 @@ enum State {
 @onready var player_mana: PlayerMana = $Mana
 @onready var spell_factory: SpellFactory = $SpellFactory
 @onready var third_person_camera: ThirdPersonCamera = $ThirdPersonCamera
+@onready var player_flying: PlayerFlying = $PlayerFlying
 
 var current_state: State = State.MOVING
 var nearby_ballista: Ballista
@@ -26,14 +28,16 @@ func _ready() -> void:
     SignalBus.player_exited_quest_giver_area.connect(self.on_player_exited_quest_giver_area)
     SignalBus.player_disabled.connect(self.set_player_disabled)
     SignalBus.player_entered_cannon.connect(self.on_player_entered_cannon)
+    SignalBus.superman_mode_changed.connect(self.on_superman_mode_changed)
 
 
 func _process(delta: float) -> void:
+    var input_direction: Vector2 = Input.get_vector(
+        "move_left", "move_right", "move_forward", "move_backward");
     self.player_movement.input_direction = Vector2.ZERO
     match self.current_state:
         State.MOVING:
-            self.player_movement.input_direction = Input.get_vector(
-                "move_left", "move_right", "move_forward", "move_backward")
+            self.player_movement.input_direction = input_direction
             self.player_mana.set_regen_active(Input.is_action_pressed("regen_mana"))
             self.third_person_camera.set_aim_mode_enabled(Input.is_action_pressed("aim"))
 
@@ -58,9 +62,23 @@ func _process(delta: float) -> void:
         State.SITTING_INSIDE_CANNON:
             if Input.is_action_just_pressed("jump"):
                 self.current_state = State.MOVING
-                self.player_movement.on_player_disabled(false)
+                self.player_movement.set_disabled(false)
                 if self.nearby_cannon != null:
                     self.nearby_cannon.remove_player_from_cannon()
+        State.FLYING:
+            var direction_3d: Vector3 = Vector3(input_direction.x, 0, input_direction.y)
+            if Input.is_action_pressed("jump"):
+                direction_3d.y += 1
+            if Input.is_action_pressed("regen_mana"):
+                direction_3d.y -= 1
+            self.player_flying.set_flight_direction(direction_3d)
+
+
+func _physics_process(delta: float) -> void:
+    match self.current_state:
+        State.MOVING:
+            if Input.is_action_just_pressed("jump"):
+                self.player_movement.trigger_jump()
 
 
 func _unhandled_input(event) -> void:
@@ -96,13 +114,26 @@ func on_player_exited_quest_giver_area(quest: Quest) -> void:
 func on_player_entered_cannon(cannon: Cannon) -> void:
     self.nearby_cannon = cannon
     self.current_state = State.SITTING_INSIDE_CANNON
-    self.player_movement.on_player_disabled(true)
+    self.player_movement.set_disabled(true)
 
 
 func set_player_disabled(is_disabled: bool) -> void:
+    if self.current_state == State.FLYING:
+        return
     if is_disabled:
         self.current_state = State.DISABLED
-        self.player_movement.on_player_disabled(true)
+        self.player_movement.set_disabled(true)
     else:
         self.current_state = State.MOVING
-        self.player_movement.on_player_disabled(false)
+        self.player_movement.set_disabled(false)
+
+
+func on_superman_mode_changed(is_superman_mode_enabled: bool) -> void:
+    if is_superman_mode_enabled:
+        self.current_state = State.FLYING
+        self.player_movement.set_disabled(true)
+        self.player_flying.set_enabled(true)
+    else:
+        self.current_state = State.MOVING
+        self.player_movement.set_disabled(false)
+        self.player_flying.set_enabled(false)

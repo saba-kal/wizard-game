@@ -133,6 +133,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717006, 0.271142, -34.467
 
 [node name="LevelTransitionArea" parent="Map" instance=ExtResource("9_w2d25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2948, 0.5, -49.9474)
-transition_to = 2
+transition_to = 6
 
 [node name="DebugConsole" parent="." instance=ExtResource("12_ig2p8")]

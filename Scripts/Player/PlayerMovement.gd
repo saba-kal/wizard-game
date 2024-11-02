@@ -33,7 +33,6 @@ func _ready():
     self.player_sliding = Util.get_child_node_of_type(self.get_parent(), PlayerSliding)
     self.slippery_friction = 1.0/player_sliding.slip_factor
     SignalBus.player_died.connect(self.on_player_died)
-    SignalBus.player_disabled.connect(on_player_disabled)
     SignalBus.player_mana_regen_changed.connect(self.on_player_mana_regen_changed)
 
 
@@ -45,15 +44,17 @@ func _physics_process(delta):
     self.process_rotation(delta)
 
 
+func trigger_jump():
+    if !self.dead && !self.disabled && self.player_node.is_on_floor():
+        self.apply_vertical_velocity(self.jump_velocity)
+        SignalBus.player_jumped.emit()
+
+
 func process_velocity(delta):
     var friction = ground_friction
     if(self.player_sliding.is_sliding()): friction = slippery_friction
 
     self.player_node.velocity.y -= (self.gravity + self.gravity_adjustment) * delta
-
-    if Input.is_action_just_pressed("jump") && self.player_node.is_on_floor():
-        self.apply_vertical_velocity(self.jump_velocity)
-        SignalBus.player_jumped.emit()
 
     var direction = (self.player_node.transform.basis *
         Vector3(self.input_direction.x, 0, self.input_direction.y)).normalized()
@@ -133,7 +134,7 @@ func on_player_died() -> void:
     self.dead = true
 
 
-func on_player_disabled(is_disabled: bool) -> void:
+func set_disabled(is_disabled: bool) -> void:
     self.disabled = is_disabled
 
 
