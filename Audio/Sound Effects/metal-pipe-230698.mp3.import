@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dyntd3700ts67"
+path="res://.godot/imported/metal-pipe-230698.mp3-7d35ffbaf92efe41bf2816dfb07880d9.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/metal-pipe-230698.mp3"
+dest_files=["res://.godot/imported/metal-pipe-230698.mp3-7d35ffbaf92efe41bf2816dfb07880d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

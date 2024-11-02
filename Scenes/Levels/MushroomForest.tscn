@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=30 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dhak28tjshvpe" path="res://Scenes/Environment/InteractiveLevelElements/Ballista.tscn" id="21_0vley"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="22_5wron"]
 [ext_resource type="PackedScene" uid="uid://camgjowju3wn6" path="res://Scenes/Player/Doppleganger.tscn" id="24_8kwxr"]
+[ext_resource type="AudioStream" uid="uid://cutpw7ffgogaj" path="res://Audio/Music/Experimagic Team Ambiance 1.mp3" id="25_5ysg8"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_g56d8"]
 rayleigh_color = Color(0.611765, 0.192157, 0.631373, 1)
@@ -203,5 +204,11 @@ break_on_use = false
 [node name="Doppleganger" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_8kwxr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0889, 21.5572, -56.5743)
 player = NodePath("../Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_5ysg8")
+volume_db = -15.015
+autoplay = true
+bus = &"Music"
 
 [editable path="Map/TempMushroomForestTerrain"]
