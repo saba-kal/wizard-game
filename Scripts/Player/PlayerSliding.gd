@@ -61,4 +61,3 @@ func _on_snowboard_spell_cast():
     player_movement.player_node.apply_floor_snap()
     spell_effect.linear_velocity = vec
     player_movement.get_sticky(spell_effect)
-

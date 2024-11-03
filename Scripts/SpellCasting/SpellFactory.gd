@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
         var spell: Spell = self.get_spell()
         if spell != null:
             var is_spell_ready: bool = self.camera_is_aiming && self.time_since_last_spell_cast >= self.cast_time
-            spell.set_indicator_visible(is_spell_ready)
+            spell.set_indicator_visible(is_spell_ready && self.yellow_rune.type != YellowRune.YellowRuneType.SELF)
             SignalBus.spell_ready_to_cast_updated.emit(is_spell_ready)
     self.time_since_last_spell_cast += delta
 
@@ -62,7 +62,7 @@ func cast_spell() -> void:
         print("Cannot cast yet. Need to wait %.3f seconds" % (self.cast_time - self.time_since_last_spell_cast))
         return
 
-    if !spell.can_cast_spell():
+    if !spell.can_cast_spell() && self.yellow_rune.type != YellowRune.YellowRuneType.SELF:
         print("Spell is not cannot be cast because it is not ready. Check implementation of Spell.can_cast_spell() for why this may happen.")
         return
 
