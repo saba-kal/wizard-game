@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dx5atl5upktb1"]
+
+[resource]
+resource_name = "Springshroom_Cap&Base"
+cull_mode = 2
+shading_mode = 0

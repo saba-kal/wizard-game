@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkrr0v6klfpk3"]
+
+[ext_resource type="PackedScene" uid="uid://djnrshnwhv44o" path="res://Models/Maps/Mushroom_Valley_Models/Doppleganger Platform.glb" id="1_7nmn2"]
+
+[node name="DoppelGangerPlatform" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_7nmn2")]

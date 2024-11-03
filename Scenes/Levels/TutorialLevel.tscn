@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqcu0ktix7514"]
+[gd_scene load_steps=17 format=3 uid="uid://dqcu0ktix7514"]
 
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="1_6oo27"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="1_u7ffg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b0md0m2petekx" path="res://Scenes/Environment/InteractiveLevelElements/Vines.tscn" id="8_v0pn1"]
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="9_w2d25"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="12_ig2p8"]
+[ext_resource type="PackedScene" uid="uid://cl0bh86cwog0t" path="res://Models/Maps/Tutorial_Platform.glb" id="13_ogxjo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kkdpt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -76,42 +77,42 @@ material_override = ExtResource("2_225xi")
 size = Vector3(0.766907, 7.67816, 10.1162)
 
 [node name="CSGGround2" type="CSGBox3D" parent="Map/CSGGround1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.174072, 0, -28.1524)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.282461, 0, -27.27)
 material_override = ExtResource("2_225xi")
 use_collision = true
-size = Vector3(14.2734, 1, 26.3048)
+size = Vector3(14.0566, 1, 24.5401)
 
 [node name="CSGGround3" type="CSGBox3D" parent="Map/CSGGround1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7634, 0, -48.1458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.979, 0, -34.5887)
 material_override = ExtResource("2_225xi")
 use_collision = true
-size = Vector3(41.452, 1, 14.982)
+size = Vector3(24.5836, 1, 9.94657)
 material = ExtResource("5_b3e34")
 
 [node name="CSGWall6" type="CSGBox3D" parent="Map/CSGGround1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49925, 3.33908, -28.6606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.84639, 3.33908, -23.3174)
 material_override = ExtResource("2_225xi")
-size = Vector3(0.766907, 7.67816, 24.7695)
+size = Vector3(1.61295, 7.67816, 14.083)
 
 [node name="CSGWall7" type="CSGBox3D" parent="Map/CSGGround1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72784, 3.33908, -36.0705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46602, 3.33908, -27.7691)
 material_override = ExtResource("2_225xi")
-size = Vector3(0.766907, 7.67816, 39.5894)
+size = Vector3(0.766907, 7.67816, 22.9866)
 
 [node name="CSGWall8" type="CSGBox3D" parent="Map/CSGGround1"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.3956, 3.33908, -55.5963)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.3956, 3.33908, -40.1632)
 material_override = ExtResource("2_225xi")
 size = Vector3(0.766907, 7.67816, 42.822)
 
 [node name="CSGWall9" type="CSGBox3D" parent="Map/CSGGround1"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.5032, 3.33908, -41.2301)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.756, 3.33908, -29.9673)
 material_override = ExtResource("2_225xi")
-size = Vector3(0.766907, 7.67816, 28.6068)
+size = Vector3(0.766907, 7.67816, 25.1125)
 
 [node name="CSGWall10" type="CSGBox3D" parent="Map/CSGGround1"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 34.9308, 3.67816, -48.1647)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 32.6281, 3.67816, -36.3919)
 material_override = ExtResource("2_225xi")
-size = Vector3(0.766907, 7, 14.7375)
+size = Vector3(0.766907, 7, 13.6627)
 
 [node name="Runes" type="Node3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.18326)
@@ -129,10 +130,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8951, 1.26835, 0.558928)
 rune = ExtResource("7_lftw6")
 
 [node name="Vines" parent="Map" instance=ExtResource("8_v0pn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717006, 0.271142, -34.4672)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717006, 0.271142, -22.913)
 
 [node name="LevelTransitionArea" parent="Map" instance=ExtResource("9_w2d25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2948, 0.5, -49.9474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8659, 0.5, -36.1866)
+transition_to = 2
+
+[node name="LevelTransitionArea2" parent="Map" instance=ExtResource("9_w2d25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8659, 0.5, -36.1866)
 transition_to = 2
 
 [node name="DebugConsole" parent="." instance=ExtResource("12_ig2p8")]
+
+[node name="Tutorial_Platform2" parent="." instance=ExtResource("13_ogxjo")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0.3, -0.711)

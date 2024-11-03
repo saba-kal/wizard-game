@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c86xq4dpkuan4"]
+[gd_scene load_steps=10 format=3 uid="uid://c86xq4dpkuan4"]
 
-[ext_resource type="PackedScene" uid="uid://cn7vj7bja53g1" path="res://Models/Maps/MushroomForest/Mushroom1.blend" id="1_15s4m"]
+[ext_resource type="PackedScene" uid="uid://cqbwuib66gtec" path="res://Models/InteractiveLevelElements/Springshroom.glb" id="1_vrr0t"]
 [ext_resource type="Script" path="res://Scripts/Environment/InteractiveLevelElements/BouncePlatform.gd" id="2_aibmk"]
+[ext_resource type="Material" uid="uid://b0tljavnduqbi" path="res://Materials/Characters/Player/PlayerBodyMaterial.tres" id="2_y00fc"]
+[ext_resource type="AudioStream" uid="uid://c6r6w2opafuww" path="res://Audio/Sound Effects/jump.mp3" id="3_olhg8"]
+[ext_resource type="Material" uid="uid://ceisnabxpwhns" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Mushroom_Materials/Springshroom_Rings.tres" id="3_wyb2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyrlv"]
 diffuse_mode = 3
@@ -10,29 +13,31 @@ metallic_specular = 0.0
 roughness = 0.09
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ijqm"]
-radius = 0.784959
-height = 2.91938
+radius = 0.3
+height = 2.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jcr8k"]
-height = 0.824893
-radius = 1.81888
+height = 0.75
+radius = 1.1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n0vye"]
-height = 0.425428
-radius = 1.68506
+height = 0.9
+radius = 1.0
 
 [node name="BounceMushroom" type="Node3D"]
 
-[node name="Mushroom1" parent="." instance=ExtResource("1_15s4m")]
+[node name="Springshroom" parent="." instance=ExtResource("1_vrr0t")]
 
-[node name="Skeleton3D" parent="Mushroom1/Mushroom Bone" index="0"]
-bones/1/scale = Vector3(1.14057, 1.14057, 1.14057)
+[node name="Skeleton3D" parent="Springshroom/Springshroom_Skeleton_002" index="0"]
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -1.05879e-22, 1)
+bones/1/rotation = Quaternion(-2.0109e-09, 1.38556e-12, -2.29173e-05, 1)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-2.29977e-05, -2.70205e-10, -2.02598e-09, 1)
 
-[node name="Mushroom Base" parent="Mushroom1/Mushroom Bone/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_cyrlv")
-
-[node name="AnimationPlayer" parent="Mushroom1" index="1"]
-autoplay = "Idle Track"
+[node name="Springshroom_002" parent="Springshroom/Springshroom_Skeleton_002/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_y00fc")
+surface_material_override/1 = SubResource("StandardMaterial3D_cyrlv")
+surface_material_override/2 = ExtResource("3_wyb2d")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -48,7 +53,10 @@ shape = SubResource("CylinderShape3D_jcr8k")
 script = ExtResource("2_aibmk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01623, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 shape = SubResource("CylinderShape3D_n0vye")
 
-[editable path="Mushroom1"]
+[node name="BounceSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_olhg8")
+
+[editable path="Springshroom"]
