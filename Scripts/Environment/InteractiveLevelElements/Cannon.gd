@@ -72,6 +72,7 @@ func fire_cannon_projectile() -> void:
     projectile.speed = self.projectile_speed
     projectile.damage = self.projectile_damage
     projectile.projectile_gravity = self.projectile_gravity
+    projectile.collided.connect(self.on_projectile_collided)
     self.get_tree().root.add_child(projectile)
     projectile.global_position = self.cannon_projectile_start_pos.global_position
 
@@ -100,6 +101,11 @@ func on_entrance_area_body_entered(body: Node3D) -> void:
     self.is_player_attached_to_cannon = true
     SignalBus.player_entered_cannon.emit(self)
     call_deferred("temporarily_disabled_colliders")
+
+
+func on_projectile_collided(body: Node3D) -> void:
+    if body.is_in_group("DestructibleTower"):
+        SignalBus.mushroom_valley_tower_hit.emit()
 
 
 func temporarily_disabled_colliders() -> void:

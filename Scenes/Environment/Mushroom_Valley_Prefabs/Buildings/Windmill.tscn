@@ -8,7 +8,8 @@ size = Vector3(1.46045, 3.28107, 2.02396)
 [node name="Windmill2" instance=ExtResource("1_84663")]
 
 [node name="Skeleton3D" parent="Windmill/Armature" index="0"]
-bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(7.21251e-09, 0.376964, 1.61288e-08, 0.926228)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Windmill" index="7"]
 

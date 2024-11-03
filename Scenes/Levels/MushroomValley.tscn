@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://d2t8qs2j1fk3c"]
+[gd_scene load_steps=29 format=3 uid="uid://d2t8qs2j1fk3c"]
 
 [ext_resource type="PackedScene" uid="uid://caeulvtyq2mvi" path="res://Scenes/Levels/ImportedScenes/mushroom_valley.tscn" id="1_n3op0"]
+[ext_resource type="PackedScene" uid="uid://b76sgcwof6msx" path="res://Scenes/Environment/Mushroom_Valley_Prefabs/Platforms/BasicMushroomValleyPlatform.tscn" id="2_6q3wx"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_d6qgv"]
 [ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="2_omhl6"]
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="2_wlavq"]
@@ -9,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://d3fp1m7nc0qhp" path="res://Scenes/Characters/MushroomBirdBoss.tscn" id="3_vt10f"]
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/YellowRune.gd" id="4_4nkog"]
 [ext_resource type="PackedScene" uid="uid://dhak28tjshvpe" path="res://Scenes/Environment/InteractiveLevelElements/Ballista.tscn" id="4_kpflr"]
+[ext_resource type="PackedScene" uid="uid://c8dvosq8a8djq" path="res://Scenes/Environment/InteractiveLevelElements/Cannon.tscn" id="5_ciefr"]
 [ext_resource type="Texture2D" uid="uid://mvqhldxr4m07" path="res://Textures/Runes/Yellow/self_rune.png" id="5_hj5v4"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="5_k74qs"]
+[ext_resource type="PackedScene" uid="uid://ca5cjrn3xfkwu" path="res://Scenes/Environment/InteractiveLevelElements/RopeBridge.tscn" id="7_i20dh"]
 [ext_resource type="PackedScene" uid="uid://dqkj10yn050io" path="res://Scenes/Characters/MushroomEnemy.tscn" id="9_4km6q"]
 [ext_resource type="PackedScene" uid="uid://dglm4v4eyn5ev" path="res://Scenes/Environment/PhysicsObjects/RockPhysicsObject.tscn" id="9_38aw2"]
 [ext_resource type="PackedScene" uid="uid://biqqmdi2652eh" path="res://Scenes/Characters/Bearclops.tscn" id="10_c05n6"]
@@ -60,6 +63,20 @@ mana_multiplier = 1.0
 navigation_mesh = SubResource("NavigationMesh_x17wx")
 
 [node name="Mushroom_Valley_ImportedModel" parent="Map/NavigationRegion3D" instance=ExtResource("1_n3op0")]
+
+[node name="TerrainModifications" type="Node3D" parent="Map"]
+
+[node name="BasicMushroomValleyPlatform" parent="Map/TerrainModifications" instance=ExtResource("2_6q3wx")]
+transform = Transform3D(-2.31093, 0, -0.382052, 0, 2.93877, 0, 0.396966, 0, -2.22411, 72.6823, 11.1694, 125.005)
+
+[node name="BasicMushroomValleyPlatform4" parent="Map/TerrainModifications" instance=ExtResource("2_6q3wx")]
+transform = Transform3D(0.864379, 0, -0.217219, 0, 2.93877, 0, 0.21324, 0, 0.880508, 75.5547, 12.6384, 126.176)
+
+[node name="BasicMushroomValleyPlatform3" parent="Map/TerrainModifications" instance=ExtResource("2_6q3wx")]
+transform = Transform3D(4.74118, 0, -0.51009, 0, 2.93877, 0, 0.674178, 0, 3.58722, 75.312, 9.80657, 127.782)
+
+[node name="BasicMushroomValleyPlatform2" parent="Map/TerrainModifications" instance=ExtResource("2_6q3wx")]
+transform = Transform3D(2.77173, 0, 0.232775, 0, 2.93877, 0, -0.384413, 0, 1.67838, 75.9326, 13.5461, 123.623)
 
 [node name="Water" parent="Map" instance=ExtResource("2_omhl6")]
 transform = Transform3D(100, 0, 0, 0, 7.092, 0, 0, 0, 100, 0, -31.4774, 0)
@@ -116,6 +133,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5963, 8.5062, 3.86746)
 
 [node name="PlayerStartPosition" type="Marker3D" parent="Map/MushroomValleyBoss" groups=["BossStartPosition"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72031, 8.14934, -36.2284)
+
+[node name="Puzzles" type="Node3D" parent="Map"]
+
+[node name="Cannon" parent="Map/Puzzles" instance=ExtResource("5_ciefr")]
+transform = Transform3D(-0.968196, 0, -0.250194, 0, 1, 0, 0.250194, 0, -0.968196, 75.7632, 11.0941, 118.31)
+
+[node name="Cannon2" parent="Map/Puzzles" instance=ExtResource("5_ciefr")]
+transform = Transform3D(0.274547, 0, 0.961574, 0, 1, 0, -0.961574, 0, 0.274547, 15.1203, 30.7281, -69.2323)
+
+[node name="RopeBridge" parent="Map/Puzzles" instance=ExtResource("7_i20dh")]
+transform = Transform3D(1.01003, 0, 1.42911, 0, 1.07408, 0, -1.42911, 0, 1.01003, 40.0945, 5.89456, 62.562)
 
 [node name="Player" parent="." instance=ExtResource("2_d6qgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.484, 14.6683, -67.3001)

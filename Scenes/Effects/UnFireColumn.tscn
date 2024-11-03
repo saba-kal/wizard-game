@@ -134,13 +134,14 @@ process_material = SubResource("ParticleProcessMaterial_l73fd")
 draw_pass_1 = SubResource("QuadMesh_ee22r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "start_fire"
 libraries = {
 "": SubResource("AnimationLibrary_qpgm6")
 }
+autoplay = "start_fire"
 
 [node name="UnIgniteEnemiesInArea" type="Area3D" parent="."]
 script = ExtResource("2_ke3jn")
+duration = 20.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UnIgniteEnemiesInArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.757, 0)

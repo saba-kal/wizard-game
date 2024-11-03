@@ -19,6 +19,8 @@ signal player_entered_cannon(cannon: Cannon)
 signal player_exited_cannon(cannon: Cannon)
 signal player_fired_from_cannon(cannon: Cannon)
 signal superman_mode_changed(is_superman_mode_enabled: bool)
+signal mushroom_valley_tower_hit()
+signal mushroom_valley_tower_destruction_started()
 
 #quest signals
 signal player_entered_quest_giver_area(quest: Quest)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b76sgcwof6msx"]
+
+[ext_resource type="PackedScene" uid="uid://bcq3akkov4wt" path="res://Models/Environment/LowPolyPlatform.glb" id="1_2v7t5"]
+[ext_resource type="Material" uid="uid://lo83whhxygp6" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Terrain_Materials/PurpleGround_M.tres" id="2_ymqx5"]
+[ext_resource type="Material" uid="uid://yjsjvov6pl2r" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Rock_Materials/Rocks_M.tres" id="3_buufi"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_12tn3"]
+data = PackedVector3Array(1.865, 1, -0.095, -1, 1, 1, -1, 1, -0.095, 1.865, 1, -0.095, 1, 1, 1, -1, 1, 1, 1, 1, -1.6294, -1, 1, -0.095, -1, 1, -1, 1, 1, -1.6294, 1.865, 1, -0.095, -1, 1, -0.095, 0.8892, -1, 0.8529, -1, 1, 1, 1, 1, 1, 0.8892, -1, 0.8529, -0.8519, -1, 0.8529, -1, 1, 1, -0.8519, -1, -0.1004, -1, 1, -1, -1, 1, -0.095, -0.8519, -1, -0.1004, -0.8519, -1, -0.8883, -1, 1, -1, -0.8519, -1, -0.1004, 0.8892, -1, 0.8529, 1.6423, -1, -0.1004, -0.8519, -1, -0.1004, -0.8519, -1, 0.8529, 0.8892, -1, 0.8529, 1.6423, -1, -0.1004, 1, 1, 1, 1.865, 1, -0.095, 1.6423, -1, -0.1004, 0.8892, -1, 0.8529, 1, 1, 1, -0.8519, -1, -0.8883, 1, 1, -1.6294, -1, 1, -1, -0.8519, -1, -0.8883, 0.8892, -1, -1.4362, 1, 1, -1.6294, 0.8892, -1, -1.4362, 1.865, 1, -0.095, 1, 1, -1.6294, 0.8892, -1, -1.4362, 1.6423, -1, -0.1004, 1.865, 1, -0.095, -0.8519, -1, -0.8883, 1.6423, -1, -0.1004, 0.8892, -1, -1.4362, -0.8519, -1, -0.8883, -0.8519, -1, -0.1004, 1.6423, -1, -0.1004, -0.8519, -1, 0.8529, -1, 1, -0.095, -1, 1, 1, -0.8519, -1, 0.8529, -0.8519, -1, -0.1004, -1, 1, -0.095)
+
+[node name="BasicMushroomValleyPlatform" type="Node3D"]
+
+[node name="LowPolyPlatform" parent="." instance=ExtResource("1_2v7t5")]
+
+[node name="MushroomValleyPlatform" parent="LowPolyPlatform" index="0"]
+surface_material_override/0 = ExtResource("2_ymqx5")
+surface_material_override/1 = ExtResource("3_buufi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LowPolyPlatform/MushroomValleyPlatform" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowPolyPlatform/MushroomValleyPlatform/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_12tn3")
+
+[editable path="LowPolyPlatform"]
