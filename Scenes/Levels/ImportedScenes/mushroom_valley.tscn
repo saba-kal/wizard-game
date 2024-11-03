@@ -1,4 +1,4 @@
-[gd_scene load_steps=243 format=3 uid="uid://caeulvtyq2mvi"]
+[gd_scene load_steps=244 format=3 uid="uid://caeulvtyq2mvi"]
 
 [ext_resource type="PackedScene" uid="uid://bh767jnx7a6fo" path="res://Models/Maps/MushroomForest/Mushroom_Valley.glb" id="1_0gsgm"]
 [ext_resource type="Script" path="res://Scripts/Environment/Levels/MushroomValleyLevel.gd" id="2_24qjr"]
@@ -585,7 +585,14 @@ point_count = 2
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_m3ttf"]
 curve_y = SubResource("Curve_7iwik")
 
+[sub_resource type="Curve" id="Curve_1ocai"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_ln824"]
+curve = SubResource("Curve_1ocai")
 
 [sub_resource type="Curve" id="Curve_sn7w7"]
 _data = [Vector2(0, 0.00336981), 0.0, 1.0607, 0, 0, Vector2(0.270694, 0.123842), 0.0, 0.0, 0, 0, Vector2(0.579418, 0.775484), 1.15189, 1.15189, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]

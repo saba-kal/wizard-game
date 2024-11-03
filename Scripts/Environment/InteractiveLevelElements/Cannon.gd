@@ -5,7 +5,7 @@ class_name Cannon extends Node3D
 @export var projectile_gravity: float = 9.8
 @export var time_until_aim: float = 5.0
 @export var time_until_fire: float = 10.0
-@export var player_fire_duration: float = 8.0
+@export var player_fire_duration: float = 6.0
 @export var default_projectile_scene: PackedScene
 
 @onready var entrance_area: Area3D = $EntranceArea

@@ -114,6 +114,9 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 32.628
 material_override = ExtResource("2_225xi")
 size = Vector3(0.766907, 7, 13.6627)
 
+[node name="Tutorial_Platform2" parent="Map" instance=ExtResource("13_ogxjo")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0.3, -0.711)
+
 [node name="Runes" type="Node3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.18326)
 
@@ -134,13 +137,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717006, 0.271142, -22.913
 
 [node name="LevelTransitionArea" parent="Map" instance=ExtResource("9_w2d25")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8659, 0.5, -36.1866)
-transition_to = 2
-
-[node name="LevelTransitionArea2" parent="Map" instance=ExtResource("9_w2d25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8659, 0.5, -36.1866)
-transition_to = 2
+transition_to = 6
 
 [node name="DebugConsole" parent="." instance=ExtResource("12_ig2p8")]
-
-[node name="Tutorial_Platform2" parent="." instance=ExtResource("13_ogxjo")]
-transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0.3, -0.711)
