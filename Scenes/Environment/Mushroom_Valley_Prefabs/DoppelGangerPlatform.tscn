@@ -1,7 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkrr0v6klfpk3"]
+[gd_scene load_steps=8 format=3 uid="uid://bkrr0v6klfpk3"]
 
 [ext_resource type="PackedScene" uid="uid://djnrshnwhv44o" path="res://Models/Maps/Mushroom_Valley_Models/Doppleganger Platform.glb" id="1_7nmn2"]
+[ext_resource type="Material" uid="uid://yjsjvov6pl2r" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Rock_Materials/Rocks_M.tres" id="2_5r5ml"]
+[ext_resource type="Material" uid="uid://lo83whhxygp6" path="res://Materials/Game_Level_Materials/Mushroom_Valley_Materials/Terrain_Materials/PurpleGround_M.tres" id="3_q4yi6"]
 
-[node name="DoppelGangerPlatform" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lviv6"]
+height = 2.06678
+radius = 4.57381
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ynjgs"]
+size = Vector3(2.21334, 1.674, 2.46337)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ale50"]
+size = Vector3(2.01108, 1.674, 1.18053)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxqwp"]
+size = Vector3(2.12783, 1.24813, 1.23452)
+
+[node name="DoppelGangerPlatform" type="StaticBody3D"]
 
 [node name="Model" parent="." instance=ExtResource("1_7nmn2")]
+
+[node name="Doppleganger Platform" parent="Model" index="0"]
+surface_material_override/0 = ExtResource("2_5r5ml")
+surface_material_override/1 = ExtResource("3_q4yi6")
+
+[node name="PlatFormCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624, 2.07)
+shape = SubResource("CylinderShape3D_lviv6")
+
+[node name="RampCollision3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999325, 0.0178872, -0.0321013, -0.00303476, 0.910729, 0.412994, 0.0366228, -0.412618, 0.910168, 0.416743, 0.408186, -3.12048)
+shape = SubResource("BoxShape3D_ynjgs")
+
+[node name="RampCollision1" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999115, 0.0193052, -0.0373727, -0.0103069, 0.973736, 0.227449, 0.0407821, -0.226863, 0.973073, 0.634755, -0.309031, -5.9004)
+shape = SubResource("BoxShape3D_ale50")
+
+[node name="RampCollision2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.998865, -0.00237172, -0.0475802, 0.00459332, 0.998901, 0.0466367, 0.0474173, -0.0468023, 0.997778, 0.540939, 0.0213761, -4.90707)
+shape = SubResource("BoxShape3D_oxqwp")
+
+[editable path="Model"]

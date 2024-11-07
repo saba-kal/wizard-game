@@ -17,11 +17,11 @@ radius = 0.3
 height = 2.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jcr8k"]
-height = 0.75
+height = 0.53
 radius = 1.1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n0vye"]
-height = 0.9
+height = 0.560666
 radius = 1.0
 
 [node name="BounceMushroom" type="Node3D"]
@@ -46,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392916, 0)
 shape = SubResource("CapsuleShape3D_7ijqm")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73786, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63, 0)
 shape = SubResource("CylinderShape3D_jcr8k")
 
 [node name="Area3D" type="Area3D" parent="."]
