@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2t8qs2j1fk3c"]
+[gd_scene load_steps=34 format=3 uid="uid://d2t8qs2j1fk3c"]
 
 [ext_resource type="PackedScene" uid="uid://caeulvtyq2mvi" path="res://Scenes/Levels/ImportedScenes/mushroom_valley.tscn" id="1_n3op0"]
 [ext_resource type="PackedScene" uid="uid://b76sgcwof6msx" path="res://Scenes/Environment/Mushroom_Valley_Prefabs/Platforms/BasicMushroomValleyPlatform.tscn" id="2_6q3wx"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d3fp1m7nc0qhp" path="res://Scenes/Characters/MushroomBirdBoss.tscn" id="3_vt10f"]
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/YellowRune.gd" id="4_4nkog"]
 [ext_resource type="PackedScene" uid="uid://dhak28tjshvpe" path="res://Scenes/Environment/InteractiveLevelElements/Ballista.tscn" id="4_kpflr"]
+[ext_resource type="PackedScene" uid="uid://muvagatcu5lw" path="res://Scenes/Environment/Mushroom_Valley_Prefabs/Buildings/Windmill.tscn" id="4_q7gvd"]
 [ext_resource type="PackedScene" uid="uid://c8dvosq8a8djq" path="res://Scenes/Environment/InteractiveLevelElements/Cannon.tscn" id="5_ciefr"]
 [ext_resource type="Texture2D" uid="uid://mvqhldxr4m07" path="res://Textures/Runes/Yellow/self_rune.png" id="5_hj5v4"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="5_k74qs"]
@@ -84,6 +85,12 @@ transform = Transform3D(2.77173, 0, 0.232775, 0, 2.93877, 0, -0.384413, 0, 1.678
 
 [node name="DoppelGangerPlatform" parent="Map/TerrainModifications" instance=ExtResource("3_6xok8")]
 transform = Transform3D(2.74515, 0, -6.22673, 0, 6.805, 0, 6.22673, 0, 2.74515, -152.079, 3.65861, 154.531)
+
+[node name="Windmill2" parent="Map/TerrainModifications" instance=ExtResource("4_q7gvd")]
+transform = Transform3D(-2.17641, 0, -2.67044, 0, 3.445, 0, 2.67044, 0, -2.17641, -121.326, 16.6816, -104.947)
+
+[node name="Windmill3" parent="Map/TerrainModifications" instance=ExtResource("4_q7gvd")]
+transform = Transform3D(-2.17641, 0, -2.67044, 0, 3.445, 0, 2.67044, 0, -2.17641, -89.2643, 19.7575, -158.907)
 
 [node name="Water" parent="Map" instance=ExtResource("2_omhl6")]
 transform = Transform3D(100, 0, 0, 0, 7.092, 0, 0, 0, 100, 0, -31.4774, 0)
