@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bys4ymwqpnqhx"
-path="res://.godot/imported/Rock_4.glb-5281bb270cc1d0e12fdbe219407948f1.scn"
+uid="uid://co0e7dtd8mfct"
+path="res://.godot/imported/Fire_Rune.glb-7894ad590fb94cedf04b0f7651678c44.scn"
 
 [deps]
 
-source_file="res://Models/Runes/Rock_4.glb"
-dest_files=["res://.godot/imported/Rock_4.glb-5281bb270cc1d0e12fdbe219407948f1.scn"]
+source_file="res://Models/Runes/Fire_Rune.glb"
+dest_files=["res://.godot/imported/Fire_Rune.glb-7894ad590fb94cedf04b0f7651678c44.scn"]
 
 [params]
 

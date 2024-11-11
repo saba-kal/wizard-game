@@ -1,60 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddkpf3ldhhj1t"]
+[gd_scene load_steps=3 format=3 uid="uid://ddkpf3ldhhj1t"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/Collectables/RuneCollectable.gd" id="1_73vur"]
-[ext_resource type="Texture2D" uid="uid://cj682ji13eiyh" path="res://Textures/Runes/unkown_rune.png" id="1_vwjfa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0jmjm"]
-
-[sub_resource type="Animation" id="Animation_s6lh2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_67q6i"]
-resource_name = "rotate"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6csx"]
-_data = {
-"RESET": SubResource("Animation_s6lh2"),
-"rotate": SubResource("Animation_67q6i")
-}
+radius = 1.90267
 
 [node name="RuneCollectable" type="Area3D"]
 script = ExtResource("1_73vur")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_0jmjm")
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.425, 0, 0, 0, 0.425, 0, 0, 0, 0.425, 0, 0, 0)
-texture = ExtResource("1_vwjfa")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "rotate"
-libraries = {
-"": SubResource("AnimationLibrary_g6csx")
-}

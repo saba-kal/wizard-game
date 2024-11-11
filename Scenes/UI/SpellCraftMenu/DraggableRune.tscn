@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://druv1gblhnmbl"]
+[gd_scene load_steps=5 format=3 uid="uid://druv1gblhnmbl"]
 
-[ext_resource type="Texture2D" uid="uid://cj682ji13eiyh" path="res://Textures/Runes/unkown_rune.png" id="1_wxwbp"]
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/DraggableRune.gd" id="2_ca4yp"]
-[ext_resource type="PackedScene" uid="uid://d278tvwefj1mj" path="res://Scenes/SpellCraftMenu/DragPreview.tscn" id="3_xtlvh"]
+[ext_resource type="PackedScene" uid="uid://d278tvwefj1mj" path="res://Scenes/UI/SpellCraftMenu/DragPreview.tscn" id="3_xtlvh"]
+[ext_resource type="PackedScene" uid="uid://b7aee6vmeh7tu" path="res://Models/Runes/Condition_Rune.glb" id="4_ranmk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lbo0i"]
+viewport_path = NodePath("SubViewport")
 
 [node name="DraggableRune" type="TextureRect"]
 texture_filter = 6
@@ -20,7 +23,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_wxwbp")
+texture = SubResource("ViewportTexture_lbo0i")
 expand_mode = 1
 script = ExtResource("2_ca4yp")
 drag_preview_scene = ExtResource("3_xtlvh")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(697, 512)
+
+[node name="Condition_Rune" parent="SubViewport" instance=ExtResource("4_ranmk")]

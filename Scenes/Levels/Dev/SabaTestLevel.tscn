@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://qb1xx8f4fgih"]
+[gd_scene load_steps=33 format=3 uid="uid://qb1xx8f4fgih"]
 
 [ext_resource type="PackedScene" uid="uid://mpbpk763lnud" path="res://Scenes/Environment/Common/DefaultWorldEnvironment.tscn" id="1_om0f0"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_0vrrc"]
@@ -8,22 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://chqdq618co11f" path="res://Scenes/AI/AIWonderArea.tscn" id="4_reoau"]
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="6_oo2xu"]
 [ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="7_cxbmg"]
-[ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="8_uiyst"]
-[ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="9_dwdqw"]
 [ext_resource type="Resource" uid="uid://dml2jw5po2uiy" path="res://CustomResources/Runes/Blue/CrateRune.tres" id="10_fbpvj"]
 [ext_resource type="PackedScene" uid="uid://b328usnnpi7qr" path="res://Scenes/Characters/CrabEnemy.tscn" id="10_pa4mg"]
 [ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="11_jsa0x"]
 [ext_resource type="PackedScene" uid="uid://dv6vvttmd3d18" path="res://Scenes/Environment/InteractiveLevelElements/Button.tscn" id="12_glniu"]
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/BlueRune.gd" id="13_oxctx"]
-[ext_resource type="Texture2D" uid="uid://cj1hgd8d4j13h" path="res://Textures/Runes/Blue/fire_rune.png" id="14_kpkdn"]
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/RedRune.gd" id="15_efeq0"]
-[ext_resource type="Texture2D" uid="uid://cq876lsqujcj6" path="res://Textures/Runes/Red/detriment_rune.png" id="16_alxkn"]
+[ext_resource type="PackedScene" uid="uid://df4igd4i047jl" path="res://Scenes/Environment/Collectables/IceRune.tscn" id="15_g6wkm"]
+[ext_resource type="PackedScene" uid="uid://c0xak8tx74khb" path="res://Scenes/Environment/Collectables/FireRune.tscn" id="16_hphdc"]
 [ext_resource type="PackedScene" uid="uid://dkbtip8iwehfa" path="res://Scenes/Environment/MushroomForest/PoisonMushroom.tscn" id="16_jw46h"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="17_le0tb"]
+[ext_resource type="PackedScene" uid="uid://bi0lwy8bjvsol" path="res://Scenes/Environment/Collectables/DetrimentRune.tscn" id="17_qw0sl"]
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/YellowRune.gd" id="17_tar4v"]
 [ext_resource type="PackedScene" uid="uid://0fepcw14vqs" path="res://Scenes/Environment/InteractiveLevelElements/Gate.tscn" id="18_26wra"]
-[ext_resource type="Texture2D" uid="uid://bapwpiyr3wjny" path="res://Textures/Runes/Yellow/ground_rune.png" id="18_qgbdr"]
 [ext_resource type="PackedScene" uid="uid://clo4u8ua5e1ar" path="res://Scenes/QuestSystem/Quests/CollectableQuest/AppleQuestCollectable.tscn" id="21_t63x2"]
+[ext_resource type="PackedScene" uid="uid://bktyghbixcc76" path="res://Scenes/Environment/Collectables/ConditionRune.tscn" id="22_el8qa"]
 [ext_resource type="PackedScene" uid="uid://db7q7q2iuhxlh" path="res://Scenes/NPCs/Kobold.tscn" id="23_brfdi"]
 [ext_resource type="PackedScene" uid="uid://b4bubsqa8uk2k" path="res://Scenes/NPCs/Amogus.tscn" id="26_he1at"]
 [ext_resource type="PackedScene" uid="uid://ebok7wvdgik1" path="res://Scenes/QuestSystem/Quests/CollectableQuest/OrangeQuestCollectable.tscn" id="27_gw1g8"]
@@ -39,21 +38,18 @@ agent_radius = 1.5
 [sub_resource type="Resource" id="Resource_e58b0"]
 script = ExtResource("13_oxctx")
 type = 0
-texture = ExtResource("14_kpkdn")
 mana_cost = 10.0
 mana_multiplier = 1.0
 
 [sub_resource type="Resource" id="Resource_73rrb"]
 script = ExtResource("15_efeq0")
 type = 0
-texture = ExtResource("16_alxkn")
 mana_cost = 10.0
 mana_multiplier = 1.0
 
 [sub_resource type="Resource" id="Resource_8d53i"]
 script = ExtResource("17_tar4v")
 type = 0
-texture = ExtResource("18_qgbdr")
 mana_cost = 10.0
 mana_multiplier = 1.0
 
@@ -130,10 +126,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.94983, 0.656901, 0.547865)
 [node name="Runes" type="Node3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43106, 0, 1.70151)
 
-[node name="Condition" parent="Map/Runes" instance=ExtResource("6_oo2xu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.222547, 1.34523, 0.291045)
-rune = ExtResource("9_dwdqw")
-
 [node name="SelfRune" parent="Map/Runes" instance=ExtResource("6_oo2xu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719959, 1.37535, 1.45925)
 rune = ExtResource("7_cxbmg")
@@ -154,13 +146,21 @@ rune = SubResource("Resource_e58b0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206255, 1.35389, 2.49514)
 rune = SubResource("Resource_73rrb")
 
-[node name="IceRune" parent="Map/Runes" instance=ExtResource("6_oo2xu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.955779, 1.34523, 0.846847)
-rune = ExtResource("8_uiyst")
-
 [node name="Ground" parent="Map/Runes" instance=ExtResource("6_oo2xu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50254, 1.13208, 0.95767)
 rune = SubResource("Resource_8d53i")
+
+[node name="ConditionRune" parent="Map/Runes" instance=ExtResource("22_el8qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59561, 1.95594, -1.2123)
+
+[node name="IceRune" parent="Map/Runes" instance=ExtResource("15_g6wkm")]
+transform = Transform3D(0.785198, 0, -0.619245, 0, 1, 0, 0.619245, 0, 0.785198, -1.36293, 2.14335, -4.8271)
+
+[node name="FireRune" parent="Map/Runes" instance=ExtResource("16_hphdc")]
+transform = Transform3D(0.0340274, 0, -0.999421, 0, 1, 0, 0.999421, 0, 0.0340274, 6.54174, 2.05442, -5.70352)
+
+[node name="DetrimentRune" parent="Map/Runes" instance=ExtResource("17_qw0sl")]
+transform = Transform3D(0.0462697, 0, -0.998929, 0, 1, 0, 0.998929, 0, 0.0462697, 2.33224, 1.86128, -4.85291)
 
 [node name="PoisonMushroom" parent="Map" instance=ExtResource("16_jw46h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9586, 0.499999, -2.65426)

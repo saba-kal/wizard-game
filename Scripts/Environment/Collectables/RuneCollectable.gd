@@ -2,8 +2,6 @@ extends Area3D
 
 @export var rune: Rune
 
-@onready var sprite: Sprite3D = $Sprite3D
-
 
 func _ready():
     if rune == null:
@@ -14,7 +12,6 @@ func _ready():
             print("Player alread collected rune %d %d. Destroying collectible in %s." % [self.rune.get_type(), self.rune.type, self.get_tree().current_scene.name])
             self.queue_free() # Player already collected this rune. Destroy self.
             return
-    self.sprite.texture = rune.texture
     self.body_entered.connect(self.on_body_entered)
 
 
