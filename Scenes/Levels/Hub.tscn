@@ -1,14 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq6v5uyav5nra"]
+[gd_scene load_steps=10 format=3 uid="uid://bq6v5uyav5nra"]
 
 [ext_resource type="PackedScene" uid="uid://mpbpk763lnud" path="res://Scenes/Environment/Common/DefaultWorldEnvironment.tscn" id="1_ngil3"]
 [ext_resource type="PackedScene" uid="uid://y1gdgfxfgrg0" path="res://Models/Maps/FirstAreaPlaceholderMap.glb" id="2_8jwld"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="3_wf2w5"]
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="3_xp37y"]
-[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="4_ulv3o"]
-[ext_resource type="Resource" uid="uid://bxiuikm8748d5" path="res://CustomResources/Runes/Red/DetrimentRune.tres" id="5_iyiy4"]
-[ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="6_fd2at"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="6_i8ieh"]
-[ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="7_l3umd"]
 [ext_resource type="AudioStream" uid="uid://o33i8o181igy" path="res://Audio/Music/ExperimagicMushroom.mp3" id="12_wkrrg"]
 [ext_resource type="Texture2D" uid="uid://cq18fgtfvxuw3" path="res://Textures/Bearclops/BearclopsEyeTexture1.png" id="16_5uuhw"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="17_vddis"]
@@ -39,18 +35,6 @@ shape = SubResource("ConcavePolygonShape3D_6xcth")
 [node name="LevelTransitionArea" parent="Map" instance=ExtResource("3_xp37y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8852, 4.74716, -41.9277)
 transition_to = 2
-
-[node name="RuneCollectable" parent="Map" instance=ExtResource("4_ulv3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8705, 8.47349, -56.53)
-rune = ExtResource("5_iyiy4")
-
-[node name="RuneCollectable2" parent="Map" instance=ExtResource("4_ulv3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8705, 7.8989, -54.8766)
-rune = ExtResource("6_fd2at")
-
-[node name="RuneCollectable3" parent="Map" instance=ExtResource("4_ulv3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8705, 7.12061, -52.8668)
-rune = ExtResource("7_l3umd")
 
 [node name="Player" parent="." instance=ExtResource("3_wf2w5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3116, 9.32962, -64.742)

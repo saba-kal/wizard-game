@@ -1,15 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://d2t8qs2j1fk3c"]
+[gd_scene load_steps=27 format=3 uid="uid://d2t8qs2j1fk3c"]
 
 [ext_resource type="PackedScene" uid="uid://caeulvtyq2mvi" path="res://Scenes/Levels/ImportedScenes/mushroom_valley.tscn" id="1_n3op0"]
 [ext_resource type="PackedScene" uid="uid://b76sgcwof6msx" path="res://Scenes/Environment/Mushroom_Valley_Prefabs/Platforms/BasicMushroomValleyPlatform.tscn" id="2_6q3wx"]
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="2_d6qgv"]
 [ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="2_omhl6"]
-[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="2_wlavq"]
-[ext_resource type="Script" path="res://Scripts/SpellCrafting/BlueRune.gd" id="3_0s3dp"]
 [ext_resource type="PackedScene" uid="uid://bkrr0v6klfpk3" path="res://Scenes/Environment/Mushroom_Valley_Prefabs/DoppelGangerPlatform.tscn" id="3_6xok8"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="3_ba8je"]
 [ext_resource type="PackedScene" uid="uid://d3fp1m7nc0qhp" path="res://Scenes/Characters/MushroomBirdBoss.tscn" id="3_vt10f"]
-[ext_resource type="Script" path="res://Scripts/SpellCrafting/YellowRune.gd" id="4_4nkog"]
 [ext_resource type="PackedScene" uid="uid://dhak28tjshvpe" path="res://Scenes/Environment/InteractiveLevelElements/Ballista.tscn" id="4_kpflr"]
 [ext_resource type="PackedScene" uid="uid://c8dvosq8a8djq" path="res://Scenes/Environment/InteractiveLevelElements/Cannon.tscn" id="5_ciefr"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="5_k74qs"]
@@ -20,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dcpgttgr0bv85" path="res://Scenes/Environment/MushroomForest/RegularMushroom.tscn" id="10_rurk8"]
 [ext_resource type="PackedScene" uid="uid://db7q7q2iuhxlh" path="res://Scenes/NPCs/Kobold.tscn" id="17_j52b3"]
 [ext_resource type="PackedScene" uid="uid://clo4u8ua5e1ar" path="res://Scenes/QuestSystem/Quests/CollectableQuest/AppleQuestCollectable.tscn" id="18_0bsu7"]
+[ext_resource type="PackedScene" uid="uid://df4igd4i047jl" path="res://Scenes/Environment/Collectables/IceRune.tscn" id="21_e27is"]
+[ext_resource type="PackedScene" uid="uid://b0ey2c4d42tqf" path="res://Scenes/Environment/Collectables/SelfRune.tscn" id="22_ykm5l"]
 [ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="24_bkjy6"]
 [ext_resource type="PackedScene" uid="uid://dkbtip8iwehfa" path="res://Scenes/Environment/MushroomForest/PoisonMushroom.tscn" id="25_3ejn1"]
 [ext_resource type="PackedScene" uid="uid://camgjowju3wn6" path="res://Scenes/Player/Doppleganger.tscn" id="25_b8ksw"]
@@ -35,24 +34,6 @@ size = Vector2(1000, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tp3lc"]
 size = Vector3(1000, 1, 1000)
-
-[sub_resource type="Resource" id="Resource_wc0hs"]
-script = ExtResource("3_0s3dp")
-type = 1
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_1rotu"]
-script = ExtResource("3_0s3dp")
-type = 2
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_7164x"]
-script = ExtResource("4_4nkog")
-type = 1
-mana_cost = 10.0
-mana_multiplier = 1.0
 
 [node name="MushroomValley" type="Node3D"]
 
@@ -287,6 +268,9 @@ transform = Transform3D(-0.750838, 0, -0.660487, 0, 1, 0, 0.660487, 0, -0.750838
 [node name="MushroomEnemy10" parent="Enemies" instance=ExtResource("9_4km6q")]
 transform = Transform3D(0.935844, 0, 0.352413, 0, 1, 0, -0.352413, 0, 0.935844, -106.691, 6.02136, 87.515)
 
+[node name="Doppleganger" parent="Enemies" instance=ExtResource("25_b8ksw")]
+transform = Transform3D(0.46722, 0, -0.884141, 0, 1, 0, 0.884141, 0, 0.46722, -176.523, 14.9371, 167.936)
+
 [node name="StaticObjects" type="Node3D" parent="."]
 
 [node name="RegularMushroom" parent="StaticObjects" instance=ExtResource("10_rurk8")]
@@ -396,17 +380,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.692, 6.14841, -22.2519)
 
 [node name="Collectibles" type="Node3D" parent="."]
 
-[node name="IceRune" parent="Collectibles" instance=ExtResource("2_wlavq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.6192, 13.0062, -57.9082)
-rune = SubResource("Resource_wc0hs")
-
-[node name="ConditionRune" parent="Collectibles" instance=ExtResource("2_wlavq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5184, 6.94449, -21.8875)
-rune = SubResource("Resource_1rotu")
-
-[node name="SelfRune" parent="Collectibles" instance=ExtResource("2_wlavq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.515, 15.879, 171.936)
-rune = SubResource("Resource_7164x")
+[node name="ConditionRune" parent="Collectibles" instance=ExtResource("27_w0ifo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.3473, 7.46707, -21.8046)
 
 [node name="AppleQuestCollectable3" parent="Collectibles" instance=ExtResource("18_0bsu7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.3316, 24.7917, -87.228)
@@ -417,11 +392,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2586, 6.93009, -76.5064)
 [node name="AppleQuestCollectable5" parent="Collectibles" instance=ExtResource("18_0bsu7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.218, 6.66813, 89.3173)
 
-[node name="Doppleganger" parent="Collectibles" instance=ExtResource("25_b8ksw")]
-transform = Transform3D(0.46722, 0, -0.884141, 0, 1, 0, 0.884141, 0, 0.46722, -176.523, 14.9371, 167.936)
+[node name="IceRune" parent="Collectibles" instance=ExtResource("21_e27is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.6855, 14.0152, -57.4868)
+
+[node name="SelfRune" parent="Collectibles" instance=ExtResource("22_ykm5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.805, 16.1754, 174.666)
 
 [node name="Kobold" parent="." instance=ExtResource("17_j52b3")]
 transform = Transform3D(-0.862567, 0, 0.505943, 0, 1, 0, -0.505943, 0, -0.862567, -76.1964, 14.9727, -150.807)
-
-[node name="ConditionRune" parent="." instance=ExtResource("27_w0ifo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.3473, 7.46707, -21.8046)

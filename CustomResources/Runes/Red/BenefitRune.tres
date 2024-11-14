@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="RedRune" load_steps=3 format=3 uid="uid://b5rf4kuktg21q"]
+[gd_resource type="Resource" script_class="RedRune" load_steps=2 format=3 uid="uid://b5rf4kuktg21q"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/RedRune.gd" id="1_7gq41"]
-[ext_resource type="Texture2D" uid="uid://cmklsp7qe37f7" path="res://Textures/Runes/Red/benefit_rune.png" id="2_qv17k"]
 
 [resource]
 script = ExtResource("1_7gq41")
 type = 1
-texture = ExtResource("2_qv17k")
 mana_cost = 10.0
 mana_multiplier = 1.0

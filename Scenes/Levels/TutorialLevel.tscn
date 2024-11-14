@@ -1,15 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqcu0ktix7514"]
+[gd_scene load_steps=16 format=3 uid="uid://dqcu0ktix7514"]
 
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="1_6oo27"]
 [ext_resource type="PackedScene" uid="uid://cbdr05wj7j8ac" path="res://Scenes/UI/GameUI.tscn" id="1_u7ffg"]
 [ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="2_225xi"]
 [ext_resource type="PackedScene" uid="uid://dk2b38k4rbkgk" path="res://Scenes/UI/TutorialUI.tscn" id="2_h3y5k"]
-[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="4_11s58"]
 [ext_resource type="Material" uid="uid://0e4c0sdukg3b" path="res://Materials/PrototypeToon/GreyGridToonMaterial.tres" id="5_b3e34"]
-[ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="5_wquue"]
-[ext_resource type="Resource" uid="uid://bxiuikm8748d5" path="res://CustomResources/Runes/Red/DetrimentRune.tres" id="6_07xlr"]
-[ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="7_lftw6"]
+[ext_resource type="PackedScene" uid="uid://bi0lwy8bjvsol" path="res://Scenes/Environment/Collectables/DetrimentRune.tscn" id="8_6f0qn"]
 [ext_resource type="PackedScene" uid="uid://b0md0m2petekx" path="res://Scenes/Environment/InteractiveLevelElements/Vines.tscn" id="8_v0pn1"]
+[ext_resource type="PackedScene" uid="uid://c0xak8tx74khb" path="res://Scenes/Environment/Collectables/FireRune.tscn" id="9_0wp6d"]
+[ext_resource type="PackedScene" uid="uid://bm3u3g1hg7joh" path="res://Scenes/Environment/Collectables/GroundRune.tscn" id="9_6afqk"]
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="9_w2d25"]
 [ext_resource type="PackedScene" uid="uid://trdgk7ggai0g" path="res://Scenes/Debug/DebugConsole.tscn" id="12_ig2p8"]
 [ext_resource type="PackedScene" uid="uid://cl0bh86cwog0t" path="res://Models/Maps/Tutorial_Platform.glb" id="13_ogxjo"]
@@ -120,17 +119,14 @@ transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0.3, -0.711)
 [node name="Runes" type="Node3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.18326)
 
-[node name="RuneCollectable" parent="Map/Runes" instance=ExtResource("4_11s58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7006, 1.26835, 0.558928)
-rune = ExtResource("5_wquue")
+[node name="FireRune" parent="Map/Runes" instance=ExtResource("9_0wp6d")]
+transform = Transform3D(0.507268, 0, -0.861789, 0, 1, 0, 0.861789, 0, 0.507268, -3.49945, 1.73983, 0.91756)
 
-[node name="RuneCollectable2" parent="Map/Runes" instance=ExtResource("4_11s58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507261, 1.26835, 0.558928)
-rune = ExtResource("6_07xlr")
+[node name="DetrimentRune" parent="Map/Runes" instance=ExtResource("8_6f0qn")]
+transform = Transform3D(0.215093, 0, -0.976593, 0, 1, 0, 0.976593, 0, 0.215093, -0.530535, 2.17115, 0)
 
-[node name="RuneCollectable3" parent="Map/Runes" instance=ExtResource("4_11s58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8951, 1.26835, 0.558928)
-rune = ExtResource("7_lftw6")
+[node name="GroundRune" parent="Map/Runes" instance=ExtResource("9_6afqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32983, 1.66551, 0)
 
 [node name="Vines" parent="Map" instance=ExtResource("8_v0pn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717006, 0.271142, -22.913)

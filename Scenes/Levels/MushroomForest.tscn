@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://b328usnnpi7qr" path="res://Scenes/Characters/CrabEnemy.tscn" id="5_1ge4n"]
 [ext_resource type="PackedScene" uid="uid://ca5cjrn3xfkwu" path="res://Scenes/Environment/InteractiveLevelElements/RopeBridge.tscn" id="5_5yvg4"]
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="6_wiwrj"]
-[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="7_rng7y"]
-[ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="8_4dx02"]
 [ext_resource type="PackedScene" uid="uid://c3ni6ckel8bwj" path="res://Scenes/Characters/BeeEnemy.tscn" id="8_6p3vd"]
-[ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="9_xd86k"]
-[ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="10_6w6g6"]
-[ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="11_m48d0"]
+[ext_resource type="PackedScene" uid="uid://df4igd4i047jl" path="res://Scenes/Environment/Collectables/IceRune.tscn" id="9_u6ltu"]
+[ext_resource type="PackedScene" uid="uid://bi0lwy8bjvsol" path="res://Scenes/Environment/Collectables/DetrimentRune.tscn" id="10_xvcqt"]
+[ext_resource type="PackedScene" uid="uid://b0ey2c4d42tqf" path="res://Scenes/Environment/Collectables/SelfRune.tscn" id="11_lcgw7"]
+[ext_resource type="PackedScene" uid="uid://bktyghbixcc76" path="res://Scenes/Environment/Collectables/ConditionRune.tscn" id="12_vsbwy"]
+[ext_resource type="PackedScene" uid="uid://ce2r28pb7ut0k" path="res://Scenes/Environment/Collectables/BenefitRune.tscn" id="13_xbeg2"]
 [ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="13_xl28e"]
 [ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="14_enmni"]
 [ext_resource type="PackedScene" uid="uid://dkbtip8iwehfa" path="res://Scenes/Environment/MushroomForest/PoisonMushroom.tscn" id="15_ydb8s"]
@@ -114,25 +114,20 @@ ai_wander_area = NodePath("../../AIWonderArea2")
 
 [node name="Runes" type="Node3D" parent="Map"]
 
-[node name="RuneCollectable" parent="Map/Runes" instance=ExtResource("7_rng7y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8777, 27.4623, -26.0975)
-rune = ExtResource("8_4dx02")
+[node name="IceRune" parent="Map/Runes" instance=ExtResource("9_u6ltu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5708, 28.8458, -25.8285)
 
-[node name="RuneCollectable2" parent="Map/Runes" instance=ExtResource("7_rng7y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1404, 27.4623, -28.0318)
-rune = ExtResource("9_xd86k")
+[node name="DetrimentRune" parent="Map/Runes" instance=ExtResource("10_xvcqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4815, 28.3594, -28.4351)
 
-[node name="RuneCollectable3" parent="Map/Runes" instance=ExtResource("7_rng7y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.35, 27.278, -30.6791)
-rune = ExtResource("10_6w6g6")
+[node name="SelfRune" parent="Map/Runes" instance=ExtResource("11_lcgw7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3231, 28.0923, -30.0883)
 
-[node name="RuneCollectable4" parent="Map/Runes" instance=ExtResource("7_rng7y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1165, 27.4623, -26.0975)
-rune = ExtResource("11_m48d0")
+[node name="ConditionRune" parent="Map/Runes" instance=ExtResource("12_vsbwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6532, 28.9242, -26.3759)
 
-[node name="RuneCollectable5" parent="Map/Runes" instance=ExtResource("7_rng7y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6651, 27.022, -28.0318)
-rune = ExtResource("9_xd86k")
+[node name="BenefitRune" parent="Map/Runes" instance=ExtResource("13_xbeg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1145, 27.8937, -27.6119)
 
 [node name="BounceMushroom" parent="Map" instance=ExtResource("14_enmni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1898, 26.1588, -28.6131)

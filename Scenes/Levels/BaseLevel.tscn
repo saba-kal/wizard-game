@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://c1nmhavvp6eip" path="res://Scenes/Player/Player.tscn" id="1_t1y7f"]
 [ext_resource type="Material" uid="uid://c68xr8ioda0y8" path="res://Materials/Prototype/GreyGridMaterial.tres" id="2_vvf11"]
 [ext_resource type="ArrayMesh" uid="uid://bdy78xjmmrfcg" path="res://Models/SpellEffects/IceCrystal.obj" id="3_a184v"]
-[ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/Mushroom.tscn" id="4_gmjkj"]
-[ext_resource type="PackedScene" uid="uid://bjtek74wuetor" path="res://Scenes/HUD/HUD.tscn" id="5_8p5bo"]
-[ext_resource type="PackedScene" uid="uid://djt7jjr33ec4h" path="res://Scenes/SpellCraftMenu/SpellCraftMenu.tscn" id="6_ii8nk"]
+[ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="4_gmjkj"]
+[ext_resource type="PackedScene" uid="uid://bjtek74wuetor" path="res://Scenes/UI/HUD/HUD.tscn" id="5_8p5bo"]
+[ext_resource type="PackedScene" uid="uid://djt7jjr33ec4h" path="res://Scenes/UI/SpellCraftMenu/SpellCraftMenu.tscn" id="6_ii8nk"]
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="7_juhei"]
 [ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="8_vrto2"]
 

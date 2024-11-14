@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0ey2c4d42tqf"]
+
+[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="1_2gas5"]
+[ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="2_62orh"]
+[ext_resource type="Texture2D" uid="uid://mvqhldxr4m07" path="res://Textures/Runes/Yellow/self_rune.png" id="3_4w731"]
+
+[node name="SelfRune" instance=ExtResource("1_2gas5")]
+rune = ExtResource("2_62orh")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="1"]
+transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, 0, 0, 0)
+texture = ExtResource("3_4w731")

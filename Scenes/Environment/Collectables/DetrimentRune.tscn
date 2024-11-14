@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi0lwy8bjvsol"]
+[gd_scene load_steps=15 format=3 uid="uid://bi0lwy8bjvsol"]
 
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="1_5hi25"]
+[ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="2_lechc"]
 [ext_resource type="PackedScene" uid="uid://j0o0i5pr7hdb" path="res://Models/Runes/Detriment_Rune.glb" id="2_rcqcb"]
 [ext_resource type="Texture2D" uid="uid://bt2078ilio364" path="res://Models/Runes/Detriment_Rune.png" id="3_bli42"]
 
@@ -1236,38 +1237,40 @@ _data = {
 }
 
 [node name="DetrimentRune" instance=ExtResource("1_5hi25")]
+rune = ExtResource("2_lechc")
 
 [node name="Detriment_Rune" parent="." index="1" instance=ExtResource("2_rcqcb")]
+transform = Transform3D(0.685, 0, 0, 0, 0.685, 0, 0, 0, 0.685, 0, 0.0250294, -0.0256466)
 
 [node name="Detriment Rune" parent="Detriment_Rune" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
 [node name="d-star" parent="Detriment_Rune" index="1"]
-transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 1.78813e-16, 0.805304, 1.02136)
+transform = Transform3D(-1.35264e-09, 0.0237452, -1.46889e-09, 0.00972803, 1.89412e-09, 0.021661, 0.021661, 6.3213e-10, -0.00972803, -1.99166e-16, -1.20528, -0.774634)
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
 [node name="d-star_001" parent="Detriment_Rune" index="2"]
-transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, -7.55959e-17, -0.340454, -1.32253)
+transform = Transform3D(-1.35264e-09, 0.0237452, -1.46889e-09, 0.00972803, 1.89412e-09, 0.021661, 0.021661, 6.3213e-10, -0.00972803, -2.03528e-16, -0.550017, 1.21026)
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
 [node name="d-star_002" parent="Detriment_Rune" index="3"]
-transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, -3.96879e-16, -1.78738, 0.307718)
+transform = Transform3D(-1.35264e-09, 0.0237452, -1.46889e-09, 0.00972803, 1.89412e-09, 0.021661, 0.021661, 6.3213e-10, -0.00972803, 4.46307e-16, 1.69031, 1.37809)
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
 [node name="d-star_003" parent="Detriment_Rune" index="4"]
-transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, -8.72261e-17, -0.392831, 1.59751)
+transform = Transform3D(-1.35264e-09, 0.0237452, -1.46889e-09, 0.00972803, 1.89412e-09, 0.021661, 0.021661, 6.3213e-10, -0.00972803, -4.65206e-17, -0.595463, -2.24665)
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
 [node name="d-star_004" parent="Detriment_Rune" index="5"]
-transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, -2.45687e-16, -1.10647, 1.12612)
+transform = Transform3D(4.31008e-09, 0.0237452, -1.46571e-09, 0.00970693, -4.24304e-10, 0.0216705, 0.0216705, -4.53267e-09, -0.00970693, 3.32913e-16, 1.10022, -0.91542)
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
 [node name="d-star_005" parent="Detriment_Rune" index="6"]
-transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, -2.6604e-16, -1.19814, -0.680907)
+transform = Transform3D(4.31008e-09, 0.0237452, -1.46571e-09, 0.00970693, -4.24304e-10, 0.0216705, 0.0216705, -4.53267e-09, -0.00970693, 1.01764e-17, -0.960034, 1.60917)
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
 [node name="d-star_006" parent="Detriment_Rune" index="7"]
-transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 3.92517e-17, 0.176774, 1.08683)
+transform = Transform3D(4.31008e-09, 0.0237452, -1.46571e-09, 0.00970693, -4.24304e-10, 0.0216705, 0.0216705, -4.53267e-09, -0.00970693, -3.63442e-16, -1.38227, -0.745336)
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
 [node name="AnimationPlayer" parent="Detriment_Rune" index="8"]

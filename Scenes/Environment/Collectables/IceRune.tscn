@@ -1,15 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://df4igd4i047jl"]
+[gd_scene load_steps=33 format=3 uid="uid://df4igd4i047jl"]
 
 [ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="1_j0gtd"]
-[ext_resource type="Script" path="res://Scripts/SpellCrafting/BlueRune.gd" id="2_0w7sl"]
+[ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="2_33vwy"]
 [ext_resource type="PackedScene" uid="uid://souhfl0rnlum" path="res://Models/Runes/Ice_Rune.glb" id="3_bgggu"]
 [ext_resource type="Texture2D" uid="uid://fqc6eetjk1r4" path="res://Models/Runes/Ice_Rune.png" id="4_puqpv"]
-
-[sub_resource type="Resource" id="Resource_kfxtv"]
-script = ExtResource("2_0w7sl")
-type = 1
-mana_cost = 10.0
-mana_multiplier = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hykhu"]
 resource_name = "Ice Rune"
@@ -9297,9 +9291,10 @@ _data = {
 }
 
 [node name="IceRune" instance=ExtResource("1_j0gtd")]
-rune = SubResource("Resource_kfxtv")
+rune = ExtResource("2_33vwy")
 
 [node name="Ice_Rune" parent="." index="1" instance=ExtResource("3_bgggu")]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 0, 0, 0)
 
 [node name="Ice Rune" parent="Ice_Rune" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_hykhu")
