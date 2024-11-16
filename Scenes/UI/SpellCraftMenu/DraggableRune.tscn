@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://druv1gblhnmbl"]
+[gd_scene load_steps=4 format=3 uid="uid://druv1gblhnmbl"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCraftMenu/DraggableRune.gd" id="2_ca4yp"]
 [ext_resource type="PackedScene" uid="uid://d278tvwefj1mj" path="res://Scenes/UI/SpellCraftMenu/DragPreview.tscn" id="3_xtlvh"]
-[ext_resource type="PackedScene" uid="uid://b7aee6vmeh7tu" path="res://Models/Runes/Condition_Rune.glb" id="4_ranmk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lbo0i"]
 viewport_path = NodePath("SubViewport")
@@ -29,6 +28,10 @@ script = ExtResource("2_ca4yp")
 drag_preview_scene = ExtResource("3_xtlvh")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(697, 512)
+own_world_3d = true
+transparent_bg = true
+render_target_clear_mode = 1
 
-[node name="Condition_Rune" parent="SubViewport" instance=ExtResource("4_ranmk")]
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+cull_mask = 1047554

@@ -1,75 +1,305 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0xak8tx74khb"]
+[gd_scene load_steps=32 format=3 uid="uid://ghbba0pqp6qp"]
 
-[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="1_3vaeg"]
-[ext_resource type="PackedScene" uid="uid://co0e7dtd8mfct" path="res://Models/Runes/Fire_Rune.glb" id="2_fcbg5"]
-[ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="2_vcy5s"]
-[ext_resource type="Texture2D" uid="uid://jh02dbcr5rad" path="res://Models/Runes/Fire_Rune.png" id="3_kxtik"]
+[ext_resource type="Texture2D" uid="uid://jh02dbcr5rad" path="res://Models/Runes/Fire_Rune.png" id="1_au6ai"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvbon"]
+resource_name = "Fire Rune"
+transparency = 4
+cull_mode = 2
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 0.17616, 0.12804, 1)
+emission_energy_multiplier = 20.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3xtnw"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u556x"]
+resource_name = "Fire_Rune_Fire Rune"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_yvbon"),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3xtnw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7c6r1"]
 resource_name = "Fire Rune"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_kxtik")
+albedo_texture = ExtResource("1_au6ai")
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.17616, 0.12804, 1)
 emission_energy_multiplier = 20.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qsie0"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_62161"]
+resource_name = "Fire_Rune_Plane_007"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_yvbon"),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qsie0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwcqo"]
 resource_name = "Fire Rune"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_kxtik")
+albedo_texture = ExtResource("1_au6ai")
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.17616, 0.12804, 1)
 emission_energy_multiplier = 20.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_reytj"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x02fp"]
+resource_name = "Fire_Rune_Plane_008"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_yvbon"),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_reytj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvia1"]
 resource_name = "Fire Rune"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_kxtik")
+albedo_texture = ExtResource("1_au6ai")
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.17616, 0.12804, 1)
 emission_energy_multiplier = 20.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6rbjm"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_db2kd"]
+resource_name = "Fire_Rune_Plane_009"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_yvbon"),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6rbjm")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o11mr"]
 resource_name = "Fire Rune"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_kxtik")
+albedo_texture = ExtResource("1_au6ai")
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.17616, 0.12804, 1)
 emission_energy_multiplier = 20.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_23ljx"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b3m0v"]
+resource_name = "Fire_Rune_Plane_010"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_yvbon"),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_23ljx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucrqr"]
 resource_name = "Fire Rune"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_kxtik")
+albedo_texture = ExtResource("1_au6ai")
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.17616, 0.12804, 1)
 emission_energy_multiplier = 20.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o31km"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ep137"]
+resource_name = "Fire_Rune_Plane_011"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_yvbon"),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_o31km")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygsl6"]
 resource_name = "Fire Rune"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_kxtik")
+albedo_texture = ExtResource("1_au6ai")
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.17616, 0.12804, 1)
 emission_energy_multiplier = 20.8
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_mcxau"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x7e5t"]
+resource_name = "Fire_Rune_Plane_012"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_yvbon"),
+"name": "Fire Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mcxau")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keebo"]
 resource_name = "Fire Rune"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_kxtik")
+albedo_texture = ExtResource("1_au6ai")
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.17616, 0.12804, 1)
@@ -997,49 +1227,53 @@ _data = {
 "PlaneAction_012": SubResource("Animation_urj17")
 }
 
-[node name="FireRune" instance=ExtResource("1_3vaeg")]
-rune = ExtResource("2_vcy5s")
-
-[node name="Fire_Rune" parent="." index="1" instance=ExtResource("2_fcbg5")]
+[node name="Fire_Rune" type="Node3D"]
 transform = Transform3D(0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.72, 0, 0, 0)
 
-[node name="Fire Rune" parent="Fire_Rune" index="0"]
+[node name="Fire Rune" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 2.16254, 0, -1.28898e-07, -7.68289e-15, -2.16254, -2.16254, 0, 1.28898e-07, 0, 0, 0)
+mesh = SubResource("ArrayMesh_u556x")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_7c6r1")
 
-[node name="Plane" parent="Fire_Rune" index="1"]
-transform = Transform3D(-1.08189e-09, 0.0210325, -2.01642e-08, 0.00244201, -1.99023e-08, -0.0208902, -0.0208902, -3.41577e-09, -0.00244201, 3.06745e-16, 2.00943, -2.29591)
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.5362e-10, 0.0110953, -2.4469e-10, 0.00279893, -1.22345e-10, -0.0107364, -0.0107364, -5.00676e-10, -0.00279893, -4.59391e-16, -2.06891, -0.968984)
+mesh = SubResource("ArrayMesh_62161")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kwcqo")
 
-[node name="Plane_001" parent="Fire_Rune" index="2"]
-transform = Transform3D(-1.28704e-09, 0.029444, 0, -0.00690171, -3.01683e-10, -0.0286237, -0.0286237, -1.25118e-09, 0.00690171, 4.7829e-16, 2.71389, 2.18149)
+[node name="Plane_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.76595e-10, 0.0144124, -3.62894e-10, 0.00415102, -1.81447e-10, -0.0138017, -0.0138017, -6.56682e-10, -0.00415102, -3.27098e-16, -1.47312, 1.68917)
+mesh = SubResource("ArrayMesh_x02fp")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_rvia1")
 
-[node name="Plane_002" parent="Fire_Rune" index="3"]
-transform = Transform3D(-9.01705e-10, 0.0263401, -1.04281e-09, 0.0119283, -5.21404e-10, -0.0234843, -0.0234843, -1.27619e-09, -0.0119283, 3.99786e-16, 2.21718, -0.732596)
+[node name="Plane_002" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.58378e-09, 0.00817525, -7.67829e-10, 0.0050851, 3.83914e-10, -0.00640129, -0.00640129, -1.71771e-09, -0.0050851, -3.56173e-16, -1.60406, -2.80874)
+mesh = SubResource("ArrayMesh_db2kd")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_o11mr")
 
-[node name="Plane_003" parent="Fire_Rune" index="4"]
-transform = Transform3D(-1.56423e-09, 0.0357855, 0, -0.000668999, -2.92429e-11, -0.0357792, -0.0357792, -1.56396e-09, 0.000668999, 2.44233e-16, 1.7625, 1.42393)
+[node name="Plane_003" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.80702e-10, 0.0109972, 0, -0.00114323, -4.99722e-11, -0.0109376, -0.0109376, -4.78097e-10, 0.00114323, -5.03004e-16, -2.26533, 1.24397)
+mesh = SubResource("ArrayMesh_b3m0v")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ucrqr")
 
-[node name="Plane_004" parent="Fire_Rune" index="5"]
-transform = Transform3D(3.48671e-08, 0.0287182, -1.18902e-08, 0.00139956, -1.35753e-08, -0.0286841, -0.0286841, 3.42462e-08, -0.00139956, 6.32389e-16, 3.14715, 0.999744)
+[node name="Plane_004" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.87879e-10, 0.00474125, -1.2522e-10, 0.00143235, -6.26101e-11, -0.00451972, -0.00451972, -2.1693e-10, -0.00143235, -2.19519e-16, -0.988626, 1.03446)
+mesh = SubResource("ArrayMesh_ep137")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ygsl6")
 
-[node name="Plane_005" parent="Fire_Rune" index="6"]
-transform = Transform3D(-1.45505e-09, 0.0351858, -7.09607e-10, 0.00811696, -3.54804e-10, -0.0342367, -0.0342367, -1.5795e-09, -0.00811696, 6.16398e-16, 3.14439, -1.05176)
+[node name="Plane_005" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.13309e-09, -0.017065, 5.08578e-10, 0.00445841, 1.94883e-10, 0.0164724, 0.0164724, -1.22661e-09, -0.00445841, -3.54719e-16, -1.59751, -1.388)
+mesh = SubResource("ArrayMesh_x7e5t")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_keebo")
 
-[node name="AnimationPlayer" parent="Fire_Rune" index="7"]
-libraries = {
-"": SubResource("AnimationLibrary_soli6")
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-root_node = NodePath("../Fire_Rune")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_soli6")
 }
 autoplay = "Everything"
-
-[editable path="Fire_Rune"]

@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="YellowRune" load_steps=3 format=3 uid="uid://cchhv8061mmxg"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/YellowRune.gd" id="1_svoah"]
-[ext_resource type="Texture2D" uid="uid://bapwpiyr3wjny" path="res://Textures/Runes/Yellow/ground_rune.png" id="2_xbul7"]
+[ext_resource type="PackedScene" uid="uid://b82fdlsgqastt" path="res://Models/Runes/GroundRune.tscn" id="2_n3r04"]
 
 [resource]
 script = ExtResource("1_svoah")
 type = 0
-texture = ExtResource("2_xbul7")
+mana_cost = 10.0
+mana_multiplier = 1.0
+visual = ExtResource("2_n3r04")

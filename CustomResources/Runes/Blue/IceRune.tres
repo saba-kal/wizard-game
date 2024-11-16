@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="BlueRune" load_steps=3 format=3 uid="uid://gtkgqi172xef"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/BlueRune.gd" id="1_45pk0"]
-[ext_resource type="Texture2D" uid="uid://s7y7rl3y0ur3" path="res://Textures/Runes/Blue/ice_rune.png" id="2_xwine"]
+[ext_resource type="PackedScene" uid="uid://bs6uy708imod0" path="res://Models/Runes/IceRune.tscn" id="2_x8v4t"]
 
 [resource]
 script = ExtResource("1_45pk0")
 type = 1
-texture = ExtResource("2_xwine")
 mana_cost = 10.0
 mana_multiplier = 1.0
+visual = ExtResource("2_x8v4t")

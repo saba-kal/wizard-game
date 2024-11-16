@@ -1,19 +1,281 @@
-[gd_scene load_steps=15 format=3 uid="uid://bi0lwy8bjvsol"]
+[gd_scene load_steps=29 format=4 uid="uid://esmx08or0yhp"]
 
-[ext_resource type="PackedScene" uid="uid://ddkpf3ldhhj1t" path="res://Scenes/Environment/Collectables/RuneCollectable.tscn" id="1_5hi25"]
-[ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="2_lechc"]
-[ext_resource type="PackedScene" uid="uid://j0o0i5pr7hdb" path="res://Models/Runes/Detriment_Rune.glb" id="2_rcqcb"]
-[ext_resource type="Texture2D" uid="uid://bt2078ilio364" path="res://Models/Runes/Detriment_Rune.png" id="3_bli42"]
+[ext_resource type="Texture2D" uid="uid://bt2078ilio364" path="res://Models/Runes/Detriment_Rune.png" id="1_u2x2i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjgew"]
+resource_name = "Detriment Rune"
+transparency = 4
+cull_mode = 2
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 0.931935, 0.805625, 1)
+emission_energy_multiplier = 3.1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eedtg"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAA//8AAAAAAAAAAAAA//8AAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gyc0t"]
+resource_name = "Detriment_Rune_Detriment Rune"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": SubResource("StandardMaterial3D_xjgew"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAA////vwAAAAAAAP+///8AAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_eedtg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1xnh"]
 resource_name = "Detriment Rune"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_bli42")
+albedo_texture = ExtResource("1_u2x2i")
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.931935, 0.805625, 1)
 emission_energy_multiplier = 3.1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dwqdg"]
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmAABU5gAAVOYAAKoZAACqGQAAVOYAAKoZAAAAAAAA/38AAP9/AAD//wAA//8AAP9/AAD/fwAAAAAAAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x3og3"]
+resource_name = "Detriment_Rune_Plane"
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA/3//f///////f/9/AAD/f/9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"material": SubResource("StandardMaterial3D_xjgew"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmJsBU5gAAVOabwKoZAACqGZvAVOYAAKoZJsAAAAAA/38FwP9/AAD//w3A//8AAP9/BcD/fwAAAAANwP9/AAD/fwnA+fECh1HzpWZR86Vm+fECh/X87Hk592KE9fzseTn3YoSc+LCD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dwqdg")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jkf6e"]
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmAABU5gAAVOYAAKoZAACqGQAAVOYAAKoZAAAAAAAA/38AAP9/AAD//wAA//8AAP9/AAD/fwAAAAAAAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lmjbv"]
+resource_name = "Detriment_Rune_Plane_001"
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA/3//f///////f/9/AAD/f/9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"material": SubResource("StandardMaterial3D_xjgew"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmJsBU5gAAVOabwKoZAACqGZvAVOYAAKoZJsAAAAAA/38FwP9/AAD//w3A//8AAP9/BcD/fwAAAAANwP9/AAD/fwnA+fECh1HzpWZR86Vm+fECh/X87Hk592KE9fzseTn3YoSc+LCD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jkf6e")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2mgyc"]
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmAABU5gAAVOYAAKoZAACqGQAAVOYAAKoZAAAAAAAA/38AAP9/AAD//wAA//8AAP9/AAD/fwAAAAAAAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_36dl1"]
+resource_name = "Detriment_Rune_Plane_002"
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA/3//f///////f/9/AAD/f/9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"material": SubResource("StandardMaterial3D_xjgew"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmJsBU5gAAVOabwKoZAACqGZvAVOYAAKoZJsAAAAAA/38FwP9/AAD//w3A//8AAP9/BcD/fwAAAAANwP9/AAD/fwnA+fECh1HzpWZR86Vm+fECh/X87Hk592KE9fzseTn3YoSc+LCD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2mgyc")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hbde0"]
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmAABU5gAAVOYAAKoZAACqGQAAVOYAAKoZAAAAAAAA/38AAP9/AAD//wAA//8AAP9/AAD/fwAAAAAAAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gpwta"]
+resource_name = "Detriment_Rune_Plane_003"
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA/3//f///////f/9/AAD/f/9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"material": SubResource("StandardMaterial3D_xjgew"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmJsBU5gAAVOabwKoZAACqGZvAVOYAAKoZJsAAAAAA/38FwP9/AAD//w3A//8AAP9/BcD/fwAAAAANwP9/AAD/fwnA+fECh1HzpWZR86Vm+fECh/X87Hk592KE9fzseTn3YoSc+LCD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hbde0")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tmx15"]
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmAABU5gAAVOYAAKoZAACqGQAAVOYAAKoZAAAAAAAA/38AAP9/AAD//wAA//8AAP9/AAD/fwAAAAAAAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jnosx"]
+resource_name = "Detriment_Rune_Plane_004"
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA/3//f///////f/9/AAD/f/9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"material": SubResource("StandardMaterial3D_xjgew"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmJsBU5gAAVOabwKoZAACqGZvAVOYAAKoZJsAAAAAA/38FwP9/AAD//w3A//8AAP9/BcD/fwAAAAANwP9/AAD/fwnA+fECh1HzpWZR86Vm+fECh/X87Hk592KE9fzseTn3YoSc+LCD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tmx15")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e5ut1"]
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmAABU5gAAVOYAAKoZAACqGQAAVOYAAKoZAAAAAAAA/38AAP9/AAD//wAA//8AAP9/AAD/fwAAAAAAAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jw7os"]
+resource_name = "Detriment_Rune_Plane_005"
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA/3//f///////f/9/AAD/f/9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"material": SubResource("StandardMaterial3D_xjgew"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmJsBU5gAAVOabwKoZAACqGZvAVOYAAKoZJsAAAAAA/38FwP9/AAD//w3A//8AAP9/BcD/fwAAAAANwP9/AAD/fwnA+fECh1HzpWZR86Vm+fECh/X87Hk592KE9fzseTn3YoSc+LCD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_e5ut1")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_02wk6"]
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmAABU5gAAVOYAAKoZAACqGQAAVOYAAKoZAAAAAAAA/38AAP9/AAD//wAA//8AAP9/AAD/fwAAAAAAAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pqtl5"]
+resource_name = "Detriment_Rune_Plane_006"
+_surfaces = [{
+"aabb": AABB(-1.25082, 0, -1.25082, 2.50164, 1e-05, 2.50164),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA/3//f///////f/9/AAD/f/9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("CAADAAYACAAHAAMABAAHAAgABAACAAcAAAAIAAUAAAAEAAgABQAGAAEABQAIAAYA"),
+"material": SubResource("StandardMaterial3D_xjgew"),
+"name": "Detriment Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("qhkAAFTmJsBU5gAAVOabwKoZAACqGZvAVOYAAKoZJsAAAAAA/38FwP9/AAD//w3A//8AAP9/BcD/fwAAAAANwP9/AAD/fwnA+fECh1HzpWZR86Vm+fECh/X87Hk592KE9fzseTn3YoSc+LCD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_02wk6")
 
 [sub_resource type="Animation" id="Animation_2e5nj"]
 resource_name = "PlaneAction"
@@ -1236,53 +1498,59 @@ _data = {
 "everything": SubResource("Animation_8mrya")
 }
 
-[node name="DetrimentRune" instance=ExtResource("1_5hi25")]
-rune = ExtResource("2_lechc")
-
-[node name="Detriment_Rune" parent="." index="1" instance=ExtResource("2_rcqcb")]
+[node name="Detriment_Rune" type="Node3D"]
 transform = Transform3D(0.685, 0, 0, 0, 0.685, 0, 0, 0, 0.685, 0, 0.0250294, -0.0256466)
 
-[node name="Detriment Rune" parent="Detriment_Rune" index="0"]
+[node name="Detriment Rune" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 3.13626, 0, -1.86936e-07, -1.11422e-14, -3.13626, -3.13626, 0, 1.86936e-07, 0, 0, 0)
+mesh = SubResource("ArrayMesh_gyc0t")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
-[node name="d-star" parent="Detriment_Rune" index="1"]
-transform = Transform3D(-1.35264e-09, 0.0237452, -1.46889e-09, 0.00972803, 1.89412e-09, 0.021661, 0.021661, 6.3213e-10, -0.00972803, -1.99166e-16, -1.20528, -0.774634)
+[node name="d-star" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 1.78813e-16, 0.805304, 1.02136)
+mesh = SubResource("ArrayMesh_x3og3")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
-[node name="d-star_001" parent="Detriment_Rune" index="2"]
-transform = Transform3D(-1.35264e-09, 0.0237452, -1.46889e-09, 0.00972803, 1.89412e-09, 0.021661, 0.021661, 6.3213e-10, -0.00972803, -2.03528e-16, -0.550017, 1.21026)
+[node name="d-star_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 0, -0.340454, -1.32253)
+mesh = SubResource("ArrayMesh_lmjbv")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
-[node name="d-star_002" parent="Detriment_Rune" index="3"]
-transform = Transform3D(-1.35264e-09, 0.0237452, -1.46889e-09, 0.00972803, 1.89412e-09, 0.021661, 0.021661, 6.3213e-10, -0.00972803, 4.46307e-16, 1.69031, 1.37809)
+[node name="d-star_002" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 0, -1.78738, 0.307718)
+mesh = SubResource("ArrayMesh_36dl1")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
-[node name="d-star_003" parent="Detriment_Rune" index="4"]
-transform = Transform3D(-1.35264e-09, 0.0237452, -1.46889e-09, 0.00972803, 1.89412e-09, 0.021661, 0.021661, 6.3213e-10, -0.00972803, -4.65206e-17, -0.595463, -2.24665)
+[node name="d-star_003" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 0, -0.392831, 1.59751)
+mesh = SubResource("ArrayMesh_gpwta")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
-[node name="d-star_004" parent="Detriment_Rune" index="5"]
-transform = Transform3D(4.31008e-09, 0.0237452, -1.46571e-09, 0.00970693, -4.24304e-10, 0.0216705, 0.0216705, -4.53267e-09, -0.00970693, 3.32913e-16, 1.10022, -0.91542)
+[node name="d-star_004" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 0, -1.10647, 1.12612)
+mesh = SubResource("ArrayMesh_jnosx")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
-[node name="d-star_005" parent="Detriment_Rune" index="6"]
-transform = Transform3D(4.31008e-09, 0.0237452, -1.46571e-09, 0.00970693, -4.24304e-10, 0.0216705, 0.0216705, -4.53267e-09, -0.00970693, 1.01764e-17, -0.960034, 1.60917)
+[node name="d-star_005" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 0, -1.19814, -0.680907)
+mesh = SubResource("ArrayMesh_jw7os")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
-[node name="d-star_006" parent="Detriment_Rune" index="7"]
-transform = Transform3D(4.31008e-09, 0.0237452, -1.46571e-09, 0.00970693, -4.24304e-10, 0.0216705, 0.0216705, -4.53267e-09, -0.00970693, -3.63442e-16, -1.38227, -0.745336)
+[node name="d-star_006" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.1227e-10, 0.00485617, 0, -0.00485617, -2.1227e-10, 0, 0, 0, 0.00485617, 0, 0.176774, 1.08683)
+mesh = SubResource("ArrayMesh_pqtl5")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_f1xnh")
 
-[node name="AnimationPlayer" parent="Detriment_Rune" index="8"]
-libraries = {
-"": SubResource("AnimationLibrary_2p3al")
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-root_node = NodePath("../Detriment_Rune")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_2p3al")
 }
 autoplay = "everything"
-
-[editable path="Detriment_Rune"]

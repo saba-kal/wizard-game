@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b82fdlsgqastt"]
+
+[ext_resource type="Texture2D" uid="uid://bapwpiyr3wjny" path="res://Textures/Runes/Yellow/ground_rune.png" id="1_paja1"]
+
+[node name="Sprite3D" type="Sprite3D"]
+transform = Transform3D(-2.49155e-08, 0, 0.57, 0, 0.57, 0, -0.57, 0, -2.49155e-08, 0, 0, 0)
+texture = ExtResource("1_paja1")

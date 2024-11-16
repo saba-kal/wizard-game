@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="BlueRune" load_steps=3 format=3 uid="uid://da8bwlukglmcu"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/BlueRune.gd" id="1_x80g3"]
-[ext_resource type="Texture2D" uid="uid://c2sb63p6icc2o" path="res://Textures/Runes/Blue/condition_rune.png" id="2_ndcf3"]
+[ext_resource type="PackedScene" uid="uid://e6np3e6ggkqh" path="res://Models/Runes/ConditionRune.tscn" id="2_ofld8"]
 
 [resource]
 script = ExtResource("1_x80g3")
 type = 2
-texture = ExtResource("2_ndcf3")
+mana_cost = 10.0
+mana_multiplier = 1.0
+visual = ExtResource("2_ofld8")

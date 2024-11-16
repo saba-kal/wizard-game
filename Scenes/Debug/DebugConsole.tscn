@@ -1,75 +1,16 @@
-[gd_scene load_steps=23 format=3 uid="uid://trdgk7ggai0g"]
+[gd_scene load_steps=12 format=3 uid="uid://trdgk7ggai0g"]
 
 [ext_resource type="Script" path="res://Scripts/Debug/DebugConsole.gd" id="1_1x63u"]
-[ext_resource type="Script" path="res://Scripts/SpellCrafting/BlueRune.gd" id="2_nok5c"]
-[ext_resource type="Texture2D" uid="uid://cj1hgd8d4j13h" path="res://Textures/Runes/Blue/fire_rune.png" id="3_8r54g"]
-[ext_resource type="Script" path="res://Scripts/SpellCrafting/RedRune.gd" id="3_saark"]
 [ext_resource type="Script" path="res://Scripts/Debug/DebugCommands.gd" id="3_v72jh"]
-[ext_resource type="Script" path="res://Scripts/SpellCrafting/YellowRune.gd" id="4_3mx57"]
-[ext_resource type="Texture2D" uid="uid://s7y7rl3y0ur3" path="res://Textures/Runes/Blue/ice_rune.png" id="4_kuedt"]
-[ext_resource type="Texture2D" uid="uid://c2sb63p6icc2o" path="res://Textures/Runes/Blue/condition_rune.png" id="5_icya6"]
+[ext_resource type="Resource" uid="uid://t11b8qcsj1hl" path="res://CustomResources/Runes/Blue/FireRune.tres" id="4_35fjo"]
 [ext_resource type="Script" path="res://Scripts/Debug/ConsoleLineEdit.gd" id="5_ll82f"]
-[ext_resource type="Texture2D" uid="uid://b0o2l5sex7avj" path="res://Textures/Runes/Blue/crate_rune.png" id="6_q75cx"]
-[ext_resource type="Texture2D" uid="uid://cq876lsqujcj6" path="res://Textures/Runes/Red/detriment_rune.png" id="8_ngcp7"]
-[ext_resource type="Texture2D" uid="uid://cmklsp7qe37f7" path="res://Textures/Runes/Red/benefit_rune.png" id="9_uw6ic"]
-[ext_resource type="Texture2D" uid="uid://bapwpiyr3wjny" path="res://Textures/Runes/Yellow/ground_rune.png" id="11_uh8sg"]
-[ext_resource type="Texture2D" uid="uid://mvqhldxr4m07" path="res://Textures/Runes/Yellow/self_rune.png" id="12_shgrj"]
-
-[sub_resource type="Resource" id="Resource_5hlps"]
-script = ExtResource("2_nok5c")
-type = 0
-texture = ExtResource("3_8r54g")
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_m4wjr"]
-script = ExtResource("2_nok5c")
-type = 1
-texture = ExtResource("4_kuedt")
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_ueo66"]
-script = ExtResource("2_nok5c")
-type = 2
-texture = ExtResource("5_icya6")
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_hrlvq"]
-script = ExtResource("2_nok5c")
-type = 3
-texture = ExtResource("6_q75cx")
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_avbkx"]
-script = ExtResource("3_saark")
-type = 0
-texture = ExtResource("8_ngcp7")
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_jedxb"]
-script = ExtResource("3_saark")
-type = 1
-texture = ExtResource("9_uw6ic")
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_pam8w"]
-script = ExtResource("4_3mx57")
-type = 0
-texture = ExtResource("11_uh8sg")
-mana_cost = 10.0
-mana_multiplier = 1.0
-
-[sub_resource type="Resource" id="Resource_6a44l"]
-script = ExtResource("4_3mx57")
-type = 1
-texture = ExtResource("12_shgrj")
-mana_cost = 10.0
-mana_multiplier = 1.0
+[ext_resource type="Resource" uid="uid://gtkgqi172xef" path="res://CustomResources/Runes/Blue/IceRune.tres" id="5_nienx"]
+[ext_resource type="Resource" uid="uid://da8bwlukglmcu" path="res://CustomResources/Runes/Blue/ConditionRune.tres" id="6_tq0qn"]
+[ext_resource type="Resource" uid="uid://dml2jw5po2uiy" path="res://CustomResources/Runes/Blue/CrateRune.tres" id="7_x77o1"]
+[ext_resource type="Resource" uid="uid://bxiuikm8748d5" path="res://CustomResources/Runes/Red/DetrimentRune.tres" id="8_310vk"]
+[ext_resource type="Resource" uid="uid://b5rf4kuktg21q" path="res://CustomResources/Runes/Red/BenefitRune.tres" id="9_25wja"]
+[ext_resource type="Resource" uid="uid://cchhv8061mmxg" path="res://CustomResources/Runes/Yellow/GroundRune.tres" id="10_km4ss"]
+[ext_resource type="Resource" uid="uid://ytqt7t0ak1ok" path="res://CustomResources/Runes/Yellow/SelfRune.tres" id="11_pnjhu"]
 
 [node name="DebugConsole" type="Control" node_paths=PackedStringArray("line_edit", "console", "commandHolder")]
 layout_mode = 3
@@ -110,7 +51,7 @@ script = ExtResource("5_ll82f")
 
 [node name="CommandHolder" type="Node" parent="."]
 script = ExtResource("3_v72jh")
-runes = [SubResource("Resource_5hlps"), SubResource("Resource_m4wjr"), SubResource("Resource_ueo66"), SubResource("Resource_hrlvq"), SubResource("Resource_avbkx"), SubResource("Resource_jedxb"), SubResource("Resource_pam8w"), SubResource("Resource_6a44l")]
+runes = [ExtResource("4_35fjo"), ExtResource("5_nienx"), ExtResource("6_tq0qn"), ExtResource("7_x77o1"), ExtResource("8_310vk"), ExtResource("9_25wja"), ExtResource("10_km4ss"), ExtResource("11_pnjhu")]
 
 [connection signal="focus_entered" from="MarginContainer/VBoxContainer/Input" to="MarginContainer/VBoxContainer/Input" method="_on_focus_entered"]
 [connection signal="focus_exited" from="MarginContainer/VBoxContainer/Input" to="MarginContainer/VBoxContainer/Input" method="_on_focus_exited"]

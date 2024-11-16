@@ -1,0 +1,933 @@
+[gd_scene load_steps=26 format=4 uid="uid://e6np3e6ggkqh"]
+
+[ext_resource type="Texture2D" uid="uid://cnqxkmlwuuy8r" path="res://Models/Runes/Condition_Rune_Condition Rune.png" id="1_0h6b8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btfry"]
+resource_name = "Condition Rune"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_0h6b8")
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 0.881533, 0.681981, 1)
+emission_energy_multiplier = 7.9
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fggds"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "Condition Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAA//8AAAAAAAAAAAAA//8AAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4it7x"]
+resource_name = "Condition_Rune_Condition Rune"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": SubResource("StandardMaterial3D_btfry"),
+"name": "Condition Rune",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAA////vwAAAAAAAP+///8AAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fggds")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewkl5"]
+resource_name = "Condition Stars"
+cull_mode = 2
+shading_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mbsxa"]
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("GQALAAoACgALAAMAGAAHAA0AGAAOAAcAFwARABAAEAARAAUAFgABABMAFgAJAAEAFQAEAA8AFQASAAQAFAABAAoAFAATAAEAEAATABQAEAAFABMABwAUAA0ABwAQABQADQAKAAMADQAUAAoACAASABUACAAAABIAAgAVAAwAAgAIABUADAAPAAYADAAVAA8AEgAJABYAEgAAAAkABAAWABEABAASABYAEQATAAUAEQAWABMADwARABcADwAEABEABgAPAA4ADgAPABcADgAQAAcADgAXABAADAAOABgADAAGAA4AAgAYAAsAAgAMABgACwANAAMACwAYAA0ACAALABkACAACAAsAAAAIAAkACQAIABkACQAKAAEACQAZAAoA"),
+"lods": [1.06722, PackedByteArray("CQABABMABQAJABMACAASAAQACAAAABIABAAJAAUABwAFABMABwATAAEABwABAAMACAAHAAMACAAGAAcABAASAAkAEgAAAAkACAAEAAUABgAIAAcABwAIAAUAAAAIAAkACQAIAAMACQADAAEA")],
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("Z0YAAP//AABnRv////8AAGdGAAAAAAAAZ0b//wAAAACXuQAA//8AAJe5/////wAAl7kAAAAAAACXuf//AAAAAGdGVzn/fwAAZ0b/f6fGAABnRqfG/38AAGdG/39XOQAA/38AAAAAAAD/f///AAAAAJe5/39XOQAAl7lXOf9/AACXuafG/38AAJe5/3+nxgAA/38AAP//AAD/f/////8AAP9/p8b/fwAA/39XOf9/AAD/f/9/p8YAAP///3//fwAA/3//f1c5AAAAAP9//38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_olrbp"]
+resource_name = "Condition_Rune_Cube"
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"attribute_data": PackedByteArray("/x//P/9fAAD/X////58AAP+f////3/8//x//f/9f/7//n/+//9//f/9f/z//n/8//1//f/+f/3//H/9f/1//3/9/AAD/f////5//3//f/1//f/+//z//f/9f/5//n/+f/7//f/9//3//X/9f/5//X/9//z//P/8//1//H/+f/x//v/8//7//X/8//1//f/8f/3//X/9//5//f//f/x//P/9f////nwAA/5////+f/7//n/+//5//v/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//n/9//5//f/+f/3//n/9//x//X/8f/1//H/9f/x//X/9f/9//X//f/1//3/9/AAD/fwAA/3////9/////f////z//P/9f/x//n/8f"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
+"lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
+"material": SubResource("StandardMaterial3D_ewkl5"),
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("Z0YAAP//nKJnRgAA//8D22dGAAD//wPbZ0b/////RLRnRv////9EtGdG/////9T6Z0YAAAAAduBnRgAAAAB1/mdG//8AANzdZ0b//wAAfPOXuQAA///bq5e5/////zHml7kAAAAABt6Xuf//AAB3/GdGVzn/f8/CZ0ZXOf9/xfBnRv9/p8bPwmdG/3+nxs/CZ0anxv9/z8JnRqfG/3/F8GdG/39XOcXw/38AAAAA/9//fwAAAACq6f9///8AAKrp/3///wAA//+Xuf9/VznF8Je5Vzn/f8/Cl7mnxv9/xfCXuf9/p8bPwv9/AAD///+f/38AAP///MX/f//////8xf9//////////3+nxv9/////f1c5/3//v/9//3+nxv+/////f/9/VNX/f/9/Vzn//wAA/3//f1TVZ0YAAP//TatnRgAA//8d2mdG/////zOvZ0b/////krpnRv//AAAH62dG//8AAKnNZ0b//wAAp76XuQAA//8+p5e5AAD//6Lgl7n/////deaXuf////+/9Ze5/////yfql7kAAAAAyquXuQAAAACD8Je5//8AAK32l7n//wAA+eeXuf//AABK6Je5//8AAI38Z0ZXOf9/JLZnRlc5/38s8mdGVzn/f62YZ0ZXOf9/7sVnRlc5/38g+2dGVzn/f3TtZ0ZXOf9/ZORnRv9/p8bpwWdG/3+nxrXCZ0b/f6fGgcdnRv9/p8aH1WdG/3+nxvDJ/38AAP//+Kn/fwAA//88wf9//////xLFoC74oHAqB/5wKgf+M/1BPDP9QTxrcoKhjRgwh+ldtUF80ZesAHpD1koHO0SoJz0E2SCUWshFThkgLY+Wqseo8G7pbulu6W7pbukgralwVLiqx6rHAAD/f/pK+koEtQS1/3+B2lQ4VDiQFt5SVDhWD5AWkBYAAP9//xz/4v/i/xz/f3yl/3//vwAA/3//////qiqqKv+//79U1VTVuyY3nmnQffsb/cEzMPrsv1O/37hnx7bD3dmxuIwDfL5XCFliReSyAvhahibUtwIQjRlDQ2Eg82JWrzHOLQHyDwvNGhG+aCfbkizUjc8kD10+V/11pyg1bGmsb9Tp0czwwcRgxT71euQqCgnzEOSf/U3az8wr7CDPcQtxi8wkoO395U4b")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mbsxa")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_td2hr"]
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("GQALAAoACgALAAMAGAAHAA0AGAAOAAcAFwARABAAEAARAAUAFgABABMAFgAJAAEAFQAEAA8AFQASAAQAFAABAAoAFAATAAEAEAATABQAEAAFABMABwAUAA0ABwAQABQADQAKAAMADQAUAAoACAASABUACAAAABIAAgAVAAwAAgAIABUADAAPAAYADAAVAA8AEgAJABYAEgAAAAkABAAWABEABAASABYAEQATAAUAEQAWABMADwARABcADwAEABEABgAPAA4ADgAPABcADgAQAAcADgAXABAADAAOABgADAAGAA4AAgAYAAsAAgAMABgACwANAAMACwAYAA0ACAALABkACAACAAsAAAAIAAkACQAIABkACQAKAAEACQAZAAoA"),
+"lods": [1.06722, PackedByteArray("CQABABMABQAJABMACAASAAQACAAAABIABAAJAAUABwAFABMABwATAAEABwABAAMACAAHAAMACAAGAAcABAASAAkAEgAAAAkACAAEAAUABgAIAAcABwAIAAUAAAAIAAkACQAIAAMACQADAAEA")],
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("Z0YAAP//AABnRv////8AAGdGAAAAAAAAZ0b//wAAAACXuQAA//8AAJe5/////wAAl7kAAAAAAACXuf//AAAAAGdGVzn/fwAAZ0b/f6fGAABnRqfG/38AAGdG/39XOQAA/38AAAAAAAD/f///AAAAAJe5/39XOQAAl7lXOf9/AACXuafG/38AAJe5/3+nxgAA/38AAP//AAD/f/////8AAP9/p8b/fwAA/39XOf9/AAD/f/9/p8YAAP///3//fwAA/3//f1c5AAAAAP9//38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3i18s"]
+resource_name = "Condition_Rune_Cube_001"
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"attribute_data": PackedByteArray("/x//P/9fAAD/X////58AAP+f////3/8//x//f/9f/7//n/+//9//f/9f/z//n/8//1//f/+f/3//H/9f/1//3/9/AAD/f////5//3//f/1//f/+//z//f/9f/5//n/+f/7//f/9//3//X/9f/5//X/9//z//P/8//1//H/+f/x//v/8//7//X/8//1//f/8f/3//X/9//5//f//f/x//P/9f////nwAA/5////+f/7//n/+//5//v/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//n/9//5//f/+f/3//n/9//x//X/8f/1//H/9f/x//X/9f/9//X//f/1//3/9/AAD/fwAA/3////9/////f////z//P/9f/x//n/8f"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
+"lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
+"material": SubResource("StandardMaterial3D_ewkl5"),
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("Z0YAAP//nKJnRgAA//8D22dGAAD//wPbZ0b/////RLRnRv////9EtGdG/////9T6Z0YAAAAAduBnRgAAAAB1/mdG//8AANzdZ0b//wAAfPOXuQAA///bq5e5/////zHml7kAAAAABt6Xuf//AAB3/GdGVzn/f8/CZ0ZXOf9/xfBnRv9/p8bPwmdG/3+nxs/CZ0anxv9/z8JnRqfG/3/F8GdG/39XOcXw/38AAAAA/9//fwAAAACq6f9///8AAKrp/3///wAA//+Xuf9/VznF8Je5Vzn/f8/Cl7mnxv9/xfCXuf9/p8bPwv9/AAD///+f/38AAP///MX/f//////8xf9//////////3+nxv9/////f1c5/3//v/9//3+nxv+/////f/9/VNX/f/9/Vzn//wAA/3//f1TVZ0YAAP//TatnRgAA//8d2mdG/////zOvZ0b/////krpnRv//AAAH62dG//8AAKnNZ0b//wAAp76XuQAA//8+p5e5AAD//6Lgl7n/////deaXuf////+/9Ze5/////yfql7kAAAAAyquXuQAAAACD8Je5//8AAK32l7n//wAA+eeXuf//AABK6Je5//8AAI38Z0ZXOf9/JLZnRlc5/38s8mdGVzn/f62YZ0ZXOf9/7sVnRlc5/38g+2dGVzn/f3TtZ0ZXOf9/ZORnRv9/p8bpwWdG/3+nxrXCZ0b/f6fGgcdnRv9/p8aH1WdG/3+nxvDJ/38AAP//+Kn/fwAA//88wf9//////xLFoC74oHAqB/5wKgf+M/1BPDP9QTxrcoKhjRgwh+ldtUF80ZesAHpD1koHO0SoJz0E2SCUWshFThkgLY+Wqseo8G7pbulu6W7pbukgralwVLiqx6rHAAD/f/pK+koEtQS1/3+B2lQ4VDiQFt5SVDhWD5AWkBYAAP9//xz/4v/i/xz/f3yl/3//vwAA/3//////qiqqKv+//79U1VTVuyY3nmnQffsb/cEzMPrsv1O/37hnx7bD3dmxuIwDfL5XCFliReSyAvhahibUtwIQjRlDQ2Eg82JWrzHOLQHyDwvNGhG+aCfbkizUjc8kD10+V/11pyg1bGmsb9Tp0czwwcRgxT71euQqCgnzEOSf/U3az8wr7CDPcQtxi8wkoO395U4b")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_td2hr")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ic6uk"]
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("GQALAAoACgALAAMAGAAHAA0AGAAOAAcAFwARABAAEAARAAUAFgABABMAFgAJAAEAFQAEAA8AFQASAAQAFAABAAoAFAATAAEAEAATABQAEAAFABMABwAUAA0ABwAQABQADQAKAAMADQAUAAoACAASABUACAAAABIAAgAVAAwAAgAIABUADAAPAAYADAAVAA8AEgAJABYAEgAAAAkABAAWABEABAASABYAEQATAAUAEQAWABMADwARABcADwAEABEABgAPAA4ADgAPABcADgAQAAcADgAXABAADAAOABgADAAGAA4AAgAYAAsAAgAMABgACwANAAMACwAYAA0ACAALABkACAACAAsAAAAIAAkACQAIABkACQAKAAEACQAZAAoA"),
+"lods": [1.06722, PackedByteArray("CQABABMABQAJABMACAASAAQACAAAABIABAAJAAUABwAFABMABwATAAEABwABAAMACAAHAAMACAAGAAcABAASAAkAEgAAAAkACAAEAAUABgAIAAcABwAIAAUAAAAIAAkACQAIAAMACQADAAEA")],
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("Z0YAAP//AABnRv////8AAGdGAAAAAAAAZ0b//wAAAACXuQAA//8AAJe5/////wAAl7kAAAAAAACXuf//AAAAAGdGVzn/fwAAZ0b/f6fGAABnRqfG/38AAGdG/39XOQAA/38AAAAAAAD/f///AAAAAJe5/39XOQAAl7lXOf9/AACXuafG/38AAJe5/3+nxgAA/38AAP//AAD/f/////8AAP9/p8b/fwAA/39XOf9/AAD/f/9/p8YAAP///3//fwAA/3//f1c5AAAAAP9//38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rxxcn"]
+resource_name = "Condition_Rune_Cube_006"
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"attribute_data": PackedByteArray("/x//P/9fAAD/X////58AAP+f////3/8//x//f/9f/7//n/+//9//f/9f/z//n/8//1//f/+f/3//H/9f/1//3/9/AAD/f////5//3//f/1//f/+//z//f/9f/5//n/+f/7//f/9//3//X/9f/5//X/9//z//P/8//1//H/+f/x//v/8//7//X/8//1//f/8f/3//X/9//5//f//f/x//P/9f////nwAA/5////+f/7//n/+//5//v/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//n/9//5//f/+f/3//n/9//x//X/8f/1//H/9f/x//X/9f/9//X//f/1//3/9/AAD/fwAA/3////9/////f////z//P/9f/x//n/8f"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
+"lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
+"material": SubResource("StandardMaterial3D_ewkl5"),
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("Z0YAAP//nKJnRgAA//8D22dGAAD//wPbZ0b/////RLRnRv////9EtGdG/////9T6Z0YAAAAAduBnRgAAAAB1/mdG//8AANzdZ0b//wAAfPOXuQAA///bq5e5/////zHml7kAAAAABt6Xuf//AAB3/GdGVzn/f8/CZ0ZXOf9/xfBnRv9/p8bPwmdG/3+nxs/CZ0anxv9/z8JnRqfG/3/F8GdG/39XOcXw/38AAAAA/9//fwAAAACq6f9///8AAKrp/3///wAA//+Xuf9/VznF8Je5Vzn/f8/Cl7mnxv9/xfCXuf9/p8bPwv9/AAD///+f/38AAP///MX/f//////8xf9//////////3+nxv9/////f1c5/3//v/9//3+nxv+/////f/9/VNX/f/9/Vzn//wAA/3//f1TVZ0YAAP//TatnRgAA//8d2mdG/////zOvZ0b/////krpnRv//AAAH62dG//8AAKnNZ0b//wAAp76XuQAA//8+p5e5AAD//6Lgl7n/////deaXuf////+/9Ze5/////yfql7kAAAAAyquXuQAAAACD8Je5//8AAK32l7n//wAA+eeXuf//AABK6Je5//8AAI38Z0ZXOf9/JLZnRlc5/38s8mdGVzn/f62YZ0ZXOf9/7sVnRlc5/38g+2dGVzn/f3TtZ0ZXOf9/ZORnRv9/p8bpwWdG/3+nxrXCZ0b/f6fGgcdnRv9/p8aH1WdG/3+nxvDJ/38AAP//+Kn/fwAA//88wf9//////xLFoC74oHAqB/5wKgf+M/1BPDP9QTxrcoKhjRgwh+ldtUF80ZesAHpD1koHO0SoJz0E2SCUWshFThkgLY+Wqseo8G7pbulu6W7pbukgralwVLiqx6rHAAD/f/pK+koEtQS1/3+B2lQ4VDiQFt5SVDhWD5AWkBYAAP9//xz/4v/i/xz/f3yl/3//vwAA/3//////qiqqKv+//79U1VTVuyY3nmnQffsb/cEzMPrsv1O/37hnx7bD3dmxuIwDfL5XCFliReSyAvhahibUtwIQjRlDQ2Eg82JWrzHOLQHyDwvNGhG+aCfbkizUjc8kD10+V/11pyg1bGmsb9Tp0czwwcRgxT71euQqCgnzEOSf/U3az8wr7CDPcQtxi8wkoO395U4b")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ic6uk")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i5kbh"]
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("GQALAAoACgALAAMAGAAHAA0AGAAOAAcAFwARABAAEAARAAUAFgABABMAFgAJAAEAFQAEAA8AFQASAAQAFAABAAoAFAATAAEAEAATABQAEAAFABMABwAUAA0ABwAQABQADQAKAAMADQAUAAoACAASABUACAAAABIAAgAVAAwAAgAIABUADAAPAAYADAAVAA8AEgAJABYAEgAAAAkABAAWABEABAASABYAEQATAAUAEQAWABMADwARABcADwAEABEABgAPAA4ADgAPABcADgAQAAcADgAXABAADAAOABgADAAGAA4AAgAYAAsAAgAMABgACwANAAMACwAYAA0ACAALABkACAACAAsAAAAIAAkACQAIABkACQAKAAEACQAZAAoA"),
+"lods": [1.06722, PackedByteArray("CQABABMABQAJABMACAASAAQACAAAABIABAAJAAUABwAFABMABwATAAEABwABAAMACAAHAAMACAAGAAcABAASAAkAEgAAAAkACAAEAAUABgAIAAcABwAIAAUAAAAIAAkACQAIAAMACQADAAEA")],
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("Z0YAAP//AABnRv////8AAGdGAAAAAAAAZ0b//wAAAACXuQAA//8AAJe5/////wAAl7kAAAAAAACXuf//AAAAAGdGVzn/fwAAZ0b/f6fGAABnRqfG/38AAGdG/39XOQAA/38AAAAAAAD/f///AAAAAJe5/39XOQAAl7lXOf9/AACXuafG/38AAJe5/3+nxgAA/38AAP//AAD/f/////8AAP9/p8b/fwAA/39XOf9/AAD/f/9/p8YAAP///3//fwAA/3//f1c5AAAAAP9//38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kpxd4"]
+resource_name = "Condition_Rune_Cube_007"
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"attribute_data": PackedByteArray("/x//P/9fAAD/X////58AAP+f////3/8//x//f/9f/7//n/+//9//f/9f/z//n/8//1//f/+f/3//H/9f/1//3/9/AAD/f////5//3//f/1//f/+//z//f/9f/5//n/+f/7//f/9//3//X/9f/5//X/9//z//P/8//1//H/+f/x//v/8//7//X/8//1//f/8f/3//X/9//5//f//f/x//P/9f////nwAA/5////+f/7//n/+//5//v/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//n/9//5//f/+f/3//n/9//x//X/8f/1//H/9f/x//X/9f/9//X//f/1//3/9/AAD/fwAA/3////9/////f////z//P/9f/x//n/8f"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
+"lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
+"material": SubResource("StandardMaterial3D_ewkl5"),
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("Z0YAAP//nKJnRgAA//8D22dGAAD//wPbZ0b/////RLRnRv////9EtGdG/////9T6Z0YAAAAAduBnRgAAAAB1/mdG//8AANzdZ0b//wAAfPOXuQAA///bq5e5/////zHml7kAAAAABt6Xuf//AAB3/GdGVzn/f8/CZ0ZXOf9/xfBnRv9/p8bPwmdG/3+nxs/CZ0anxv9/z8JnRqfG/3/F8GdG/39XOcXw/38AAAAA/9//fwAAAACq6f9///8AAKrp/3///wAA//+Xuf9/VznF8Je5Vzn/f8/Cl7mnxv9/xfCXuf9/p8bPwv9/AAD///+f/38AAP///MX/f//////8xf9//////////3+nxv9/////f1c5/3//v/9//3+nxv+/////f/9/VNX/f/9/Vzn//wAA/3//f1TVZ0YAAP//TatnRgAA//8d2mdG/////zOvZ0b/////krpnRv//AAAH62dG//8AAKnNZ0b//wAAp76XuQAA//8+p5e5AAD//6Lgl7n/////deaXuf////+/9Ze5/////yfql7kAAAAAyquXuQAAAACD8Je5//8AAK32l7n//wAA+eeXuf//AABK6Je5//8AAI38Z0ZXOf9/JLZnRlc5/38s8mdGVzn/f62YZ0ZXOf9/7sVnRlc5/38g+2dGVzn/f3TtZ0ZXOf9/ZORnRv9/p8bpwWdG/3+nxrXCZ0b/f6fGgcdnRv9/p8aH1WdG/3+nxvDJ/38AAP//+Kn/fwAA//88wf9//////xLFoC74oHAqB/5wKgf+M/1BPDP9QTxrcoKhjRgwh+ldtUF80ZesAHpD1koHO0SoJz0E2SCUWshFThkgLY+Wqseo8G7pbulu6W7pbukgralwVLiqx6rHAAD/f/pK+koEtQS1/3+B2lQ4VDiQFt5SVDhWD5AWkBYAAP9//xz/4v/i/xz/f3yl/3//vwAA/3//////qiqqKv+//79U1VTVuyY3nmnQffsb/cEzMPrsv1O/37hnx7bD3dmxuIwDfL5XCFliReSyAvhahibUtwIQjRlDQ2Eg82JWrzHOLQHyDwvNGhG+aCfbkizUjc8kD10+V/11pyg1bGmsb9Tp0czwwcRgxT71euQqCgnzEOSf/U3az8wr7CDPcQtxi8wkoO395U4b")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i5kbh")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i70k2"]
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("GQALAAoACgALAAMAGAAHAA0AGAAOAAcAFwARABAAEAARAAUAFgABABMAFgAJAAEAFQAEAA8AFQASAAQAFAABAAoAFAATAAEAEAATABQAEAAFABMABwAUAA0ABwAQABQADQAKAAMADQAUAAoACAASABUACAAAABIAAgAVAAwAAgAIABUADAAPAAYADAAVAA8AEgAJABYAEgAAAAkABAAWABEABAASABYAEQATAAUAEQAWABMADwARABcADwAEABEABgAPAA4ADgAPABcADgAQAAcADgAXABAADAAOABgADAAGAA4AAgAYAAsAAgAMABgACwANAAMACwAYAA0ACAALABkACAACAAsAAAAIAAkACQAIABkACQAKAAEACQAZAAoA"),
+"lods": [1.06722, PackedByteArray("CQABABMABQAJABMACAASAAQACAAAABIABAAJAAUABwAFABMABwATAAEABwABAAMACAAHAAMACAAGAAcABAASAAkAEgAAAAkACAAEAAUABgAIAAcABwAIAAUAAAAIAAkACQAIAAMACQADAAEA")],
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("Z0YAAP//AABnRv////8AAGdGAAAAAAAAZ0b//wAAAACXuQAA//8AAJe5/////wAAl7kAAAAAAACXuf//AAAAAGdGVzn/fwAAZ0b/f6fGAABnRqfG/38AAGdG/39XOQAA/38AAAAAAAD/f///AAAAAJe5/39XOQAAl7lXOf9/AACXuafG/38AAJe5/3+nxgAA/38AAP//AAD/f/////8AAP9/p8b/fwAA/39XOf9/AAD/f/9/p8YAAP///3//fwAA/3//f1c5AAAAAP9//38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7in8i"]
+resource_name = "Condition_Rune_Cube_013"
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"attribute_data": PackedByteArray("/x//P/9fAAD/X////58AAP+f////3/8//x//f/9f/7//n/+//9//f/9f/z//n/8//1//f/+f/3//H/9f/1//3/9/AAD/f////5//3//f/1//f/+//z//f/9f/5//n/+f/7//f/9//3//X/9f/5//X/9//z//P/8//1//H/+f/x//v/8//7//X/8//1//f/8f/3//X/9//5//f//f/x//P/9f////nwAA/5////+f/7//n/+//5//v/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//n/9//5//f/+f/3//n/9//x//X/8f/1//H/9f/x//X/9f/9//X//f/1//3/9/AAD/fwAA/3////9/////f////z//P/9f/x//n/8f"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
+"lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
+"material": SubResource("StandardMaterial3D_ewkl5"),
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("Z0YAAP//nKJnRgAA//8D22dGAAD//wPbZ0b/////RLRnRv////9EtGdG/////9T6Z0YAAAAAduBnRgAAAAB1/mdG//8AANzdZ0b//wAAfPOXuQAA///bq5e5/////zHml7kAAAAABt6Xuf//AAB3/GdGVzn/f8/CZ0ZXOf9/xfBnRv9/p8bPwmdG/3+nxs/CZ0anxv9/z8JnRqfG/3/F8GdG/39XOcXw/38AAAAA/9//fwAAAACq6f9///8AAKrp/3///wAA//+Xuf9/VznF8Je5Vzn/f8/Cl7mnxv9/xfCXuf9/p8bPwv9/AAD///+f/38AAP///MX/f//////8xf9//////////3+nxv9/////f1c5/3//v/9//3+nxv+/////f/9/VNX/f/9/Vzn//wAA/3//f1TVZ0YAAP//TatnRgAA//8d2mdG/////zOvZ0b/////krpnRv//AAAH62dG//8AAKnNZ0b//wAAp76XuQAA//8+p5e5AAD//6Lgl7n/////deaXuf////+/9Ze5/////yfql7kAAAAAyquXuQAAAACD8Je5//8AAK32l7n//wAA+eeXuf//AABK6Je5//8AAI38Z0ZXOf9/JLZnRlc5/38s8mdGVzn/f62YZ0ZXOf9/7sVnRlc5/38g+2dGVzn/f3TtZ0ZXOf9/ZORnRv9/p8bpwWdG/3+nxrXCZ0b/f6fGgcdnRv9/p8aH1WdG/3+nxvDJ/38AAP//+Kn/fwAA//88wf9//////xLFoC74oHAqB/5wKgf+M/1BPDP9QTxrcoKhjRgwh+ldtUF80ZesAHpD1koHO0SoJz0E2SCUWshFThkgLY+Wqseo8G7pbulu6W7pbukgralwVLiqx6rHAAD/f/pK+koEtQS1/3+B2lQ4VDiQFt5SVDhWD5AWkBYAAP9//xz/4v/i/xz/f3yl/3//vwAA/3//////qiqqKv+//79U1VTVuyY3nmnQffsb/cEzMPrsv1O/37hnx7bD3dmxuIwDfL5XCFliReSyAvhahibUtwIQjRlDQ2Eg82JWrzHOLQHyDwvNGhG+aCfbkizUjc8kD10+V/11pyg1bGmsb9Tp0czwwcRgxT71euQqCgnzEOSf/U3az8wr7CDPcQtxi8wkoO395U4b")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i70k2")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gotu2"]
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("GQALAAoACgALAAMAGAAHAA0AGAAOAAcAFwARABAAEAARAAUAFgABABMAFgAJAAEAFQAEAA8AFQASAAQAFAABAAoAFAATAAEAEAATABQAEAAFABMABwAUAA0ABwAQABQADQAKAAMADQAUAAoACAASABUACAAAABIAAgAVAAwAAgAIABUADAAPAAYADAAVAA8AEgAJABYAEgAAAAkABAAWABEABAASABYAEQATAAUAEQAWABMADwARABcADwAEABEABgAPAA4ADgAPABcADgAQAAcADgAXABAADAAOABgADAAGAA4AAgAYAAsAAgAMABgACwANAAMACwAYAA0ACAALABkACAACAAsAAAAIAAkACQAIABkACQAKAAEACQAZAAoA"),
+"lods": [1.06722, PackedByteArray("CQABABMABQAJABMACAASAAQACAAAABIABAAJAAUABwAFABMABwATAAEABwABAAMACAAHAAMACAAGAAcABAASAAkAEgAAAAkACAAEAAUABgAIAAcABwAIAAUAAAAIAAkACQAIAAMACQADAAEA")],
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("Z0YAAP//AABnRv////8AAGdGAAAAAAAAZ0b//wAAAACXuQAA//8AAJe5/////wAAl7kAAAAAAACXuf//AAAAAGdGVzn/fwAAZ0b/f6fGAABnRqfG/38AAGdG/39XOQAA/38AAAAAAAD/f///AAAAAJe5/39XOQAAl7lXOf9/AACXuafG/38AAJe5/3+nxgAA/38AAP//AAD/f/////8AAP9/p8b/fwAA/39XOf9/AAD/f/9/p8YAAP///3//fwAA/3//f1c5AAAAAP9//38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_peoty"]
+resource_name = "Condition_Rune_Cube_014"
+_surfaces = [{
+"aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
+"attribute_data": PackedByteArray("/x//P/9fAAD/X////58AAP+f////3/8//x//f/9f/7//n/+//9//f/9f/z//n/8//1//f/+f/3//H/9f/1//3/9/AAD/f////5//3//f/1//f/+//z//f/9f/5//n/+f/7//f/9//3//X/9f/5//X/9//z//P/8//1//H/+f/x//v/8//7//X/8//1//f/8f/3//X/9//5//f//f/x//P/9f////nwAA/5////+f/7//n/+//5//v/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//n/9//5//f/+f/3//n/9//x//X/8f/1//H/9f/x//X/9f/9//X//f/1//3/9/AAD/fwAA/3////9/////f////z//P/9f/x//n/8f"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
+"lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
+"material": SubResource("StandardMaterial3D_ewkl5"),
+"name": "Condition Stars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("Z0YAAP//nKJnRgAA//8D22dGAAD//wPbZ0b/////RLRnRv////9EtGdG/////9T6Z0YAAAAAduBnRgAAAAB1/mdG//8AANzdZ0b//wAAfPOXuQAA///bq5e5/////zHml7kAAAAABt6Xuf//AAB3/GdGVzn/f8/CZ0ZXOf9/xfBnRv9/p8bPwmdG/3+nxs/CZ0anxv9/z8JnRqfG/3/F8GdG/39XOcXw/38AAAAA/9//fwAAAACq6f9///8AAKrp/3///wAA//+Xuf9/VznF8Je5Vzn/f8/Cl7mnxv9/xfCXuf9/p8bPwv9/AAD///+f/38AAP///MX/f//////8xf9//////////3+nxv9/////f1c5/3//v/9//3+nxv+/////f/9/VNX/f/9/Vzn//wAA/3//f1TVZ0YAAP//TatnRgAA//8d2mdG/////zOvZ0b/////krpnRv//AAAH62dG//8AAKnNZ0b//wAAp76XuQAA//8+p5e5AAD//6Lgl7n/////deaXuf////+/9Ze5/////yfql7kAAAAAyquXuQAAAACD8Je5//8AAK32l7n//wAA+eeXuf//AABK6Je5//8AAI38Z0ZXOf9/JLZnRlc5/38s8mdGVzn/f62YZ0ZXOf9/7sVnRlc5/38g+2dGVzn/f3TtZ0ZXOf9/ZORnRv9/p8bpwWdG/3+nxrXCZ0b/f6fGgcdnRv9/p8aH1WdG/3+nxvDJ/38AAP//+Kn/fwAA//88wf9//////xLFoC74oHAqB/5wKgf+M/1BPDP9QTxrcoKhjRgwh+ldtUF80ZesAHpD1koHO0SoJz0E2SCUWshFThkgLY+Wqseo8G7pbulu6W7pbukgralwVLiqx6rHAAD/f/pK+koEtQS1/3+B2lQ4VDiQFt5SVDhWD5AWkBYAAP9//xz/4v/i/xz/f3yl/3//vwAA/3//////qiqqKv+//79U1VTVuyY3nmnQffsb/cEzMPrsv1O/37hnx7bD3dmxuIwDfL5XCFliReSyAvhahibUtwIQjRlDQ2Eg82JWrzHOLQHyDwvNGhG+aCfbkizUjc8kD10+V/11pyg1bGmsb9Tp0czwwcRgxT71euQqCgnzEOSf/U3az8wr7CDPcQtxi8wkoO395U4b")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gotu2")
+
+[sub_resource type="Animation" id="Animation_ylask"]
+resource_name = "Cube_025Action"
+length = 4.16667
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_025")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.996118, 1.95451e-17, -1.76461e-24, 0.0880233, 0.0333333, 1, -0.997221, 1.95433e-17, 2.65212e-19, 0.0744986, 0.0666667, 1, -0.999116, 1.95243e-17, 9.0052e-19, 0.0420346, 0.1, 1, -0.999968, 1.94548e-17, 1.87652e-18, -0.00802057, 0.133333, 1, 0.997246, -1.9288e-17, -3.15959e-18, 0.0741635, 0.166667, 1, 0.987983, -1.89694e-17, -4.70892e-18, 0.15456, 0.2, 1, 0.968171, -1.8419e-17, -6.53859e-18, 0.250288, 0.233333, 1, 0.935437, -1.76041e-17, -8.49158e-18, 0.353492, 0.266667, 1, 0.887571, -1.64878e-17, -1.04959e-17, 0.460671, 0.3, 1, 0.823116, -1.50485e-17, -1.24722e-17, 0.567873, 0.333333, 1, 0.741558, -1.32834e-17, -1.43375e-17, 0.670888, 0.366667, 1, 0.642908, -1.11992e-17, -1.60184e-17, 0.765943, 0.466667, 1, 0.276324, -3.72637e-18, -1.91866e-17, 0.961065, 0.5, 1, 0.14238, -1.06913e-18, -1.95158e-17, 0.989812, 0.533333, 1, 0.0113791, 1.49877e-18, -1.94876e-17, 0.999935, 0.566667, 1, -0.113545, 3.91992e-18, -1.9148e-17, 0.993533, 0.6, 1, -0.229184, 6.13666e-18, -1.85567e-17, 0.973383, 0.633333, 1, -0.333075, 8.1069e-18, -1.77845e-17, 0.9429, 0.666667, 1, -0.423548, 9.80464e-18, -1.6908e-17, 0.905874, 0.7, 1, -0.495412, 1.11397e-17, -1.60598e-17, 0.868658, 0.733333, 1, -0.551799, 1.21779e-17, -1.52876e-17, 0.833977, 0.766667, 1, -0.592845, 1.29277e-17, -1.4659e-17, 0.805316, 0.8, 1, -0.618717, 4.51934e-17, -1.14212e-17, 0.785614, 0.833333, 1, -0.62932, 1.72561e-16, 4.25753e-23, 0.777146, 0.866667, 1, -0.619312, 1.72547e-16, -2.21082e-18, 0.785145, 0.9, 1, -0.594916, 1.72398e-16, -7.50705e-18, 0.803788, 0.933333, 1, -0.556267, 1.7185e-16, -1.56454e-17, 0.831003, 0.966667, 1, -0.503264, 1.70537e-16, -2.63511e-17, 0.864133, 1, 1, -0.435812, 1.68027e-16, -3.9296e-17, 0.900038, 1.03333, 1, -0.350966, 1.63688e-16, -5.46217e-17, 0.936388, 1.06667, 1, -0.253528, 1.57256e-16, -7.10488e-17, 0.967328, 1.1, 1, -0.144921, 1.48427e-16, -8.80152e-17, 0.989443, 1.13333, 1, -0.0272468, 1.37014e-16, -1.04902e-16, 0.999629, 1.16667, 1, 0.0967452, 1.2297e-16, -1.21061e-16, 0.995309, 1.2, 1, 0.224418, 1.06314e-16, -1.35922e-16, 0.974493, 1.3, 1, 0.582107, 4.5828e-17, -1.66365e-16, 0.813112, 1.33333, 1, 0.682199, 2.3969e-17, -1.70888e-16, 0.731166, 1.36667, 1, 0.767488, 2.62373e-18, -1.72541e-16, 0.641063, 1.4, 1, 0.837721, -1.77385e-17, -1.71647e-16, 0.546099, 1.43333, 1, 0.893009, -3.66249e-17, -1.6863e-16, 0.450038, 1.46667, 1, 0.934291, -5.36505e-17, -1.64009e-16, 0.35651, 1.5, 1, 0.963184, -6.85445e-17, -1.58364e-16, 0.268845, 1.53333, 1, 0.9809, -8.04367e-17, -1.52667e-16, 0.194514, 1.56667, 1, 0.991136, -8.98174e-17, -1.47344e-16, 0.132852, 1.6, 1, 0.996307, -9.66798e-17, -1.42935e-16, 0.0858674, 1.63333, 1, 0.998473, -6.40028e-17, -1.18479e-16, 0.0552397, 1.66667, 1, 0.999099, 8.22838e-17, -3.14956e-17, 0.0424427, 1.7, 1, 0.999008, 8.23497e-17, -3.13228e-17, 0.0445408, 1.73333, 1, 0.998765, 8.25102e-17, -3.08975e-17, 0.049694, 1.76667, 1, 0.998328, 8.27586e-17, -3.0226e-17, 0.0578086, 1.8, 1, 0.997631, 8.30861e-17, -2.93136e-17, 0.068789, 1.83333, 1, 0.996588, 8.34824e-17, -2.81653e-17, 0.0825368, 1.86667, 1, 0.995009, 8.39576e-17, -2.67154e-17, 0.0997822, 1.9, 1, 0.992835, 8.44708e-17, -2.50455e-17, 0.119491, 1.93333, 1, 0.989931, 8.5007e-17, -2.31602e-17, 0.141548, 1.96667, 1, 0.986154, 8.55505e-17, -2.10643e-17, 0.165832, 2, 1, 0.981354, 8.60845e-17, -1.87631e-17, 0.192211, 2.03333, 1, 0.975232, 8.66023e-17, -1.62061e-17, 0.221182, 2.06667, 1, 0.967764, 8.70707e-17, -1.34639e-17, 0.25186, 2.1, 1, 0.9588, 8.74723e-17, -1.05447e-17, 0.284082, 2.13333, 1, 0.9482, 8.77894e-17, -7.45741e-18, 0.317675, 2.16667, 1, 0.935829, 8.80048e-17, -4.21227e-18, 0.352454, 2.2, 1, 0.921381, 8.81021e-17, -7.79085e-19, 0.38866, 2.23333, 1, 0.904932, 8.80617e-17, 2.77986e-18, 0.425556, 2.26667, 1, 0.886394, 8.78691e-17, 6.45056e-18, 0.462931, 2.3, 1, 0.865698, 8.75111e-17, 1.02179e-17, 0.500567, 2.33333, 1, 0.84279, 8.69756e-17, 1.40656e-17, 0.538242, 2.36667, 1, 0.817475, 8.6247e-17, 1.80013e-17, 0.575965, 2.4, 1, 0.78994, 8.53214e-17, 2.19739e-17, 0.613184, 2.43333, 1, 0.76021, 8.41928e-17, 2.59647e-17, 0.649678, 2.46667, 1, 0.728326, 1.0455e-16, 4.47562e-18, 0.685231, 2.5, 1, 0.694355, 1.89714e-16, -9.33947e-17, 0.719633, 2.66667, 1, 0.498673, 2.06722e-16, -4.44951e-17, 0.86679, 2.7, 1, 0.456216, 2.0863e-16, -3.44564e-17, 0.889869, 2.73333, 1, 0.413317, 2.10035e-16, -2.44811e-17, 0.910587, 2.76667, 1, 0.370259, 2.1095e-16, -1.46269e-17, 0.928929, 2.8, 1, 0.327324, 2.11399e-16, -4.94981e-18, 0.944912, 2.83333, 1, 0.284796, 2.11409e-16, 4.49649e-18, 0.958588, 2.86667, 1, 0.243472, 2.11022e-16, 1.35484e-17, 0.969908, 2.9, 1, 0.203265, 2.10284e-16, 2.22397e-17, 0.979124, 2.93333, 1, 0.164438, 2.09241e-16, 3.05269e-17, 0.986387, 2.96667, 1, 0.127242, 2.07946e-16, 3.83712e-17, 0.991872, 3, 1, 0.0919108, 2.06451e-16, 4.57372e-17, 0.995767, 3.03333, 1, 0.0595014, 2.04855e-16, 5.24224e-17, 0.998228, 3.06667, 1, 0.0295382, 2.03191e-16, 5.85423e-17, 0.999564, 3.1, 1, 0.00221075, 2.01515e-16, 6.40734e-17, 0.999998, 3.13333, 1, -0.0223049, 1.99884e-16, 6.89942e-17, 0.999751, 3.16667, 1, -0.0438434, 1.98351e-16, 7.32855e-17, 0.999038, 3.2, 1, -0.0611107, 1.97054e-16, 7.67042e-17, 0.998131, 3.23333, 1, -0.0749469, 1.95971e-16, 7.94296e-17, 0.997188, 3.26667, 1, -0.0852074, 1.95143e-16, 8.14425e-17, 0.996363, 3.3, 1, -0.0917482, 1.70636e-16, 4.71646e-17, 0.995782, 3.33333, 1, -0.094424, 7.45393e-17, -9.45449e-17, 0.995532, 3.36667, 1, -0.0842943, 7.35739e-17, -9.52981e-17, 0.996441, 3.4, 1, -0.0599848, 7.12295e-17, -9.70629e-17, 0.998199, 3.43333, 1, -0.022494, 6.75379e-17, -9.96668e-17, 0.999747, 3.46667, 1, 0.0271248, 6.25109e-17, -1.02894e-16, 0.999632, 3.5, 1, 0.0876863, 5.61571e-17, -1.06495e-16, 0.996148, 3.53333, 1, 0.160399, 4.82076e-17, -1.10322e-16, 0.987052, 3.56667, 1, 0.239919, 3.9102e-17, -1.13868e-16, 0.970793, 3.6, 1, 0.324334, 2.89402e-17, -1.16864e-16, 0.945943, 3.63333, 1, 0.411519, 1.78657e-17, -1.19062e-16, 0.911401, 3.66667, 1, 0.499193, 6.0649e-18, -1.20242e-16, 0.866491, 3.7, 1, 0.585439, -6.30082e-18, -1.2023e-16, 0.810716, 3.8, 1, 0.806937, -4.30741e-17, -1.12425e-16, 0.590638, 3.83333, 1, 0.863265, -5.43789e-17, -1.07414e-16, 0.504752, 3.86667, 1, 0.908737, -6.46832e-17, -1.01543e-16, 0.417369, 3.9, 1, 0.943838, -7.39108e-17, -9.5037e-17, 0.330407, 3.93333, 1, 0.969231, -8.19795e-17, -8.81714e-17, 0.246154, 3.96667, 1, 0.986001, -8.886e-17, -8.12326e-17, 0.16674, 4, 1, 0.995564, -9.45701e-17, -7.45073e-17, 0.0940871, 4.03333, 1, 0.999437, -9.89138e-17, -6.8636e-17, 0.0335489, 4.06667, 1, 0.999871, -1.02197e-16, -6.36451e-17, -0.0160678, 4.1, 1, -0.998564, 1.04512e-16, 5.97663e-17, 0.0535676, 4.13333, 1, -0.996962, 8.85438e-17, 4.5977e-17, 0.077888, 4.16667, 1, -0.996118, 1.95451e-17, -1.76461e-24, 0.0880233)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_025")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0220641, -0.225479, -0.225479, 0.0333333, 1, -0.0219748, -0.224567, -0.224567, 0.0666667, 1, -0.0217608, -0.22238, -0.22238, 0.1, 1, -0.0214314, -0.219013, -0.219013, 0.133333, 1, -0.0209957, -0.21456, -0.21456, 0.166667, 1, -0.020463, -0.209117, -0.209117, 0.2, 1, -0.0198195, -0.202541, -0.202541, 0.233333, 1, -0.0191067, -0.195256, -0.195256, 0.266667, 1, -0.0183338, -0.187358, -0.187358, 0.3, 1, -0.0175102, -0.178941, -0.178941, 0.333333, 1, -0.016645, -0.170099, -0.170099, 0.366667, 1, -0.0157428, -0.16088, -0.16088, 0.466667, 1, -0.0129901, -0.132749, -0.132749, 0.5, 1, -0.0120879, -0.12353, -0.12353, 0.533333, 1, -0.0112227, -0.114688, -0.114688, 0.566667, 1, -0.0103991, -0.106271, -0.106271, 0.6, 1, -0.0096262, -0.0983727, -0.0983727, 0.633333, 1, -0.0089134, -0.0910884, -0.0910884, 0.666667, 1, -0.00826987, -0.084512, -0.084512, 0.7, 1, -0.00773719, -0.0790684, -0.0790684, 0.733333, 1, -0.0073015, -0.074616, -0.074616, 0.766667, 1, -0.00697204, -0.0712492, -0.0712492, 0.8, 1, -0.00675805, -0.0690623, -0.0690623, 0.833333, 1, -0.00666875, -0.0681498, -0.0681498, 0.866667, 1, -0.00681319, -0.0696258, -0.0696258, 0.9, 1, -0.00715932, -0.073163, -0.073163, 0.933333, 1, -0.00769223, -0.0786089, -0.0786089, 0.966667, 1, -0.00839696, -0.0858108, -0.0858108, 1, 1, -0.00925857, -0.0946158, -0.0946158, 1.03333, 1, -0.0102995, -0.105253, -0.105253, 1.06667, 1, -0.0114524, -0.117036, -0.117036, 1.1, 1, -0.0127025, -0.12981, -0.12981, 1.13333, 1, -0.0140348, -0.143425, -0.143425, 1.16667, 1, -0.0154343, -0.157727, -0.157727, 1.2, 1, -0.0168935, -0.17264, -0.17264, 1.3, 1, -0.021346, -0.218141, -0.218141, 1.33333, 1, -0.0228053, -0.233053, -0.233053, 1.36667, 1, -0.0242048, -0.247355, -0.247355, 1.4, 1, -0.025537, -0.26097, -0.26097, 1.43333, 1, -0.0267871, -0.273745, -0.273745, 1.46667, 1, -0.0279401, -0.285527, -0.285527, 1.5, 1, -0.028981, -0.296165, -0.296165, 1.53333, 1, -0.0298426, -0.30497, -0.30497, 1.56667, 1, -0.0305473, -0.312171, -0.312171, 1.6, 1, -0.0310802, -0.317617, -0.317617, 1.63333, 1, -0.0314264, -0.321155, -0.321155, 1.66667, 1, -0.0315708, -0.322631, -0.322631, 1.7, 1, -0.0314727, -0.321628, -0.321628, 1.73333, 1, -0.0312376, -0.319225, -0.319225, 1.76667, 1, -0.0308756, -0.315526, -0.315526, 1.8, 1, -0.0303968, -0.310633, -0.310633, 1.83333, 1, -0.0298115, -0.304652, -0.304652, 1.86667, 1, -0.0291044, -0.297426, -0.297426, 1.9, 1, -0.0283212, -0.289422, -0.289422, 1.93333, 1, -0.027472, -0.280744, -0.280744, 1.96667, 1, -0.026567, -0.271495, -0.271495, 2, 1, -0.0256163, -0.26178, -0.26178, 2.03333, 1, -0.024625, -0.25165, -0.25165, 2.13333, 1, -0.0216004, -0.220741, -0.220741, 2.16667, 1, -0.0206092, -0.21061, -0.21061, 2.2, 1, -0.0196585, -0.200895, -0.200895, 2.23333, 1, -0.0187535, -0.191647, -0.191647, 2.26667, 1, -0.0179043, -0.182968, -0.182968, 2.3, 1, -0.017121, -0.174965, -0.174965, 2.33333, 1, -0.016414, -0.167739, -0.167739, 2.36667, 1, -0.0158287, -0.161757, -0.161757, 2.4, 1, -0.0153499, -0.156865, -0.156865, 2.43333, 1, -0.0149879, -0.153166, -0.153166, 2.46667, 1, -0.0147528, -0.150763, -0.150763, 2.5, 1, -0.0146547, -0.14976, -0.14976, 2.53333, 1, -0.0147566, -0.150802, -0.150802, 2.56667, 1, -0.015001, -0.153299, -0.153299, 2.6, 1, -0.0153772, -0.157144, -0.157144, 2.63333, 1, -0.0158748, -0.162229, -0.162229, 2.66667, 1, -0.0164831, -0.168445, -0.168445, 2.7, 1, -0.017218, -0.175955, -0.175955, 2.73333, 1, -0.018032, -0.184274, -0.184274, 2.76667, 1, -0.0189145, -0.193293, -0.193293, 2.8, 1, -0.0198551, -0.202905, -0.202905, 2.83333, 1, -0.0208432, -0.213002, -0.213002, 2.86667, 1, -0.0218734, -0.22353, -0.22353, 2.96667, 1, -0.0250169, -0.255654, -0.255654, 3, 1, -0.0260471, -0.266182, -0.266182, 3.03333, 1, -0.0270352, -0.27628, -0.27628, 3.06667, 1, -0.0279757, -0.285892, -0.285892, 3.1, 1, -0.0288583, -0.294911, -0.294911, 3.13333, 1, -0.0296723, -0.303229, -0.303229, 3.16667, 1, -0.0304072, -0.310739, -0.310739, 3.2, 1, -0.0310155, -0.316956, -0.316956, 3.23333, 1, -0.031513, -0.32204, -0.32204, 3.26667, 1, -0.0318893, -0.325885, -0.325885, 3.3, 1, -0.0321336, -0.328382, -0.328382, 3.33333, 1, -0.0322356, -0.329424, -0.329424, 3.36667, 1, -0.0321766, -0.328821, -0.328821, 3.4, 1, -0.0320352, -0.327377, -0.327377, 3.43333, 1, -0.0318176, -0.325152, -0.325152, 3.46667, 1, -0.0315297, -0.32221, -0.32221, 3.5, 1, -0.0311778, -0.318614, -0.318614, 3.53333, 1, -0.0307526, -0.314269, -0.314269, 3.56667, 1, -0.0302817, -0.309456, -0.309456, 3.6, 1, -0.0297711, -0.304238, -0.304238, 3.63333, 1, -0.0292269, -0.298677, -0.298677, 3.66667, 1, -0.0286552, -0.292836, -0.292836, 3.7, 1, -0.0280592, -0.286744, -0.286744, 3.8, 1, -0.0262405, -0.268159, -0.268159, 3.83333, 1, -0.0256445, -0.262068, -0.262068, 3.86667, 1, -0.0250728, -0.256226, -0.256226, 3.9, 1, -0.0245287, -0.250665, -0.250665, 3.93333, 1, -0.0240181, -0.245447, -0.245447, 3.96667, 1, -0.0235471, -0.240634, -0.240634, 4, 1, -0.023122, -0.236289, -0.236289, 4.03333, 1, -0.02277, -0.232693, -0.232693, 4.06667, 1, -0.0224822, -0.229751, -0.229751, 4.1, 1, -0.0222645, -0.227527, -0.227527, 4.13333, 1, -0.0221231, -0.226082, -0.226082, 4.16667, 1, -0.0220641, -0.225479, -0.225479)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_026")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.883343, 0, 0, -0.468727)
+tracks/3/type = "scale_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_026")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_027")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.946453, 0, 0, -0.322841)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_027")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_028")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/7/type = "scale_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube_028")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.0275694, -0.281739, -0.281739)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cube_029")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/9/type = "scale_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cube_029")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.0124181, -0.126904, -0.126904)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cube_030")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.242685, 0, 0, 0.970105)
+tracks/11/type = "scale_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cube_030")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -0.015528, -0.158685, -0.158685)
+
+[sub_resource type="Animation" id="Animation_ja118"]
+resource_name = "Cube_026Action"
+length = 4.16667
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_026")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.883343, 1.04078e-16, 5.61852e-24, 0.468727, 0.0333333, 1, -0.881707, 1.04078e-16, -3.6221e-19, 0.471798, 0.0666667, 1, -0.877689, 1.04071e-16, -1.24153e-18, 0.47923, 0.1, 1, -0.871304, 1.04045e-16, -2.61162e-18, 0.490745, 0.133333, 1, -0.862516, 1.03983e-16, -4.44569e-18, 0.506031, 0.166667, 1, -0.851255, 1.03861e-16, -6.71618e-18, 0.524752, 0.2, 1, -0.836798, 1.03642e-16, -9.51386e-18, 0.547511, 0.233333, 1, -0.819756, 1.03305e-16, -1.26622e-17, 0.572713, 0.266667, 1, -0.800034, 1.02821e-16, -1.61288e-17, 0.599954, 0.3, 1, -0.777551, 1.02162e-16, -1.98794e-17, 0.62882, 0.333333, 1, -0.752247, 1.01302e-16, -2.38776e-17, 0.658881, 0.366667, 1, -0.723641, 1.00199e-16, -2.81503e-17, 0.690176, 0.4, 1, -0.692328, 9.88523e-17, -3.25654e-17, 0.721583, 0.433333, 1, -0.658374, 9.72482e-17, -3.70818e-17, 0.752691, 0.466667, 1, -0.621889, 9.53777e-17, -4.16578e-17, 0.783105, 0.5, 1, -0.583029, 9.32366e-17, -4.62515e-17, 0.812451, 0.666667, 1, -0.363069, 7.88347e-17, -6.79512e-17, 0.931762, 0.7, 1, -0.31686, 7.54016e-17, -7.17417e-17, 0.948472, 0.733333, 1, -0.270912, 7.18666e-17, -7.52825e-17, 0.962604, 0.766667, 1, -0.22562, 6.82691e-17, -7.85595e-17, 0.974215, 0.8, 1, -0.181377, 9.64352e-17, -6.46976e-17, 0.983414, 0.833333, 1, -0.138566, 2.19903e-16, -2.00457e-23, 0.990353, 0.866667, 1, -0.0982941, 2.19722e-16, -8.91688e-18, 0.995157, 0.9, 1, -0.0599098, 2.19216e-16, -1.73691e-17, 0.998204, 0.933333, 1, -0.0233933, 2.18434e-16, -2.53681e-17, 0.999726, 0.966667, 1, 0.0112929, 2.17423e-16, -3.29285e-17, 0.999936, 1, 1, 0.0442014, 2.16222e-16, -4.00675e-17, 0.999023, 1.03333, 1, 0.0749051, 2.14887e-16, -4.66984e-17, 0.997191, 1.06667, 1, 0.104067, 2.13428e-16, -5.29695e-17, 0.99457, 1.1, 1, 0.131769, 2.11867e-16, -5.89023e-17, 0.99128, 1.13333, 1, 0.158098, 2.10225e-16, -6.45186e-17, 0.987423, 1.16667, 1, 0.183143, 2.08517e-16, -6.98408e-17, 0.983086, 1.2, 1, 0.206703, 2.0678e-16, -7.48289e-17, 0.978404, 1.23333, 1, 0.229262, 2.04995e-16, -7.95884e-17, 0.973365, 1.26667, 1, 0.250917, 2.03168e-16, -8.41412e-17, 0.968009, 1.3, 1, 0.27176, 2.01304e-16, -8.85085e-17, 0.962365, 1.33333, 1, 0.291885, 1.99404e-16, -9.27113e-17, 0.956453, 1.36667, 1, 0.311282, 1.97476e-16, -9.67486e-17, 0.950318, 1.4, 1, 0.330238, 1.955e-16, -1.00681e-16, 0.943898, 1.53333, 1, 0.403466, 1.86975e-16, -1.15748e-16, 0.914995, 1.56667, 1, 0.42166, 1.84626e-16, -1.19459e-16, 0.906754, 1.6, 1, 0.439991, 1.82161e-16, -1.23185e-16, 0.898002, 1.63333, 1, 0.458527, 1.793e-16, -9.55735e-17, 0.888681, 1.66667, 1, 0.477331, 1.75496e-16, 2.60731e-17, 0.878723, 1.7, 1, 0.496644, 1.76029e-16, 2.21863e-17, 0.867954, 1.73333, 1, 0.516164, 1.76486e-16, 1.8196e-17, 0.85649, 1.76667, 1, 0.53578, 1.76859e-16, 1.41209e-17, 0.844358, 1.93333, 1, 0.631363, 1.77292e-16, -6.77669e-18, 0.775488, 1.96667, 1, 0.649197, 1.77087e-16, -1.0891e-17, 0.76062, 2, 1, 0.666407, 1.76792e-16, -1.49345e-17, 0.745588, 2.03333, 1, 0.682767, 1.76418e-16, -1.88487e-17, 0.730637, 2.06667, 1, 0.698315, 1.75972e-16, -2.26368e-17, 0.715791, 2.1, 1, 0.713005, 1.75465e-16, -2.62803e-17, 0.701159, 2.13333, 1, 0.726797, 1.74908e-16, -2.97616e-17, 0.686853, 2.16667, 1, 0.739654, 1.74314e-16, -3.30634e-17, 0.672988, 2.2, 1, 0.751269, 1.73711e-16, -3.6096e-17, 0.659996, 2.23333, 1, 0.761841, 1.73105e-16, -3.88996e-17, 0.647765, 2.26667, 1, 0.771349, 1.7251e-16, -4.14586e-17, 0.636413, 2.3, 1, 0.779776, 1.71941e-16, -4.37578e-17, 0.626059, 2.33333, 1, 0.787104, 1.71413e-16, -4.57823e-17, 0.61682, 2.36667, 1, 0.792938, 1.7097e-16, -4.74115e-17, 0.609302, 2.4, 1, 0.797583, 1.70601e-16, -4.872e-17, 0.603209, 2.43333, 1, 0.801013, 1.70321e-16, -4.96929e-17, 0.598647, 2.46667, 1, 0.803195, 1.39114e-16, -3.8338e-17, 0.595716, 2.5, 1, 0.804089, 1.49454e-17, 9.31319e-18, 0.594509, 2.66667, 1, 0.803186, 1.49313e-17, 9.33585e-18, 0.595728, 2.7, 1, 0.802497, 1.49205e-17, 9.35311e-18, 0.596657, 2.73333, 1, 0.801551, 1.49057e-17, 9.37671e-18, 0.597926, 2.76667, 1, 0.800314, 1.48863e-17, 9.40749e-18, 0.599581, 2.8, 1, 0.798749, 1.48617e-17, 9.44626e-18, 0.601665, 2.83333, 1, 0.796817, 1.48314e-17, 9.49382e-18, 0.604221, 2.86667, 1, 0.794325, 1.47922e-17, 9.55475e-18, 0.607493, 2.9, 1, 0.79135, 1.47454e-17, 9.62684e-18, 0.611363, 2.93333, 1, 0.787849, 1.46902e-17, 9.71081e-18, 0.615868, 2.96667, 1, 0.783775, 1.46259e-17, 9.80736e-18, 0.621044, 3, 1, 0.77908, 1.45517e-17, 9.91715e-18, 0.626925, 3.03333, 1, 0.773476, 1.4463e-17, 1.00461e-17, 0.633826, 3.06667, 1, 0.767099, 1.43618e-17, 1.01902e-17, 0.641528, 3.1, 1, 0.759889, 1.42471e-17, 1.03499e-17, 0.650053, 3.13333, 1, 0.751778, 1.41178e-17, 1.05256e-17, 0.659416, 3.16667, 1, 0.742696, 1.39726e-17, 1.07176e-17, 0.669629, 3.2, 1, 0.732237, 1.3805e-17, 1.09327e-17, 0.68105, 3.23333, 1, 0.720597, 1.36179e-17, 1.11649e-17, 0.693354, 3.26667, 1, 0.707687, 1.34096e-17, 1.14142e-17, 0.706526, 3.3, 1, 0.693411, 1.04445e-17, -2.06465e-17, 0.720542, 3.33333, 1, 0.677666, -7.46324e-19, -1.49654e-16, 0.73537, 3.36667, 1, 0.65445, 3.9118e-18, -1.49605e-16, 0.756106, 3.4, 1, 0.621518, 1.03057e-17, -1.49301e-16, 0.7834, 3.43333, 1, 0.57874, 1.82743e-17, -1.48536e-16, 0.815512, 3.46667, 1, 0.526, 2.76325e-17, -1.47083e-16, 0.850485, 3.5, 1, 0.463313, 3.81649e-17, -1.44708e-16, 0.886195, 3.53333, 1, 0.389046, 4.99084e-17, -1.41089e-16, 0.921218, 3.56667, 1, 0.306363, 6.21458e-17, -1.36142e-16, 0.951915, 3.6, 1, 0.216257, 7.4571e-17, -1.29754e-16, 0.976337, 3.63333, 1, 0.120057, 8.68637e-17, -1.21867e-16, 0.992767, 3.66667, 1, 0.0194023, 9.87024e-17, -1.12493e-16, 0.999812, 3.76667, 1, -0.287686, 1.28408e-16, -7.68651e-17, 0.957725, 3.8, 1, -0.384024, 1.35589e-16, -6.33445e-17, 0.923323, 3.83333, 1, -0.474371, 1.4124e-16, -4.94778e-17, 0.880325, 3.86667, 1, -0.555951, 1.45306e-16, -3.58197e-17, 0.831215, 3.9, 1, -0.628595, 1.47943e-16, -2.25795e-17, 0.777733, 3.93333, 1, -0.691843, 1.49318e-16, -1.00437e-17, 0.722048, 3.96667, 1, -0.745616, 1.49648e-16, 1.53527e-18, 0.666376, 4, 1, -0.790168, 1.49179e-16, 1.19421e-17, 0.612891, 4.03333, 1, -0.824013, 1.48248e-16, 2.0477e-17, 0.566571, 4.06667, 1, -0.849616, 1.47128e-16, 2.739e-17, 0.527401, 4.1, 1, -0.8677, 1.4607e-16, 3.25653e-17, 0.497088, 4.13333, 1, -0.878842, 1.37115e-16, 2.84416e-17, 0.477114, 4.16667, 1, -0.883343, 1.04078e-16, 5.61852e-24, 0.468727)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_026")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872, 0.0333333, 1, -0.0120794, -0.123443, -0.123443, 0.0666667, 1, -0.0119788, -0.122414, -0.122414, 0.1, 1, -0.0118238, -0.120831, -0.120831, 0.133333, 1, -0.0116189, -0.118736, -0.118736, 0.166667, 1, -0.0113683, -0.116176, -0.116176, 0.2, 1, -0.0110657, -0.113083, -0.113083, 0.233333, 1, -0.0107304, -0.109657, -0.109657, 0.266667, 1, -0.0103669, -0.105942, -0.105942, 0.3, 1, -0.00997947, -0.101983, -0.101983, 0.333333, 1, -0.00957251, -0.0978241, -0.0978241, 0.366667, 1, -0.00914818, -0.0934877, -0.0934877, 0.466667, 1, -0.00785345, -0.0802565, -0.0802565, 0.5, 1, -0.00742911, -0.0759201, -0.0759201, 0.533333, 1, -0.00702216, -0.0717613, -0.0717613, 0.566667, 1, -0.00663475, -0.0678023, -0.0678023, 0.6, 1, -0.00627124, -0.0640875, -0.0640875, 0.633333, 1, -0.00593597, -0.0606613, -0.0606613, 0.666667, 1, -0.00563329, -0.0575681, -0.0575681, 0.7, 1, -0.00538274, -0.0550077, -0.0550077, 0.733333, 1, -0.00517781, -0.0529135, -0.0529135, 0.766667, 1, -0.00502285, -0.0513299, -0.0513299, 0.8, 1, -0.0049222, -0.0503013, -0.0503013, 0.9, 1, -0.00496326, -0.0507209, -0.0507209, 0.933333, 1, -0.00505565, -0.051665, -0.051665, 0.966667, 1, -0.00518011, -0.052937, -0.052937, 1, 1, -0.00533529, -0.0545228, -0.0545228, 1.03333, 1, -0.00552869, -0.0564992, -0.0564992, 1.06667, 1, -0.0057487, -0.0587475, -0.0587475, 1.1, 1, -0.00599395, -0.0612538, -0.0612538, 1.13333, 1, -0.00626308, -0.0640041, -0.0640041, 1.16667, 1, -0.00655472, -0.0669845, -0.0669845, 1.2, 1, -0.00687364, -0.0702436, -0.0702436, 1.23333, 1, -0.00721097, -0.0736908, -0.0736908, 1.26667, 1, -0.00756533, -0.0773121, -0.0773121, 1.3, 1, -0.00793537, -0.0810936, -0.0810936, 1.33333, 1, -0.00831971, -0.0850214, -0.0850214, 1.36667, 1, -0.0087204, -0.089116, -0.089116, 1.4, 1, -0.00913128, -0.093315, -0.093315, 1.43333, 1, -0.009551, -0.0976042, -0.0976042, 1.46667, 1, -0.00997819, -0.10197, -0.10197, 1.5, 1, -0.0104115, -0.106398, -0.106398, 1.66667, 1, -0.0126113, -0.128878, -0.128878, 1.7, 1, -0.0130446, -0.133306, -0.133306, 1.73333, 1, -0.0134736, -0.13769, -0.13769, 1.76667, 1, -0.0138979, -0.142027, -0.142027, 1.8, 1, -0.0143176, -0.146315, -0.146315, 1.83333, 1, -0.0147324, -0.150554, -0.150554, 1.86667, 1, -0.0151403, -0.154723, -0.154723, 1.9, 1, -0.0155428, -0.158836, -0.158836, 1.93333, 1, -0.0159398, -0.162893, -0.162893, 1.96667, 1, -0.0163311, -0.166892, -0.166892, 2, 1, -0.0167166, -0.170831, -0.170831, 2.03333, 1, -0.0170938, -0.174686, -0.174686, 2.06667, 1, -0.0174647, -0.178477, -0.178477, 2.1, 1, -0.0178291, -0.1822, -0.1822, 2.13333, 1, -0.0181868, -0.185856, -0.185856, 2.16667, 1, -0.0185376, -0.189441, -0.189441, 2.2, 1, -0.018879, -0.19293, -0.19293, 2.23333, 1, -0.019213, -0.196343, -0.196343, 2.26667, 1, -0.0195396, -0.19968, -0.19968, 2.3, 1, -0.0198584, -0.202938, -0.202938, 2.33333, 1, -0.0201694, -0.206117, -0.206117, 2.36667, 1, -0.0204697, -0.209185, -0.209185, 2.4, 1, -0.0207616, -0.212168, -0.212168, 2.43333, 1, -0.021045, -0.215065, -0.215065, 2.46667, 1, -0.0213198, -0.217873, -0.217873, 2.5, 1, -0.0215858, -0.220591, -0.220591, 2.53333, 1, -0.0218397, -0.223186, -0.223186, 2.56667, 1, -0.0220845, -0.225688, -0.225688, 2.6, 1, -0.0223201, -0.228096, -0.228096, 2.63333, 1, -0.0225466, -0.230409, -0.230409, 2.66667, 1, -0.0227637, -0.232628, -0.232628, 2.7, 1, -0.0229684, -0.23472, -0.23472, 2.73333, 1, -0.0231637, -0.236716, -0.236716, 2.76667, 1, -0.0233495, -0.238615, -0.238615, 2.8, 1, -0.0235258, -0.240417, -0.240417, 2.83333, 1, -0.0236926, -0.242121, -0.242121, 2.86667, 1, -0.0238466, -0.243695, -0.243695, 2.9, 1, -0.0239909, -0.24517, -0.24517, 2.93333, 1, -0.0241255, -0.246545, -0.246545, 2.96667, 1, -0.0242503, -0.24782, -0.24782, 3, 1, -0.0243653, -0.248995, -0.248995, 3.03333, 1, -0.0244671, -0.250036, -0.250036, 3.06667, 1, -0.0245589, -0.250974, -0.250974, 3.1, 1, -0.0246408, -0.25181, -0.25181, 3.13333, 1, -0.0247125, -0.252544, -0.252544, 3.2, 1, -0.0248224, -0.253667, -0.253667, 3.3, 1, -0.0249053, -0.254514, -0.254514, 3.33333, 1, -0.0249122, -0.254584, -0.254584, 3.36667, 1, -0.024838, -0.253826, -0.253826, 3.4, 1, -0.0246602, -0.252009, -0.252009, 3.43333, 1, -0.0243865, -0.249212, -0.249212, 3.46667, 1, -0.0240245, -0.245513, -0.245513, 3.5, 1, -0.023582, -0.24099, -0.24099, 3.53333, 1, -0.0230473, -0.235527, -0.235527, 3.56667, 1, -0.0224551, -0.229475, -0.229475, 3.6, 1, -0.021813, -0.222913, -0.222913, 3.63333, 1, -0.0211287, -0.21592, -0.21592, 3.66667, 1, -0.0204098, -0.208574, -0.208574, 3.7, 1, -0.0196603, -0.200914, -0.200914, 3.8, 1, -0.0173733, -0.177543, -0.177543, 3.83333, 1, -0.0166238, -0.169883, -0.169883, 3.86667, 1, -0.0159049, -0.162537, -0.162537, 3.9, 1, -0.0152206, -0.155544, -0.155544, 3.93333, 1, -0.0145785, -0.148982, -0.148982, 3.96667, 1, -0.0139863, -0.14293, -0.14293, 4, 1, -0.0134517, -0.137466, -0.137466, 4.03333, 1, -0.0130091, -0.132943, -0.132943, 4.06667, 1, -0.0126471, -0.129244, -0.129244, 4.1, 1, -0.0123734, -0.126447, -0.126447, 4.13333, 1, -0.0121956, -0.12463, -0.12463, 4.16667, 1, -0.0121214, -0.123872, -0.123872)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_025")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.996118, 0, 0, -0.0880233)
+tracks/3/type = "scale_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_025")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0220641, -0.225479, -0.225479)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_027")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.946453, 0, 0, -0.322841)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_027")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_028")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/7/type = "scale_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube_028")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.0275694, -0.281739, -0.281739)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cube_029")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/9/type = "scale_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cube_029")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.0124181, -0.126904, -0.126904)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cube_030")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.242685, 0, 0, 0.970105)
+tracks/11/type = "scale_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cube_030")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -0.015528, -0.158685, -0.158685)
+
+[sub_resource type="Animation" id="Animation_brkg7"]
+resource_name = "Cube_027Action"
+length = 4.16667
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_027")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.946453, 7.16852e-17, -3.49592e-24, 0.322841, 0.0333333, 1, -0.947835, 7.16845e-17, 3.08705e-19, 0.318762, 0.0666667, 1, -0.951138, 7.16773e-17, 1.06345e-18, 0.308765, 0.1, 1, -0.956108, 7.16499e-17, 2.24701e-18, 0.293016, 0.133333, 1, -0.962394, 7.15822e-17, 3.84152e-18, 0.271658, 0.166667, 1, -0.969567, 7.14479e-17, 5.82804e-18, 0.244825, 0.2, 1, -0.977467, 7.12031e-17, 8.29981e-18, 0.211088, 0.233333, 1, -0.985032, 7.08203e-17, 1.11018e-17, 0.172371, 0.266667, 1, -0.991663, 7.02632e-17, 1.42073e-17, 0.12886, 0.3, 1, -0.996732, 6.94945e-17, 1.75862e-17, 0.0807867, 0.333333, 1, -0.999596, 6.84773e-17, 2.12042e-17, 0.0284365, 0.366667, 1, -0.99958, 6.71477e-17, 2.50988e-17, -0.0289703, 0.4, 1, 0.995974, -6.54987e-17, -2.91321e-17, 0.0896482, 0.433333, 1, 0.988211, -6.35036e-17, -3.32575e-17, 0.153101, 0.466667, 1, 0.975778, -6.11404e-17, -3.74248e-17, 0.218765, 0.5, 1, 0.958227, -5.83933e-17, -4.1581e-17, 0.28601, 0.533333, 1, 0.934958, -5.52236e-17, -4.57069e-17, 0.35476, 0.566667, 1, 0.905936, -5.16657e-17, -4.96933e-17, 0.423415, 0.6, 1, 0.871037, -4.77287e-17, -5.34858e-17, 0.491218, 0.633333, 1, 0.830246, -4.34296e-17, -5.70319e-17, 0.557397, 0.666667, 1, 0.783663, -3.87929e-17, -6.02816e-17, 0.621186, 0.866667, 1, 0.404398, 1.94599e-16, 1.56481e-17, 0.914583, 0.9, 1, 0.330526, 1.92743e-16, 3.10453e-17, 0.943797, 0.933333, 1, 0.255482, 1.89714e-16, 4.60674e-17, 0.966814, 0.966667, 1, 0.179957, 1.85584e-16, 6.05993e-17, 0.983674, 1, 1, 0.104626, 1.80438e-16, 7.45378e-17, 0.994512, 1.03333, 1, 0.0307243, 1.74426e-16, 8.76895e-17, 0.999528, 1.06667, 1, -0.0415706, 1.67634e-16, 1.00062e-16, 0.999136, 1.1, 1, -0.111717, 1.60184e-16, 1.11601e-16, 0.99374, 1.13333, 1, -0.179236, 1.52199e-16, 1.22267e-16, 0.983806, 1.16667, 1, -0.243713, 1.43806e-16, 1.32036e-16, 0.969847, 1.2, 1, -0.303924, 1.35262e-16, 1.40776e-16, 0.952696, 1.23333, 1, -0.360356, 1.26601e-16, 1.48613e-16, 0.932815, 1.26667, 1, -0.412822, 1.17945e-16, 1.55573e-16, 0.910812, 1.3, 1, -0.461196, 1.0941e-16, 1.61689e-16, 0.887299, 1.33333, 1, -0.505414, 1.01105e-16, 1.67008e-16, 0.862877, 1.36667, 1, -0.544407, 9.33492e-17, 1.71463e-16, 0.838821, 1.4, 1, -0.579187, 8.60591e-17, 1.75236e-16, 0.815195, 1.43333, 1, -0.609825, 7.93201e-17, 1.78387e-16, 0.792536, 1.46667, 1, -0.636417, 7.32095e-17, 1.80981e-16, 0.771345, 1.5, 1, -0.659066, 6.7797e-17, 1.83077e-16, 0.752085, 1.53333, 1, -0.676707, 6.34386e-17, 1.84633e-16, 0.736253, 1.56667, 1, -0.690525, 5.99317e-17, 1.85801e-16, 0.723309, 1.6, 1, -0.70058, 5.73253e-17, 1.86622e-16, 0.713573, 1.63333, 1, -0.706899, 6.77961e-17, 1.44506e-16, 0.707315, 1.66667, 1, -0.709457, 1.15648e-16, -2.57657e-17, 0.704748, 1.7, 1, -0.699072, 1.15259e-16, -2.74547e-17, 0.715052, 1.73333, 1, -0.673577, 1.14226e-16, -3.14781e-17, 0.739117, 1.76667, 1, -0.63272, 1.12361e-16, -3.75949e-17, 0.774381, 1.8, 1, -0.575878, 1.09394e-16, -4.55129e-17, 0.817535, 1.83333, 1, -0.502428, 1.0501e-16, -5.48747e-17, 0.864619, 1.86667, 1, -0.408647, 9.86522e-17, -6.56211e-17, 0.912692, 1.9, 1, -0.299518, 9.03341e-17, -7.66689e-17, 0.954091, 1.93333, 1, -0.176635, 7.99289e-17, -8.74628e-17, 0.984277, 1.96667, 1, -0.0426081, 6.74354e-17, -9.7421e-17, 0.999092, 2, 1, 0.098972, 5.29952e-17, -1.05971e-16, 0.99509, 2.03333, 1, 0.244441, 3.68109e-17, -1.1262e-16, 0.969664, 2.13333, 1, 0.642639, -1.59564e-17, -1.17404e-16, 0.766169, 2.16667, 1, 0.748466, -3.30727e-17, -1.13774e-16, 0.663173, 2.2, 1, 0.834653, -4.88151e-17, -1.0796e-16, 0.550777, 2.23333, 1, 0.901164, -6.28958e-17, -1.00412e-16, 0.433479, 2.26667, 1, 0.94869, -7.50726e-17, -9.16651e-17, 0.316208, 2.3, 1, 0.979072, -8.52419e-17, -8.22933e-17, 0.203513, 2.33333, 1, 0.995053, -9.3429e-17, -7.28656e-17, 0.0993468, 2.36667, 1, 0.999925, -9.94245e-17, -6.44448e-17, 0.012238, 2.4, 1, -0.998252, 1.03768e-16, 5.71896e-17, 0.0591094, 2.43333, 1, -0.993609, 1.06702e-16, 5.15078e-17, 0.112881, 2.46667, 1, -0.989041, 6.81165e-17, 6.26075e-17, 0.147641, 2.5, 1, -0.986775, -9.24856e-17, 1.20497e-16, 0.162093, 2.53333, 1, -0.987445, -9.29891e-17, 1.20109e-16, 0.157962, 2.56667, 1, -0.98898, -9.4189e-17, 1.19171e-16, 0.148051, 2.6, 1, -0.991148, -9.60178e-17, 1.17702e-16, 0.132763, 2.63333, 1, -0.993652, -9.84011e-17, 1.15717e-16, 0.112498, 2.66667, 1, -0.996151, -1.01259e-16, 1.13225e-16, 0.0876589, 2.7, 1, -0.998341, -1.04627e-16, 1.1012e-16, 0.0575792, 2.73333, 1, -0.999707, -1.08247e-16, 1.06563e-16, 0.0242014, 2.76667, 1, -0.999928, -1.12035e-16, 1.02574e-16, -0.0120172, 2.8, 1, 0.998719, 1.1591e-16, -9.81734e-17, 0.0505982, 2.83333, 1, 0.995847, 1.19795e-16, -9.33938e-17, 0.0910442, 2.86667, 1, 0.991108, 1.23636e-16, -8.82466e-17, 0.133057, 2.96667, 1, 0.965754, 1.33961e-16, -7.1607e-17, 0.259461, 3, 1, 0.953923, 1.36868e-16, -6.58806e-17, 0.300051, 3.03333, 1, 0.940975, 1.39427e-16, -6.02778e-17, 0.338476, 3.06667, 1, 0.927211, 1.41649e-16, -5.4852e-17, 0.374539, 3.1, 1, 0.91304, 1.43543e-16, -4.96865e-17, 0.407871, 3.13333, 1, 0.898907, 1.45122e-16, -4.48642e-17, 0.43814, 3.16667, 1, 0.885286, 1.46409e-16, -4.04676e-17, 0.465048, 3.2, 1, 0.873401, 1.47374e-16, -3.68002e-17, 0.487002, 3.23333, 1, 0.863275, 1.48094e-16, -3.37834e-17, 0.504734, 3.26667, 1, 0.855379, 1.48598e-16, -3.14928e-17, 0.518003, 3.3, 1, 0.850141, 1.40732e-16, -6.28477e-17, 0.526555, 3.33333, 1, 0.84793, 1.08159e-16, -1.93613e-16, 0.530109, 3.36667, 1, 0.850647, 1.07161e-16, -1.94167e-16, 0.525737, 3.4, 1, 0.857068, 1.04758e-16, -1.95474e-16, 0.515204, 3.43333, 1, 0.866697, 1.01027e-16, -1.97428e-16, 0.498835, 3.46667, 1, 0.878951, 9.60369e-17, -1.99903e-16, 0.476913, 3.5, 1, 0.893178, 8.98544e-17, -2.02757e-16, 0.449703, 3.53333, 1, 0.909242, 8.22729e-17, -2.0595e-16, 0.416268, 3.56667, 1, 0.925574, 7.37435e-17, -2.09156e-16, 0.378567, 3.6, 1, 0.941515, 6.43554e-17, -2.12232e-16, 0.336971, 3.63333, 1, 0.956447, 5.421e-17, -2.15048e-16, 0.291905, 3.66667, 1, 0.969811, 4.34216e-17, -2.17483e-16, 0.243859, 3.7, 1, 0.981176, 3.20577e-17, -2.19446e-16, 0.193117, 3.8, 1, 0.999364, -3.02014e-18, -2.21754e-16, 0.0356531, 3.83333, 1, -0.999866, 1.45432e-17, 2.21298e-16, 0.0163438, 3.86667, 1, -0.997808, 2.55578e-17, 2.20297e-16, 0.0661712, 3.9, 1, -0.993543, 3.59846e-17, 2.18836e-16, 0.113454, 3.93333, 1, -0.987505, 4.5695e-17, 2.17016e-16, 0.15759, 3.96667, 1, -0.980198, 5.4571e-17, 2.14956e-16, 0.198021, 4, 1, -0.972179, 6.25055e-17, 2.12785e-16, 0.234238, 4.03333, 1, -0.96453, 6.90088e-17, 2.10765e-16, 0.263974, 4.06667, 1, -0.957597, 7.42799e-17, 2.08966e-16, 0.288113, 4.1, 1, -0.951952, 7.82348e-17, 2.07517e-16, 0.306246, 4.13333, 1, -0.948102, 7.87556e-17, 1.65313e-16, 0.317965, 4.16667, 1, -0.946453, 7.16852e-17, -3.49592e-24, 0.322841)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_027")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872, 0.0333333, 1, -0.0120816, -0.123465, -0.123465, 0.0666667, 1, -0.0119863, -0.122491, -0.122491, 0.1, 1, -0.0118394, -0.12099, -0.12099, 0.133333, 1, -0.0116453, -0.119006, -0.119006, 0.166667, 1, -0.0114079, -0.11658, -0.11658, 0.2, 1, -0.0111211, -0.11365, -0.11365, 0.233333, 1, -0.0108035, -0.110404, -0.110404, 0.266667, 1, -0.0104591, -0.106884, -0.106884, 0.3, 1, -0.010092, -0.103133, -0.103133, 0.333333, 1, -0.00970645, -0.0991928, -0.0991928, 0.366667, 1, -0.00930442, -0.0950843, -0.0950843, 0.466667, 1, -0.00807772, -0.0825484, -0.0825484, 0.5, 1, -0.00767568, -0.0784399, -0.0784399, 0.533333, 1, -0.00729011, -0.0744996, -0.0744996, 0.566667, 1, -0.00692306, -0.0707486, -0.0707486, 0.6, 1, -0.00657866, -0.067229, -0.067229, 0.633333, 1, -0.00626101, -0.0639829, -0.0639829, 0.666667, 1, -0.00597423, -0.0610522, -0.0610522, 0.7, 1, -0.00573685, -0.0586264, -0.0586264, 0.733333, 1, -0.00554269, -0.0566422, -0.0566422, 0.766667, 1, -0.00539587, -0.0551418, -0.0551418, 0.8, 1, -0.00530051, -0.0541673, -0.0541673, 0.933333, 1, -0.00535344, -0.0547082, -0.0547082, 0.966667, 1, -0.00542255, -0.0554145, -0.0554145, 1, 1, -0.00551137, -0.0563222, -0.0563222, 1.03333, 1, -0.0056272, -0.0575059, -0.0575059, 1.06667, 1, -0.00576384, -0.0589022, -0.0589022, 1.1, 1, -0.00592164, -0.0605148, -0.0605148, 1.13333, 1, -0.00610096, -0.0623474, -0.0623474, 1.16667, 1, -0.00630219, -0.0644037, -0.0644037, 1.2, 1, -0.00653333, -0.0667659, -0.0667659, 1.23333, 1, -0.00678746, -0.0693629, -0.0693629, 1.26667, 1, -0.00706494, -0.0721985, -0.0721985, 1.3, 1, -0.00736613, -0.0752765, -0.0752765, 1.33333, 1, -0.00769141, -0.0786006, -0.0786006, 1.36667, 1, -0.00804952, -0.0822601, -0.0822601, 1.4, 1, -0.00843279, -0.0861769, -0.0861769, 1.43333, 1, -0.0088416, -0.0903547, -0.0903547, 1.46667, 1, -0.00927632, -0.0947971, -0.0947971, 1.5, 1, -0.00973729, -0.099508, -0.099508, 1.53333, 1, -0.010234, -0.104584, -0.104584, 1.56667, 1, -0.0107581, -0.10994, -0.10994, 1.6, 1, -0.0113099, -0.115579, -0.115579, 1.63333, 1, -0.0118898, -0.121505, -0.121505, 1.66667, 1, -0.0124981, -0.127721, -0.127721, 1.7, 1, -0.0131438, -0.13432, -0.13432, 1.73333, 1, -0.0138132, -0.141161, -0.141161, 1.76667, 1, -0.0145029, -0.148209, -0.148209, 1.8, 1, -0.0152093, -0.155428, -0.155428, 1.83333, 1, -0.015929, -0.162782, -0.162782, 1.96667, 1, -0.0188525, -0.192659, -0.192659, 2, 1, -0.0195727, -0.200019, -0.200019, 2.03333, 1, -0.0202755, -0.207201, -0.207201, 2.06667, 1, -0.0209601, -0.214197, -0.214197, 2.1, 1, -0.0216229, -0.22097, -0.22097, 2.13333, 1, -0.0222604, -0.227485, -0.227485, 2.16667, 1, -0.0228691, -0.233705, -0.233705, 2.2, 1, -0.0234324, -0.239462, -0.239462, 2.23333, 1, -0.0239564, -0.244817, -0.244817, 2.26667, 1, -0.0244377, -0.249735, -0.249735, 2.3, 1, -0.0248726, -0.25418, -0.25418, 2.33333, 1, -0.0252577, -0.258116, -0.258116, 2.36667, 1, -0.0255695, -0.261302, -0.261302, 2.4, 1, -0.025821, -0.263871, -0.263871, 2.43333, 1, -0.0260086, -0.265789, -0.265789, 2.46667, 1, -0.0261289, -0.267019, -0.267019, 2.5, 1, -0.0261785, -0.267525, -0.267525, 2.53333, 1, -0.026088, -0.2666, -0.2666, 2.56667, 1, -0.025871, -0.264383, -0.264383, 2.6, 1, -0.025537, -0.26097, -0.26097, 2.63333, 1, -0.0250954, -0.256456, -0.256456, 2.66667, 1, -0.0245554, -0.250938, -0.250938, 2.7, 1, -0.023903, -0.244271, -0.244271, 2.73333, 1, -0.0231804, -0.236887, -0.236887, 2.76667, 1, -0.0223969, -0.22888, -0.22888, 2.8, 1, -0.021562, -0.220348, -0.220348, 2.83333, 1, -0.0206849, -0.211384, -0.211384, 2.86667, 1, -0.0197703, -0.202038, -0.202038, 2.96667, 1, -0.0169798, -0.173521, -0.173521, 3, 1, -0.0160652, -0.164175, -0.164175, 3.03333, 1, -0.0151881, -0.155212, -0.155212, 3.06667, 1, -0.0143532, -0.146679, -0.146679, 3.1, 1, -0.0135697, -0.138672, -0.138672, 3.13333, 1, -0.0128471, -0.131288, -0.131288, 3.16667, 1, -0.0121947, -0.124621, -0.124621, 3.2, 1, -0.0116547, -0.119103, -0.119103, 3.23333, 1, -0.0112131, -0.114589, -0.114589, 3.26667, 1, -0.0108791, -0.111176, -0.111176, 3.3, 1, -0.0106621, -0.108959, -0.108959, 3.33333, 1, -0.0105716, -0.108034, -0.108034, 3.46667, 1, -0.0106792, -0.109133, -0.109133, 3.53333, 1, -0.0107976, -0.110343, -0.110343, 3.56667, 1, -0.0108693, -0.111077, -0.111077, 3.6, 1, -0.0109471, -0.111872, -0.111872, 3.63333, 1, -0.0110301, -0.112719, -0.112719, 3.66667, 1, -0.0111172, -0.113609, -0.113609, 3.83333, 1, -0.0115759, -0.118297, -0.118297, 3.86667, 1, -0.011663, -0.119187, -0.119187, 3.9, 1, -0.0117459, -0.120035, -0.120035, 3.93333, 1, -0.0118237, -0.12083, -0.12083, 3.96667, 1, -0.0118955, -0.121563, -0.121563, 4.03333, 1, -0.0120139, -0.122773, -0.122773, 4.1, 1, -0.0120909, -0.12356, -0.12356, 4.16667, 1, -0.0121214, -0.123872, -0.123872)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_025")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.996118, 0, 0, -0.0880233)
+tracks/3/type = "scale_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_025")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0220641, -0.225479, -0.225479)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_026")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.883343, 0, 0, -0.468727)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_026")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_028")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/7/type = "scale_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube_028")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.0275694, -0.281739, -0.281739)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cube_029")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/9/type = "scale_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cube_029")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.0124181, -0.126904, -0.126904)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cube_030")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.242685, 0, 0, 0.970105)
+tracks/11/type = "scale_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cube_030")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -0.015528, -0.158685, -0.158685)
+
+[sub_resource type="Animation" id="Animation_ukevr"]
+resource_name = "Cube_028Action"
+length = 4.16667
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_028")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.434329, 2.00008e-16, 0, 0.900754, 0.466667, 1, -0.0215527, 1.95136e-16, 2.89177e-18, 0.999768, 0.766667, 1, 0.250717, 2.11705e-16, 6.2847e-19, 0.96806, 0.8, 1, 0.276942, 2.12903e-16, -3.58544e-19, 0.960887, 1.6, 1, 0.637307, 1.52064e-16, -9.76975e-18, 0.77061, 1.63333, 1, 0.648614, 1.50042e-16, -9.85503e-18, 0.761118, 2.43333, 1, 0.778217, 9.18032e-17, -4.81465e-17, 0.627996, 2.46667, 1, 0.791057, 8.85239e-17, -5.05692e-17, 0.611742, 2.86667, 1, 0.998381, 5.2299e-18, -8.79868e-17, -0.0568854, 2.9, 1, -0.99322, 2.33878e-18, 8.72981e-17, 0.116251, 3.33333, 1, -0.628409, 7.68707e-17, 3.19454e-17, 0.777883, 3.6, 1, -0.999186, 3.90154e-17, 1.13739e-16, -0.0403403, 3.63333, 1, 0.987731, -2.74773e-17, -1.21831e-16, 0.156165, 4.03333, 1, 0.0165266, 1.62901e-16, -7.93113e-17, 0.999864, 4.16667, 1, -0.434329, 2.00008e-16, 0, 0.900754)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_028")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0275694, -0.281739, -0.281739, 0.766667, 1, -0.0107768, -0.110131, -0.110131, 0.8, 1, -0.0102173, -0.104414, -0.104414, 1.6, 1, -0.00907555, -0.0927455, -0.0927455, 1.63333, 1, -0.00915465, -0.0935538, -0.0935538, 2.43333, 1, -0.020173, -0.206153, -0.206153, 2.46667, 1, -0.0205526, -0.210032, -0.210032, 3.33333, 1, -0.0242196, -0.247507, -0.247507, 4.16667, 1, -0.0275694, -0.281739, -0.281739)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_025")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.996118, 0, 0, -0.0880233)
+tracks/3/type = "scale_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_025")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0220641, -0.225479, -0.225479)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_026")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.883343, 0, 0, -0.468727)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_026")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_027")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.946453, 0, 0, -0.322841)
+tracks/7/type = "scale_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube_027")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cube_029")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/9/type = "scale_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cube_029")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.0124181, -0.126904, -0.126904)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cube_030")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.242685, 0, 0, 0.970105)
+tracks/11/type = "scale_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cube_030")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -0.015528, -0.158685, -0.158685)
+
+[sub_resource type="Animation" id="Animation_nqlnr"]
+resource_name = "Cube_029Action"
+length = 4.16667
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_029")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.434329, 2.00008e-16, -3.67328e-24, 0.900754, 0.0333333, 1, -0.422029, 1.99989e-16, -2.72211e-18, 0.906582, 0.0666667, 1, -0.392239, 1.99794e-16, -9.24276e-18, 0.919863, 0.1, 1, -0.345571, 1.99078e-16, -1.92601e-17, 0.938393, 0.133333, 1, -0.282537, 1.97361e-16, -3.24286e-17, 0.959257, 0.166667, 1, -0.203806, 1.94081e-16, -4.83285e-17, 0.979011, 0.2, 1, -0.106951, 1.88415e-16, -6.71028e-17, 0.994264, 0.233333, 1, 0.00149301, 1.80028e-16, -8.7138e-17, 0.999999, 0.266667, 1, 0.119011, 1.68539e-16, -1.07692e-16, 0.992893, 0.3, 1, 0.242399, 1.53728e-16, -1.27948e-16, 0.970177, 0.333333, 1, 0.36787, 1.35568e-16, -1.47052e-16, 0.929877, 0.366667, 1, 0.491864, 1.14131e-16, -1.64248e-16, 0.870672, 0.466667, 1, 0.80389, 3.73209e-17, -1.96495e-16, 0.594779, 0.5, 1, 0.877832, 1.00333e-17, -1.99756e-16, 0.478968, 0.533333, 1, 0.933193, -1.63214e-17, -1.99341e-16, 0.359375, 0.566667, 1, 0.970848, -4.11533e-17, -1.95728e-16, 0.239697, 0.6, 1, 0.99229, -6.38717e-17, -1.89535e-16, 0.123934, 0.633333, 1, 0.999878, -8.40473e-17, -1.81491e-16, 0.0156043, 0.666667, 1, -0.9966, 1.01417e-16, 1.72388e-16, 0.0823899, 0.7, 1, -0.986635, 1.15064e-16, 1.63595e-16, 0.162947, 0.733333, 1, -0.973647, 1.25667e-16, 1.55599e-16, 0.228061, 0.766667, 1, -0.960972, 1.33319e-16, 1.49094e-16, 0.276647, 0.8, 1, -0.951438, 1.24341e-16, 1.16111e-16, 0.30784, 0.833333, 1, -0.94716, 7.12232e-17, -1.13532e-23, 0.320761, 0.866667, 1, -0.948544, 7.12225e-17, 3.09232e-19, 0.316645, 0.9, 1, -0.951868, 7.12151e-17, 1.06895e-18, 0.306509, 0.933333, 1, -0.956884, 7.11871e-17, 2.26555e-18, 0.29047, 0.966667, 1, -0.963246, 7.11172e-17, 3.88474e-18, 0.268622, 1, 1, -0.970514, 7.09774e-17, 5.91105e-18, 0.241046, 1.03333, 1, -0.978525, 7.07202e-17, 8.44967e-18, 0.206127, 1.06667, 1, -0.986156, 7.03141e-17, 1.13433e-17, 0.165818, 1.1, 1, -0.992743, 6.97175e-17, 1.45674e-17, 0.120255, 1.13333, 1, -0.997573, 6.88866e-17, 1.80933e-17, 0.0696243, 1.16667, 1, -0.9999, 6.77768e-17, 2.1887e-17, 0.014176, 1.2, 1, -0.998889, 6.63084e-17, 2.59988e-17, -0.0471192, 1.23333, 1, 0.993676, -6.44678e-17, -3.0276e-17, 0.112288, 1.26667, 1, 0.98352, -6.22175e-17, -3.46659e-17, 0.180801, 1.3, 1, 0.967719, -5.95243e-17, -3.911e-17, 0.25203, 1.33333, 1, 0.945631, -5.63617e-17, -4.35442e-17, 0.325242, 1.36667, 1, 0.916296, -5.26634e-17, -4.79511e-17, 0.400503, 1.4, 1, 0.879582, -4.84676e-17, -5.21884e-17, 0.475748, 1.43333, 1, 0.835186, -4.37771e-17, -5.6181e-17, 0.549968, 1.46667, 1, 0.782944, -3.86052e-17, -5.9853e-17, 0.622092, 1.5, 1, 0.722844, -3.29764e-17, -6.31292e-17, 0.691011, 1.53333, 1, 0.65458, -2.68867e-17, -6.59534e-17, 0.755993, 1.56667, 1, 0.579013, -2.04337e-17, -6.82291e-17, 0.815318, 1.6, 1, 0.496682, -1.36776e-17, -6.98975e-17, 0.867933, 1.63333, 1, 0.408285, 2.53598e-17, -4.42857e-17, 0.912854, 1.66667, 1, 0.314676, 1.60293e-16, 6.15565e-17, 0.949199, 1.76667, 1, 0.0139475, 1.34285e-16, 1.07007e-16, 0.999903, 1.83333, 1, -0.18841, 1.09889e-16, 1.31937e-16, 0.982091, 1.86667, 1, -0.285482, 9.61733e-17, 1.42245e-16, 0.958384, 1.9, 1, -0.378188, 8.17445e-17, 1.50999e-16, 0.925729, 1.93333, 1, -0.465484, 6.68402e-17, 1.58162e-16, 0.885056, 1.96667, 1, -0.546508, 5.16985e-17, 1.63738e-16, 0.837454, 2, 1, -0.620603, 3.65507e-17, 1.67771e-16, 0.784125, 2.03333, 1, -0.686422, 2.18272e-17, 1.70313e-16, 0.727204, 2.06667, 1, -0.744557, 7.57846e-18, 1.71539e-16, 0.667559, 2.1, 1, -0.795058, -6.02252e-18, 1.716e-16, 0.606533, 2.13333, 1, -0.838163, -1.88298e-17, 1.7067e-16, 0.54542, 2.16667, 1, -0.874269, -3.07247e-17, 1.68935e-16, 0.485442, 2.2, 1, -0.903077, -4.12916e-17, 1.66667e-16, 0.429479, 2.23333, 1, -0.926124, -5.074e-17, 1.64038e-16, 0.377218, 2.26667, 1, -0.944133, -5.90281e-17, 1.61241e-16, 0.329564, 2.3, 1, -0.957838, -6.61305e-17, 1.5846e-16, 0.287311, 2.33333, 1, -0.967948, -7.20326e-17, 1.55866e-16, 0.25115, 2.36667, 1, -0.97453, -7.63197e-17, 1.53812e-16, 0.224258, 2.4, 1, -0.978771, -7.93446e-17, 1.52274e-16, 0.204955, 2.43333, 1, -0.981062, 9.1146e-19, 1.51889e-16, 0.193693, 2.46667, 1, -0.981532, 1.23544e-16, 1.52094e-16, 0.1913, 2.5, 1, -0.980002, 1.24732e-16, 1.51121e-16, 0.198986, 2.53333, 1, -0.975282, 1.28098e-16, 1.48279e-16, 0.220966, 2.56667, 1, -0.967635, 1.32821e-16, 1.44064e-16, 0.252356, 2.6, 1, -0.956371, 1.38665e-16, 1.38448e-16, 0.292156, 2.63333, 1, -0.940692, 1.45366e-16, 1.31395e-16, 0.339262, 2.66667, 1, -0.919771, 1.52636e-16, 1.22874e-16, 0.392456, 2.7, 1, -0.892045, 1.60367e-16, 1.12597e-16, 0.451947, 2.73333, 1, -0.857813, 1.67936e-16, 1.00962e-16, 0.513961, 2.76667, 1, -0.816729, 1.75053e-16, 8.80455e-17, 0.577022, 2.8, 1, -0.768681, 1.81452e-16, 7.39665e-17, 0.639633, 2.83333, 1, -0.713823, 1.86891e-16, 5.88867e-17, 0.700326, 2.93333, 1, -0.515458, 1.95685e-16, 1.01531e-17, 0.856915, 2.96667, 1, -0.442132, 1.9585e-16, -6.21623e-18, 0.89695, 3, 1, -0.367334, 1.94686e-16, -2.22045e-17, 0.930089, 3.03333, 1, -0.293764, 1.92365e-16, -3.73031e-17, 0.955878, 3.06667, 1, -0.222355, 1.89084e-16, -5.14103e-17, 0.974966, 3.1, 1, -0.154493, 1.85082e-16, -6.43457e-17, 0.987994, 3.13333, 1, -0.0914588, 1.80624e-16, -7.59657e-17, 0.995809, 3.16667, 1, -0.0344125, 1.75988e-16, -8.61618e-17, 0.999408, 3.2, 1, 0.0127278, 1.71732e-16, -9.43604e-17, 0.999919, 3.23333, 1, 0.0511816, 1.67975e-16, -1.00896e-16, 0.998689, 3.26667, 1, 0.0801514, 1.64975e-16, -1.0573e-16, 0.996783, 3.3, 1, 0.0988959, 1.66013e-16, -7.14609e-17, 0.995098, 3.33333, 1, 0.106691, 1.77383e-16, 7.66856e-17, 0.994292, 3.36667, 1, 0.103483, 1.77135e-16, 7.72574e-17, 0.994631, 3.4, 1, 0.0957902, 1.76532e-16, 7.86245e-17, 0.995402, 3.43333, 1, 0.083936, 1.75584e-16, 8.07201e-17, 0.996471, 3.46667, 1, 0.0682416, 1.74292e-16, 8.34737e-17, 0.997669, 3.5, 1, 0.0490311, 1.72653e-16, 8.68121e-17, 0.998797, 3.53333, 1, 0.0257993, 1.70588e-16, 9.08022e-17, 0.999667, 3.56667, 1, 5.06015e-05, 1.68194e-16, 9.51645e-17, 1, 3.6, 1, -0.0278664, 1.65472e-16, 9.98229e-17, 0.999612, 3.63333, 1, -0.0575943, 1.62428e-16, 1.04702e-16, 0.99834, 3.66667, 1, -0.0887669, 1.59077e-16, 1.09727e-16, 0.996052, 3.7, 1, -0.121178, 1.55417e-16, 1.14852e-16, 0.992631, 3.8, 1, -0.21913, 1.43246e-16, 1.29715e-16, 0.975696, 3.83333, 1, -0.250808, 1.38943e-16, 1.34314e-16, 0.968037, 3.86667, 1, -0.280939, 1.34677e-16, 1.38591e-16, 0.959726, 3.9, 1, -0.309368, 1.30495e-16, 1.42536e-16, 0.950942, 3.93333, 1, -0.335795, 1.26465e-16, 1.46124e-16, 0.941935, 3.96667, 1, -0.359938, 1.2266e-16, 1.49332e-16, 0.932976, 4, 1, -0.381529, 1.19155e-16, 1.52143e-16, 0.924357, 4.03333, 1, -0.399245, 1.16206e-16, 1.54408e-16, 0.916844, 4.06667, 1, -0.413627, 1.13761e-16, 1.56217e-16, 0.910447, 4.1, 1, -0.424433, 1.11894e-16, 1.5756e-16, 0.905459, 4.13333, 1, -0.431421, 1.28642e-16, 1.26666e-16, 0.902151, 4.16667, 1, -0.434329, 2.00008e-16, -3.67328e-24, 0.900754)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_029")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0124181, -0.126904, -0.126904, 0.0333333, 1, -0.0123728, -0.126441, -0.126441, 0.0666667, 1, -0.0122642, -0.125331, -0.125331, 0.1, 1, -0.0120969, -0.123622, -0.123622, 0.133333, 1, -0.0118758, -0.121362, -0.121362, 0.166667, 1, -0.0116054, -0.118599, -0.118599, 0.2, 1, -0.0112788, -0.115261, -0.115261, 0.233333, 1, -0.010917, -0.111563, -0.111563, 0.266667, 1, -0.0105247, -0.107555, -0.107555, 0.3, 1, -0.0101066, -0.103282, -0.103282, 0.333333, 1, -0.00966746, -0.0987944, -0.0987944, 0.366667, 1, -0.00920954, -0.0941148, -0.0941148, 0.466667, 1, -0.00781234, -0.0798364, -0.0798364, 0.5, 1, -0.00735442, -0.0751568, -0.0751568, 0.533333, 1, -0.00691525, -0.0706688, -0.0706688, 0.566667, 1, -0.00649719, -0.0663965, -0.0663965, 0.6, 1, -0.00610491, -0.0623877, -0.0623877, 0.633333, 1, -0.0057431, -0.0586903, -0.0586903, 0.666667, 1, -0.00541646, -0.0553523, -0.0553523, 0.7, 1, -0.00514609, -0.0525892, -0.0525892, 0.733333, 1, -0.00492494, -0.0503293, -0.0503293, 0.766667, 1, -0.00475771, -0.0486204, -0.0486204, 0.8, 1, -0.0046491, -0.0475104, -0.0475104, 0.866667, 1, -0.00464433, -0.0474617, -0.0474617, 0.9, 1, -0.00474301, -0.0484701, -0.0484701, 0.933333, 1, -0.0048971, -0.0500447, -0.0500447, 0.966667, 1, -0.00510386, -0.0521577, -0.0521577, 1, 1, -0.00536059, -0.0547813, -0.0547813, 1.03333, 1, -0.00567849, -0.05803, -0.05803, 1.06667, 1, -0.00603819, -0.0617059, -0.0617059, 1.1, 1, -0.00643698, -0.0657812, -0.0657812, 1.13333, 1, -0.00687213, -0.0702281, -0.0702281, 1.16667, 1, -0.00734092, -0.0750188, -0.0750188, 1.2, 1, -0.00784913, -0.0802124, -0.0802124, 1.23333, 1, -0.00838283, -0.0856664, -0.0856664, 1.26667, 1, -0.00893929, -0.091353, -0.091353, 1.3, 1, -0.00951579, -0.0972444, -0.0972444, 1.33333, 1, -0.0101096, -0.103313, -0.103313, 1.36667, 1, -0.0107211, -0.109562, -0.109562, 1.4, 1, -0.0113418, -0.115905, -0.115905, 1.53333, 1, -0.0138593, -0.141632, -0.141632, 1.56667, 1, -0.0144799, -0.147973, -0.147973, 1.6, 1, -0.0150906, -0.154215, -0.154215, 1.63333, 1, -0.0156887, -0.160327, -0.160327, 1.66667, 1, -0.0162715, -0.166283, -0.166283, 1.7, 1, -0.0168293, -0.171983, -0.171983, 1.73333, 1, -0.0173673, -0.177482, -0.177482, 1.76667, 1, -0.0178855, -0.182776, -0.182776, 1.8, 1, -0.0183834, -0.187865, -0.187865, 1.83333, 1, -0.018861, -0.192746, -0.192746, 1.86667, 1, -0.019311, -0.197344, -0.197344, 1.9, 1, -0.0197399, -0.201727, -0.201727, 1.93333, 1, -0.0201475, -0.205893, -0.205893, 1.96667, 1, -0.0205337, -0.209839, -0.209839, 2, 1, -0.0208982, -0.213564, -0.213564, 2.03333, 1, -0.0212332, -0.216988, -0.216988, 2.06667, 1, -0.021546, -0.220184, -0.220184, 2.1, 1, -0.0218361, -0.223149, -0.223149, 2.13333, 1, -0.0221034, -0.225881, -0.225881, 2.16667, 1, -0.0223477, -0.228377, -0.228377, 2.2, 1, -0.0225609, -0.230555, -0.230555, 2.23333, 1, -0.0227503, -0.232492, -0.232492, 2.26667, 1, -0.0229159, -0.234184, -0.234184, 2.3, 1, -0.0230573, -0.235629, -0.235629, 2.33333, 1, -0.0231744, -0.236825, -0.236825, 2.36667, 1, -0.0232586, -0.237685, -0.237685, 2.43333, 1, -0.0233517, -0.238637, -0.238637, 2.46667, 1, -0.0233403, -0.238521, -0.238521, 2.5, 1, -0.0232436, -0.237533, -0.237533, 2.53333, 1, -0.0229664, -0.2347, -0.2347, 2.56667, 1, -0.022568, -0.230629, -0.230629, 2.6, 1, -0.0220579, -0.225416, -0.225416, 2.63333, 1, -0.0214456, -0.219159, -0.219159, 2.66667, 1, -0.0207407, -0.211955, -0.211955, 2.7, 1, -0.0199312, -0.203682, -0.203682, 2.73333, 1, -0.0190575, -0.194754, -0.194754, 2.76667, 1, -0.0181292, -0.185268, -0.185268, 2.8, 1, -0.0171558, -0.17532, -0.17532, 2.83333, 1, -0.0161467, -0.165007, -0.165007, 2.93333, 1, -0.0130219, -0.133075, -0.133075, 2.96667, 1, -0.0119915, -0.122544, -0.122544, 3, 1, -0.0109824, -0.112232, -0.112232, 3.03333, 1, -0.0100208, -0.102405, -0.102405, 3.06667, 1, -0.00910911, -0.0930884, -0.0930884, 3.1, 1, -0.00825684, -0.0843788, -0.0843788, 3.13333, 1, -0.00747347, -0.0763734, -0.0763734, 3.16667, 1, -0.00676853, -0.0691694, -0.0691694, 3.2, 1, -0.00618714, -0.0632281, -0.0632281, 3.23333, 1, -0.00571269, -0.0583796, -0.0583796, 3.26667, 1, -0.00535468, -0.0547209, -0.0547209, 3.3, 1, -0.0051226, -0.0523492, -0.0523492, 3.33333, 1, -0.00502597, -0.0513617, -0.0513617, 3.36667, 1, -0.00506884, -0.0517999, -0.0517999, 3.4, 1, -0.00517159, -0.0528499, -0.0528499, 3.43333, 1, -0.00532979, -0.0544665, -0.0544665, 3.46667, 1, -0.00553898, -0.0566044, -0.0566044, 3.5, 1, -0.00579475, -0.0592181, -0.0592181, 3.53333, 1, -0.00610374, -0.0623758, -0.0623758, 3.56667, 1, -0.006446, -0.0658734, -0.0658734, 3.6, 1, -0.00681708, -0.0696656, -0.0696656, 3.63333, 1, -0.00721256, -0.0737071, -0.0737071, 3.66667, 1, -0.007628, -0.0779526, -0.0779526, 3.7, 1, -0.00806118, -0.0823794, -0.0823794, 3.8, 1, -0.00938289, -0.0958863, -0.0958863, 3.83333, 1, -0.00981608, -0.100313, -0.100313, 3.86667, 1, -0.0102315, -0.104559, -0.104559, 3.9, 1, -0.010627, -0.1086, -0.1086, 3.93333, 1, -0.0109981, -0.112392, -0.112392, 3.96667, 1, -0.0113403, -0.11589, -0.11589, 4, 1, -0.0116493, -0.119048, -0.119048, 4.03333, 1, -0.0119051, -0.121661, -0.121661, 4.06667, 1, -0.0121143, -0.123799, -0.123799, 4.1, 1, -0.0122725, -0.125416, -0.125416, 4.13333, 1, -0.0123752, -0.126466, -0.126466, 4.16667, 1, -0.0124181, -0.126904, -0.126904)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_025")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.996118, 0, 0, -0.0880233)
+tracks/3/type = "scale_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_025")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0220641, -0.225479, -0.225479)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_026")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.883343, 0, 0, -0.468727)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_026")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_027")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.946453, 0, 0, -0.322841)
+tracks/7/type = "scale_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube_027")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cube_028")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/9/type = "scale_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cube_028")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.0275694, -0.281739, -0.281739)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cube_030")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.242685, 0, 0, 0.970105)
+tracks/11/type = "scale_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cube_030")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -0.015528, -0.158685, -0.158685)
+
+[sub_resource type="Animation" id="Animation_7pdav"]
+resource_name = "Cube_030Action"
+length = 4.16667
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_030")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.242685, 2.15407e-16, 0, 0.970105, 0.0333333, 1, -0.244429, 2.15406e-16, 3.87434e-19, 0.969667, 0.0666667, 1, -0.248637, 2.15403e-16, 1.32283e-18, 0.968597, 0.1, 1, -0.255153, 2.15389e-16, 2.77292e-18, 0.966901, 0.133333, 1, -0.263813, 2.15355e-16, 4.70431e-18, 0.964574, 0.166667, 1, -0.274454, 2.1529e-16, 7.08341e-18, 0.9616, 0.2, 1, -0.287425, 2.15175e-16, 9.99248e-18, 0.957803, 0.233333, 1, -0.301888, 2.14999e-16, 1.32478e-17, 0.953344, 0.266667, 1, -0.31767, 2.14749e-16, 1.68146e-17, 0.948201, 0.3, 1, -0.3346, 2.14414e-16, 2.06578e-17, 0.94236, 0.333333, 1, -0.352505, 2.13981e-16, 2.47417e-17, 0.93581, 0.366667, 1, -0.371428, 2.13435e-16, 2.908e-17, 0.928462, 0.4, 1, -0.390836, 2.12777e-16, 3.35539e-17, 0.92046, 0.433333, 1, -0.410563, 2.12005e-16, 3.81274e-17, 0.911832, 0.466667, 1, -0.430449, 2.11119e-16, 4.27646e-17, 0.902615, 0.533333, 1, -0.469998, 2.09018e-16, 5.20719e-17, 0.882668, 0.566667, 1, -0.48923, 2.07827e-16, 5.66403e-17, 0.872155, 0.6, 1, -0.507895, 2.06559e-16, 6.11019e-17, 0.861419, 0.633333, 1, -0.525865, 2.05231e-16, 6.54244e-17, 0.850568, 0.666667, 1, -0.543022, 2.03861e-16, 6.95766e-17, 0.839719, 0.7, 1, -0.558932, 2.02497e-16, 7.34506e-17, 0.829214, 0.733333, 1, -0.573693, 2.01149e-16, 7.70652e-17, 0.819071, 0.766667, 1, -0.587209, 1.99842e-16, 8.03933e-17, 0.809436, 0.8, 1, -0.599391, 1.94295e-16, 6.61908e-17, 0.800456, 0.833333, 1, -0.610155, 1.75922e-16, 1.25286e-23, 0.792282, 0.866667, 1, -0.618957, 1.75911e-16, 1.96298e-18, 0.785425, 0.9, 1, -0.626445, 1.75884e-16, 3.6463e-18, 0.779465, 0.933333, 1, -0.632781, 1.75849e-16, 5.08057e-18, 0.774331, 0.966667, 1, -0.638121, 1.75809e-16, 6.29647e-18, 0.769936, 1, 1, -0.642613, 1.75769e-16, 7.32472e-18, 0.766191, 1.03333, 1, -0.646266, 1.75732e-16, 8.16424e-18, 0.763112, 1.06667, 1, -0.649491, 1.75696e-16, 8.90815e-18, 0.760369, 1.1, 1, -0.652425, 1.75661e-16, 9.58712e-18, 0.757854, 1.16667, 1, -0.657955, 1.75586e-16, 1.08727e-17, 0.753057, 1.2, 1, -0.66094, 1.75541e-16, 1.157e-17, 0.750438, 1.23333, 1, -0.664291, 1.75488e-16, 1.23552e-17, 0.747474, 1.26667, 1, -0.668132, 1.75422e-16, 1.32589e-17, 0.744042, 1.3, 1, -0.672586, 1.75339e-16, 1.43115e-17, 0.740019, 1.33333, 1, -0.677769, 1.75234e-16, 1.55432e-17, 0.735275, 1.36667, 1, -0.684171, 1.75091e-16, 1.70746e-17, 0.729321, 1.4, 1, -0.69164, 1.74906e-16, 1.88755e-17, 0.722242, 1.43333, 1, -0.700266, 1.74667e-16, 2.09752e-17, 0.713882, 1.46667, 1, -0.710128, 1.74358e-16, 2.34027e-17, 0.704072, 1.5, 1, -0.721289, 1.73962e-16, 2.61859e-17, 0.692635, 1.53333, 1, -0.734379, 1.73431e-16, 2.95018e-17, 0.67874, 1.56667, 1, -0.748923, 1.7275e-16, 3.32553e-17, 0.662658, 1.6, 1, -0.7649, 1.71885e-16, 3.74689e-17, 0.644149, 1.63333, 1, -0.782257, 1.61111e-16, 3.11327e-17, 0.622956, 1.66667, 1, -0.800896, 1.21021e-16, -7.78485e-18, 0.598803, 1.7, 1, -0.826308, 1.21245e-16, -2.48677e-18, 0.563218, 1.73333, 1, -0.858104, 1.21181e-16, 4.67234e-18, 0.513476, 1.76667, 1, -0.89333, 1.20516e-16, 1.35144e-17, 0.449402, 1.8, 1, -0.928628, 1.18909e-16, 2.38158e-17, 0.371012, 1.83333, 1, -0.960372, 1.16021e-16, 3.52939e-17, 0.27872, 1.86667, 1, -0.985286, 1.11412e-16, 4.78957e-17, 0.170913, 1.9, 1, -0.998591, 1.04958e-16, 6.07489e-17, 0.0530639, 1.93333, 1, 0.997386, -9.65356e-17, -7.33996e-17, 0.0722532, 1.96667, 1, 0.979419, -8.61276e-17, -8.53736e-17, 0.201838, 2, 1, 0.943274, -7.38338e-17, -9.62039e-17, 0.332015, 2.1, 1, 0.728641, -2.86577e-17, -1.17836e-16, 0.684896, 2.13333, 1, 0.628564, -1.23407e-17, -1.20641e-16, 0.777758, 2.16667, 1, 0.519393, 3.83478e-18, -1.2121e-16, 0.854535, 2.2, 1, 0.406949, 1.91598e-17, -1.19748e-16, 0.913451, 2.23333, 1, 0.294396, 3.33909e-17, -1.16583e-16, 0.955684, 2.26667, 1, 0.18542, 4.6248e-17, -1.12106e-16, 0.982659, 2.3, 1, 0.0832701, 5.75436e-17, -1.06749e-16, 0.996527, 2.33333, 1, -0.00935104, 6.71798e-17, -1.00963e-16, 0.999956, 2.36667, 1, -0.0856252, 7.46879e-17, -9.55424e-17, 0.996327, 2.4, 1, -0.147478, 8.04903e-17, -9.07079e-17, 0.989065, 2.43333, 1, -0.193756, 8.46606e-17, -8.68286e-17, 0.98105, 2.46667, 1, -0.223514, 1.08288e-16, -7.65074e-17, 0.974701, 2.5, 1, -0.235837, 1.93442e-16, -4.45768e-17, 0.971793, 2.53333, 1, -0.233046, 1.93313e-16, -4.5132e-17, 0.972466, 2.56667, 1, -0.226113, 1.92987e-16, -4.65079e-17, 0.974101, 2.6, 1, -0.215069, 1.92448e-16, -4.86899e-17, 0.976599, 2.63333, 1, -0.199939, 1.91671e-16, -5.16606e-17, 0.979808, 2.66667, 1, -0.180739, 1.90625e-16, -5.53992e-17, 0.983531, 2.7, 1, -0.15619, 1.89186e-16, -6.01292e-17, 0.987727, 2.73333, 1, -0.127647, 1.87374e-16, -6.55587e-17, 0.99182, 2.76667, 1, -0.0951408, 1.85129e-16, -7.16517e-17, 0.995464, 2.8, 1, -0.0587175, 1.82389e-16, -7.83659e-17, 0.998275, 2.83333, 1, -0.0184481, 1.79083e-16, -8.56509e-17, 0.99983, 2.86667, 1, 0.0267667, 1.75028e-16, -9.36586e-17, 0.999642, 2.9, 1, 0.0755242, 1.70248e-16, -1.0209e-16, 0.997144, 2.93333, 1, 0.127627, 1.6467e-16, -1.10863e-16, 0.991822, 2.96667, 1, 0.18282, 1.58221e-16, -1.19887e-16, 0.983146, 3, 1, 0.240789, 1.50835e-16, -1.29057e-16, 0.970578, 3.03333, 1, 0.30219, 1.42298e-16, -1.38412e-16, 0.953248, 3.06667, 1, 0.365421, 1.32698e-16, -1.47641e-16, 0.930842, 3.1, 1, 0.429926, 1.21996e-16, -1.56601e-16, 0.902864, 3.13333, 1, 0.495069, 1.10166e-16, -1.65137e-16, 0.868854, 3.16667, 1, 0.560127, 9.72016e-17, -1.73086e-16, 0.828407, 3.2, 1, 0.62507, 8.29356e-17, -1.80357e-16, 0.780569, 3.23333, 1, 0.688098, 6.75776e-17, -1.86655e-16, 0.725618, 3.26667, 1, 0.748247, 5.11897e-17, -1.91798e-16, 0.66342, 3.3, 1, 0.804493, 2.36256e-17, -1.87198e-16, 0.593963, 3.33333, 1, 0.855764, -3.53595e-17, -1.55954e-16, 0.517366, 3.36667, 1, 0.901289, -5.01013e-17, -1.51862e-16, 0.433218, 3.4, 1, 0.939286, -6.46911e-17, -1.46243e-16, 0.343137, 3.43333, 1, 0.968722, -7.88961e-17, -1.39095e-16, 0.24815, 3.53333, 1, 0.998572, -1.1694e-16, -1.09074e-16, -0.0534277, 3.56667, 1, -0.988021, 1.27388e-16, 9.66662e-17, 0.154317, 3.6, 1, -0.967512, 1.36458e-16, 8.33752e-17, 0.252825, 3.63333, 1, -0.937637, 1.4406e-16, 6.94181e-17, 0.347616, 3.66667, 1, -0.899225, 1.50148e-16, 5.50237e-17, 0.437486, 3.7, 1, -0.853808, 1.5468e-16, 4.05734e-17, 0.520588, 3.73333, 1, -0.802468, 1.57749e-16, 2.62172e-17, 0.596695, 3.76667, 1, -0.746577, 1.59449e-16, 1.21692e-17, 0.665299, 3.8, 1, -0.687557, 1.59907e-16, -1.37703e-18, 0.72613, 3.83333, 1, -0.626836, 1.59276e-16, -1.42523e-17, 0.779151, 3.86667, 1, -0.567298, 1.5778e-16, -2.60308e-17, 0.823513, 3.9, 1, -0.509287, 1.55615e-16, -3.68262e-17, 0.860597, 3.93333, 1, -0.454051, 1.52985e-16, -4.65578e-17, 0.890976, 3.96667, 1, -0.402724, 1.50094e-16, -5.517e-17, 0.915321, 4, 1, -0.356318, 1.47139e-16, -6.26271e-17, 0.934365, 4.03333, 1, -0.318225, 1.44485e-16, -6.85287e-17, 0.948015, 4.06667, 1, -0.287185, 1.42177e-16, -7.31973e-17, 0.957875, 4.1, 1, -0.26387, 1.4036e-16, -7.66239e-17, 0.964558, 4.13333, 1, -0.248865, 1.54505e-16, -6.28577e-17, 0.968538, 4.16667, 1, -0.242685, 2.15407e-16, 0, 0.970105)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_030")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.015528, -0.158685, -0.158685, 0.0333333, 1, -0.0155795, -0.159211, -0.159211, 0.0666667, 1, -0.0157028, -0.160471, -0.160471, 0.1, 1, -0.0158926, -0.162411, -0.162411, 0.133333, 1, -0.0161436, -0.164976, -0.164976, 0.166667, 1, -0.0164505, -0.168112, -0.168112, 0.2, 1, -0.0168213, -0.171901, -0.171901, 0.233333, 1, -0.017232, -0.176098, -0.176098, 0.266667, 1, -0.0176773, -0.180649, -0.180649, 0.3, 1, -0.0181518, -0.185498, -0.185498, 0.333333, 1, -0.0186503, -0.190593, -0.190593, 0.366667, 1, -0.0191701, -0.195904, -0.195904, 0.466667, 1, -0.0207561, -0.212112, -0.212112, 0.5, 1, -0.0212759, -0.217424, -0.217424, 0.533333, 1, -0.0217744, -0.222518, -0.222518, 0.566667, 1, -0.0222489, -0.227368, -0.227368, 0.6, 1, -0.0226942, -0.231918, -0.231918, 0.633333, 1, -0.0231049, -0.236115, -0.236115, 0.666667, 1, -0.0234756, -0.239904, -0.239904, 0.7, 1, -0.0237826, -0.24304, -0.24304, 0.733333, 1, -0.0240336, -0.245606, -0.245606, 0.766667, 1, -0.0242234, -0.247545, -0.247545, 0.8, 1, -0.0243467, -0.248805, -0.248805, 0.866667, 1, -0.0243546, -0.248886, -0.248886, 0.9, 1, -0.0242488, -0.247805, -0.247805, 0.933333, 1, -0.0240838, -0.246119, -0.246119, 0.966667, 1, -0.0238628, -0.24386, -0.24386, 1, 1, -0.0235887, -0.24106, -0.24106, 1.03333, 1, -0.0232501, -0.237599, -0.237599, 1.06667, 1, -0.0228678, -0.233692, -0.233692, 1.1, 1, -0.0224447, -0.229368, -0.229368, 1.13333, 1, -0.0219839, -0.22466, -0.22466, 1.16667, 1, -0.0214887, -0.219598, -0.219598, 1.2, 1, -0.0209535, -0.214129, -0.214129, 1.23333, 1, -0.0203929, -0.208401, -0.208401, 1.26667, 1, -0.0198101, -0.202445, -0.202445, 1.3, 1, -0.0192082, -0.196293, -0.196293, 1.33333, 1, -0.0185901, -0.189977, -0.189977, 1.36667, 1, -0.0179567, -0.183504, -0.183504, 1.5, 1, -0.0153852, -0.157226, -0.157226, 1.53333, 1, -0.0147521, -0.150755, -0.150755, 1.56667, 1, -0.0141305, -0.144404, -0.144404, 1.6, 1, -0.0135237, -0.138202, -0.138202, 1.63333, 1, -0.0129345, -0.132181, -0.132181, 1.66667, 1, -0.0123662, -0.126373, -0.126373, 1.7, 1, -0.0118306, -0.1209, -0.1209, 1.73333, 1, -0.01132, -0.115682, -0.115682, 1.76667, 1, -0.0108341, -0.110716, -0.110716, 1.8, 1, -0.0103724, -0.105999, -0.105999, 1.83333, 1, -0.0099348, -0.101526, -0.101526, 1.86667, 1, -0.00952857, -0.097375, -0.097375, 1.9, 1, -0.00914541, -0.0934593, -0.0934593, 1.93333, 1, -0.008785, -0.0897763, -0.0897763, 1.96667, 1, -0.00844704, -0.0863225, -0.0863225, 2, 1, -0.0081312, -0.0830949, -0.0830949, 2.03333, 1, -0.00784425, -0.0801625, -0.0801625, 2.06667, 1, -0.00757848, -0.0774465, -0.0774465, 2.1, 1, -0.00733358, -0.0749438, -0.0749438, 2.13333, 1, -0.00710924, -0.0726512, -0.0726512, 2.16667, 1, -0.00690514, -0.0705655, -0.0705655, 2.2, 1, -0.00672741, -0.0687492, -0.0687492, 2.23333, 1, -0.00656898, -0.0671301, -0.0671301, 2.26667, 1, -0.00642954, -0.0657051, -0.0657051, 2.3, 1, -0.00630877, -0.064471, -0.064471, 2.33333, 1, -0.00620636, -0.0634244, -0.0634244, 2.36667, 1, -0.0061278, -0.0626216, -0.0626216, 2.43333, 1, -0.00602262, -0.0615468, -0.0615468, 2.5, 1, -0.0059846, -0.0611582, -0.0611582, 2.53333, 1, -0.00610888, -0.0624283, -0.0624283, 2.56667, 1, -0.00640673, -0.065472, -0.065472, 2.6, 1, -0.00686528, -0.0701582, -0.0701582, 2.63333, 1, -0.00747169, -0.0763552, -0.0763552, 2.66667, 1, -0.0082131, -0.0839318, -0.0839318, 2.7, 1, -0.00910879, -0.0930851, -0.0930851, 2.73333, 1, -0.0101009, -0.103224, -0.103224, 2.76667, 1, -0.0111766, -0.114216, -0.114216, 2.8, 1, -0.012323, -0.125932, -0.125932, 2.83333, 1, -0.0135272, -0.138238, -0.138238, 2.86667, 1, -0.0147829, -0.15107, -0.15107, 2.96667, 1, -0.0186142, -0.190223, -0.190223, 3, 1, -0.0198699, -0.203055, -0.203055, 3.03333, 1, -0.0210741, -0.215362, -0.215362, 3.06667, 1, -0.0222205, -0.227077, -0.227077, 3.1, 1, -0.0232962, -0.23807, -0.23807, 3.13333, 1, -0.0242883, -0.248209, -0.248209, 3.16667, 1, -0.025184, -0.257362, -0.257362, 3.2, 1, -0.0259254, -0.264938, -0.264938, 3.23333, 1, -0.0265318, -0.271136, -0.271136, 3.26667, 1, -0.0269904, -0.275822, -0.275822, 3.3, 1, -0.0272882, -0.278865, -0.278865, 3.33333, 1, -0.0274125, -0.280135, -0.280135, 3.36667, 1, -0.0273436, -0.279431, -0.279431, 3.4, 1, -0.0271784, -0.277743, -0.277743, 3.43333, 1, -0.026924, -0.275144, -0.275144, 3.46667, 1, -0.0265877, -0.271707, -0.271707, 3.5, 1, -0.0261765, -0.267505, -0.267505, 3.53333, 1, -0.0256797, -0.262428, -0.262428, 3.56667, 1, -0.0251295, -0.256805, -0.256805, 3.6, 1, -0.0245329, -0.250708, -0.250708, 3.63333, 1, -0.0238971, -0.24421, -0.24421, 3.66667, 1, -0.0232292, -0.237385, -0.237385, 3.7, 1, -0.0225327, -0.230268, -0.230268, 3.8, 1, -0.0204078, -0.208553, -0.208553, 3.83333, 1, -0.0197114, -0.201436, -0.201436, 3.86667, 1, -0.0190435, -0.19461, -0.19461, 3.9, 1, -0.0184076, -0.188113, -0.188113, 3.93333, 1, -0.017811, -0.182016, -0.182016, 3.96667, 1, -0.0172608, -0.176393, -0.176393, 4, 1, -0.016764, -0.171316, -0.171316, 4.03333, 1, -0.0163528, -0.167114, -0.167114, 4.06667, 1, -0.0160165, -0.163677, -0.163677, 4.1, 1, -0.0157622, -0.161078, -0.161078, 4.13333, 1, -0.015597, -0.15939, -0.15939, 4.16667, 1, -0.015528, -0.158685, -0.158685)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_025")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.996118, 0, 0, -0.0880233)
+tracks/3/type = "scale_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_025")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0220641, -0.225479, -0.225479)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_026")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.883343, 0, 0, -0.468727)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_026")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_027")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.946453, 0, 0, -0.322841)
+tracks/7/type = "scale_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube_027")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cube_028")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/9/type = "scale_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cube_028")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.0275694, -0.281739, -0.281739)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cube_029")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.434329, 0, 0, 0.900754)
+tracks/11/type = "scale_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cube_029")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -0.0124181, -0.126904, -0.126904)
+
+[sub_resource type="Animation" id="Animation_lh4on"]
+resource_name = "all_stars"
+length = 4.1667
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_026")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.883343, 1.04078e-16, 5.61852e-24, 0.468727, 0.0333333, 1, -0.881707, 1.04078e-16, -3.6221e-19, 0.471798, 0.0666667, 1, -0.877689, 1.04071e-16, -1.24153e-18, 0.47923, 0.1, 1, -0.871304, 1.04045e-16, -2.61162e-18, 0.490745, 0.133333, 1, -0.862516, 1.03983e-16, -4.44569e-18, 0.506031, 0.166667, 1, -0.851255, 1.03861e-16, -6.71618e-18, 0.524752, 0.2, 1, -0.836798, 1.03642e-16, -9.51386e-18, 0.547511, 0.233333, 1, -0.819756, 1.03305e-16, -1.26622e-17, 0.572713, 0.266667, 1, -0.800034, 1.02821e-16, -1.61288e-17, 0.599954, 0.3, 1, -0.777551, 1.02162e-16, -1.98794e-17, 0.62882, 0.333333, 1, -0.752247, 1.01302e-16, -2.38776e-17, 0.658881, 0.366667, 1, -0.723641, 1.00199e-16, -2.81503e-17, 0.690176, 0.4, 1, -0.692328, 9.88523e-17, -3.25654e-17, 0.721583, 0.433333, 1, -0.658374, 9.72482e-17, -3.70818e-17, 0.752691, 0.466667, 1, -0.621889, 9.53777e-17, -4.16578e-17, 0.783105, 0.5, 1, -0.583029, 9.32366e-17, -4.62515e-17, 0.812451, 0.666667, 1, -0.363069, 7.88347e-17, -6.79512e-17, 0.931762, 0.7, 1, -0.31686, 7.54016e-17, -7.17417e-17, 0.948472, 0.733333, 1, -0.270912, 7.18666e-17, -7.52825e-17, 0.962604, 0.766667, 1, -0.22562, 6.82691e-17, -7.85595e-17, 0.974215, 0.8, 1, -0.181377, 9.64352e-17, -6.46976e-17, 0.983414, 0.833333, 1, -0.138566, 2.19903e-16, -2.00457e-23, 0.990353, 0.866667, 1, -0.0982941, 2.19722e-16, -8.91688e-18, 0.995157, 0.9, 1, -0.0599098, 2.19216e-16, -1.73691e-17, 0.998204, 0.933333, 1, -0.0233933, 2.18434e-16, -2.53681e-17, 0.999726, 0.966667, 1, 0.0112929, 2.17423e-16, -3.29285e-17, 0.999936, 1, 1, 0.0442014, 2.16222e-16, -4.00675e-17, 0.999023, 1.03333, 1, 0.0749051, 2.14887e-16, -4.66984e-17, 0.997191, 1.06667, 1, 0.104067, 2.13428e-16, -5.29695e-17, 0.99457, 1.1, 1, 0.131769, 2.11867e-16, -5.89023e-17, 0.99128, 1.13333, 1, 0.158098, 2.10225e-16, -6.45186e-17, 0.987423, 1.16667, 1, 0.183143, 2.08517e-16, -6.98408e-17, 0.983086, 1.2, 1, 0.206703, 2.0678e-16, -7.48289e-17, 0.978404, 1.23333, 1, 0.229262, 2.04995e-16, -7.95884e-17, 0.973365, 1.26667, 1, 0.250917, 2.03168e-16, -8.41412e-17, 0.968009, 1.3, 1, 0.27176, 2.01304e-16, -8.85085e-17, 0.962365, 1.33333, 1, 0.291885, 1.99404e-16, -9.27113e-17, 0.956453, 1.36667, 1, 0.311282, 1.97476e-16, -9.67486e-17, 0.950318, 1.4, 1, 0.330238, 1.955e-16, -1.00681e-16, 0.943898, 1.53333, 1, 0.403466, 1.86975e-16, -1.15748e-16, 0.914995, 1.56667, 1, 0.42166, 1.84626e-16, -1.19459e-16, 0.906754, 1.6, 1, 0.439991, 1.82161e-16, -1.23185e-16, 0.898002, 1.63333, 1, 0.458527, 1.793e-16, -9.55735e-17, 0.888681, 1.66667, 1, 0.477331, 1.75496e-16, 2.60731e-17, 0.878723, 1.7, 1, 0.496644, 1.76029e-16, 2.21863e-17, 0.867954, 1.73333, 1, 0.516164, 1.76486e-16, 1.8196e-17, 0.85649, 1.76667, 1, 0.53578, 1.76859e-16, 1.41209e-17, 0.844358, 1.93333, 1, 0.631363, 1.77292e-16, -6.77669e-18, 0.775488, 1.96667, 1, 0.649197, 1.77087e-16, -1.0891e-17, 0.76062, 2, 1, 0.666407, 1.76792e-16, -1.49345e-17, 0.745588, 2.03333, 1, 0.682767, 1.76418e-16, -1.88487e-17, 0.730637, 2.06667, 1, 0.698315, 1.75972e-16, -2.26368e-17, 0.715791, 2.1, 1, 0.713005, 1.75465e-16, -2.62803e-17, 0.701159, 2.13333, 1, 0.726797, 1.74908e-16, -2.97616e-17, 0.686853, 2.16667, 1, 0.739654, 1.74314e-16, -3.30634e-17, 0.672988, 2.2, 1, 0.751269, 1.73711e-16, -3.6096e-17, 0.659996, 2.23333, 1, 0.761841, 1.73105e-16, -3.88996e-17, 0.647765, 2.26667, 1, 0.771349, 1.7251e-16, -4.14586e-17, 0.636413, 2.3, 1, 0.779776, 1.71941e-16, -4.37578e-17, 0.626059, 2.33333, 1, 0.787104, 1.71413e-16, -4.57823e-17, 0.61682, 2.36667, 1, 0.792938, 1.7097e-16, -4.74115e-17, 0.609302, 2.4, 1, 0.797583, 1.70601e-16, -4.872e-17, 0.603209, 2.43333, 1, 0.801013, 1.70321e-16, -4.96929e-17, 0.598647, 2.46667, 1, 0.803195, 1.39114e-16, -3.8338e-17, 0.595716, 2.5, 1, 0.804089, 1.49454e-17, 9.31319e-18, 0.594509, 2.66667, 1, 0.803186, 1.49313e-17, 9.33585e-18, 0.595728, 2.7, 1, 0.802497, 1.49205e-17, 9.35311e-18, 0.596657, 2.73333, 1, 0.801551, 1.49057e-17, 9.37671e-18, 0.597926, 2.76667, 1, 0.800314, 1.48863e-17, 9.40749e-18, 0.599581, 2.8, 1, 0.798749, 1.48617e-17, 9.44626e-18, 0.601665, 2.83333, 1, 0.796817, 1.48314e-17, 9.49382e-18, 0.604221, 2.86667, 1, 0.794325, 1.47922e-17, 9.55475e-18, 0.607493, 2.9, 1, 0.79135, 1.47454e-17, 9.62684e-18, 0.611363, 2.93333, 1, 0.787849, 1.46902e-17, 9.71081e-18, 0.615868, 2.96667, 1, 0.783775, 1.46259e-17, 9.80736e-18, 0.621044, 3, 1, 0.77908, 1.45517e-17, 9.91715e-18, 0.626925, 3.03333, 1, 0.773476, 1.4463e-17, 1.00461e-17, 0.633826, 3.06667, 1, 0.767099, 1.43618e-17, 1.01902e-17, 0.641528, 3.1, 1, 0.759889, 1.42471e-17, 1.03499e-17, 0.650053, 3.13333, 1, 0.751778, 1.41178e-17, 1.05256e-17, 0.659416, 3.16667, 1, 0.742696, 1.39726e-17, 1.07176e-17, 0.669629, 3.2, 1, 0.732237, 1.3805e-17, 1.09327e-17, 0.68105, 3.23333, 1, 0.720597, 1.36179e-17, 1.11649e-17, 0.693354, 3.26667, 1, 0.707687, 1.34096e-17, 1.14142e-17, 0.706526, 3.3, 1, 0.693411, 1.04445e-17, -2.06465e-17, 0.720542, 3.33333, 1, 0.677666, -7.46324e-19, -1.49654e-16, 0.73537, 3.36667, 1, 0.65445, 3.9118e-18, -1.49605e-16, 0.756106, 3.4, 1, 0.621518, 1.03057e-17, -1.49301e-16, 0.7834, 3.43333, 1, 0.57874, 1.82743e-17, -1.48536e-16, 0.815512, 3.46667, 1, 0.526, 2.76325e-17, -1.47083e-16, 0.850485, 3.5, 1, 0.463313, 3.81649e-17, -1.44708e-16, 0.886195, 3.53333, 1, 0.389046, 4.99084e-17, -1.41089e-16, 0.921218, 3.56667, 1, 0.306363, 6.21458e-17, -1.36142e-16, 0.951915, 3.6, 1, 0.216257, 7.4571e-17, -1.29754e-16, 0.976337, 3.63333, 1, 0.120057, 8.68637e-17, -1.21867e-16, 0.992767, 3.66667, 1, 0.0194023, 9.87024e-17, -1.12493e-16, 0.999812, 3.76667, 1, -0.287686, 1.28408e-16, -7.68651e-17, 0.957725, 3.8, 1, -0.384024, 1.35589e-16, -6.33445e-17, 0.923323, 3.83333, 1, -0.474371, 1.4124e-16, -4.94778e-17, 0.880325, 3.86667, 1, -0.555951, 1.45306e-16, -3.58197e-17, 0.831215, 3.9, 1, -0.628595, 1.47943e-16, -2.25795e-17, 0.777733, 3.93333, 1, -0.691843, 1.49318e-16, -1.00437e-17, 0.722048, 3.96667, 1, -0.745616, 1.49648e-16, 1.53527e-18, 0.666376, 4, 1, -0.790168, 1.49179e-16, 1.19421e-17, 0.612891, 4.03333, 1, -0.824013, 1.48248e-16, 2.0477e-17, 0.566571, 4.06667, 1, -0.849616, 1.47128e-16, 2.739e-17, 0.527401, 4.1, 1, -0.8677, 1.4607e-16, 3.25653e-17, 0.497088, 4.13333, 1, -0.878842, 1.37115e-16, 2.84416e-17, 0.477114, 4.16667, 1, -0.883343, 1.04078e-16, 5.61852e-24, 0.468727)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_026")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872, 0.0333333, 1, -0.0120794, -0.123443, -0.123443, 0.0666667, 1, -0.0119788, -0.122414, -0.122414, 0.1, 1, -0.0118238, -0.120831, -0.120831, 0.133333, 1, -0.0116189, -0.118736, -0.118736, 0.166667, 1, -0.0113683, -0.116176, -0.116176, 0.2, 1, -0.0110657, -0.113083, -0.113083, 0.233333, 1, -0.0107304, -0.109657, -0.109657, 0.266667, 1, -0.0103669, -0.105942, -0.105942, 0.3, 1, -0.00997947, -0.101983, -0.101983, 0.333333, 1, -0.00957251, -0.0978241, -0.0978241, 0.366667, 1, -0.00914818, -0.0934877, -0.0934877, 0.466667, 1, -0.00785345, -0.0802565, -0.0802565, 0.5, 1, -0.00742911, -0.0759201, -0.0759201, 0.533333, 1, -0.00702216, -0.0717613, -0.0717613, 0.566667, 1, -0.00663475, -0.0678023, -0.0678023, 0.6, 1, -0.00627124, -0.0640875, -0.0640875, 0.633333, 1, -0.00593597, -0.0606613, -0.0606613, 0.666667, 1, -0.00563329, -0.0575681, -0.0575681, 0.7, 1, -0.00538274, -0.0550077, -0.0550077, 0.733333, 1, -0.00517781, -0.0529135, -0.0529135, 0.766667, 1, -0.00502285, -0.0513299, -0.0513299, 0.8, 1, -0.0049222, -0.0503013, -0.0503013, 0.9, 1, -0.00496326, -0.0507209, -0.0507209, 0.933333, 1, -0.00505565, -0.051665, -0.051665, 0.966667, 1, -0.00518011, -0.052937, -0.052937, 1, 1, -0.00533529, -0.0545228, -0.0545228, 1.03333, 1, -0.00552869, -0.0564992, -0.0564992, 1.06667, 1, -0.0057487, -0.0587475, -0.0587475, 1.1, 1, -0.00599395, -0.0612538, -0.0612538, 1.13333, 1, -0.00626308, -0.0640041, -0.0640041, 1.16667, 1, -0.00655472, -0.0669845, -0.0669845, 1.2, 1, -0.00687364, -0.0702436, -0.0702436, 1.23333, 1, -0.00721097, -0.0736908, -0.0736908, 1.26667, 1, -0.00756533, -0.0773121, -0.0773121, 1.3, 1, -0.00793537, -0.0810936, -0.0810936, 1.33333, 1, -0.00831971, -0.0850214, -0.0850214, 1.36667, 1, -0.0087204, -0.089116, -0.089116, 1.4, 1, -0.00913128, -0.093315, -0.093315, 1.43333, 1, -0.009551, -0.0976042, -0.0976042, 1.46667, 1, -0.00997819, -0.10197, -0.10197, 1.5, 1, -0.0104115, -0.106398, -0.106398, 1.66667, 1, -0.0126113, -0.128878, -0.128878, 1.7, 1, -0.0130446, -0.133306, -0.133306, 1.73333, 1, -0.0134736, -0.13769, -0.13769, 1.76667, 1, -0.0138979, -0.142027, -0.142027, 1.8, 1, -0.0143176, -0.146315, -0.146315, 1.83333, 1, -0.0147324, -0.150554, -0.150554, 1.86667, 1, -0.0151403, -0.154723, -0.154723, 1.9, 1, -0.0155428, -0.158836, -0.158836, 1.93333, 1, -0.0159398, -0.162893, -0.162893, 1.96667, 1, -0.0163311, -0.166892, -0.166892, 2, 1, -0.0167166, -0.170831, -0.170831, 2.03333, 1, -0.0170938, -0.174686, -0.174686, 2.06667, 1, -0.0174647, -0.178477, -0.178477, 2.1, 1, -0.0178291, -0.1822, -0.1822, 2.13333, 1, -0.0181868, -0.185856, -0.185856, 2.16667, 1, -0.0185376, -0.189441, -0.189441, 2.2, 1, -0.018879, -0.19293, -0.19293, 2.23333, 1, -0.019213, -0.196343, -0.196343, 2.26667, 1, -0.0195396, -0.19968, -0.19968, 2.3, 1, -0.0198584, -0.202938, -0.202938, 2.33333, 1, -0.0201694, -0.206117, -0.206117, 2.36667, 1, -0.0204697, -0.209185, -0.209185, 2.4, 1, -0.0207616, -0.212168, -0.212168, 2.43333, 1, -0.021045, -0.215065, -0.215065, 2.46667, 1, -0.0213198, -0.217873, -0.217873, 2.5, 1, -0.0215858, -0.220591, -0.220591, 2.53333, 1, -0.0218397, -0.223186, -0.223186, 2.56667, 1, -0.0220845, -0.225688, -0.225688, 2.6, 1, -0.0223201, -0.228096, -0.228096, 2.63333, 1, -0.0225466, -0.230409, -0.230409, 2.66667, 1, -0.0227637, -0.232628, -0.232628, 2.7, 1, -0.0229684, -0.23472, -0.23472, 2.73333, 1, -0.0231637, -0.236716, -0.236716, 2.76667, 1, -0.0233495, -0.238615, -0.238615, 2.8, 1, -0.0235258, -0.240417, -0.240417, 2.83333, 1, -0.0236926, -0.242121, -0.242121, 2.86667, 1, -0.0238466, -0.243695, -0.243695, 2.9, 1, -0.0239909, -0.24517, -0.24517, 2.93333, 1, -0.0241255, -0.246545, -0.246545, 2.96667, 1, -0.0242503, -0.24782, -0.24782, 3, 1, -0.0243653, -0.248995, -0.248995, 3.06667, 1, -0.0245589, -0.250974, -0.250974, 3.1, 1, -0.0246408, -0.25181, -0.25181, 3.13333, 1, -0.0247125, -0.252544, -0.252544, 3.2, 1, -0.0248224, -0.253667, -0.253667, 3.3, 1, -0.0249053, -0.254514, -0.254514, 3.33333, 1, -0.0249122, -0.254584, -0.254584, 3.36667, 1, -0.024838, -0.253826, -0.253826, 3.4, 1, -0.0246602, -0.252009, -0.252009, 3.43333, 1, -0.0243865, -0.249212, -0.249212, 3.46667, 1, -0.0240245, -0.245513, -0.245513, 3.5, 1, -0.023582, -0.24099, -0.24099, 3.53333, 1, -0.0230473, -0.235527, -0.235527, 3.56667, 1, -0.0224551, -0.229475, -0.229475, 3.6, 1, -0.021813, -0.222913, -0.222913, 3.63333, 1, -0.0211287, -0.21592, -0.21592, 3.66667, 1, -0.0204098, -0.208574, -0.208574, 3.7, 1, -0.0196603, -0.200914, -0.200914, 3.8, 1, -0.0173733, -0.177543, -0.177543, 3.83333, 1, -0.0166238, -0.169883, -0.169883, 3.86667, 1, -0.0159049, -0.162537, -0.162537, 3.9, 1, -0.0152206, -0.155544, -0.155544, 3.93333, 1, -0.0145785, -0.148982, -0.148982, 3.96667, 1, -0.0139863, -0.14293, -0.14293, 4, 1, -0.0134517, -0.137466, -0.137466, 4.03333, 1, -0.0130091, -0.132943, -0.132943, 4.06667, 1, -0.0126471, -0.129244, -0.129244, 4.1, 1, -0.0123734, -0.126447, -0.126447, 4.13333, 1, -0.0121956, -0.12463, -0.12463)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_025")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.996118, 1.95451e-17, -1.76461e-24, 0.0880233, 0.0333333, 1, -0.997221, 1.95433e-17, 2.65212e-19, 0.0744986, 0.0666667, 1, -0.999116, 1.95243e-17, 9.0052e-19, 0.0420346, 0.1, 1, -0.999968, 1.94548e-17, 1.87652e-18, -0.00802057, 0.133333, 1, 0.997246, -1.9288e-17, -3.15959e-18, 0.0741635, 0.166667, 1, 0.987983, -1.89694e-17, -4.70892e-18, 0.15456, 0.2, 1, 0.968171, -1.8419e-17, -6.53859e-18, 0.250288, 0.233333, 1, 0.935437, -1.76041e-17, -8.49158e-18, 0.353492, 0.266667, 1, 0.887571, -1.64878e-17, -1.04959e-17, 0.460671, 0.3, 1, 0.823116, -1.50485e-17, -1.24722e-17, 0.567873, 0.333333, 1, 0.741558, -1.32834e-17, -1.43375e-17, 0.670888, 0.366667, 1, 0.642908, -1.11992e-17, -1.60184e-17, 0.765943, 0.466667, 1, 0.276324, -3.72637e-18, -1.91866e-17, 0.961065, 0.5, 1, 0.14238, -1.06913e-18, -1.95158e-17, 0.989812, 0.533333, 1, 0.0113791, 1.49877e-18, -1.94876e-17, 0.999935, 0.566667, 1, -0.113545, 3.91992e-18, -1.9148e-17, 0.993533, 0.6, 1, -0.229184, 6.13666e-18, -1.85567e-17, 0.973383, 0.633333, 1, -0.333075, 8.1069e-18, -1.77845e-17, 0.9429, 0.666667, 1, -0.423548, 9.80464e-18, -1.6908e-17, 0.905874, 0.7, 1, -0.495412, 1.11397e-17, -1.60598e-17, 0.868658, 0.733333, 1, -0.551799, 1.21779e-17, -1.52876e-17, 0.833977, 0.766667, 1, -0.592845, 1.29277e-17, -1.4659e-17, 0.805316, 0.8, 1, -0.618717, 4.51934e-17, -1.14212e-17, 0.785614, 0.833333, 1, -0.62932, 1.72561e-16, 4.25753e-23, 0.777146, 0.866667, 1, -0.619312, 1.72547e-16, -2.21082e-18, 0.785145, 0.9, 1, -0.594916, 1.72398e-16, -7.50705e-18, 0.803788, 0.933333, 1, -0.556267, 1.7185e-16, -1.56454e-17, 0.831003, 0.966667, 1, -0.503264, 1.70537e-16, -2.63511e-17, 0.864133, 1, 1, -0.435812, 1.68027e-16, -3.9296e-17, 0.900038, 1.03333, 1, -0.350966, 1.63688e-16, -5.46217e-17, 0.936388, 1.06667, 1, -0.253528, 1.57256e-16, -7.10488e-17, 0.967328, 1.1, 1, -0.144921, 1.48427e-16, -8.80152e-17, 0.989443, 1.13333, 1, -0.0272468, 1.37014e-16, -1.04902e-16, 0.999629, 1.16667, 1, 0.0967452, 1.2297e-16, -1.21061e-16, 0.995309, 1.2, 1, 0.224418, 1.06314e-16, -1.35922e-16, 0.974493, 1.3, 1, 0.582107, 4.5828e-17, -1.66365e-16, 0.813112, 1.33333, 1, 0.682199, 2.3969e-17, -1.70888e-16, 0.731166, 1.36667, 1, 0.767488, 2.62373e-18, -1.72541e-16, 0.641063, 1.4, 1, 0.837721, -1.77385e-17, -1.71647e-16, 0.546099, 1.43333, 1, 0.893009, -3.66249e-17, -1.6863e-16, 0.450038, 1.46667, 1, 0.934291, -5.36505e-17, -1.64009e-16, 0.35651, 1.5, 1, 0.963184, -6.85445e-17, -1.58364e-16, 0.268845, 1.53333, 1, 0.9809, -8.04367e-17, -1.52667e-16, 0.194514, 1.56667, 1, 0.991136, -8.98174e-17, -1.47344e-16, 0.132852, 1.6, 1, 0.996307, -9.66798e-17, -1.42935e-16, 0.0858674, 1.63333, 1, 0.998473, -6.40028e-17, -1.18479e-16, 0.0552397, 1.66667, 1, 0.999099, 8.22838e-17, -3.14956e-17, 0.0424427, 1.7, 1, 0.999008, 8.23497e-17, -3.13228e-17, 0.0445408, 1.73333, 1, 0.998765, 8.25102e-17, -3.08975e-17, 0.049694, 1.76667, 1, 0.998328, 8.27586e-17, -3.0226e-17, 0.0578086, 1.8, 1, 0.997631, 8.30861e-17, -2.93136e-17, 0.068789, 1.83333, 1, 0.996588, 8.34824e-17, -2.81653e-17, 0.0825368, 1.86667, 1, 0.995009, 8.39576e-17, -2.67154e-17, 0.0997822, 1.9, 1, 0.992835, 8.44708e-17, -2.50455e-17, 0.119491, 1.93333, 1, 0.989931, 8.5007e-17, -2.31602e-17, 0.141548, 1.96667, 1, 0.986154, 8.55505e-17, -2.10643e-17, 0.165832, 2, 1, 0.981354, 8.60845e-17, -1.87631e-17, 0.192211, 2.03333, 1, 0.975232, 8.66023e-17, -1.62061e-17, 0.221182, 2.06667, 1, 0.967764, 8.70707e-17, -1.34639e-17, 0.25186, 2.1, 1, 0.9588, 8.74723e-17, -1.05447e-17, 0.284082, 2.13333, 1, 0.9482, 8.77894e-17, -7.45741e-18, 0.317675, 2.16667, 1, 0.935829, 8.80048e-17, -4.21227e-18, 0.352454, 2.2, 1, 0.921381, 8.81021e-17, -7.79085e-19, 0.38866, 2.23333, 1, 0.904932, 8.80617e-17, 2.77986e-18, 0.425556, 2.26667, 1, 0.886394, 8.78691e-17, 6.45056e-18, 0.462931, 2.3, 1, 0.865698, 8.75111e-17, 1.02179e-17, 0.500567, 2.33333, 1, 0.84279, 8.69756e-17, 1.40656e-17, 0.538242, 2.36667, 1, 0.817475, 8.6247e-17, 1.80013e-17, 0.575965, 2.4, 1, 0.78994, 8.53214e-17, 2.19739e-17, 0.613184, 2.43333, 1, 0.76021, 8.41928e-17, 2.59647e-17, 0.649678, 2.46667, 1, 0.728326, 1.0455e-16, 4.47562e-18, 0.685231, 2.5, 1, 0.694355, 1.89714e-16, -9.33947e-17, 0.719633, 2.66667, 1, 0.498673, 2.06722e-16, -4.44951e-17, 0.86679, 2.7, 1, 0.456216, 2.0863e-16, -3.44564e-17, 0.889869, 2.73333, 1, 0.413317, 2.10035e-16, -2.44811e-17, 0.910587, 2.76667, 1, 0.370259, 2.1095e-16, -1.46269e-17, 0.928929, 2.8, 1, 0.327324, 2.11399e-16, -4.94981e-18, 0.944912, 2.83333, 1, 0.284796, 2.11409e-16, 4.49649e-18, 0.958588, 2.86667, 1, 0.243472, 2.11022e-16, 1.35484e-17, 0.969908, 2.9, 1, 0.203265, 2.10284e-16, 2.22397e-17, 0.979124, 2.93333, 1, 0.164438, 2.09241e-16, 3.05269e-17, 0.986387, 2.96667, 1, 0.127242, 2.07946e-16, 3.83712e-17, 0.991872, 3, 1, 0.0919108, 2.06451e-16, 4.57372e-17, 0.995767, 3.03333, 1, 0.0595014, 2.04855e-16, 5.24224e-17, 0.998228, 3.06667, 1, 0.0295382, 2.03191e-16, 5.85423e-17, 0.999564, 3.1, 1, 0.00221075, 2.01515e-16, 6.40734e-17, 0.999998, 3.13333, 1, -0.0223049, 1.99884e-16, 6.89942e-17, 0.999751, 3.16667, 1, -0.0438434, 1.98351e-16, 7.32855e-17, 0.999038, 3.2, 1, -0.0611107, 1.97054e-16, 7.67042e-17, 0.998131, 3.23333, 1, -0.0749469, 1.95971e-16, 7.94296e-17, 0.997188, 3.26667, 1, -0.0852074, 1.95143e-16, 8.14425e-17, 0.996363, 3.3, 1, -0.0917482, 1.70636e-16, 4.71646e-17, 0.995782, 3.33333, 1, -0.094424, 7.45393e-17, -9.45449e-17, 0.995532, 3.36667, 1, -0.0842943, 7.35739e-17, -9.52981e-17, 0.996441, 3.4, 1, -0.0599848, 7.12295e-17, -9.70629e-17, 0.998199, 3.43333, 1, -0.022494, 6.75379e-17, -9.96668e-17, 0.999747, 3.46667, 1, 0.0271248, 6.25109e-17, -1.02894e-16, 0.999632, 3.5, 1, 0.0876863, 5.61571e-17, -1.06495e-16, 0.996148, 3.53333, 1, 0.160399, 4.82076e-17, -1.10322e-16, 0.987052, 3.56667, 1, 0.239919, 3.9102e-17, -1.13868e-16, 0.970793, 3.6, 1, 0.324334, 2.89402e-17, -1.16864e-16, 0.945943, 3.63333, 1, 0.411519, 1.78657e-17, -1.19062e-16, 0.911401, 3.66667, 1, 0.499193, 6.0649e-18, -1.20242e-16, 0.866491, 3.7, 1, 0.585439, -6.30082e-18, -1.2023e-16, 0.810716, 3.8, 1, 0.806937, -4.30741e-17, -1.12425e-16, 0.590638, 3.83333, 1, 0.863265, -5.43789e-17, -1.07414e-16, 0.504752, 3.86667, 1, 0.908737, -6.46832e-17, -1.01543e-16, 0.417369, 3.9, 1, 0.943838, -7.39108e-17, -9.5037e-17, 0.330407, 3.93333, 1, 0.969231, -8.19795e-17, -8.81714e-17, 0.246154, 3.96667, 1, 0.986001, -8.886e-17, -8.12326e-17, 0.16674, 4, 1, 0.995564, -9.45701e-17, -7.45073e-17, 0.0940871, 4.03333, 1, 0.999437, -9.89138e-17, -6.8636e-17, 0.0335489, 4.06667, 1, 0.999871, -1.02197e-16, -6.36451e-17, -0.0160678, 4.1, 1, -0.998564, 1.04512e-16, 5.97663e-17, 0.0535676, 4.13333, 1, -0.996962, 8.85438e-17, 4.5977e-17, 0.077888, 4.16667, 1, -0.996118, 1.95451e-17, -1.76461e-24, 0.0880233)
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_025")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0220641, -0.225479, -0.225479, 0.0333333, 1, -0.0219748, -0.224567, -0.224567, 0.0666667, 1, -0.0217608, -0.22238, -0.22238, 0.1, 1, -0.0214314, -0.219013, -0.219013, 0.133333, 1, -0.0209957, -0.21456, -0.21456, 0.166667, 1, -0.020463, -0.209117, -0.209117, 0.2, 1, -0.0198195, -0.202541, -0.202541, 0.233333, 1, -0.0191067, -0.195256, -0.195256, 0.266667, 1, -0.0183338, -0.187358, -0.187358, 0.3, 1, -0.0175102, -0.178941, -0.178941, 0.333333, 1, -0.016645, -0.170099, -0.170099, 0.366667, 1, -0.0157428, -0.16088, -0.16088, 0.466667, 1, -0.0129901, -0.132749, -0.132749, 0.5, 1, -0.0120879, -0.12353, -0.12353, 0.533333, 1, -0.0112227, -0.114688, -0.114688, 0.566667, 1, -0.0103991, -0.106271, -0.106271, 0.6, 1, -0.0096262, -0.0983727, -0.0983727, 0.633333, 1, -0.0089134, -0.0910884, -0.0910884, 0.666667, 1, -0.00826987, -0.084512, -0.084512, 0.7, 1, -0.00773719, -0.0790684, -0.0790684, 0.733333, 1, -0.0073015, -0.074616, -0.074616, 0.766667, 1, -0.00697204, -0.0712492, -0.0712492, 0.8, 1, -0.00675805, -0.0690623, -0.0690623, 0.833333, 1, -0.00666875, -0.0681498, -0.0681498, 0.866667, 1, -0.00681319, -0.0696258, -0.0696258, 0.9, 1, -0.00715932, -0.073163, -0.073163, 0.933333, 1, -0.00769223, -0.0786089, -0.0786089, 0.966667, 1, -0.00839696, -0.0858108, -0.0858108, 1, 1, -0.00925857, -0.0946158, -0.0946158, 1.03333, 1, -0.0102995, -0.105253, -0.105253, 1.06667, 1, -0.0114524, -0.117036, -0.117036, 1.1, 1, -0.0127025, -0.12981, -0.12981, 1.13333, 1, -0.0140348, -0.143425, -0.143425, 1.16667, 1, -0.0154343, -0.157727, -0.157727, 1.2, 1, -0.0168935, -0.17264, -0.17264, 1.3, 1, -0.021346, -0.218141, -0.218141, 1.33333, 1, -0.0228053, -0.233053, -0.233053, 1.36667, 1, -0.0242048, -0.247355, -0.247355, 1.4, 1, -0.025537, -0.26097, -0.26097, 1.43333, 1, -0.0267871, -0.273745, -0.273745, 1.46667, 1, -0.0279401, -0.285527, -0.285527, 1.5, 1, -0.028981, -0.296165, -0.296165, 1.53333, 1, -0.0298426, -0.30497, -0.30497, 1.56667, 1, -0.0305473, -0.312171, -0.312171, 1.6, 1, -0.0310802, -0.317617, -0.317617, 1.63333, 1, -0.0314264, -0.321155, -0.321155, 1.66667, 1, -0.0315708, -0.322631, -0.322631, 1.7, 1, -0.0314727, -0.321628, -0.321628, 1.73333, 1, -0.0312376, -0.319225, -0.319225, 1.76667, 1, -0.0308756, -0.315526, -0.315526, 1.8, 1, -0.0303968, -0.310633, -0.310633, 1.83333, 1, -0.0298115, -0.304652, -0.304652, 1.86667, 1, -0.0291044, -0.297426, -0.297426, 1.9, 1, -0.0283212, -0.289422, -0.289422, 1.93333, 1, -0.027472, -0.280744, -0.280744, 1.96667, 1, -0.026567, -0.271495, -0.271495, 2, 1, -0.0256163, -0.26178, -0.26178, 2.03333, 1, -0.024625, -0.25165, -0.25165, 2.13333, 1, -0.0216004, -0.220741, -0.220741, 2.16667, 1, -0.0206092, -0.21061, -0.21061, 2.2, 1, -0.0196585, -0.200895, -0.200895, 2.23333, 1, -0.0187535, -0.191647, -0.191647, 2.26667, 1, -0.0179043, -0.182968, -0.182968, 2.3, 1, -0.017121, -0.174965, -0.174965, 2.33333, 1, -0.016414, -0.167739, -0.167739, 2.36667, 1, -0.0158287, -0.161757, -0.161757, 2.4, 1, -0.0153499, -0.156865, -0.156865, 2.43333, 1, -0.0149879, -0.153166, -0.153166, 2.46667, 1, -0.0147528, -0.150763, -0.150763, 2.5, 1, -0.0146547, -0.14976, -0.14976, 2.53333, 1, -0.0147566, -0.150802, -0.150802, 2.56667, 1, -0.015001, -0.153299, -0.153299, 2.6, 1, -0.0153772, -0.157144, -0.157144, 2.63333, 1, -0.0158748, -0.162229, -0.162229, 2.66667, 1, -0.0164831, -0.168445, -0.168445, 2.7, 1, -0.017218, -0.175955, -0.175955, 2.73333, 1, -0.018032, -0.184274, -0.184274, 2.76667, 1, -0.0189145, -0.193293, -0.193293, 2.8, 1, -0.0198551, -0.202905, -0.202905, 2.83333, 1, -0.0208432, -0.213002, -0.213002, 2.86667, 1, -0.0218734, -0.22353, -0.22353, 2.96667, 1, -0.0250169, -0.255654, -0.255654, 3, 1, -0.0260471, -0.266182, -0.266182, 3.03333, 1, -0.0270352, -0.27628, -0.27628, 3.06667, 1, -0.0279757, -0.285892, -0.285892, 3.1, 1, -0.0288583, -0.294911, -0.294911, 3.13333, 1, -0.0296723, -0.303229, -0.303229, 3.16667, 1, -0.0304072, -0.310739, -0.310739, 3.2, 1, -0.0310155, -0.316956, -0.316956, 3.23333, 1, -0.031513, -0.32204, -0.32204, 3.26667, 1, -0.0318893, -0.325885, -0.325885, 3.3, 1, -0.0321336, -0.328382, -0.328382, 3.33333, 1, -0.0322356, -0.329424, -0.329424, 3.36667, 1, -0.0321766, -0.328821, -0.328821, 3.4, 1, -0.0320352, -0.327377, -0.327377, 3.43333, 1, -0.0318176, -0.325152, -0.325152, 3.46667, 1, -0.0315297, -0.32221, -0.32221, 3.5, 1, -0.0311778, -0.318614, -0.318614, 3.53333, 1, -0.0307526, -0.314269, -0.314269, 3.56667, 1, -0.0302817, -0.309456, -0.309456, 3.6, 1, -0.0297711, -0.304238, -0.304238, 3.63333, 1, -0.0292269, -0.298677, -0.298677, 3.66667, 1, -0.0286552, -0.292836, -0.292836, 3.7, 1, -0.0280592, -0.286744, -0.286744, 3.8, 1, -0.0262405, -0.268159, -0.268159, 3.83333, 1, -0.0256445, -0.262068, -0.262068, 3.86667, 1, -0.0250728, -0.256226, -0.256226, 3.9, 1, -0.0245287, -0.250665, -0.250665, 3.93333, 1, -0.0240181, -0.245447, -0.245447, 3.96667, 1, -0.0235471, -0.240634, -0.240634, 4, 1, -0.023122, -0.236289, -0.236289, 4.03333, 1, -0.02277, -0.232693, -0.232693, 4.06667, 1, -0.0224822, -0.229751, -0.229751, 4.1, 1, -0.0222645, -0.227527, -0.227527, 4.13333, 1, -0.0221231, -0.226082, -0.226082, 4.16667, 1, -0.0220641, -0.225479, -0.225479)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_027")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.946453, 7.16852e-17, -3.49592e-24, 0.322841, 0.0333333, 1, -0.947835, 7.16845e-17, 3.08705e-19, 0.318762, 0.0666667, 1, -0.951138, 7.16773e-17, 1.06345e-18, 0.308765, 0.1, 1, -0.956108, 7.16499e-17, 2.24701e-18, 0.293016, 0.133333, 1, -0.962394, 7.15822e-17, 3.84152e-18, 0.271658, 0.166667, 1, -0.969567, 7.14479e-17, 5.82804e-18, 0.244825, 0.2, 1, -0.977467, 7.12031e-17, 8.29981e-18, 0.211088, 0.233333, 1, -0.985032, 7.08203e-17, 1.11018e-17, 0.172371, 0.266667, 1, -0.991663, 7.02632e-17, 1.42073e-17, 0.12886, 0.3, 1, -0.996732, 6.94945e-17, 1.75862e-17, 0.0807867, 0.333333, 1, -0.999596, 6.84773e-17, 2.12042e-17, 0.0284365, 0.366667, 1, -0.99958, 6.71477e-17, 2.50988e-17, -0.0289703, 0.4, 1, 0.995974, -6.54987e-17, -2.91321e-17, 0.0896482, 0.433333, 1, 0.988211, -6.35036e-17, -3.32575e-17, 0.153101, 0.466667, 1, 0.975778, -6.11404e-17, -3.74248e-17, 0.218765, 0.5, 1, 0.958227, -5.83933e-17, -4.1581e-17, 0.28601, 0.533333, 1, 0.934958, -5.52236e-17, -4.57069e-17, 0.35476, 0.566667, 1, 0.905936, -5.16657e-17, -4.96933e-17, 0.423415, 0.6, 1, 0.871037, -4.77287e-17, -5.34858e-17, 0.491218, 0.633333, 1, 0.830246, -4.34296e-17, -5.70319e-17, 0.557397, 0.666667, 1, 0.783663, -3.87929e-17, -6.02816e-17, 0.621186, 0.866667, 1, 0.404398, 1.94599e-16, 1.56481e-17, 0.914583, 0.9, 1, 0.330526, 1.92743e-16, 3.10453e-17, 0.943797, 0.933333, 1, 0.255482, 1.89714e-16, 4.60674e-17, 0.966814, 0.966667, 1, 0.179957, 1.85584e-16, 6.05993e-17, 0.983674, 1, 1, 0.104626, 1.80438e-16, 7.45378e-17, 0.994512, 1.03333, 1, 0.0307243, 1.74426e-16, 8.76895e-17, 0.999528, 1.06667, 1, -0.0415706, 1.67634e-16, 1.00062e-16, 0.999136, 1.1, 1, -0.111717, 1.60184e-16, 1.11601e-16, 0.99374, 1.13333, 1, -0.179236, 1.52199e-16, 1.22267e-16, 0.983806, 1.16667, 1, -0.243713, 1.43806e-16, 1.32036e-16, 0.969847, 1.2, 1, -0.303924, 1.35262e-16, 1.40776e-16, 0.952696, 1.23333, 1, -0.360356, 1.26601e-16, 1.48613e-16, 0.932815, 1.26667, 1, -0.412822, 1.17945e-16, 1.55573e-16, 0.910812, 1.3, 1, -0.461196, 1.0941e-16, 1.61689e-16, 0.887299, 1.33333, 1, -0.505414, 1.01105e-16, 1.67008e-16, 0.862877, 1.36667, 1, -0.544407, 9.33492e-17, 1.71463e-16, 0.838821, 1.4, 1, -0.579187, 8.60591e-17, 1.75236e-16, 0.815195, 1.43333, 1, -0.609825, 7.93201e-17, 1.78387e-16, 0.792536, 1.46667, 1, -0.636417, 7.32095e-17, 1.80981e-16, 0.771345, 1.5, 1, -0.659066, 6.7797e-17, 1.83077e-16, 0.752085, 1.53333, 1, -0.676707, 6.34386e-17, 1.84633e-16, 0.736253, 1.56667, 1, -0.690525, 5.99317e-17, 1.85801e-16, 0.723309, 1.6, 1, -0.70058, 5.73253e-17, 1.86622e-16, 0.713573, 1.63333, 1, -0.706899, 6.77961e-17, 1.44506e-16, 0.707315, 1.66667, 1, -0.709457, 1.15648e-16, -2.57657e-17, 0.704748, 1.7, 1, -0.699072, 1.15259e-16, -2.74547e-17, 0.715052, 1.73333, 1, -0.673577, 1.14226e-16, -3.14781e-17, 0.739117, 1.76667, 1, -0.63272, 1.12361e-16, -3.75949e-17, 0.774381, 1.8, 1, -0.575878, 1.09394e-16, -4.55129e-17, 0.817535, 1.83333, 1, -0.502428, 1.0501e-16, -5.48747e-17, 0.864619, 1.86667, 1, -0.408647, 9.86522e-17, -6.56211e-17, 0.912692, 1.9, 1, -0.299518, 9.03341e-17, -7.66689e-17, 0.954091, 1.93333, 1, -0.176635, 7.99289e-17, -8.74628e-17, 0.984277, 1.96667, 1, -0.0426081, 6.74354e-17, -9.7421e-17, 0.999092, 2, 1, 0.098972, 5.29952e-17, -1.05971e-16, 0.99509, 2.03333, 1, 0.244441, 3.68109e-17, -1.1262e-16, 0.969664, 2.13333, 1, 0.642639, -1.59564e-17, -1.17404e-16, 0.766169, 2.16667, 1, 0.748466, -3.30727e-17, -1.13774e-16, 0.663173, 2.2, 1, 0.834653, -4.88151e-17, -1.0796e-16, 0.550777, 2.23333, 1, 0.901164, -6.28958e-17, -1.00412e-16, 0.433479, 2.26667, 1, 0.94869, -7.50726e-17, -9.16651e-17, 0.316208, 2.3, 1, 0.979072, -8.52419e-17, -8.22933e-17, 0.203513, 2.33333, 1, 0.995053, -9.3429e-17, -7.28656e-17, 0.0993468, 2.36667, 1, 0.999925, -9.94245e-17, -6.44448e-17, 0.012238, 2.4, 1, -0.998252, 1.03768e-16, 5.71896e-17, 0.0591094, 2.43333, 1, -0.993609, 1.06702e-16, 5.15078e-17, 0.112881, 2.46667, 1, -0.989041, 6.81165e-17, 6.26075e-17, 0.147641, 2.5, 1, -0.986775, -9.24856e-17, 1.20497e-16, 0.162093, 2.53333, 1, -0.987445, -9.29891e-17, 1.20109e-16, 0.157962, 2.56667, 1, -0.98898, -9.4189e-17, 1.19171e-16, 0.148051, 2.6, 1, -0.991148, -9.60178e-17, 1.17702e-16, 0.132763, 2.63333, 1, -0.993652, -9.84011e-17, 1.15717e-16, 0.112498, 2.66667, 1, -0.996151, -1.01259e-16, 1.13225e-16, 0.0876589, 2.7, 1, -0.998341, -1.04627e-16, 1.1012e-16, 0.0575792, 2.73333, 1, -0.999707, -1.08247e-16, 1.06563e-16, 0.0242014, 2.76667, 1, -0.999928, -1.12035e-16, 1.02574e-16, -0.0120172, 2.8, 1, 0.998719, 1.1591e-16, -9.81734e-17, 0.0505982, 2.83333, 1, 0.995847, 1.19795e-16, -9.33938e-17, 0.0910442, 2.86667, 1, 0.991108, 1.23636e-16, -8.82466e-17, 0.133057, 2.96667, 1, 0.965754, 1.33961e-16, -7.1607e-17, 0.259461, 3, 1, 0.953923, 1.36868e-16, -6.58806e-17, 0.300051, 3.03333, 1, 0.940975, 1.39427e-16, -6.02778e-17, 0.338476, 3.06667, 1, 0.927211, 1.41649e-16, -5.4852e-17, 0.374539, 3.1, 1, 0.91304, 1.43543e-16, -4.96865e-17, 0.407871, 3.13333, 1, 0.898907, 1.45122e-16, -4.48642e-17, 0.43814, 3.16667, 1, 0.885286, 1.46409e-16, -4.04676e-17, 0.465048, 3.2, 1, 0.873401, 1.47374e-16, -3.68002e-17, 0.487002, 3.23333, 1, 0.863275, 1.48094e-16, -3.37834e-17, 0.504734, 3.26667, 1, 0.855379, 1.48598e-16, -3.14928e-17, 0.518003, 3.3, 1, 0.850141, 1.40732e-16, -6.28477e-17, 0.526555, 3.33333, 1, 0.84793, 1.08159e-16, -1.93613e-16, 0.530109, 3.36667, 1, 0.850647, 1.07161e-16, -1.94167e-16, 0.525737, 3.4, 1, 0.857068, 1.04758e-16, -1.95474e-16, 0.515204, 3.43333, 1, 0.866697, 1.01027e-16, -1.97428e-16, 0.498835, 3.46667, 1, 0.878951, 9.60369e-17, -1.99903e-16, 0.476913, 3.5, 1, 0.893178, 8.98544e-17, -2.02757e-16, 0.449703, 3.53333, 1, 0.909242, 8.22729e-17, -2.0595e-16, 0.416268, 3.56667, 1, 0.925574, 7.37435e-17, -2.09156e-16, 0.378567, 3.6, 1, 0.941515, 6.43554e-17, -2.12232e-16, 0.336971, 3.63333, 1, 0.956447, 5.421e-17, -2.15048e-16, 0.291905, 3.66667, 1, 0.969811, 4.34216e-17, -2.17483e-16, 0.243859, 3.7, 1, 0.981176, 3.20577e-17, -2.19446e-16, 0.193117, 3.8, 1, 0.999364, -3.02014e-18, -2.21754e-16, 0.0356531, 3.83333, 1, -0.999866, 1.45432e-17, 2.21298e-16, 0.0163438, 3.86667, 1, -0.997808, 2.55578e-17, 2.20297e-16, 0.0661712, 3.9, 1, -0.993543, 3.59846e-17, 2.18836e-16, 0.113454, 3.93333, 1, -0.987505, 4.5695e-17, 2.17016e-16, 0.15759, 3.96667, 1, -0.980198, 5.4571e-17, 2.14956e-16, 0.198021, 4, 1, -0.972179, 6.25055e-17, 2.12785e-16, 0.234238, 4.03333, 1, -0.96453, 6.90088e-17, 2.10765e-16, 0.263974, 4.06667, 1, -0.957597, 7.42799e-17, 2.08966e-16, 0.288113, 4.1, 1, -0.951952, 7.82348e-17, 2.07517e-16, 0.306246, 4.13333, 1, -0.948102, 7.87556e-17, 1.65313e-16, 0.317965, 4.16667, 1, -0.946453, 7.16852e-17, -3.49592e-24, 0.322841)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_027")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.0121214, -0.123872, -0.123872, 0.0333333, 1, -0.0120816, -0.123465, -0.123465, 0.0666667, 1, -0.0119863, -0.122491, -0.122491, 0.1, 1, -0.0118394, -0.12099, -0.12099, 0.133333, 1, -0.0116453, -0.119006, -0.119006, 0.166667, 1, -0.0114079, -0.11658, -0.11658, 0.2, 1, -0.0111211, -0.11365, -0.11365, 0.233333, 1, -0.0108035, -0.110404, -0.110404, 0.266667, 1, -0.0104591, -0.106884, -0.106884, 0.3, 1, -0.010092, -0.103133, -0.103133, 0.333333, 1, -0.00970645, -0.0991928, -0.0991928, 0.366667, 1, -0.00930442, -0.0950843, -0.0950843, 0.466667, 1, -0.00807772, -0.0825484, -0.0825484, 0.5, 1, -0.00767568, -0.0784399, -0.0784399, 0.533333, 1, -0.00729011, -0.0744996, -0.0744996, 0.566667, 1, -0.00692306, -0.0707486, -0.0707486, 0.6, 1, -0.00657866, -0.067229, -0.067229, 0.633333, 1, -0.00626101, -0.0639829, -0.0639829, 0.666667, 1, -0.00597423, -0.0610522, -0.0610522, 0.7, 1, -0.00573685, -0.0586264, -0.0586264, 0.733333, 1, -0.00554269, -0.0566422, -0.0566422, 0.766667, 1, -0.00539587, -0.0551418, -0.0551418, 0.8, 1, -0.00530051, -0.0541673, -0.0541673, 0.933333, 1, -0.00535344, -0.0547082, -0.0547082, 0.966667, 1, -0.00542255, -0.0554145, -0.0554145, 1, 1, -0.00551137, -0.0563222, -0.0563222, 1.03333, 1, -0.0056272, -0.0575059, -0.0575059, 1.06667, 1, -0.00576384, -0.0589022, -0.0589022, 1.1, 1, -0.00592164, -0.0605148, -0.0605148, 1.13333, 1, -0.00610096, -0.0623474, -0.0623474, 1.16667, 1, -0.00630219, -0.0644037, -0.0644037, 1.2, 1, -0.00653333, -0.0667659, -0.0667659, 1.23333, 1, -0.00678746, -0.0693629, -0.0693629, 1.26667, 1, -0.00706494, -0.0721985, -0.0721985, 1.3, 1, -0.00736613, -0.0752765, -0.0752765, 1.33333, 1, -0.00769141, -0.0786006, -0.0786006, 1.36667, 1, -0.00804952, -0.0822601, -0.0822601, 1.4, 1, -0.00843279, -0.0861769, -0.0861769, 1.43333, 1, -0.0088416, -0.0903547, -0.0903547, 1.46667, 1, -0.00927632, -0.0947971, -0.0947971, 1.5, 1, -0.00973729, -0.099508, -0.099508, 1.53333, 1, -0.010234, -0.104584, -0.104584, 1.56667, 1, -0.0107581, -0.10994, -0.10994, 1.6, 1, -0.0113099, -0.115579, -0.115579, 1.63333, 1, -0.0118898, -0.121505, -0.121505, 1.66667, 1, -0.0124981, -0.127721, -0.127721, 1.7, 1, -0.0131438, -0.13432, -0.13432, 1.73333, 1, -0.0138132, -0.141161, -0.141161, 1.76667, 1, -0.0145029, -0.148209, -0.148209, 1.8, 1, -0.0152093, -0.155428, -0.155428, 1.83333, 1, -0.015929, -0.162782, -0.162782, 1.96667, 1, -0.0188525, -0.192659, -0.192659, 2, 1, -0.0195727, -0.200019, -0.200019, 2.03333, 1, -0.0202755, -0.207201, -0.207201, 2.06667, 1, -0.0209601, -0.214197, -0.214197, 2.1, 1, -0.0216229, -0.22097, -0.22097, 2.13333, 1, -0.0222604, -0.227485, -0.227485, 2.16667, 1, -0.0228691, -0.233705, -0.233705, 2.2, 1, -0.0234324, -0.239462, -0.239462, 2.23333, 1, -0.0239564, -0.244817, -0.244817, 2.26667, 1, -0.0244377, -0.249735, -0.249735, 2.3, 1, -0.0248726, -0.25418, -0.25418, 2.33333, 1, -0.0252577, -0.258116, -0.258116, 2.36667, 1, -0.0255695, -0.261302, -0.261302, 2.4, 1, -0.025821, -0.263871, -0.263871, 2.43333, 1, -0.0260086, -0.265789, -0.265789, 2.46667, 1, -0.0261289, -0.267019, -0.267019, 2.5, 1, -0.0261785, -0.267525, -0.267525, 2.53333, 1, -0.026088, -0.2666, -0.2666, 2.56667, 1, -0.025871, -0.264383, -0.264383, 2.6, 1, -0.025537, -0.26097, -0.26097, 2.63333, 1, -0.0250954, -0.256456, -0.256456, 2.66667, 1, -0.0245554, -0.250938, -0.250938, 2.7, 1, -0.023903, -0.244271, -0.244271, 2.73333, 1, -0.0231804, -0.236887, -0.236887, 2.76667, 1, -0.0223969, -0.22888, -0.22888, 2.8, 1, -0.021562, -0.220348, -0.220348, 2.83333, 1, -0.0206849, -0.211384, -0.211384, 2.86667, 1, -0.0197703, -0.202038, -0.202038, 2.96667, 1, -0.0169798, -0.173521, -0.173521, 3, 1, -0.0160652, -0.164175, -0.164175, 3.03333, 1, -0.0151881, -0.155212, -0.155212, 3.06667, 1, -0.0143532, -0.146679, -0.146679, 3.1, 1, -0.0135697, -0.138672, -0.138672, 3.13333, 1, -0.0128471, -0.131288, -0.131288, 3.16667, 1, -0.0121947, -0.124621, -0.124621, 3.2, 1, -0.0116547, -0.119103, -0.119103, 3.23333, 1, -0.0112131, -0.114589, -0.114589, 3.26667, 1, -0.0108791, -0.111176, -0.111176, 3.3, 1, -0.0106621, -0.108959, -0.108959, 3.33333, 1, -0.0105716, -0.108034, -0.108034, 3.46667, 1, -0.0106792, -0.109133, -0.109133, 3.53333, 1, -0.0107976, -0.110343, -0.110343, 3.56667, 1, -0.0108693, -0.111077, -0.111077, 3.6, 1, -0.0109471, -0.111872, -0.111872, 3.63333, 1, -0.0110301, -0.112719, -0.112719, 3.66667, 1, -0.0111172, -0.113609, -0.113609, 3.83333, 1, -0.0115759, -0.118297, -0.118297, 3.86667, 1, -0.011663, -0.119187, -0.119187, 3.9, 1, -0.0117459, -0.120035, -0.120035, 3.93333, 1, -0.0118237, -0.12083, -0.12083, 3.96667, 1, -0.0118955, -0.121563, -0.121563, 4.03333, 1, -0.0120139, -0.122773, -0.122773, 4.1, 1, -0.0120909, -0.12356, -0.12356, 4.16667, 1, -0.0121214, -0.123872, -0.123872)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_028")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.434329, 2.00008e-16, 0, 0.900754, 0.466667, 1, -0.0215527, 1.95136e-16, 2.89177e-18, 0.999768, 0.766667, 1, 0.250717, 2.11705e-16, 6.2847e-19, 0.96806, 0.8, 1, 0.276942, 2.12903e-16, -3.58544e-19, 0.960887, 1.6, 1, 0.637307, 1.52064e-16, -9.76975e-18, 0.77061, 1.63333, 1, 0.648614, 1.50042e-16, -9.85503e-18, 0.761118, 2.43333, 1, 0.778217, 9.18032e-17, -4.81465e-17, 0.627996, 2.46667, 1, 0.791057, 8.85239e-17, -5.05692e-17, 0.611742, 2.86667, 1, 0.998381, 5.2299e-18, -8.79868e-17, -0.0568854, 2.9, 1, -0.99322, 2.33878e-18, 8.72981e-17, 0.116251, 3.33333, 1, -0.628409, 7.68707e-17, 3.19454e-17, 0.777883, 3.6, 1, -0.999186, 3.90154e-17, 1.13739e-16, -0.0403403, 3.63333, 1, 0.987731, -2.74773e-17, -1.21831e-16, 0.156165, 4.03333, 1, 0.0165266, 1.62901e-16, -7.93113e-17, 0.999864, 4.16667, 1, -0.434329, 2.00008e-16, 0, 0.900754)
+tracks/7/type = "scale_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube_028")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.0275694, -0.281739, -0.281739, 0.766667, 1, -0.0107768, -0.110131, -0.110131, 0.8, 1, -0.0102173, -0.104414, -0.104414, 1.6, 1, -0.00907555, -0.0927455, -0.0927455, 1.63333, 1, -0.00915465, -0.0935538, -0.0935538, 2.43333, 1, -0.020173, -0.206153, -0.206153, 2.46667, 1, -0.0205526, -0.210032, -0.210032, 3.33333, 1, -0.0242196, -0.247507, -0.247507, 4.16667, 1, -0.0275694, -0.281739, -0.281739)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cube_029")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.434329, 2.00008e-16, -3.67328e-24, 0.900754, 0.0333333, 1, -0.422029, 1.99989e-16, -2.72211e-18, 0.906582, 0.0666667, 1, -0.392239, 1.99794e-16, -9.24276e-18, 0.919863, 0.1, 1, -0.345571, 1.99078e-16, -1.92601e-17, 0.938393, 0.133333, 1, -0.282537, 1.97361e-16, -3.24286e-17, 0.959257, 0.166667, 1, -0.203806, 1.94081e-16, -4.83285e-17, 0.979011, 0.2, 1, -0.106951, 1.88415e-16, -6.71028e-17, 0.994264, 0.233333, 1, 0.00149301, 1.80028e-16, -8.7138e-17, 0.999999, 0.266667, 1, 0.119011, 1.68539e-16, -1.07692e-16, 0.992893, 0.3, 1, 0.242399, 1.53728e-16, -1.27948e-16, 0.970177, 0.333333, 1, 0.36787, 1.35568e-16, -1.47052e-16, 0.929877, 0.366667, 1, 0.491864, 1.14131e-16, -1.64248e-16, 0.870672, 0.466667, 1, 0.80389, 3.73209e-17, -1.96495e-16, 0.594779, 0.5, 1, 0.877832, 1.00333e-17, -1.99756e-16, 0.478968, 0.533333, 1, 0.933193, -1.63214e-17, -1.99341e-16, 0.359375, 0.566667, 1, 0.970848, -4.11533e-17, -1.95728e-16, 0.239697, 0.6, 1, 0.99229, -6.38717e-17, -1.89535e-16, 0.123934, 0.633333, 1, 0.999878, -8.40473e-17, -1.81491e-16, 0.0156043, 0.666667, 1, -0.9966, 1.01417e-16, 1.72388e-16, 0.0823899, 0.7, 1, -0.986635, 1.15064e-16, 1.63595e-16, 0.162947, 0.733333, 1, -0.973647, 1.25667e-16, 1.55599e-16, 0.228061, 0.766667, 1, -0.960972, 1.33319e-16, 1.49094e-16, 0.276647, 0.8, 1, -0.951438, 1.24341e-16, 1.16111e-16, 0.30784, 0.833333, 1, -0.94716, 7.12232e-17, -1.13532e-23, 0.320761, 0.866667, 1, -0.948544, 7.12225e-17, 3.09232e-19, 0.316645, 0.9, 1, -0.951868, 7.12151e-17, 1.06895e-18, 0.306509, 0.933333, 1, -0.956884, 7.11871e-17, 2.26555e-18, 0.29047, 0.966667, 1, -0.963246, 7.11172e-17, 3.88474e-18, 0.268622, 1, 1, -0.970514, 7.09774e-17, 5.91105e-18, 0.241046, 1.03333, 1, -0.978525, 7.07202e-17, 8.44967e-18, 0.206127, 1.06667, 1, -0.986156, 7.03141e-17, 1.13433e-17, 0.165818, 1.1, 1, -0.992743, 6.97175e-17, 1.45674e-17, 0.120255, 1.13333, 1, -0.997573, 6.88866e-17, 1.80933e-17, 0.0696243, 1.16667, 1, -0.9999, 6.77768e-17, 2.1887e-17, 0.014176, 1.2, 1, -0.998889, 6.63084e-17, 2.59988e-17, -0.0471192, 1.23333, 1, 0.993676, -6.44678e-17, -3.0276e-17, 0.112288, 1.26667, 1, 0.98352, -6.22175e-17, -3.46659e-17, 0.180801, 1.3, 1, 0.967719, -5.95243e-17, -3.911e-17, 0.25203, 1.33333, 1, 0.945631, -5.63617e-17, -4.35442e-17, 0.325242, 1.36667, 1, 0.916296, -5.26634e-17, -4.79511e-17, 0.400503, 1.4, 1, 0.879582, -4.84676e-17, -5.21884e-17, 0.475748, 1.43333, 1, 0.835186, -4.37771e-17, -5.6181e-17, 0.549968, 1.46667, 1, 0.782944, -3.86052e-17, -5.9853e-17, 0.622092, 1.5, 1, 0.722844, -3.29764e-17, -6.31292e-17, 0.691011, 1.53333, 1, 0.65458, -2.68867e-17, -6.59534e-17, 0.755993, 1.56667, 1, 0.579013, -2.04337e-17, -6.82291e-17, 0.815318, 1.6, 1, 0.496682, -1.36776e-17, -6.98975e-17, 0.867933, 1.63333, 1, 0.408285, 2.53598e-17, -4.42857e-17, 0.912854, 1.66667, 1, 0.314676, 1.60293e-16, 6.15565e-17, 0.949199, 1.76667, 1, 0.0139475, 1.34285e-16, 1.07007e-16, 0.999903, 1.83333, 1, -0.18841, 1.09889e-16, 1.31937e-16, 0.982091, 1.86667, 1, -0.285482, 9.61733e-17, 1.42245e-16, 0.958384, 1.9, 1, -0.378188, 8.17445e-17, 1.50999e-16, 0.925729, 1.93333, 1, -0.465484, 6.68402e-17, 1.58162e-16, 0.885056, 1.96667, 1, -0.546508, 5.16985e-17, 1.63738e-16, 0.837454, 2, 1, -0.620603, 3.65507e-17, 1.67771e-16, 0.784125, 2.03333, 1, -0.686422, 2.18272e-17, 1.70313e-16, 0.727204, 2.06667, 1, -0.744557, 7.57846e-18, 1.71539e-16, 0.667559, 2.1, 1, -0.795058, -6.02252e-18, 1.716e-16, 0.606533, 2.13333, 1, -0.838163, -1.88298e-17, 1.7067e-16, 0.54542, 2.16667, 1, -0.874269, -3.07247e-17, 1.68935e-16, 0.485442, 2.2, 1, -0.903077, -4.12916e-17, 1.66667e-16, 0.429479, 2.23333, 1, -0.926124, -5.074e-17, 1.64038e-16, 0.377218, 2.26667, 1, -0.944133, -5.90281e-17, 1.61241e-16, 0.329564, 2.3, 1, -0.957838, -6.61305e-17, 1.5846e-16, 0.287311, 2.33333, 1, -0.967948, -7.20326e-17, 1.55866e-16, 0.25115, 2.36667, 1, -0.97453, -7.63197e-17, 1.53812e-16, 0.224258, 2.4, 1, -0.978771, -7.93446e-17, 1.52274e-16, 0.204955, 2.43333, 1, -0.981062, 9.1146e-19, 1.51889e-16, 0.193693, 2.46667, 1, -0.981532, 1.23544e-16, 1.52094e-16, 0.1913, 2.5, 1, -0.980002, 1.24732e-16, 1.51121e-16, 0.198986, 2.53333, 1, -0.975282, 1.28098e-16, 1.48279e-16, 0.220966, 2.56667, 1, -0.967635, 1.32821e-16, 1.44064e-16, 0.252356, 2.6, 1, -0.956371, 1.38665e-16, 1.38448e-16, 0.292156, 2.63333, 1, -0.940692, 1.45366e-16, 1.31395e-16, 0.339262, 2.66667, 1, -0.919771, 1.52636e-16, 1.22874e-16, 0.392456, 2.7, 1, -0.892045, 1.60367e-16, 1.12597e-16, 0.451947, 2.73333, 1, -0.857813, 1.67936e-16, 1.00962e-16, 0.513961, 2.76667, 1, -0.816729, 1.75053e-16, 8.80455e-17, 0.577022, 2.8, 1, -0.768681, 1.81452e-16, 7.39665e-17, 0.639633, 2.83333, 1, -0.713823, 1.86891e-16, 5.88867e-17, 0.700326, 2.93333, 1, -0.515458, 1.95685e-16, 1.01531e-17, 0.856915, 2.96667, 1, -0.442132, 1.9585e-16, -6.21623e-18, 0.89695, 3, 1, -0.367334, 1.94686e-16, -2.22045e-17, 0.930089, 3.03333, 1, -0.293764, 1.92365e-16, -3.73031e-17, 0.955878, 3.06667, 1, -0.222355, 1.89084e-16, -5.14103e-17, 0.974966, 3.1, 1, -0.154493, 1.85082e-16, -6.43457e-17, 0.987994, 3.13333, 1, -0.0914588, 1.80624e-16, -7.59657e-17, 0.995809, 3.16667, 1, -0.0344125, 1.75988e-16, -8.61618e-17, 0.999408, 3.2, 1, 0.0127278, 1.71732e-16, -9.43604e-17, 0.999919, 3.23333, 1, 0.0511816, 1.67975e-16, -1.00896e-16, 0.998689, 3.26667, 1, 0.0801514, 1.64975e-16, -1.0573e-16, 0.996783, 3.3, 1, 0.0988959, 1.66013e-16, -7.14609e-17, 0.995098, 3.33333, 1, 0.106691, 1.77383e-16, 7.66856e-17, 0.994292, 3.36667, 1, 0.103483, 1.77135e-16, 7.72574e-17, 0.994631, 3.4, 1, 0.0957902, 1.76532e-16, 7.86245e-17, 0.995402, 3.43333, 1, 0.083936, 1.75584e-16, 8.07201e-17, 0.996471, 3.46667, 1, 0.0682416, 1.74292e-16, 8.34737e-17, 0.997669, 3.5, 1, 0.0490311, 1.72653e-16, 8.68121e-17, 0.998797, 3.53333, 1, 0.0257993, 1.70588e-16, 9.08022e-17, 0.999667, 3.56667, 1, 5.06015e-05, 1.68194e-16, 9.51645e-17, 1, 3.6, 1, -0.0278664, 1.65472e-16, 9.98229e-17, 0.999612, 3.63333, 1, -0.0575943, 1.62428e-16, 1.04702e-16, 0.99834, 3.66667, 1, -0.0887669, 1.59077e-16, 1.09727e-16, 0.996052, 3.7, 1, -0.121178, 1.55417e-16, 1.14852e-16, 0.992631, 3.8, 1, -0.21913, 1.43246e-16, 1.29715e-16, 0.975696, 3.83333, 1, -0.250808, 1.38943e-16, 1.34314e-16, 0.968037, 3.86667, 1, -0.280939, 1.34677e-16, 1.38591e-16, 0.959726, 3.9, 1, -0.309368, 1.30495e-16, 1.42536e-16, 0.950942, 3.93333, 1, -0.335795, 1.26465e-16, 1.46124e-16, 0.941935, 3.96667, 1, -0.359938, 1.2266e-16, 1.49332e-16, 0.932976, 4, 1, -0.381529, 1.19155e-16, 1.52143e-16, 0.924357, 4.03333, 1, -0.399245, 1.16206e-16, 1.54408e-16, 0.916844, 4.06667, 1, -0.413627, 1.13761e-16, 1.56217e-16, 0.910447, 4.1, 1, -0.424433, 1.11894e-16, 1.5756e-16, 0.905459, 4.13333, 1, -0.431421, 1.28642e-16, 1.26666e-16, 0.902151, 4.16667, 1, -0.434329, 2.00008e-16, -3.67328e-24, 0.900754)
+tracks/9/type = "scale_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cube_029")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.0124181, -0.126904, -0.126904, 0.0333333, 1, -0.0123728, -0.126441, -0.126441, 0.0666667, 1, -0.0122642, -0.125331, -0.125331, 0.1, 1, -0.0120969, -0.123622, -0.123622, 0.133333, 1, -0.0118758, -0.121362, -0.121362, 0.166667, 1, -0.0116054, -0.118599, -0.118599, 0.2, 1, -0.0112788, -0.115261, -0.115261, 0.233333, 1, -0.010917, -0.111563, -0.111563, 0.266667, 1, -0.0105247, -0.107555, -0.107555, 0.3, 1, -0.0101066, -0.103282, -0.103282, 0.333333, 1, -0.00966746, -0.0987944, -0.0987944, 0.366667, 1, -0.00920954, -0.0941148, -0.0941148, 0.466667, 1, -0.00781234, -0.0798364, -0.0798364, 0.5, 1, -0.00735442, -0.0751568, -0.0751568, 0.533333, 1, -0.00691525, -0.0706688, -0.0706688, 0.566667, 1, -0.00649719, -0.0663965, -0.0663965, 0.6, 1, -0.00610491, -0.0623877, -0.0623877, 0.633333, 1, -0.0057431, -0.0586903, -0.0586903, 0.666667, 1, -0.00541646, -0.0553523, -0.0553523, 0.7, 1, -0.00514609, -0.0525892, -0.0525892, 0.733333, 1, -0.00492494, -0.0503293, -0.0503293, 0.766667, 1, -0.00475771, -0.0486204, -0.0486204, 0.8, 1, -0.0046491, -0.0475104, -0.0475104, 0.866667, 1, -0.00464433, -0.0474617, -0.0474617, 0.9, 1, -0.00474301, -0.0484701, -0.0484701, 0.933333, 1, -0.0048971, -0.0500447, -0.0500447, 0.966667, 1, -0.00510386, -0.0521577, -0.0521577, 1, 1, -0.00536059, -0.0547813, -0.0547813, 1.03333, 1, -0.00567849, -0.05803, -0.05803, 1.06667, 1, -0.00603819, -0.0617059, -0.0617059, 1.1, 1, -0.00643698, -0.0657812, -0.0657812, 1.13333, 1, -0.00687213, -0.0702281, -0.0702281, 1.16667, 1, -0.00734092, -0.0750188, -0.0750188, 1.2, 1, -0.00784913, -0.0802124, -0.0802124, 1.23333, 1, -0.00838283, -0.0856664, -0.0856664, 1.26667, 1, -0.00893929, -0.091353, -0.091353, 1.3, 1, -0.00951579, -0.0972444, -0.0972444, 1.33333, 1, -0.0101096, -0.103313, -0.103313, 1.36667, 1, -0.0107211, -0.109562, -0.109562, 1.4, 1, -0.0113418, -0.115905, -0.115905, 1.53333, 1, -0.0138593, -0.141632, -0.141632, 1.56667, 1, -0.0144799, -0.147973, -0.147973, 1.6, 1, -0.0150906, -0.154215, -0.154215, 1.63333, 1, -0.0156887, -0.160327, -0.160327, 1.66667, 1, -0.0162715, -0.166283, -0.166283, 1.7, 1, -0.0168293, -0.171983, -0.171983, 1.73333, 1, -0.0173673, -0.177482, -0.177482, 1.76667, 1, -0.0178855, -0.182776, -0.182776, 1.8, 1, -0.0183834, -0.187865, -0.187865, 1.83333, 1, -0.018861, -0.192746, -0.192746, 1.86667, 1, -0.019311, -0.197344, -0.197344, 1.9, 1, -0.0197399, -0.201727, -0.201727, 1.93333, 1, -0.0201475, -0.205893, -0.205893, 1.96667, 1, -0.0205337, -0.209839, -0.209839, 2, 1, -0.0208982, -0.213564, -0.213564, 2.03333, 1, -0.0212332, -0.216988, -0.216988, 2.06667, 1, -0.021546, -0.220184, -0.220184, 2.1, 1, -0.0218361, -0.223149, -0.223149, 2.13333, 1, -0.0221034, -0.225881, -0.225881, 2.16667, 1, -0.0223477, -0.228377, -0.228377, 2.2, 1, -0.0225609, -0.230555, -0.230555, 2.23333, 1, -0.0227503, -0.232492, -0.232492, 2.26667, 1, -0.0229159, -0.234184, -0.234184, 2.3, 1, -0.0230573, -0.235629, -0.235629, 2.33333, 1, -0.0231744, -0.236825, -0.236825, 2.36667, 1, -0.0232586, -0.237685, -0.237685, 2.43333, 1, -0.0233517, -0.238637, -0.238637, 2.46667, 1, -0.0233403, -0.238521, -0.238521, 2.5, 1, -0.0232436, -0.237533, -0.237533, 2.53333, 1, -0.0229664, -0.2347, -0.2347, 2.56667, 1, -0.022568, -0.230629, -0.230629, 2.6, 1, -0.0220579, -0.225416, -0.225416, 2.63333, 1, -0.0214456, -0.219159, -0.219159, 2.66667, 1, -0.0207407, -0.211955, -0.211955, 2.7, 1, -0.0199312, -0.203682, -0.203682, 2.73333, 1, -0.0190575, -0.194754, -0.194754, 2.76667, 1, -0.0181292, -0.185268, -0.185268, 2.8, 1, -0.0171558, -0.17532, -0.17532, 2.83333, 1, -0.0161467, -0.165007, -0.165007, 2.93333, 1, -0.0130219, -0.133075, -0.133075, 2.96667, 1, -0.0119915, -0.122544, -0.122544, 3, 1, -0.0109824, -0.112232, -0.112232, 3.03333, 1, -0.0100208, -0.102405, -0.102405, 3.06667, 1, -0.00910911, -0.0930884, -0.0930884, 3.1, 1, -0.00825684, -0.0843788, -0.0843788, 3.13333, 1, -0.00747347, -0.0763734, -0.0763734, 3.16667, 1, -0.00676853, -0.0691694, -0.0691694, 3.2, 1, -0.00618714, -0.0632281, -0.0632281, 3.23333, 1, -0.00571269, -0.0583796, -0.0583796, 3.26667, 1, -0.00535468, -0.0547209, -0.0547209, 3.3, 1, -0.0051226, -0.0523492, -0.0523492, 3.33333, 1, -0.00502597, -0.0513617, -0.0513617, 3.36667, 1, -0.00506884, -0.0517999, -0.0517999, 3.4, 1, -0.00517159, -0.0528499, -0.0528499, 3.43333, 1, -0.00532979, -0.0544665, -0.0544665, 3.46667, 1, -0.00553898, -0.0566044, -0.0566044, 3.5, 1, -0.00579475, -0.0592181, -0.0592181, 3.53333, 1, -0.00610374, -0.0623758, -0.0623758, 3.56667, 1, -0.006446, -0.0658734, -0.0658734, 3.6, 1, -0.00681708, -0.0696656, -0.0696656, 3.63333, 1, -0.00721256, -0.0737071, -0.0737071, 3.66667, 1, -0.007628, -0.0779526, -0.0779526, 3.7, 1, -0.00806118, -0.0823794, -0.0823794, 3.8, 1, -0.00938289, -0.0958863, -0.0958863, 3.83333, 1, -0.00981608, -0.100313, -0.100313, 3.86667, 1, -0.0102315, -0.104559, -0.104559, 3.9, 1, -0.010627, -0.1086, -0.1086, 3.93333, 1, -0.0109981, -0.112392, -0.112392, 3.96667, 1, -0.0113403, -0.11589, -0.11589, 4, 1, -0.0116493, -0.119048, -0.119048, 4.03333, 1, -0.0119051, -0.121661, -0.121661, 4.06667, 1, -0.0121143, -0.123799, -0.123799, 4.1, 1, -0.0122725, -0.125416, -0.125416, 4.13333, 1, -0.0123752, -0.126466, -0.126466, 4.16667, 1, -0.0124181, -0.126904, -0.126904)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cube_030")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.242685, 2.15407e-16, 0, 0.970105, 0.0333333, 1, -0.244429, 2.15406e-16, 3.87434e-19, 0.969667, 0.0666667, 1, -0.248637, 2.15403e-16, 1.32283e-18, 0.968597, 0.1, 1, -0.255153, 2.15389e-16, 2.77292e-18, 0.966901, 0.133333, 1, -0.263813, 2.15355e-16, 4.70431e-18, 0.964574, 0.166667, 1, -0.274454, 2.1529e-16, 7.08341e-18, 0.9616, 0.2, 1, -0.287425, 2.15175e-16, 9.99248e-18, 0.957803, 0.233333, 1, -0.301888, 2.14999e-16, 1.32478e-17, 0.953344, 0.266667, 1, -0.31767, 2.14749e-16, 1.68146e-17, 0.948201, 0.3, 1, -0.3346, 2.14414e-16, 2.06578e-17, 0.94236, 0.333333, 1, -0.352505, 2.13981e-16, 2.47417e-17, 0.93581, 0.366667, 1, -0.371428, 2.13435e-16, 2.908e-17, 0.928462, 0.4, 1, -0.390836, 2.12777e-16, 3.35539e-17, 0.92046, 0.433333, 1, -0.410563, 2.12005e-16, 3.81274e-17, 0.911832, 0.466667, 1, -0.430449, 2.11119e-16, 4.27646e-17, 0.902615, 0.533333, 1, -0.469998, 2.09018e-16, 5.20719e-17, 0.882668, 0.566667, 1, -0.48923, 2.07827e-16, 5.66403e-17, 0.872155, 0.6, 1, -0.507895, 2.06559e-16, 6.11019e-17, 0.861419, 0.633333, 1, -0.525865, 2.05231e-16, 6.54244e-17, 0.850568, 0.666667, 1, -0.543022, 2.03861e-16, 6.95766e-17, 0.839719, 0.7, 1, -0.558932, 2.02497e-16, 7.34506e-17, 0.829214, 0.733333, 1, -0.573693, 2.01149e-16, 7.70652e-17, 0.819071, 0.766667, 1, -0.587209, 1.99842e-16, 8.03933e-17, 0.809436, 0.8, 1, -0.599391, 1.94295e-16, 6.61908e-17, 0.800456, 0.833333, 1, -0.610155, 1.75922e-16, 1.25286e-23, 0.792282, 0.866667, 1, -0.618957, 1.75911e-16, 1.96298e-18, 0.785425, 0.9, 1, -0.626445, 1.75884e-16, 3.6463e-18, 0.779465, 0.933333, 1, -0.632781, 1.75849e-16, 5.08057e-18, 0.774331, 0.966667, 1, -0.638121, 1.75809e-16, 6.29647e-18, 0.769936, 1, 1, -0.642613, 1.75769e-16, 7.32472e-18, 0.766191, 1.03333, 1, -0.646266, 1.75732e-16, 8.16424e-18, 0.763112, 1.06667, 1, -0.649491, 1.75696e-16, 8.90815e-18, 0.760369, 1.1, 1, -0.652425, 1.75661e-16, 9.58712e-18, 0.757854, 1.16667, 1, -0.657955, 1.75586e-16, 1.08727e-17, 0.753057, 1.2, 1, -0.66094, 1.75541e-16, 1.157e-17, 0.750438, 1.23333, 1, -0.664291, 1.75488e-16, 1.23552e-17, 0.747474, 1.26667, 1, -0.668132, 1.75422e-16, 1.32589e-17, 0.744042, 1.3, 1, -0.672586, 1.75339e-16, 1.43115e-17, 0.740019, 1.33333, 1, -0.677769, 1.75234e-16, 1.55432e-17, 0.735275, 1.36667, 1, -0.684171, 1.75091e-16, 1.70746e-17, 0.729321, 1.4, 1, -0.69164, 1.74906e-16, 1.88755e-17, 0.722242, 1.43333, 1, -0.700266, 1.74667e-16, 2.09752e-17, 0.713882, 1.46667, 1, -0.710128, 1.74358e-16, 2.34027e-17, 0.704072, 1.5, 1, -0.721289, 1.73962e-16, 2.61859e-17, 0.692635, 1.53333, 1, -0.734379, 1.73431e-16, 2.95018e-17, 0.67874, 1.56667, 1, -0.748923, 1.7275e-16, 3.32553e-17, 0.662658, 1.6, 1, -0.7649, 1.71885e-16, 3.74689e-17, 0.644149, 1.63333, 1, -0.782257, 1.61111e-16, 3.11327e-17, 0.622956, 1.66667, 1, -0.800896, 1.21021e-16, -7.78485e-18, 0.598803, 1.7, 1, -0.826308, 1.21245e-16, -2.48677e-18, 0.563218, 1.73333, 1, -0.858104, 1.21181e-16, 4.67234e-18, 0.513476, 1.76667, 1, -0.89333, 1.20516e-16, 1.35144e-17, 0.449402, 1.8, 1, -0.928628, 1.18909e-16, 2.38158e-17, 0.371012, 1.83333, 1, -0.960372, 1.16021e-16, 3.52939e-17, 0.27872, 1.86667, 1, -0.985286, 1.11412e-16, 4.78957e-17, 0.170913, 1.9, 1, -0.998591, 1.04958e-16, 6.07489e-17, 0.0530639, 1.93333, 1, 0.997386, -9.65356e-17, -7.33996e-17, 0.0722532, 1.96667, 1, 0.979419, -8.61276e-17, -8.53736e-17, 0.201838, 2, 1, 0.943274, -7.38338e-17, -9.62039e-17, 0.332015, 2.1, 1, 0.728641, -2.86577e-17, -1.17836e-16, 0.684896, 2.13333, 1, 0.628564, -1.23407e-17, -1.20641e-16, 0.777758, 2.16667, 1, 0.519393, 3.83478e-18, -1.2121e-16, 0.854535, 2.2, 1, 0.406949, 1.91598e-17, -1.19748e-16, 0.913451, 2.23333, 1, 0.294396, 3.33909e-17, -1.16583e-16, 0.955684, 2.26667, 1, 0.18542, 4.6248e-17, -1.12106e-16, 0.982659, 2.3, 1, 0.0832701, 5.75436e-17, -1.06749e-16, 0.996527, 2.33333, 1, -0.00935104, 6.71798e-17, -1.00963e-16, 0.999956, 2.36667, 1, -0.0856252, 7.46879e-17, -9.55424e-17, 0.996327, 2.4, 1, -0.147478, 8.04903e-17, -9.07079e-17, 0.989065, 2.43333, 1, -0.193756, 8.46606e-17, -8.68286e-17, 0.98105, 2.46667, 1, -0.223514, 1.08288e-16, -7.65074e-17, 0.974701, 2.5, 1, -0.235837, 1.93442e-16, -4.45768e-17, 0.971793, 2.53333, 1, -0.233046, 1.93313e-16, -4.5132e-17, 0.972466, 2.56667, 1, -0.226113, 1.92987e-16, -4.65079e-17, 0.974101, 2.6, 1, -0.215069, 1.92448e-16, -4.86899e-17, 0.976599, 2.63333, 1, -0.199939, 1.91671e-16, -5.16606e-17, 0.979808, 2.66667, 1, -0.180739, 1.90625e-16, -5.53992e-17, 0.983531, 2.7, 1, -0.15619, 1.89186e-16, -6.01292e-17, 0.987727, 2.73333, 1, -0.127647, 1.87374e-16, -6.55587e-17, 0.99182, 2.76667, 1, -0.0951408, 1.85129e-16, -7.16517e-17, 0.995464, 2.8, 1, -0.0587175, 1.82389e-16, -7.83659e-17, 0.998275, 2.83333, 1, -0.0184481, 1.79083e-16, -8.56509e-17, 0.99983, 2.86667, 1, 0.0267667, 1.75028e-16, -9.36586e-17, 0.999642, 2.9, 1, 0.0755242, 1.70248e-16, -1.0209e-16, 0.997144, 2.93333, 1, 0.127627, 1.6467e-16, -1.10863e-16, 0.991822, 2.96667, 1, 0.18282, 1.58221e-16, -1.19887e-16, 0.983146, 3, 1, 0.240789, 1.50835e-16, -1.29057e-16, 0.970578, 3.03333, 1, 0.30219, 1.42298e-16, -1.38412e-16, 0.953248, 3.06667, 1, 0.365421, 1.32698e-16, -1.47641e-16, 0.930842, 3.1, 1, 0.429926, 1.21996e-16, -1.56601e-16, 0.902864, 3.13333, 1, 0.495069, 1.10166e-16, -1.65137e-16, 0.868854, 3.16667, 1, 0.560127, 9.72016e-17, -1.73086e-16, 0.828407, 3.2, 1, 0.62507, 8.29356e-17, -1.80357e-16, 0.780569, 3.23333, 1, 0.688098, 6.75776e-17, -1.86655e-16, 0.725618, 3.26667, 1, 0.748247, 5.11897e-17, -1.91798e-16, 0.66342, 3.3, 1, 0.804493, 2.36256e-17, -1.87198e-16, 0.593963, 3.33333, 1, 0.855764, -3.53595e-17, -1.55954e-16, 0.517366, 3.36667, 1, 0.901289, -5.01013e-17, -1.51862e-16, 0.433218, 3.4, 1, 0.939286, -6.46911e-17, -1.46243e-16, 0.343137, 3.43333, 1, 0.968722, -7.88961e-17, -1.39095e-16, 0.24815, 3.53333, 1, 0.998572, -1.1694e-16, -1.09074e-16, -0.0534277, 3.56667, 1, -0.988021, 1.27388e-16, 9.66662e-17, 0.154317, 3.6, 1, -0.967512, 1.36458e-16, 8.33752e-17, 0.252825, 3.63333, 1, -0.937637, 1.4406e-16, 6.94181e-17, 0.347616, 3.66667, 1, -0.899225, 1.50148e-16, 5.50237e-17, 0.437486, 3.7, 1, -0.853808, 1.5468e-16, 4.05734e-17, 0.520588, 3.73333, 1, -0.802468, 1.57749e-16, 2.62172e-17, 0.596695, 3.76667, 1, -0.746577, 1.59449e-16, 1.21692e-17, 0.665299, 3.8, 1, -0.687557, 1.59907e-16, -1.37703e-18, 0.72613, 3.83333, 1, -0.626836, 1.59276e-16, -1.42523e-17, 0.779151, 3.86667, 1, -0.567298, 1.5778e-16, -2.60308e-17, 0.823513, 3.9, 1, -0.509287, 1.55615e-16, -3.68262e-17, 0.860597, 3.93333, 1, -0.454051, 1.52985e-16, -4.65578e-17, 0.890976, 3.96667, 1, -0.402724, 1.50094e-16, -5.517e-17, 0.915321, 4, 1, -0.356318, 1.47139e-16, -6.26271e-17, 0.934365, 4.03333, 1, -0.318225, 1.44485e-16, -6.85287e-17, 0.948015, 4.06667, 1, -0.287185, 1.42177e-16, -7.31973e-17, 0.957875, 4.1, 1, -0.26387, 1.4036e-16, -7.66239e-17, 0.964558, 4.13333, 1, -0.248865, 1.54505e-16, -6.28577e-17, 0.968538, 4.16667, 1, -0.242685, 2.15407e-16, 0, 0.970105)
+tracks/11/type = "scale_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cube_030")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -0.015528, -0.158685, -0.158685, 0.0333333, 1, -0.0155795, -0.159211, -0.159211, 0.0666667, 1, -0.0157028, -0.160471, -0.160471, 0.1, 1, -0.0158926, -0.162411, -0.162411, 0.133333, 1, -0.0161436, -0.164976, -0.164976, 0.166667, 1, -0.0164505, -0.168112, -0.168112, 0.2, 1, -0.0168213, -0.171901, -0.171901, 0.233333, 1, -0.017232, -0.176098, -0.176098, 0.266667, 1, -0.0176773, -0.180649, -0.180649, 0.3, 1, -0.0181518, -0.185498, -0.185498, 0.333333, 1, -0.0186503, -0.190593, -0.190593, 0.366667, 1, -0.0191701, -0.195904, -0.195904, 0.466667, 1, -0.0207561, -0.212112, -0.212112, 0.5, 1, -0.0212759, -0.217424, -0.217424, 0.533333, 1, -0.0217744, -0.222518, -0.222518, 0.566667, 1, -0.0222489, -0.227368, -0.227368, 0.6, 1, -0.0226942, -0.231918, -0.231918, 0.633333, 1, -0.0231049, -0.236115, -0.236115, 0.666667, 1, -0.0234756, -0.239904, -0.239904, 0.7, 1, -0.0237826, -0.24304, -0.24304, 0.733333, 1, -0.0240336, -0.245606, -0.245606, 0.766667, 1, -0.0242234, -0.247545, -0.247545, 0.8, 1, -0.0243467, -0.248805, -0.248805, 0.866667, 1, -0.0243546, -0.248886, -0.248886, 0.9, 1, -0.0242488, -0.247805, -0.247805, 0.933333, 1, -0.0240838, -0.246119, -0.246119, 0.966667, 1, -0.0238628, -0.24386, -0.24386, 1, 1, -0.0235887, -0.24106, -0.24106, 1.03333, 1, -0.0232501, -0.237599, -0.237599, 1.06667, 1, -0.0228678, -0.233692, -0.233692, 1.1, 1, -0.0224447, -0.229368, -0.229368, 1.13333, 1, -0.0219839, -0.22466, -0.22466, 1.16667, 1, -0.0214887, -0.219598, -0.219598, 1.2, 1, -0.0209535, -0.214129, -0.214129, 1.23333, 1, -0.0203929, -0.208401, -0.208401, 1.26667, 1, -0.0198101, -0.202445, -0.202445, 1.3, 1, -0.0192082, -0.196293, -0.196293, 1.33333, 1, -0.0185901, -0.189977, -0.189977, 1.36667, 1, -0.0179567, -0.183504, -0.183504, 1.5, 1, -0.0153852, -0.157226, -0.157226, 1.53333, 1, -0.0147521, -0.150755, -0.150755, 1.56667, 1, -0.0141305, -0.144404, -0.144404, 1.6, 1, -0.0135237, -0.138202, -0.138202, 1.63333, 1, -0.0129345, -0.132181, -0.132181, 1.66667, 1, -0.0123662, -0.126373, -0.126373, 1.7, 1, -0.0118306, -0.1209, -0.1209, 1.73333, 1, -0.01132, -0.115682, -0.115682, 1.76667, 1, -0.0108341, -0.110716, -0.110716, 1.8, 1, -0.0103724, -0.105999, -0.105999, 1.83333, 1, -0.0099348, -0.101526, -0.101526, 1.86667, 1, -0.00952857, -0.097375, -0.097375, 1.9, 1, -0.00914541, -0.0934593, -0.0934593, 1.93333, 1, -0.008785, -0.0897763, -0.0897763, 1.96667, 1, -0.00844704, -0.0863225, -0.0863225, 2, 1, -0.0081312, -0.0830949, -0.0830949, 2.03333, 1, -0.00784425, -0.0801625, -0.0801625, 2.06667, 1, -0.00757848, -0.0774465, -0.0774465, 2.1, 1, -0.00733358, -0.0749438, -0.0749438, 2.13333, 1, -0.00710924, -0.0726512, -0.0726512, 2.16667, 1, -0.00690514, -0.0705655, -0.0705655, 2.2, 1, -0.00672741, -0.0687492, -0.0687492, 2.23333, 1, -0.00656898, -0.0671301, -0.0671301, 2.26667, 1, -0.00642954, -0.0657051, -0.0657051, 2.3, 1, -0.00630877, -0.064471, -0.064471, 2.33333, 1, -0.00620636, -0.0634244, -0.0634244, 2.36667, 1, -0.0061278, -0.0626216, -0.0626216, 2.43333, 1, -0.00602262, -0.0615468, -0.0615468, 2.5, 1, -0.0059846, -0.0611582, -0.0611582, 2.53333, 1, -0.00610888, -0.0624283, -0.0624283, 2.56667, 1, -0.00640673, -0.065472, -0.065472, 2.6, 1, -0.00686528, -0.0701582, -0.0701582, 2.63333, 1, -0.00747169, -0.0763552, -0.0763552, 2.66667, 1, -0.0082131, -0.0839318, -0.0839318, 2.7, 1, -0.00910879, -0.0930851, -0.0930851, 2.73333, 1, -0.0101009, -0.103224, -0.103224, 2.76667, 1, -0.0111766, -0.114216, -0.114216, 2.8, 1, -0.012323, -0.125932, -0.125932, 2.83333, 1, -0.0135272, -0.138238, -0.138238, 2.86667, 1, -0.0147829, -0.15107, -0.15107, 2.96667, 1, -0.0186142, -0.190223, -0.190223, 3, 1, -0.0198699, -0.203055, -0.203055, 3.03333, 1, -0.0210741, -0.215362, -0.215362, 3.06667, 1, -0.0222205, -0.227077, -0.227077, 3.1, 1, -0.0232962, -0.23807, -0.23807, 3.13333, 1, -0.0242883, -0.248209, -0.248209, 3.16667, 1, -0.025184, -0.257362, -0.257362, 3.2, 1, -0.0259254, -0.264938, -0.264938, 3.23333, 1, -0.0265318, -0.271136, -0.271136, 3.26667, 1, -0.0269904, -0.275822, -0.275822, 3.3, 1, -0.0272882, -0.278865, -0.278865, 3.33333, 1, -0.0274125, -0.280135, -0.280135, 3.36667, 1, -0.0273436, -0.279431, -0.279431, 3.4, 1, -0.0271784, -0.277743, -0.277743, 3.43333, 1, -0.026924, -0.275144, -0.275144, 3.46667, 1, -0.0265877, -0.271707, -0.271707, 3.5, 1, -0.0261765, -0.267505, -0.267505, 3.53333, 1, -0.0256797, -0.262428, -0.262428, 3.56667, 1, -0.0251295, -0.256805, -0.256805, 3.6, 1, -0.0245329, -0.250708, -0.250708, 3.63333, 1, -0.0238971, -0.24421, -0.24421, 3.66667, 1, -0.0232292, -0.237385, -0.237385, 3.7, 1, -0.0225327, -0.230268, -0.230268, 3.8, 1, -0.0204078, -0.208553, -0.208553, 3.83333, 1, -0.0197114, -0.201436, -0.201436, 3.86667, 1, -0.0190435, -0.19461, -0.19461, 3.9, 1, -0.0184076, -0.188113, -0.188113, 3.93333, 1, -0.017811, -0.182016, -0.182016, 3.96667, 1, -0.0172608, -0.176393, -0.176393, 4, 1, -0.016764, -0.171316, -0.171316, 4.03333, 1, -0.0163528, -0.167114, -0.167114, 4.06667, 1, -0.0160165, -0.163677, -0.163677, 4.1, 1, -0.0157622, -0.161078, -0.161078, 4.13333, 1, -0.015597, -0.15939, -0.15939, 4.16667, 1, -0.015528, -0.158685, -0.158685)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpw8n"]
+_data = {
+"Cube_025Action": SubResource("Animation_ylask"),
+"Cube_026Action": SubResource("Animation_ja118"),
+"Cube_027Action": SubResource("Animation_brkg7"),
+"Cube_028Action": SubResource("Animation_ukevr"),
+"Cube_029Action": SubResource("Animation_nqlnr"),
+"Cube_030Action": SubResource("Animation_7pdav"),
+"all_stars": SubResource("Animation_lh4on")
+}
+
+[node name="Condition_Rune" type="Node3D"]
+transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, 0, 0, 0)
+
+[node name="Condition Rune" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 3.11869, 0, -1.85889e-07, -1.10798e-14, -3.11869, -3.11869, 0, 1.85889e-07, 0, 0, 0)
+mesh = SubResource("ArrayMesh_4it7x")
+skeleton = NodePath("")
+
+[node name="Cube_025" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0220641, -1.62552e-08, 1.94065e-08, -1.89901e-09, 0.221985, -0.0395407, 1.59064e-09, 0.0395407, 0.221985, 0, 0.420111, 0.944796)
+mesh = SubResource("ArrayMesh_olrbp")
+skeleton = NodePath("")
+
+[node name="Cube_026" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0121214, 0, 0, 0, 0.0694414, -0.102578, 0, 0.102578, 0.0694414, 0, 0.802031, -0.888417)
+mesh = SubResource("ArrayMesh_3i18s")
+skeleton = NodePath("")
+
+[node name="Cube_027" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0121214, 0, 0, 0, 0.0980506, -0.0756992, 0, 0.0756992, 0.0980506, 0, 1.40219, 0.186413)
+mesh = SubResource("ArrayMesh_rxxcn")
+skeleton = NodePath("")
+
+[node name="Cube_028" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0275694, 0, 0, 0, -0.175444, -0.220446, 0, 0.220446, -0.175444, 0, -0.943886, -1.09029)
+mesh = SubResource("ArrayMesh_kpxd4")
+skeleton = NodePath("")
+
+[node name="Cube_029" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0124182, 0, 0, 0, -0.0790252, -0.0992957, 0, 0.0992957, -0.0790252, 0, -0.878414, 0.8575)
+mesh = SubResource("ArrayMesh_7in8i")
+skeleton = NodePath("")
+
+[node name="Cube_030" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.015528, 0, 0, 0, -0.139993, -0.0747184, 0, 0.0747184, -0.139993, 0, -1.2276, 0.677452)
+mesh = SubResource("ArrayMesh_peoty")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jpw8n")
+}
+autoplay = "all_stars"

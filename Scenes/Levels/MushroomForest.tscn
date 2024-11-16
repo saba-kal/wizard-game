@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://1pquvc1kh8gs"]
+[gd_scene load_steps=25 format=3 uid="uid://1pquvc1kh8gs"]
 
 [ext_resource type="PackedScene" uid="uid://c1jhycygcexin" path="res://Models/Maps/TempMushroomForestTerrain.blend" id="1_7yxs3"]
 [ext_resource type="Script" path="res://Scripts/Tools/NavigationRegionTool.gd" id="1_j23ne"]
@@ -9,11 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ca5cjrn3xfkwu" path="res://Scenes/Environment/InteractiveLevelElements/RopeBridge.tscn" id="5_5yvg4"]
 [ext_resource type="PackedScene" uid="uid://cck3ra480nuxt" path="res://Scenes/Environment/Common/LevelTransitionArea.tscn" id="6_wiwrj"]
 [ext_resource type="PackedScene" uid="uid://c3ni6ckel8bwj" path="res://Scenes/Characters/BeeEnemy.tscn" id="8_6p3vd"]
-[ext_resource type="PackedScene" uid="uid://df4igd4i047jl" path="res://Scenes/Environment/Collectables/IceRune.tscn" id="9_u6ltu"]
-[ext_resource type="PackedScene" uid="uid://bi0lwy8bjvsol" path="res://Scenes/Environment/Collectables/DetrimentRune.tscn" id="10_xvcqt"]
-[ext_resource type="PackedScene" uid="uid://b0ey2c4d42tqf" path="res://Scenes/Environment/Collectables/SelfRune.tscn" id="11_lcgw7"]
-[ext_resource type="PackedScene" uid="uid://bktyghbixcc76" path="res://Scenes/Environment/Collectables/ConditionRune.tscn" id="12_vsbwy"]
-[ext_resource type="PackedScene" uid="uid://ce2r28pb7ut0k" path="res://Scenes/Environment/Collectables/BenefitRune.tscn" id="13_xbeg2"]
 [ext_resource type="PackedScene" uid="uid://di6pq5w7m0qj5" path="res://Scenes/Environment/Common/Water.tscn" id="13_xl28e"]
 [ext_resource type="PackedScene" uid="uid://c86xq4dpkuan4" path="res://Scenes/Environment/MushroomForest/BounceMushroom.tscn" id="14_enmni"]
 [ext_resource type="PackedScene" uid="uid://dkbtip8iwehfa" path="res://Scenes/Environment/MushroomForest/PoisonMushroom.tscn" id="15_ydb8s"]
@@ -111,23 +106,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9686, -7.33861, -106.941)
 [node name="BeeEnemy" parent="Map/Enemies" node_paths=PackedStringArray("ai_wander_area") instance=ExtResource("8_6p3vd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6831, -7.86696, -105.561)
 ai_wander_area = NodePath("../../AIWonderArea2")
-
-[node name="Runes" type="Node3D" parent="Map"]
-
-[node name="IceRune" parent="Map/Runes" instance=ExtResource("9_u6ltu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5708, 28.8458, -25.8285)
-
-[node name="DetrimentRune" parent="Map/Runes" instance=ExtResource("10_xvcqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4815, 28.3594, -28.4351)
-
-[node name="SelfRune" parent="Map/Runes" instance=ExtResource("11_lcgw7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3231, 28.0923, -30.0883)
-
-[node name="ConditionRune" parent="Map/Runes" instance=ExtResource("12_vsbwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6532, 28.9242, -26.3759)
-
-[node name="BenefitRune" parent="Map/Runes" instance=ExtResource("13_xbeg2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1145, 27.8937, -27.6119)
 
 [node name="BounceMushroom" parent="Map" instance=ExtResource("14_enmni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1898, 26.1588, -28.6131)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh4qssrdx7oxq"]
+
+[ext_resource type="Texture2D" uid="uid://b0o2l5sex7avj" path="res://Textures/Runes/Blue/crate_rune.png" id="1_2syme"]
+
+[node name="CrateRune" type="Sprite3D"]
+transform = Transform3D(-2.49155e-08, 0, 0.57, 0, 0.57, 0, -0.57, 0, -2.49155e-08, 0, 0, 0)
+texture = ExtResource("1_2syme")

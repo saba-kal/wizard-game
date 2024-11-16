@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddkpf3ldhhj1t"]
+[gd_scene load_steps=4 format=3 uid="uid://ddkpf3ldhhj1t"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/Collectables/RuneCollectable.gd" id="1_73vur"]
+[ext_resource type="Texture2D" uid="uid://cj682ji13eiyh" path="res://Textures/Runes/unkown_rune.png" id="2_ptrf4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0jmjm"]
 radius = 0.641611
@@ -10,3 +11,7 @@ script = ExtResource("1_73vur")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_0jmjm")
+
+[node name="PlacementHelper" type="Sprite3D" parent="."]
+transform = Transform3D(-2.49155e-08, 0, 0.57, 0, 0.57, 0, -0.57, 0, -2.49155e-08, 0, 0, 0)
+texture = ExtResource("2_ptrf4")

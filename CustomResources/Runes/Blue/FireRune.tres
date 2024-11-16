@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="BlueRune" load_steps=3 format=3 uid="uid://t11b8qcsj1hl"]
 
 [ext_resource type="Script" path="res://Scripts/SpellCrafting/BlueRune.gd" id="1_3sdr7"]
-[ext_resource type="Texture2D" uid="uid://cj1hgd8d4j13h" path="res://Textures/Runes/Blue/fire_rune.png" id="2_f2axv"]
+[ext_resource type="PackedScene" uid="uid://ghbba0pqp6qp" path="res://Models/Runes/FireRune.tscn" id="2_u153l"]
 
 [resource]
 script = ExtResource("1_3sdr7")
 type = 0
-texture = ExtResource("2_f2axv")
+mana_cost = 10.0
+mana_multiplier = 1.0
+visual = ExtResource("2_u153l")
