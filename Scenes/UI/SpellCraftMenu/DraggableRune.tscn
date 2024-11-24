@@ -28,7 +28,6 @@ script = ExtResource("2_ca4yp")
 drag_preview_scene = ExtResource("3_xtlvh")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-own_world_3d = true
 transparent_bg = true
 render_target_clear_mode = 1
 

@@ -1,5 +1,6 @@
 extends Node
 
+var runeCounter: int = 0
 
 func get_child_node_of_type(node: Node, type: Variant) -> Node:
     for child in node.get_children():
@@ -21,3 +22,7 @@ func remove_elem(array: Array, elem: Variant) -> bool:
     if index >= 0:
         array.remove_at(index)
     return index >= 0
+
+func count_rune() -> int:
+    runeCounter += 1
+    return runeCounter

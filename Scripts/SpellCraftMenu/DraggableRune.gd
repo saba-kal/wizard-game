@@ -4,6 +4,7 @@ class_name DraggableRune extends TextureRect
 @onready var sub_viewport: SubViewport = $SubViewport
 
 var rune: Rune
+var offset_rate: int = 3
 
 func _ready() -> void:
     if(rune.visual):
@@ -15,6 +16,9 @@ func _ready() -> void:
         for instance: VisualInstance3D in instances:
             instance.layers = 2
         sub_viewport.add_child(node)
+        var zoffset: int = Util.count_rune()
+        node.position.z += zoffset * offset_rate
+        $SubViewport/Camera3D.position.z += zoffset * offset_rate
     else:
         print("Rune could not be shown")
 
