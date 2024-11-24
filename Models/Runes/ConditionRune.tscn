@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=4 uid="uid://e6np3e6ggkqh"]
+[gd_scene load_steps=34 format=4 uid="uid://e6np3e6ggkqh"]
 
 [ext_resource type="Texture2D" uid="uid://cnqxkmlwuuy8r" path="res://Models/Runes/Condition_Rune_Condition Rune.png" id="1_0h6b8"]
+[ext_resource type="Shader" path="res://Shaders/condition_rune.gdshader" id="2_jtbjx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btfry"]
 resource_name = "Condition Rune"
@@ -9,7 +10,7 @@ cull_mode = 2
 albedo_texture = ExtResource("1_0h6b8")
 roughness = 0.5
 emission_enabled = true
-emission = Color(1, 0.881533, 0.681981, 1)
+emission = Color(1, 0.633333, 0, 1)
 emission_energy_multiplier = 7.9
 texture_repeat = false
 
@@ -45,10 +46,31 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fggds")
 
+[sub_resource type="Gradient" id="Gradient_20bj3"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_halrn"]
+gradient = SubResource("Gradient_20bj3")
+
+[sub_resource type="Gradient" id="Gradient_q1t24"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3vg5u"]
+gradient = SubResource("Gradient_q1t24")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewkl5"]
 resource_name = "Condition Stars"
 cull_mode = 2
-shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.811765, 0.756863, 0.541176, 1)
+detail_mask = SubResource("GradientTexture1D_3vg5u")
+detail_blend_mode = 1
+detail_uv_layer = 1
+detail_albedo = SubResource("GradientTexture1D_halrn")
+uv1_world_triplanar = true
+uv2_triplanar_sharpness = 0.554785
+uv2_world_triplanar = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mbsxa"]
 _surfaces = [{
@@ -84,6 +106,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mbsxa")
 
+[sub_resource type="Gradient" id="Gradient_fyukl"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.620968, 0.685484, 0.814516)
+colors = PackedColorArray(0.81, 0.69174, 0.2187, 1, 0.48, 0.48, 0.48, 1, 0.24, 0, 0.0639999, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jhyj1"]
+gradient = SubResource("Gradient_fyukl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pi4rl"]
+render_priority = 0
+shader = ExtResource("2_jtbjx")
+shader_parameter/albedo = Color(0.478431, 0.34902, 0.333333, 1)
+shader_parameter/point_size = null
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/uv1_scale = null
+shader_parameter/uv1_offset = null
+shader_parameter/diffuse_curve = SubResource("GradientTexture1D_jhyj1")
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_td2hr"]
 _surfaces = [{
 "aabb": AABB(-2.22239, -1, -1, 4.44479, 2, 2),
@@ -108,7 +151,7 @@ _surfaces = [{
 "index_count": 144,
 "index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
 "lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
-"material": SubResource("StandardMaterial3D_ewkl5"),
+"material": SubResource("ShaderMaterial_pi4rl"),
 "name": "Condition Stars",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -142,7 +185,7 @@ _surfaces = [{
 "index_count": 144,
 "index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
 "lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
-"material": SubResource("StandardMaterial3D_ewkl5"),
+"material": SubResource("ShaderMaterial_pi4rl"),
 "name": "Condition Stars",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -176,7 +219,7 @@ _surfaces = [{
 "index_count": 144,
 "index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
 "lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
-"material": SubResource("StandardMaterial3D_ewkl5"),
+"material": SubResource("ShaderMaterial_pi4rl"),
 "name": "Condition Stars",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -210,7 +253,7 @@ _surfaces = [{
 "index_count": 144,
 "index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
 "lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
-"material": SubResource("StandardMaterial3D_ewkl5"),
+"material": SubResource("ShaderMaterial_pi4rl"),
 "name": "Condition Stars",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -244,7 +287,7 @@ _surfaces = [{
 "index_count": 144,
 "index_data": PackedByteArray("JgAUABIAEgAUAAgAJQANABcAJQAZAA0AJAAcABsAGwAcAAsAIwADAB8AIwAQAAMAIgAKABoAIgAdAAoAIQAFABMAIQAgAAUAGwAgACEAGwALACAADQAhABgADQAbACEAGAATAAkAGAAhABMADgAdACIADgAAAB0ABgAiABUABgAOACIAFQAaAAwAFQAiABoAHgAQACMAHgABABAACgAjABwACgAeACMAHAAfAAsAHAAjAB8AGgAcACQAGgAKABwADAAaABkAGQAaACQAGQAbAA0AGQAkABsAFgAZACUAFgAMABkABwAlABQABwAWACUAFAAXAAgAFAAlABcADwAUACYADwAHABQAAgAPABEAEQAPACYAEQASAAQAEQAmABIA"),
 "lods": [1.06722, PackedByteArray("QAApAEcAMABAAEcAOQBFAC4AOQAnAEUALgAQAAsADQALACAADQAgAAUANQAFAAkAPQA1ACsAPQA0ADgALgBGAEEARgABAEEAOgAvADEAMwA7ADYANwA8ADIAKAA+AEIAQwA/ACwARAAtACoA")],
-"material": SubResource("StandardMaterial3D_ewkl5"),
+"material": SubResource("ShaderMaterial_pi4rl"),
 "name": "Condition Stars",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -897,32 +940,33 @@ mesh = SubResource("ArrayMesh_4it7x")
 skeleton = NodePath("")
 
 [node name="Cube_025" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0220641, -1.62552e-08, 1.94065e-08, -1.89901e-09, 0.221985, -0.0395407, 1.59064e-09, 0.0395407, 0.221985, 0, 0.420111, 0.944796)
+transform = Transform3D(-0.0271232, 3.1462e-08, -2.3128e-08, 2.26317e-09, 0.264553, 0.0827046, -3.0787e-09, -0.0827046, 0.264553, 0, 0.420111, 0.944796)
 mesh = SubResource("ArrayMesh_olrbp")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_pi4rl")
 
 [node name="Cube_026" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0121214, 0, 0, 0, 0.0694414, -0.102578, 0, 0.102578, 0.0694414, 0, 0.802031, -0.888417)
+transform = Transform3D(-0.0160906, -3.93183e-17, -4.31116e-17, -3.43311e-18, -0.030454, 0.16159, 4.56222e-18, -0.16159, -0.030454, 0, 0.802031, -0.888417)
 mesh = SubResource("ArrayMesh_3i18s")
 skeleton = NodePath("")
 
 [node name="Cube_027" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0121214, 0, 0, 0, 0.0980506, -0.0756992, 0, 0.0756992, 0.0980506, 0, 1.40219, 0.186413)
+transform = Transform3D(-0.0184033, -3.05998e-17, -3.24002e-17, 3.68823e-18, -0.182169, -0.0467316, 2.32703e-18, 0.0467316, -0.182169, 0, 1.40219, 0.186413)
 mesh = SubResource("ArrayMesh_rxxcn")
 skeleton = NodePath("")
 
 [node name="Cube_028" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0275694, 0, 0, 0, -0.175444, -0.220446, 0, 0.220446, -0.175444, 0, -0.943886, -1.09029)
+transform = Transform3D(-0.0134635, -2.95772e-17, -2.02174e-17, -1.93837e-18, -0.00189239, 0.137574, 2.9212e-18, -0.137574, -0.00189239, 0, -0.943886, -1.82344)
 mesh = SubResource("ArrayMesh_kpxd4")
 skeleton = NodePath("")
 
 [node name="Cube_029" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0124182, 0, 0, 0, -0.0790252, -0.0992957, 0, 0.0992957, -0.0790252, 0, -0.878414, 0.8575)
+transform = Transform3D(-0.0202963, 7.03544e-17, 1.11232e-17, -4.4193e-18, -0.104849, -0.178961, 5.38986e-18, 0.178961, -0.104849, 0, -0.878414, 0.8575)
 mesh = SubResource("ArrayMesh_7in8i")
 skeleton = NodePath("")
 
 [node name="Cube_030" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.015528, 0, 0, 0, -0.139993, -0.0747184, 0, 0.0747184, -0.139993, 0, -1.2276, 0.677452)
+transform = Transform3D(-0.00865471, -5.85254e-09, -7.50019e-09, -7.33924e-10, 0.0857922, 0.0214999, -5.72694e-10, -0.0214999, 0.0857922, 0, -1.2276, 0.677452)
 mesh = SubResource("ArrayMesh_peoty")
 skeleton = NodePath("")
 

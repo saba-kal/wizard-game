@@ -3,9 +3,13 @@ class_name RuneSlot extends Control
 signal socketed_rune_changed(rune_slot: RuneSlot)
 
 @export var rune_type: Rune.Type = Rune.Type.BLUE
+@onready var background_texture: Control = $BackgroundTexture
 
 var socketed_rune: Rune
 
+func _ready():
+    background_texture.self_modulate = modulate
+    modulate = Color("ffffff")
 
 func _can_drop_data(at_position, data):
     var draggable_rune: DraggableRune = data["node"]

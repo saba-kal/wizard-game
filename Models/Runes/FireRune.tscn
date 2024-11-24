@@ -1,14 +1,16 @@
-[gd_scene load_steps=32 format=3 uid="uid://ghbba0pqp6qp"]
+[gd_scene load_steps=25 format=3 uid="uid://ghbba0pqp6qp"]
 
 [ext_resource type="Texture2D" uid="uid://jh02dbcr5rad" path="res://Models/Runes/Fire_Rune.png" id="1_au6ai"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvbon"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7c6r1"]
 resource_name = "Fire Rune"
 transparency = 4
 cull_mode = 2
+albedo_color = Color(1, 0.297, 0.26, 1)
+albedo_texture = ExtResource("1_au6ai")
 roughness = 0.5
 emission_enabled = true
-emission = Color(1, 0.17616, 0.12804, 1)
+emission = Color(1, 0.1355, 0.09, 1)
 emission_energy_multiplier = 20.8
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3xtnw"]
@@ -33,7 +35,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("StandardMaterial3D_yvbon"),
+"material": SubResource("StandardMaterial3D_7c6r1"),
 "name": "Fire Rune",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -42,16 +44,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3xtnw")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7c6r1"]
-resource_name = "Fire Rune"
-transparency = 4
-cull_mode = 2
-albedo_texture = ExtResource("1_au6ai")
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 0.17616, 0.12804, 1)
-emission_energy_multiplier = 20.8
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qsie0"]
 _surfaces = [{
@@ -75,7 +67,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("StandardMaterial3D_yvbon"),
+"material": SubResource("StandardMaterial3D_7c6r1"),
 "name": "Fire Rune",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -84,16 +76,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qsie0")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwcqo"]
-resource_name = "Fire Rune"
-transparency = 4
-cull_mode = 2
-albedo_texture = ExtResource("1_au6ai")
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 0.17616, 0.12804, 1)
-emission_energy_multiplier = 20.8
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_reytj"]
 _surfaces = [{
@@ -117,7 +99,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("StandardMaterial3D_yvbon"),
+"material": SubResource("StandardMaterial3D_7c6r1"),
 "name": "Fire Rune",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -126,16 +108,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_reytj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvia1"]
-resource_name = "Fire Rune"
-transparency = 4
-cull_mode = 2
-albedo_texture = ExtResource("1_au6ai")
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 0.17616, 0.12804, 1)
-emission_energy_multiplier = 20.8
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6rbjm"]
 _surfaces = [{
@@ -159,7 +131,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("StandardMaterial3D_yvbon"),
+"material": SubResource("StandardMaterial3D_7c6r1"),
 "name": "Fire Rune",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -168,16 +140,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6rbjm")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o11mr"]
-resource_name = "Fire Rune"
-transparency = 4
-cull_mode = 2
-albedo_texture = ExtResource("1_au6ai")
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 0.17616, 0.12804, 1)
-emission_energy_multiplier = 20.8
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_23ljx"]
 _surfaces = [{
@@ -201,7 +163,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("StandardMaterial3D_yvbon"),
+"material": SubResource("StandardMaterial3D_7c6r1"),
 "name": "Fire Rune",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -210,16 +172,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_23ljx")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucrqr"]
-resource_name = "Fire Rune"
-transparency = 4
-cull_mode = 2
-albedo_texture = ExtResource("1_au6ai")
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 0.17616, 0.12804, 1)
-emission_energy_multiplier = 20.8
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_o31km"]
 _surfaces = [{
@@ -243,7 +195,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("StandardMaterial3D_yvbon"),
+"material": SubResource("StandardMaterial3D_7c6r1"),
 "name": "Fire Rune",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -252,16 +204,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o31km")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygsl6"]
-resource_name = "Fire Rune"
-transparency = 4
-cull_mode = 2
-albedo_texture = ExtResource("1_au6ai")
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 0.17616, 0.12804, 1)
-emission_energy_multiplier = 20.8
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mcxau"]
 _surfaces = [{
@@ -285,7 +227,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"material": SubResource("StandardMaterial3D_yvbon"),
+"material": SubResource("StandardMaterial3D_7c6r1"),
 "name": "Fire Rune",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -294,16 +236,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mcxau")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keebo"]
-resource_name = "Fire Rune"
-transparency = 4
-cull_mode = 2
-albedo_texture = ExtResource("1_au6ai")
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 0.17616, 0.12804, 1)
-emission_energy_multiplier = 20.8
 
 [sub_resource type="Animation" id="Animation_12yk4"]
 resource_name = "Everything"
@@ -1234,43 +1166,36 @@ transform = Transform3D(0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.72, 0, 0, 0)
 transform = Transform3D(0, 2.16254, 0, -1.28898e-07, -7.68289e-15, -2.16254, -2.16254, 0, 1.28898e-07, 0, 0, 0)
 mesh = SubResource("ArrayMesh_u556x")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_7c6r1")
 
 [node name="Plane" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.5362e-10, 0.0110953, -2.4469e-10, 0.00279893, -1.22345e-10, -0.0107364, -0.0107364, -5.00676e-10, -0.00279893, -4.59391e-16, -2.06891, -0.968984)
+transform = Transform3D(-3.40971e-09, 0.0780051, 0, -0.0334311, -1.46132e-09, -0.0704781, -0.0704781, -3.08069e-09, 0.0334311, -4.59391e-16, -1.52097, -1.14318)
 mesh = SubResource("ArrayMesh_62161")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_kwcqo")
 
 [node name="Plane_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-5.76595e-10, 0.0144124, -3.62894e-10, 0.00415102, -1.81447e-10, -0.0138017, -0.0138017, -6.56682e-10, -0.00415102, -3.27098e-16, -1.47312, 1.68917)
+transform = Transform3D(-3.11241e-09, 0.0718267, -5.84236e-10, 0.00668288, -2.92118e-10, -0.0715151, -0.0715151, -3.15326e-09, -0.00668288, -3.27098e-16, -0.997133, 1.79852)
 mesh = SubResource("ArrayMesh_x02fp")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_rvia1")
 
 [node name="Plane_002" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.58378e-09, 0.00817525, -7.67829e-10, 0.0050851, 3.83914e-10, -0.00640129, -0.00640129, -1.71771e-09, -0.0050851, -3.56173e-16, -1.60406, -2.80874)
+transform = Transform3D(-2.42115e-09, 0.05706, -8.50395e-10, 0.00972738, -4.25197e-10, -0.0562247, -0.0562247, -2.53068e-09, -0.00972738, -3.56173e-16, -0.888648, -2.65142)
 mesh = SubResource("ArrayMesh_db2kd")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_o11mr")
 
 [node name="Plane_003" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.80702e-10, 0.0109972, 0, -0.00114323, -4.99722e-11, -0.0109376, -0.0109376, -4.78097e-10, 0.00114323, -5.03004e-16, -2.26533, 1.24397)
+transform = Transform3D(7.24784e-09, 0.0375748, 8.77303e-10, 0.00581012, -2.53968e-10, -0.0371228, -0.0371228, 7.29632e-09, -0.00581012, -5.03004e-16, -1.9321, 1.27926)
 mesh = SubResource("ArrayMesh_b3m0v")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_ucrqr")
 
 [node name="Plane_004" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.87879e-10, 0.00474125, -1.2522e-10, 0.00143235, -6.26101e-11, -0.00451972, -0.00451972, -2.1693e-10, -0.00143235, -2.19519e-16, -0.988626, 1.03446)
+transform = Transform3D(2.40781e-08, 0.124714, 2.76873e-09, 0.0183364, -8.01511e-10, -0.123359, -0.123359, 2.42235e-08, -0.0183364, -2.19519e-16, 0.123165, 1.21639)
 mesh = SubResource("ArrayMesh_ep137")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_ygsl6")
 
 [node name="Plane_005" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.13309e-09, -0.017065, 5.08578e-10, 0.00445841, 1.94883e-10, 0.0164724, 0.0164724, -1.22661e-09, -0.00445841, -3.54719e-16, -1.59751, -1.388)
+transform = Transform3D(-6.98982e-09, 0.162402, -1.75579e-09, 0.0200839, -8.77896e-10, -0.161155, -0.161155, -7.1533e-09, -0.0200839, -3.54719e-16, -0.635417, -1.30817)
 mesh = SubResource("ArrayMesh_x7e5t")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_keebo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

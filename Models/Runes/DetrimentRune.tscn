@@ -47,11 +47,12 @@ shadow_mesh = SubResource("ArrayMesh_eedtg")
 resource_name = "Detriment Rune"
 transparency = 4
 cull_mode = 2
+albedo_color = Color(1, 0.874, 0.64, 1)
 albedo_texture = ExtResource("1_u2x2i")
 roughness = 0.5
 emission_enabled = true
-emission = Color(1, 0.931935, 0.805625, 1)
-emission_energy_multiplier = 3.1
+emission = Color(1, 0.818, 0.48, 1)
+emission_energy_multiplier = 4.12
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dwqdg"]
 _surfaces = [{
